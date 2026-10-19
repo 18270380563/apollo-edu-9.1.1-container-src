@@ -1,0 +1,106 @@
+syntax = "proto2";
+package apollo.sensor_calibration;
+
+message LidarToIMUAlgorithmConfig {
+    optional SACSegmentationFromNormalsConfig sac_segmentation_from_normals = 1;
+    optional CalibrationConfig calibration = 2;
+    optional SaveStitchingConfig save_stitching = 3;
+    optional RegistrationVoxelOccupancyConfig registration_voxel_occupancy = 4;
+    optional ErrorConfig error = 5;
+    optional PointCloudSaveConfig point_cloud_save = 6;
+    optional int32 literation_times = 7;
+    optional BALMConfig balm_config = 8;
+    optional LidarOdom lidar_odom = 9;
+    optional DownSamplePara down_sample_para = 10;
+    
+}
+
+message SACSegmentationFromNormalsConfig {
+    optional double normal_distance_weight = 1;
+    optional string method_type = 2;
+    optional int32 max_iterations = 3;
+    optional double distance_threshold = 4;
+    optional double k_search = 5;
+    optional int32 min_plane_size = 6;
+}
+
+message CalibrationConfig {
+    optional int32 window = 1;
+    optional int32 turn = 2;
+    optional bool roi_filter_enable = 3;
+    optional double roi_max_x = 4;
+    optional double roi_min_x = 5;
+    optional double roi_max_y = 6;
+    optional double roi_min_y = 7;
+    optional double roi_max_z = 8;
+    optional double roi_min_z = 9;
+    optional int32 number_of_frame_not_to_use = 10;
+    optional int32 max_number_of_frame_to_use = 11;
+}
+
+message SaveStitchingConfig {
+    optional int32 step = 1;
+    optional double octree_point_cloud_search = 2;
+}
+
+message RegistrationVoxelOccupancyConfig {
+    optional double intensity_threshold = 1;
+    optional double octree_point_cloud_search = 2;
+    optional int32 save_step = 3;
+    optional double rpy_resolution = 4;
+    optional double xyz_resolution = 5;
+    optional int32 max_iteration = 6;
+    optional bool roi_filter_enable = 7;
+    optional double roi_max_x = 8;
+    optional double roi_min_x = 9;
+    optional double roi_max_y = 10;
+    optional double roi_min_y = 11;
+    optional double roi_max_z = 12;
+    optional double roi_min_z = 13;
+    optional int32 compute_voxel_occupancy_step = 14;
+    optional bool ground_calib_enable = 15;
+    optional int32 max_ponits_to_extract_ground = 16;
+    optional int32 lidar_to_lidar_calib_frame = 17;
+}
+
+message ErrorConfig {
+    optional double x = 1;
+    optional double y = 2;
+    optional double z = 3;
+    optional double roll = 4;
+    optional double pitch = 5;
+    optional double yaw = 6;
+}
+
+message PointCloudSaveConfig {
+    optional bool before_saved = 1;
+    optional bool after_saved = 2;
+    optional bool voxel_saved = 3;
+}
+
+message BALMConfig {
+    optional int32 min_total_point_num = 1;
+    optional double feat_eigen_limit = 2;
+    optional int32 layer = 3;
+    optional double cut_size = 4;
+    optional int32 min_point_num = 5;
+  }
+
+message LidarOdom {
+    optional int32 num_of_saved_frame = 1;
+    optional double ndt_resolution = 2;
+    optional double ndt_step_size = 3;
+    optional int32 ndt_max_iterations = 4;
+    optional double ndt_tran_epsilon = 5;
+    optional bool enable_lidar_odom = 6;
+    optional double downsample_size = 7;
+    optional bool lidar_to_lidar_calib_enable = 8;
+    optional double score_base = 9;
+  }
+message DownSamplePara {
+    optional int32 scans = 1;
+    optional double down_sample_rate = 2;
+    optional double fov_min = 3;
+    optional double fov_max = 4;
+    optional bool is_enable = 5;
+}

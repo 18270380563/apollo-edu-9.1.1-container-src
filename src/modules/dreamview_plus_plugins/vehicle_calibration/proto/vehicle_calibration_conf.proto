@@ -1,0 +1,38 @@
+syntax = "proto2";
+
+package apollo.dreamview.vehicle_calibration;
+
+message CollectStrategy {
+  optional float speed_min = 1;
+  optional float speed_max = 2;
+  optional float low_speed_point = 3;
+  optional float high_speed_point = 4;
+  optional int32 speed_steps = 5;
+  optional float throttle_min = 6;
+  optional float throttle_max = 7;
+  optional float light_throttle_point = 8;
+  optional float heavy_throttle_point = 9;
+  optional int32 throttle_steps = 10;
+  optional float brake_min = 11;
+  optional float brake_max = 12;
+  optional int32 brake_steps = 13;
+  optional float max_abs_speed_when_stopped = 14;
+  optional float light_brake_point = 15;
+  optional float heavy_brake_point = 16;
+  optional float area_points = 17;
+  optional int32 area_total_points = 18;
+  optional float train_percentage = 19;
+  optional float min_collection_percentage_to_calib = 20;
+}
+
+message controlItem {
+  optional float speed = 1;
+  optional float command = 2;
+  optional float acceleration = 3;
+}
+
+message VehicleCalibConf {
+  optional CollectStrategy collect_strategy = 1;
+  optional string calibration_data_path = 2;
+  optional string output_filename = 3;
+}

@@ -1,0 +1,100 @@
+syntax = "proto2";
+
+package apollo.sensor_calibration;
+
+message GetCornerPara {
+    optional double offset = 1;
+    optional double offset_delta = 2;
+    optional int32 deg_offset = 3;
+    optional int32 deg_offset_delta = 4;
+}
+
+message SegmentationPlaneParams {
+    optional double normal_distance_weight = 1;
+    optional double radius_search = 2;
+    optional string method_type = 3;
+    optional int32 max_iterations = 4;
+    optional double distance_threshold = 5;
+    optional int32 min_plane_size = 6;
+    optional double eps_angle = 7;
+    optional bool enable_seg_plane = 8;
+}
+
+message StatisticalOutlierRemoval {
+    optional int32 mean_k = 1;
+    optional double mul_thresh = 2;
+    optional bool remove = 3;
+}
+
+message ExtractCluster {
+    optional double cluster_tolerance = 1;
+    optional int32 max_cluster_size = 2;
+    optional int32 min_cluster_size = 3;
+    optional bool enable_cluster = 4;
+}
+
+message ROIFilter {
+    optional double x_max = 1; // +X
+    optional double x_min = 2; // -X
+    optional double y_max = 3; // +Y
+    optional double y_min = 4; // -Y
+    optional double z_max = 5; // +Z
+    optional double z_min = 6; // -Z
+    optional bool enable_roi = 7;
+}
+
+message CeresParams {
+    optional double max_num_iterations = 1;
+    optional double function_tolerance = 2;
+    optional bool minimizer_progress_to_stdout  = 3;
+    optional double x_negative = 4;
+    optional double x_positive = 5;
+    optional double y_negative = 6;
+    optional double y_positive = 7;
+    optional double angle_negative = 8;
+    optional double angle_positive = 9;
+}
+
+message FilterParams {
+    optional double height_min = 1;
+    optional double height_max = 2;
+    optional double distance_min = 3;
+    optional double distance_max = 4;
+    optional double distance_multi_std_thresh = 5;
+    optional double normals_threshold = 6;
+    optional double max_thickness = 7;
+    optional double min_longitude_distance = 8;
+    optional bool enable_normals_filter = 9;
+
+}
+
+message LidarExtract {
+    optional bool enable_pre_rotation = 1;
+    optional double pre_rotation = 2;
+    optional int32 nums_of_optiminal_results = 3;
+    optional ROIFilter roi_filter = 4;
+    optional GetCornerPara get_corner_para = 5;
+    optional CeresParams ceres_params = 6;
+    optional FilterParams filter_params = 7;
+    optional ExtractCluster extract_cluster_for_project = 8;
+    optional bool enable_ground_plane_extract = 9;
+}
+
+message CameraDetector {
+    optional double save_point_size = 1;
+    optional string solve_method = 2;
+}
+
+
+message LidarToCameraAlgorithmConfig {
+    optional SegmentationPlaneParams final_seg = 1;
+    optional SegmentationPlaneParams prepare_seg = 2;
+    optional ExtractCluster extract_cluster = 3;
+    optional ExtractCluster extract_cluster_final = 4; 
+    optional StatisticalOutlierRemoval statistical_outlier_removal = 5;
+    optional LidarExtract lidar_extract = 6;
+    optional CameraDetector camera_detector = 7;
+    optional double error_threshold = 8;
+    optional int32 score_base = 9;
+    optional double score_increntment = 10;
+}

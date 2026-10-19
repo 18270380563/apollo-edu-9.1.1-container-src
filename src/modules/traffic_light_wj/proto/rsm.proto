@@ -1,0 +1,101 @@
+syntax = "proto2";
+
+package apollo.trafficlight;
+
+import "modules/traffic_light_wj/proto/commons.proto";
+import "modules/traffic_light_wj/proto/geometry.proto";
+import "modules/traffic_light_wj/proto/def_motion.proto";
+
+// RSM: 路侧动态目标物数据信息
+message RSM {
+    // 消息来源。
+    optional RSMSource rsmSource = 1;
+    // 位置信息。
+    required Position3D refPos = 2;
+    // 交通参与者列表。
+    repeated ParticipantData participantList = 3;
+}
+
+message RSMSource {
+    enum RsmSourceType {
+        RSU = 0;
+        OBU = 1;
+        DETECTION = 2;
+    }
+    // 信息来源的具体类型描述。
+    required RsmSourceType rsmSourceType = 1;
+    // 信息来源的唯一标识码ID。
+    optional int32 rsmSourceId = 2;
+    // 设备编码。 取值范围：长度不超过64，只允许字母、数字、以及_等字符的组合。
+    required string esn = 3;
+}
+
+message ParticipantData {
+    enum PtcType {
+        PTC_UNKNOWN = 0;
+        PTC_MOTOR = 1;
+        PTC_NON_MOTOR = 2;
+        PTC_PEDESTRAIN = 3;
+        PTC_RSU = 4;
+    }
+    // 路侧单元检测到的交通参与者类型。
+    required PtcType ptcType = 1;
+    // 检测单元设置的临时ID。
+    required int32 ptcId = 2;
+    // ITS800通过GlobalTrackID字段标识了车辆唯一ID。
+    optional uint64 globalTrackId = 3;
+    enum Source {
+        SRC_UNKNOWN = 0;
+        SRC_RSU = 1;
+        SRC_V2X = 2;
+        SRC_VIDEO = 3;
+        SRC_MICROWAVERadar = 4;
+        SRC_LOOP = 5;
+        SRC_LIDAR = 6;
+        SRC_INTERGRATED = 7;
+    }
+    // 交通参与者数据的来源。
+    required Source source = 4;
+    // 对应BSM消息中车辆ID。
+    optional string id = 5;
+    // 以0.1 秒为单位，定义1分钟中的毫秒级时刻。
+    // 分辨率为1毫秒，有效范围是0~59999。 
+    // 60000及以上表示未知或无效数值。
+    required int32 secMark = 6;
+    // 位置信息。
+    required Position3D pos = 7;
+    // 定义当前实时位置（经纬度和高程）的精度大小。
+    required PositionalConfidence posConfidence = 8;    
+    // 车辆档位状态。
+    optional int32 transmission = 9;
+    // 车辆或其他交通参与者的速度大小。
+    required int32 speed = 10;
+    // 车辆或交通参与者的航向角。为运动方向与正北方向的顺时针夹角。
+    required int32 heading = 11;
+    // 定义车辆转向轮角度。向右为正，向左为负。
+    required int32 angle = 12;
+    // 车辆颜色。
+    optional string vehicleColor = 13;
+    // 车辆型号。
+    optional string vehicleModel = 14;
+    // 车辆品牌。
+    optional string vehicleBrand = 15;
+    // 车辆年款，通过年份来表示，多个年份通过逗号分隔。
+    optional string vehicleStyle = 16;
+    // 车辆所在车道。默认不携带。
+    optional int32 laneNo = 17;
+    // 机动车车辆类型。
+    optional string gatVehicleClass = 18;
+    // 路口id，对应到一组雷视拟合设备，检测一个特定的路口或者路段。
+    optional string crossId = 19;
+    // 车牌号。
+    optional string plateNo = 20;
+    // 描述车辆运行状态的精度。
+    optional MotionConfidenceSet motionCfd = 21;
+    // 定义车辆四轴加速度。
+    optional AccelerationSet4Way accelSet = 22;
+    // 定义车辆尺寸大小。
+    required VehicleSize size = 23;
+    // 定义车辆类型。包含车辆基本类型以及燃料动力类型。
+    optional VehicleClassification vehicleClass = 24;
+}

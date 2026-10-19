@@ -1,0 +1,88 @@
+syntax = "proto2";
+
+package apollo.dreamview.calibration;
+
+message CollectStrategy {
+  optional float angle = 1;
+  optional float distance = 2;
+  optional uint32 total = 3;
+}
+
+message Extrinsics {
+  optional float qw = 1;
+  optional float qx = 2;
+  optional float qy = 3;
+  optional float qz = 4;
+  optional float tx = 5;
+  optional float ty = 6;
+  optional float tz = 7;
+}
+
+message LidarItem {
+  optional string name = 1;
+  optional string lidar_frame_id = 2;
+  optional string lidar_channel = 3;
+  optional Extrinsics extrinsics = 4;
+  optional string output_filename = 5;
+  optional bool is_bp = 6 [default = false];
+}
+
+message LidarCalibConf {
+  optional CollectStrategy collect_strategy = 1;
+  optional string calibration_data_path = 2;
+  optional string localization_channel = 3;
+  optional string imu_frame_id = 4;
+  repeated LidarItem lidar_list = 5;
+  optional bool use_odometry = 6;
+  optional bool calib_height = 7;
+}
+
+message CameraItem {
+  optional string name = 1;
+  optional string camera_channel = 2;
+  optional string camera_frame_id = 3;
+  optional string lidar_channel = 4;
+  optional string lidar_frame_id = 5;
+  optional float lidar_rotation = 6;
+  optional string intrinsics_filename = 7;
+  optional string output_filename = 8;
+  optional string lidar_to_imu_extrinsic_file_path = 9;
+}
+
+message CameraCalibConf {
+  optional string calibration_data_path = 1;
+  repeated CameraItem camera_list = 2;
+}
+
+message CalibConf {
+  optional LidarCalibConf lidar_calib = 1;
+  optional CameraCalibConf camera_calib = 2;
+}
+
+message Intrinsics {
+  optional int32 height = 1;
+  optional int32 width = 2;
+  optional string distortion_model = 3;
+  optional D d = 4;
+  optional K k = 5;
+}
+
+message D {
+  optional float k1 = 1;
+  optional float k2 = 2;
+  optional float P1 = 3;
+  optional float P2 = 4;
+  optional float k3 = 5;
+}
+
+message K {
+  optional float fx = 1;
+  optional float zero12 = 2 [default = 0.0];
+  optional float cx = 3;
+  optional float zero21 = 4 [default = 0.0];
+  optional float fy = 5;
+  optional float cy = 6;
+  optional float zero31 = 7 [default = 0.0];
+  optional float zero32 = 8 [default = 0.0];
+  optional float one33 = 9 [default = 1.0];
+}

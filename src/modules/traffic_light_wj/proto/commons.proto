@@ -1,0 +1,119 @@
+syntax = "proto2";
+
+package apollo.trafficlight;
+
+// 消息封装器
+/**
+ * // 假设你有一个名为`autopilotReport`的AutopilotReport消息。
+ * // 序列化AutopilotReport消息。
+ * bytes reportBytes = autopilotReport.SerializeToString();
+ * 
+ * // 创建MessageWrapper并填充其字段。
+ * MessageWrapper wrapperMessage;
+ * wrapperMessage.type = MessageWrapper.MessageType.AUTOPILOT_REPORT;
+ * wrapperMessage.length = spatBytes.length();
+ * wrapperMessage.payload = reportBytes;
+ */
+message MessageWrapper {
+    enum MessageType {
+        AUTOPILOT_REPORT = 0;
+        OBU_REPORT = 1;
+        AUTOPILOT_REQUEST = 2;
+        OBU_RESPONSE = 3;
+        // SPAT_MESSAGE = 20;
+        // BSM_MESSAGE = 21;
+        // RSM_MESSAGE = 22;
+        // RSI_MESSAGE = 23;
+        // 根据需要添加更多消息类型。
+    }
+    // 数据类型
+    required MessageType type = 1;
+    // 数据长度
+    required uint32 length = 2;
+    // 用于存储实际的消息内容，消息序列化为字节流后，将会被放入 payload 字段中进行传输
+    required bytes payload = 3;
+}
+
+// TODO: should this merge with message OBUHeader ?
+//   What different between them ?
+// vehicle msg header
+message VehHeader {
+    // vehicle id
+    required bytes id = 1;
+    // Sequence number for each message. Each module maintains its own counter for
+    // sequence_num, always starting from 1 on boot.
+    optional uint32 sequenceNum = 2;
+
+    required DDateTime timeStamp = 3;
+    optional int32 timeConfidence = 4;
+}
+
+// OBU msg header
+message OBUHeader {
+    // obu equipment id
+    required bytes id = 1;
+    // Sequence number for each message. Each module maintains its own counter for
+    // sequence_num, always starting from 1 on boot.
+    optional uint32 sequenceNum = 2;
+
+    required DDateTime timeStamp = 3;
+    optional int32 timeConfidence = 4;
+}
+
+message DDateTime {
+    optional int32 year = 1;    // (0..4095) 
+    optional int32 month = 2;   // (0..12) 
+    optional int32 day = 3;     // (0..31) 
+    optional int32 hour = 4;    // (0..31) 
+    optional int32 minute = 5;  // (0..60) 
+    optional int32 second = 6;  // (0..65535)
+    optional int32 offset = 7;  // (-840..840) time zone
+}
+
+// 燃料类型
+enum FuelType {
+    FUEL_UNKNOWN = 0;  // 未知
+    FUEL_GASOLINE = 1; // 汽油
+    FUEL_ETHANOL = 2;  // 乙醇
+    FUEL_DISESEL = 3;  // 柴油
+    FUEL_ELETRIC = 4;  // 电动
+    FUEL_MIXED = 5;    // 混合燃料类型
+    FUEL_HYDROGEN = 6; // 氢气
+    FUEL_LIQUEFIED_NATURAL_GAS = 7; // 液化天然气
+    FUEL_COMPRESSED_NATRUAL_GAS = 8; // 压缩天然气
+    FUEL_PROPANE = 9;  // 丙烷
+}
+
+// 车辆类型
+enum BasicVehicleClass {
+    VEH_CLS_UNKNOWN = 0;
+}
+
+// 定义车辆类型。包含车辆基本类型以及燃料动力类型。
+message VehicleClassification {
+    optional BasicVehicleClass basicVehicleClass = 1;
+    optional FuelType fuelType = 2;
+}
+
+// 定义车辆尺寸大小。由车辆长宽高三个维度来定义尺寸，其中高度数值为可选项。
+message VehicleSize {
+    required int32 width = 1;  // (0, 1023) -- Units are 1 cm with a range of >10 meters
+    required int32 length = 2; // (0, 4095) -- Units of 1 cm with a range of >40 meters
+    optional int32 height = 3; // (0, 127)
+}
+
+message NodeReferenceID {
+    optional int32 region = 1;
+    required int32 id = 2;
+}
+
+message NodeReferenceId {
+    // 所在区域在地图中的编号，数值0仅用于测试。
+    optional int64 region = 1;
+    // 节点编号。
+    // 路网最基本的构成即节点和节点之间连接的路段。
+    // 节点可以是路口，也可以是一条 路的端点。
+    // 一个节点的ID在同一个区域内是唯一的。
+    // 数值 0~255 预留为测试使用。
+    required int64 nodeId = 2;
+}

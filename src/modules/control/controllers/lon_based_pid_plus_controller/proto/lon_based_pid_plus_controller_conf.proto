@@ -1,0 +1,109 @@
+syntax = "proto2";
+
+import "modules/control/control_component/proto/leadlag_conf.proto";
+import "modules/control/control_task_base_extend/proto/pid_plus_conf.proto";
+
+package apollo.control;
+
+message PlusFilterConf {
+  optional int32 cutoff_freq = 1;
+}
+
+message LonBasedPidPlusControllerConf{
+  optional double ts = 1;  // longitudinal controller sampling time
+  optional double brake_minimum_action = 2;
+  optional double throttle_minimum_action = 3;
+  optional double speed_controller_input_limit = 4;
+  optional double station_error_limit = 5;
+  optional double preview_window = 6;
+  optional double standstill_acceleration = 7;
+  optional double standstill_narmal_acceleration = 8;
+  optional double stop_gain_acceleration = 9;
+
+  optional PidPlusConf station_pid_conf = 10;
+  optional PidPlusConf speed_pid_conf = 11;
+
+  optional PlusFilterConf pitch_angle_filter_conf = 12;
+
+  optional LeadlagConf station_leadlag_conf = 13;
+  optional LeadlagConf speed_leadlag_conf = 14;
+  optional bool enable_reverse_leadlag_compensation = 15 [default = false];
+
+  optional bool enable_speed_station_preview = 16 [default = false];
+  optional bool enable_slope_offset = 17 [default = false];
+  optional bool use_acceleration_lookup_limit = 18 [default = false];
+  optional bool use_preview_reference_check = 19 [default = false];
+
+  optional double steer_cmd_interval = 20 [default = 0.0];
+  optional bool use_steering_check = 21 [default = false];
+
+  optional double pedestrian_stop_time = 22 [default = 10.0];
+  optional double full_stop_long_time = 23 [default = 300.0];
+
+  // pid parameter in pit
+  optional double pit_replan_check_time = 24 [default = 14.0];
+  optional int32 pit_replan_check_count = 25 [default = 3];
+
+  optional int32 epb_change_count = 26 [default = 2];
+  optional bool use_vehicle_epb = 27 [default = false];
+  repeated double pitch_segment = 32;
+  repeated double dec_prepare_change_rate = 33;
+  optional double speed_threshold_in_backslip = 28;
+  optional double backslip_check_min_pitch = 29;
+  optional double speed_threshold_out_backslip = 30;
+  optional double min_dec_hold_on_slope = 31;
+
+  optional double min_dec_rate_in_stop_ctrl = 34;
+  optional double dec_ctrl_rate_antislip = 35;
+  optional double speed_diff_threshold_enter_stop = 36;
+  optional double max_dec_rate_in_stop_ctrl = 37;
+  optional double speed_threshold_enter_stop = 38;
+  optional double dec_addition_speed_error = 39;
+  optional double dec_addition_station_error = 40;
+  optional double dec_addition_hold_on_slope = 41;
+  optional bool use_new_fullstop = 42;
+  optional double full_stop_path_remain_gain = 43;
+  optional int32 use_opposite_slope_compensation = 44 [default = 1];
+  optional bool use_check_pit = 45 [default = false];
+  optional double epb_brake = 46 [default = 60.0];
+  optional double emergency_quit_fullstop_minspeed = 47 [default = 0.4];
+  optional double emergency_quit_fullstop_mindec = 48 [default = -3.0];
+  optional double path_remain = 49 [default = 0.2];
+
+  optional double release_end_brake_speed = 50 [default = 2.0];
+  optional int32 fullstop_window = 51 [default = 200];
+  optional double fullstop_pathremain = 52 [default = 2.0];
+  optional double full_stop_station_err_rate = 53 [default = 1.0];
+  optional double full_stop_pitch_brake_param = 54 [default = 150];
+  optional double full_stop_max_brake = 55 [default = 20.0];
+  optional double full_stop_pitch_window_param = 56 [default = 300];
+  optional double max_brk_downhill_change_rate = 57 [default = 0.4];
+  optional double pitch_path_remain_param = 58 [default = 9.0];
+  optional double pitch_path_remain_param_min = 59 [default = -3.0];
+  optional double downhill_full_stop_min_speed = 60 [default = 0.4];
+  optional bool use_speed_itfc = 61 [default = false];
+  optional double speed_itfc_full_stop_speed = 62 [default = 0.09];
+  optional double speed_itfc_path_remain_min = 63 [default = 0.10];
+  optional double speed_itfc_dcc_emergency = 64 [default = -1.5];
+  optional double speed_itfc_speed_cmd = 65 [default = 0.10];
+  optional double speed_itfc_path_remain_max = 66 [default = 0.60];
+  optional double speed_itfc_acc_thres = 67 [default = 0.0];
+  optional double speed_itfc_stop_speed = 68 [default = 0.05];
+
+  optional double speed_path_remain = 69 [default = 0.11];
+  optional bool use_parking_speed_control = 70 [default = false];
+  optional double speed_control_min_speed = 71 [default = 0.05];
+  optional double openspace_r_std_v = 72 [default = 0.25];
+  optional double openspace_r_err = 73 [default = 0.03];
+  optional double openspace_cmd_change = 74 [default = 0.02];
+  optional double speed_control_pitch_thres = 75 [default = -1.0];
+  optional double pitch_start_throttle = 76 [default = 8.0];
+  optional int32 openspace_start_num = 78 [default = 60];
+  optional double openspace_r_err_big = 79 [default = 0.04];
+  optional double openspace_brk_change = 80 [default = 0.1];
+  optional double openspace_max_brk = 81 [default = 10.0];
+  optional double battery_threshold = 82;
+  optional double openspace_start_throttle = 83 [default = 20.0];
+  optional double openspace_maintain_throttle = 84 [default = 13.0];
+  optional bool use_maintain_throttle = 85 [default = false];
+}

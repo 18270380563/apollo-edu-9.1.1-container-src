@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package apollo.dreamview.vehicle_calibration;
+message CalibResult {
+    repeated Calibration calibration = 1;
+}
+
+message Calibration {
+    optional float speed = 1;
+    optional float acceleration = 2;
+    optional float command = 3;
+}

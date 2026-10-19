@@ -1,0 +1,239 @@
+syntax = "proto2";
+
+package apollo.trafficlight;
+
+import "modules/traffic_light_wj/proto/commons.proto";
+import "modules/traffic_light_wj/proto/geometry.proto";
+
+// RSI: 路侧即时交通信息，是由路侧单元向周围车载单元发布的交通事件消息及交通标志标牌信息。
+message RSI {
+    // 消息来源。
+    optional RSISource rsiSource = 1;
+    // 道路交通标志。
+    repeated RTSData rtss = 2;
+    // 道路交通事件。
+    repeated RTEData rtes = 3;
+}
+
+message RSISource {
+    enum RSISourceType {
+        RSI_SRC_RSU = 0;            // RSU上报数据
+        RSI_SRC_OBU = 1;            // 车载终端上报数据
+        RSI_SRC_DETECTION = 2;      // 检测器检测到的数据
+        RSI_SRC_V2XSERVER = 3;      // 平台上报数据
+        RSI_SRC_INTERNET = 4;       // 互联网数据
+        RSI_SRC_METEOROLOGICAL = 5; // 气象数据
+        RSI_SRC_GOVERNMENT = 6;     // 政府数据
+        RSI_SRC_POLICE = 7;         // 警方数据
+        RSI_SRC_UNKNOWN = 8;        // 未知数据
+    }
+    // 来源的具体类型描述。
+    required RSISourceType rsiSourceType = 1;
+    // 信息来源的唯一标识码ID。
+    optional string rsiSourceId = 2;
+    // 设备编码。
+    required string esn = 3;
+}
+
+message RTSData {
+    // RTS的本地id。
+    required int32 rtsId = 1;
+    // 道路交通标志类型，参考国标GB 5768.2-2009。
+    required int32 signType = 2;
+    // 路口id，对应到一组雷视拟合设备，检测一个特定的路口或者路段。
+    optional string crossId = 3;
+    // 位置信息。
+    optional Position3D signPosition = 4;
+    // 道路交通标志的附加说明。
+    optional string signDescription = 5;
+    // 定义道路交通事件和道路交通标志信息的生效时间属性。
+    optional RSITimeDetails timeDetails = 6;
+    // 道路交通标志紧急程度。数字越大，级别越高。
+    optional int32 signPriority = 7;
+    // 道路交通事件的关联路径。
+    repeated ReferencePath referencePaths = 8;
+    // 道路交通事件的关联路段集合。
+    repeated ReferenceLink referenceLinks = 9;
+}
+
+message RTEData {
+    // 唯一的事件标识ID。
+    optional string eventId = 1;
+    // 道路交通事件的本地id。
+    required int32 rteId = 2;
+    // 路口id，对应到一组雷视拟合设备，检测一个特定的路口或者路段。
+    optional string crossId = 3;
+    // GB/T 29100-2012定义的事件类型。
+    required int64 eventType = 4;
+    enum RTEEventSourceType {
+        RTE_SRC_RSU = 0;            // RSU上报数据
+        RTE_SRC_OBU = 1;            // 车载终端上报数据
+        RTE_SRC_DETECTION = 2;      // 检测器检测到的数据
+        RTE_SRC_V2XSERVER = 3;      // 平台上报数据
+        RTE_SRC_INTERNET = 4;       // 互联网数据
+        RTE_SRC_METEOROLOGICAL = 5; // 气象数据
+        RTE_SRC_GOVERNMENT = 6;     // 政府数据
+        RTE_SRC_POLICE = 7;         // 警方数据
+        RTE_SRC_UNKNOWN = 8;        // 未知数据
+    }
+    // 来源的具体类型描述。
+    required RTEEventSourceType eventSource = 5;
+    // 位置信息。
+    optional Position3D eventPosition = 6;
+    // 事件半径，单位分米。
+    optional int64 eventRadius = 7;
+    // 道路交通事件的描述信息。
+    optional string eventDescription = 8;
+    // 定义道路交通事件和道路交通标志信息的生效时间属性。
+    optional RSITimeDetails timeDetails = 9;
+    // 道路交通事件的紧急程度。数字越大，级别越高。
+    optional int32 eventPriority = 10;
+    // 道路交通事件的关联路径。
+    repeated ReferencePath referencePaths = 11;
+    // 道路交通事件的关联路段集合。
+    repeated ReferenceLink referenceLinks = 12;
+    // 道路交通事件的信息来源提供的事件置信度水平，帮助接收端判断是否相信该事件信息，单位为0.5%。
+    optional int32 eventConfidence = 13;
+    // 交通事件扩展信息。
+    optional EdgeEventExInfo eventExInfo = 14;
+}
+
+message RSITimeDetails {
+    // 数值用来表示当前年份，已经过去的总分钟数（UTC时间）。
+    optional int64 startTime = 1;
+    // 数值用来表示当前年份，已经过去的总分钟数（UTC时间）。
+    optional int64 endTime = 2;
+    // 数值描述了95%置信水平的结束时间置信度。
+    optional int32 endTimeConfidence = 3;
+}
+
+message ReferencePath {
+    // 与当前情况关联的有效点集。
+    repeated Position3D activePath = 1;
+    // 单位为0.1米。
+    // 用半径表示影响区域边界离中心线的垂直距离，
+    // 反映该区域的宽度以覆盖实际路段。
+    optional int32 pathRadius = 2;
+}
+
+message ReferenceLink {
+    // 节点ID是由一个全局唯一的地区ID和一个地区内部唯一的节点ID组成。
+    required NodeReferenceID upStreamNodeId = 1;
+    // 节点ID是由一个全局唯一的地区ID和一个地区内部唯一的节点ID组成。
+    required NodeReferenceID downStream_nodeId = 2;
+    // 关联车道,将指定车道号对应的比特位置1表示该车道为有效的关联车道。
+    optional ReferenceLanes referenceLane = 3;
+}
+
+
+
+message ReferenceLanes {
+    // 保留参数。
+    optional bool reserve0 = 1;
+    // 左侧第1车道。
+    optional bool lane1 = 2;
+    // 左侧第2车道。
+    optional bool lane2 = 3;
+    // 左侧第3车道。
+    optional bool lane3 = 4;
+    // 左侧第4车道。
+    optional bool lane4 = 5;
+    // 左侧第5车道。
+    optional bool lane5 = 6;
+    // 左侧第6车道。
+    optional bool lane6 = 7;
+    // 左侧第7车道。
+    optional bool lane7 = 8;
+    // 左侧第8车道。
+    optional bool lane8 = 9;
+    // 左侧第9车道。
+    optional bool lane9 = 10;
+    // 左侧第10车道。
+    optional bool lane10 = 11;
+    // 左侧第11车道。
+    optional bool lane11 = 12;
+    // 左侧第12车道。
+    optional bool lane12 = 13;
+    // 左侧第13车道。
+    optional bool lane13 = 14;
+    // 左侧第14车道。
+    optional bool lane14 = 15;
+    // 左侧第15车道。
+    optional bool lane15 = 16;
+}
+
+message EdgeEventExInfo {
+    // 识别出交通事件时所对应的交通参与者
+    repeated EdgeEventParticipant participants = 1;
+    // 拥堵事件时，携带的信息
+    optional EdgeCongestionInfo congestionInfo = 2;
+}
+
+message EdgeEventParticipant {
+    enum PtcType {
+        PTC_UNKNOWN = 0;
+        PTC_MOTOR = 1;
+        PTC_NON_MOTOR = 2;
+        PTC_PEDESTRAIN = 3;
+        PTC_RSU = 4;
+    }
+    // 交通参与者的具体类型描述，枚举
+    optional PtcType ptcType = 1;
+    // 车牌号
+    optional string plateNo = 2;
+    // 对应车辆被检测到超速或者慢行时的速度小。单位为0.02米每秒。
+    optional int64 speed = 3;
+    // 车辆类型
+    optional BasicVehicleClass vehicleClass = 4;
+    // 感知设备识别的id，具体表示为机动车轨迹ID
+    optional int64 trackId = 5;
+    // 事件发生时所在车道。默认不携带。
+    optional int32 laneNo = 6;
+    // 国标车辆类型
+    optional string gatVehicleClass = 7;
+}
+    
+message EdgeCongestionInfo {
+    // 拥堵级别， 
+    // 1: 拥堵级别低, 速度[25, 30) 单位: km/h
+    // 2: 拥堵级别中, 速度[15, 25) 单位: km/h
+    // 3: 拥堵级别高, 速度[ 0, 15) 单位: km/h
+    optional int32 level = 1;
+    // 拥堵长度，单位：m
+    optional int64 length = 2;
+    // 拥堵的起点经纬度
+    optional ReportedPosition3D startPoint = 3;
+    // 拥堵的终点经纬度
+    optional ReportedPosition3D endPoint = 4;
+    // 车道拥堵信息
+    repeated CongestionLanesInfo congestionLanesInfo = 5;
+}
+
+message CongestionLanesInfo {
+    // 车道号
+    optional int32 laneId = 1;
+    // 拥堵级别， 
+    // 1: 拥堵级别低, 速度[25, 30) 单位: km/h
+    // 2: 拥堵级别中, 速度[15, 25) 单位: km/h
+    // 3: 拥堵级别高, 速度[ 0, 15) 单位: km/h
+    optional int32 level = 2;
+    // 拥堵长度，单位：m
+    optional int64 length = 3;
+    // 拥堵的起点经纬度
+    optional ReportedPosition3D startPoint = 4;
+    // 拥堵的终点经纬度
+    optional ReportedPosition3D endPoint = 5;
+}
+
+message ReportedPosition3D {
+    // 定义纬度数值，北纬为正，南纬为负。单位°，精度小数点后7位。[-90, 90.0000001]
+    required double lat = 1;
+    // 定义经度数值。东经为正，西经为负。单位°，精度小数点后7位。[-179.9999999, 180.0000001]
+    required double lon = 2;
+    // 定义车辆海拔高程，可选，单位为分米。数值-4096 表示无效数值。[-4096, 61439]
+    optional int64 ele = 3;
+}
+    
+
+
+

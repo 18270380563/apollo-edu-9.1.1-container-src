@@ -1,0 +1,90 @@
+syntax = "proto2";
+
+package apollo.trafficlight;
+
+import "modules/traffic_light_wj/proto/commons.proto";
+import "modules/traffic_light_wj/proto/bsm.proto";
+import "modules/traffic_light_wj/proto/path_planning.proto";
+
+message AutopilotReport {
+    // 消息头
+    required VehHeader header = 1;
+    // VIN
+    required string VIN = 2;
+    // 定义设备B应该包含哪些内容的枚举
+    enum MsgContent {
+        NO_CONTENT = 0;
+        RSM = 1;
+        RSI = 2;
+        SPAT = 3;
+        RSM_RSI = 4;
+        RSM_SPAT = 5;
+        RSI_SPAT = 6;
+        ALL_CONTENT = 7;
+    }
+    // 设备B应该包含哪些内容的字段
+    required MsgContent contentToInclude = 3;
+
+    // 车辆基本安全信息
+    required BSM bsm = 10;
+    // 规划路径
+    optional PathPlanning path = 11;
+}
+
+message AutopilotRequest {
+    // 消息头
+    required VehHeader header = 1;
+    // VIN
+    required string VIN = 2;
+    // 请求事件ID
+    required int32 eventId = 3;
+    // 事件优先级，0-7越大优先级越高
+    optional int32 eventLevel = 4;
+    enum EventOptionType {
+        EVENT_CREATE = 0;
+        EVENT_MODIFY = 1;
+        EVENT_DELETE = 2;
+    }
+    // 同一ID事件支持创建、修改、撤销操作
+    // todo: 三种操作对于事件的管理、ID复用的情况需要明细
+    required EventOptionType eventOpt = 5;
+
+    // 定义请求信息的生效时间属性。
+    optional int64 startTime = 10;
+    optional int32 startTimeConfidence = 11;
+    optional int64 endTime = 12;
+    optional int32 endTimeConfidence = 13;
+
+    // 请求具体内容
+    required DriveRequest request = 20;
+}
+
+message DriveRequest {
+    optional GLOSARequest glosaRequest = 1;
+    optional CHPVPRequest chpvpRequest = 2;
+    optional AVWRequest avwRequest = 3;
+}
+
+message GLOSARequest {
+    required bool flag = 1; // 随便填
+}
+
+message CHPVPRequest {
+    enum CHPVPRequestType {
+        USE_OBU = 0;            // OBU自己处理，不用管自动驾驶系统填充的信息
+        USE_AUTOPILOT = 1;      // 使用自动驾驶系统填充的信息
+    }
+    optional CHPVPRequestType flag = 1;
+    
+    /********* 自动驾驶系统填充的消息 *********/
+    required string vehicleId = 2;      // 通行车辆ld
+    required string vehicleType = 3;    // 车辆类型 (0: 未知 1: 公交车辆 2: 特种车辆 3: 救护车辆4: 消防车辆 5: 校车 6其他)
+    required int32 phaseld = 4;         // 请求车辆的相位ID
+    required int32 passtime = 5;        // 车辆预计通过时间，以0.1秒为单位，取值范围: 0~35999
+    required string trafficLightld = 6; // 红绿灯id
+}
+
+message AVWRequest {
+    required BrakeSystemStatus brakeStatus = 1; // 定义车辆的刹车系统状态。
+}
+

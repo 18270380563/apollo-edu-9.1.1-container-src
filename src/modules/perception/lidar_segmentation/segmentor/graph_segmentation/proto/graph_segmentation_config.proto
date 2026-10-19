@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package apollo.perception.lidar;
+
+message GraphSegmentationConfig {
+  optional uint32 grid_width = 1;
+  optional uint32 grid_height = 2;
+  optional float resolution = 3;
+  optional float threshold = 4;
+  optional uint32 min_pt_number = 5;
+  optional uint32 search_radius = 6 [default = 3];
+  optional float height_threshold = 7 [default = 2.0];
+}

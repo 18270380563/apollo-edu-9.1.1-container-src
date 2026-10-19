@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+package apollo.loam_velodyne_indoor;
+
+
+enum LidarSlamQuality {
+  SLAM_LOCAL_LIDAR_VERY_GOOD = 0;
+  SLAM_LOCAL_LIDAR_GOOD = 1;
+  SLAM_LOCAL_LIDAR_NOT_BAD = 2;
+  SLAM_LOCAL_LIDAR_BAD = 3;
+}
+
+message slamStatus {
+    optional LidarSlamQuality lidar_slam_quality = 1;
+    optional int64 slam_iter_count_number = 2;
+    optional int64 slam_matched_lidar_points = 3;
+    optional double slam_pc_icp_score = 4;
+}

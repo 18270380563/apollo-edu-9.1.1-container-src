@@ -1,0 +1,7 @@
+src/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/deploy.caffemodel filter=lfs diff=lfs merge=lfs -text
+src/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/softmax_bc4_gd filter=lfs diff=lfs merge=lfs -text
+src/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/deploy.caffemodel filter=lfs diff=lfs merge=lfs -text
+src/modules/perception/data/models/smoke_torch/smoke_libtorch_model.pth filter=lfs diff=lfs merge=lfs -text
+src/modules/perception/data/models/yolox3d_onnx/yolox3d_onnx_model_2d_l.onnx filter=lfs diff=lfs merge=lfs -text
+src/modules/perception/data/models/yolox3d_onnx/yolox3d_onnx_model_2d_m.onnx filter=lfs diff=lfs merge=lfs -text
+src/modules/perception/data/models/yolox3d_onnx/yolo_onnx_model_3d_fp16.onnx filter=lfs diff=lfs merge=lfs -text

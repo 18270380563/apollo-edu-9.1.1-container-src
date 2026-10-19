@@ -1,0 +1,46 @@
+syntax = "proto2";
+
+package apollo.dreamview.vehicle_calibration;
+
+message VehicleParamConf {
+  optional VehicleParam vehicle_param = 1;
+}
+
+message VehicleParam {
+  optional string brand = 1;
+  optional VehicleID vehicle_id = 2;
+  optional float front_edge_to_center = 3;
+  optional float back_edge_to_center = 4;
+  optional float left_edge_to_center = 5;
+  optional float right_edge_to_center = 6;
+  optional float length = 7;
+  optional float width = 8;
+  optional float height = 9;
+  optional float min_turn_radius = 10;
+  optional float max_acceleration = 11;
+  optional float max_deceleration = 12;
+  optional float max_steer_angle_rate = 13;
+  optional float min_steer_angle_rate = 14;
+  optional float max_steer_angle = 15;
+  optional float min_steer_angle = 16;
+  optional float steer_ratio = 17;
+  optional float wheel_base = 18;
+  optional float wheel_rolling_radius = 19;
+  optional float max_abs_speed_when_stopped = 20;
+  optional float brake_deadzone = 21;
+  optional float throttle_deadzone = 22;
+  optional LatencyParam steering_latency_param = 23;
+  optional LatencyParam throttle_latency_param = 24;
+  optional LatencyParam brake_latency_param = 25;
+}
+
+message VehicleID {
+  optional string other_unique_id = 1;
+}
+
+message LatencyParam {
+  optional double dead_time = 1;
+  optional double rise_time = 2;
+  optional double peak_time = 3;
+  optional double settling_time = 4;
+}

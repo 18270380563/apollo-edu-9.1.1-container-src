@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+package apollo.sensor_calibration;
+
+message LidarToCameraCalibrationConfig {
+  required string intrinsic_file_path = 1;
+  optional double camera_to_lidar_rotate_angle = 2;
+  optional int32 pattern_box_size_in_len = 3 [default = 11];
+  optional int32 pattern_box_size_in_width = 4 [default = 8];
+  optional double pattern_box_square_size = 5 [default = 40.0];
+  optional double pattern_length = 6 [default = 520];
+  optional double pattern_width = 7 [default = 400];
+  optional double camera_focal_length = 8 [default = 6];
+  optional int32 lidar_beam_num = 9 [default = 16];
+  optional string lidar_to_imu_extrinsic_file_path = 10;
+}

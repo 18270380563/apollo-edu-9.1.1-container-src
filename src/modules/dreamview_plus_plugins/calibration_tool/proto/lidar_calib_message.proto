@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+package apollo.dreamview.calibration;
+import "modules/dreamview_plus_plugins/calibration_tool/proto/error_code.proto";
+
+message Info {
+ optional ErrorCode code = 1;
+ repeated float data = 2 [packed = true];
+ optional string message = 3;
+}
+
+message Data {
+ required string request_id = 1;
+ optional Info info = 2;
+}
+
+message LidarCalibMessage {
+  optional string action = 1 [default = "response"];
+  optional Data data = 2; 
+  
+}

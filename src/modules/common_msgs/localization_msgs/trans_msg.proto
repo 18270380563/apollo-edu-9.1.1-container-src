@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package apollo.localization;
+
+import "modules/common_msgs/basic_msgs/header.proto";
+import "modules/common_msgs/localization_msgs/pose.proto";
+
+// init points for slamindoor requestd from DV 
+message InitialPointRequest {
+  optional apollo.common.Header header = 1;
+  optional apollo.localization.Pose init_point = 2;
+}

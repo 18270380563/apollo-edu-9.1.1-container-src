@@ -1,0 +1,27 @@
+syntax = "proto2";
+
+package apollo.dreamview.vehicle_calibration;
+
+message CalibrationTableConf {
+  optional int32 speed_segment = 1;
+  optional float throttle_max = 2;
+  optional int32 throttle_segment = 3;
+  optional float brake_max = 4;
+  optional int32 brake_segment = 5;
+  optional float acc_min = 6;
+  optional float acc_max = 7;
+  optional float train_percentage = 8;
+  optional float steer_condition = 9;
+  optional float curvature_condition = 10;
+  optional float speed_min = 11;
+  optional float speed_max = 12;
+  optional int32 train_speed_segment = 13;
+  optional int32 train_cmd_segment = 14;
+  optional float train_alpha = 15;
+  optional int32 brake_train_layer1 = 16;
+  optional int32 brake_train_layer2 = 17;
+  optional int32 brake_train_layer3 = 18;
+  optional int32 throttle_train_layer1 = 19;
+  optional int32 throttle_train_layer2 = 20;
+  optional int32 throttle_train_layer3 = 21;
+}

@@ -1,0 +1,20 @@
+syntax = "proto2";
+
+package apollo.slam_local_indoor;
+
+message SlamStatus {
+    enum LidarSlamQuality {
+        SLAM_LOCAL_LIDAR_VERY_GOOD = 0;
+        SLAM_LOCAL_LIDAR_GOOD = 1;
+        SLAM_LOCAL_LIDAR_NOT_BAD = 2;
+        SLAM_LOCAL_LIDAR_BAD = 3;
+    }
+    optional LidarSlamQuality lidar_slam_quality = 1;
+    optional int64 iter_count_number = 2;
+    optional bool pose_covariance_status = 3;
+    optional int64 matched_lidar_points = 4;
+
+    optional bool debug_status = 100;
+    optional double debug_icp_score = 101;
+    optional double debug_intensity_score = 102;
+}

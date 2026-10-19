@@ -1,0 +1,154 @@
+syntax = "proto2";
+
+package apollo.trafficlight;
+
+import "modules/traffic_light_wj/proto/commons.proto";
+import "modules/traffic_light_wj/proto/rsm.proto";
+import "modules/traffic_light_wj/proto/rsi.proto";
+import "modules/traffic_light_wj/proto/spat.proto";
+import "modules/traffic_light_wj/proto/map.proto";
+
+message OBUReport {
+    // 消息头
+    required OBUHeader header = 1;
+    // 路侧动态目标物数据信息
+    optional RSM rsm = 2;
+    // 路侧即时交通信息
+    optional RSI rsi = 3;
+    // 信号灯消息，包含了一个或多个路口信号灯的当前状态信息
+    optional SPAT spat = 4;
+	optional MapData map = 5;
+}
+
+message OBUResponse {
+    // 消息头
+    required OBUHeader header = 1;
+    // 响应事件ID -> 对应车辆发送的请求事件ID
+    required int32 eventId = 2;
+
+    enum EventStatusType {
+        // 为过期事件，事件结束时间（end_time）在当前时间之前
+        EVENT_INVALID = 0;
+        // 为活动事件，事件开始时间（start_time）在当前时间之前，并且事件结束时间（end_time）在当前时间之后
+        EVENT_ACTIVATE = 1;
+        // 为未来事件，事件开始时间（start_time）在当前时间之前
+        EVENT_FUTURE = 2;
+    }
+    // 事件状态
+    required EventStatusType eventStatus = 3;
+    enum EventResponseType {
+        EVENT_REJECT = 0;
+        EVENT_ACCEPT = 1;
+    }
+    // 事件响应结果
+    required EventResponseType eventResponse = 4;
+	required DriveResponse response = 5;
+}
+
+message DriveResponse {
+    enum ResponseType {
+        RESPONSE_GLOSA = 0;
+        RESPONSE_CHPVP = 1;
+        RESPONSE_AVW = 2;
+    }
+    required ResponseType responseType = 1;
+
+    optional GLOSAResponse glosaResponse = 10;
+    optional CHPVPResponse chpvpResponse = 11;
+    optional AVWResponse avwResponse = 12;
+}
+enum Light_State{
+	Unavailable                      =0;                   // 不可用
+	Dare                             =1;                   // 灰色
+	Fashing_Red                      =2;                   // 红色闪烁
+	Red                              =3;                   // 红色
+	Fashing_Green                    =4;                   // 绿色闪烁
+	Permissive_Green                 =5;                   // 绿色
+	Protected_Green                  =6;                   // 绿色  
+	Yellow                           =7;                   // 黄色
+	Flashing_Yellow                  =8;                   // 黄色闪烁
+}
+enum V2xSpatWarnType {
+	V2xSpatWarnType_None        		= 0;               
+	 V2xSpatWarnType_Normal      		= 1;               //红绿灯推送
+	 V2xSpatWarnType_SVW         		= 2;               //闯红灯预警
+	 V2xSpatWarnType_GLOSA       		= 3;               //滤波车速引导
+}
+
+
+message Phase{
+   required uint32 phase_id                 	=1;             	 // 匹配到的相位ID
+   required V2xSpatWarnType spat_warn       	=2;             	 // 信号灯预警
+   required Light_State light_state             =3;             	 // 灯色状态 
+   required uint32 time_left                	=4;             	 // 剩余时间 单位秒
+   optional double sugg_speed            	    =5;             	 // 建议速度  m/s
+
+}
+
+
+message GLOSAResponse {
+    /* 
+    - 绿波通行车道id
+    - 路段速度上限
+    - 相关交通灯的相位信息
+    - 绿波通行推荐速度
+    - 绿波通行推荐PathPlanning
+    */
+	required uint32 spat_region_id           	=1;             	 // 区域号
+    required uint32 spat_intersect_id        	=2;             	 // 路口号; 区域号路口号用于唯一标识信号机身份
+    required double SignalLatitudeat             =3;                  // 信号机的纬度
+    required double SignalLongitude				=4;                  // 信号机的经度
+    required double SigalElevationle             =5;                  // 信号机的海拔
+    required double distance						=6;                  // 到信号机的距离 负值表示真正的距离 正值表示经过的距离
+    required uint32 lane_id                      = 7;				// 绿波通行车道id
+	optional double high_speed_limit              =8;             	 // 路段速度上限  m/s
+	required Phase phase                         = 9;                  
+}
+
+
+message CHPVPResponse {
+
+	required uint32 lane_id                      = 1;              // 优先通行车道id
+	
+	  enum ResponseBusFirstType {
+        GREEN_EXTERNSION = 0;                            // 绿灯延长 
+        REDEARLYCUT = 1;								 // 红灯早断
+        DIRECTLYTHROUGH = 2;                             // 直接通过
+		EXTENSIONFAILED = 3;							 // 延长失败
+		EARLYBREAKFAILED = 4;							 // 早断失败
+		GREENINSERTION = 5;							     // 绿灯相位插入
+    }
+	required ResponseBusFirstType bus_first_response = 2;  // 优先通行方法
+	required Phase phase                             = 3;  // 相关交通灯的相位信息
+	optional uint32 max_pass_time                    = 4;  // 最大通行时间
+	optional uint32 min_pass_speed                   = 5;  // 最小通行速度
+    /*
+    - 优先通行车道id
+    - 优先通行方法
+        + 相位(绿灯)早启
+        + 相位(绿灯)延长
+        + 相位插入
+        + 相位跳跃
+        + 中运量专用相位
+    - 相关交通灯的相位信息
+    - 最大通行时间
+    - 最小通行速度
+    - 优先通行推荐PathPlanning
+    */
+}
+
+message AVWResponse { 
+  required  string rvId							=1;         		 // 远车车辆ID（V2V则为rv_id,V2I则为rsu_id）
+  required  uint32 veh_class					=2;         		 // 远车的车辆类型
+  required  uint32 ptcp_id						=3;         		 // 交通参与者ID
+  required  double rvLatitudeat					=4;         		 // 远车的纬度
+  required  double rvLongitudeon				=5;         		 // 远车的经度
+  required  double rvElevationle				=6;         		 // 远车的海拔
+  required  double rvHeading					=7;         		 // 远车的航向角
+  required  double rvSpeed						=8;        		 // 远车的速度 m/s
+  required  double rvDistance					=9;        		 // 远车距离本车的距离 m/s
+  required  double rvTtc						=10;        		 // 远车的 ttc s
+}
+
+
+

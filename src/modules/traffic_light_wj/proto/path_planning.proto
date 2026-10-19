@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package apollo.trafficlight;
+
+import "modules/traffic_light_wj/proto/commons.proto";
+import "modules/traffic_light_wj/proto/geometry.proto";
+
+message PathPlanning {
+    required DDateTime timeStamp = 1;
+    optional int32 timeConfidence = 2;
+    repeated Position3D points = 3;
+}
+

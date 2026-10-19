@@ -1,0 +1,60 @@
+syntax = "proto2";
+
+package apollo.trafficlight;
+
+// 描述车辆运行状态的精度。包括车速精度、航向精度和方向盘转角的精度。
+message MotionConfidenceSet {
+    enum SpeedConfidenceType {
+        SPD_UNUSABLE = 0; // 不可用
+        SPDC_100MS = 1;   // 100m/s
+        SPDC_10MS = 2;    // 10m/s
+        SPDC_5MS = 3;     // 5m/s
+        SPDC_1MS = 4;     // 1m/s
+        SPDC_0_1MS = 5;   // 0.1m/s
+        SPDC_0_05MS = 6;  // 0.05m/s
+        SPDC_0_01MS = 7;  // 0.01m/s
+    };
+    // 描述了95%置信水平的速度精度。
+    optional SpeedConfidenceType speedConfidence = 1;
+
+    enum HeadingConfidenceType {
+        HEAD_UNUSABLE = 0;   // 不可用 
+        HEADC_10DEG = 1;     // 10°
+        HEADC_5DEG = 2;      // 5°
+        HEADC_1DEG = 3;      // 1°
+        HEADC_0_1DEG = 4;    // 0.1°
+        HEADC_0_05DEG = 5;   // 0.05°
+        HEADC_0_01DEG = 6;   // 0.01°
+        HEADC_0_0125DEG = 7; // 0.0125
+    };
+    // 描述了95%置信水平的航向精度。
+    optional HeadingConfidenceType headingConfidence = 2;
+
+    enum SteerConfidenceType {
+        STR_UNUSABLE = 0; // 不可用 
+        STRC_2DEG = 1;    // 2°
+        STRC_1DEG = 2;    // 1°
+        STRC_0_02DEG = 3; // 0.02°
+    };
+    // 描述了95%置信水平的车辆转向轮角度精度。
+    optional SteerConfidenceType steerConfidence = 3;
+}
+    
+    
+// 描述车辆运行加速度状态，包括在车身坐标系下的横纵向、垂直加速度，及车辆前进方向的转动角速度
+message AccelerationSet4Way {
+    // Units are 0.01 m/s^2 
+	// the value 2000 shall be used for values greater than 2000 
+	// the value -2000 shall be used for values less than -2000 
+	// a value of 2001 shall be used for Unavailable
+    required int32 longAccel = 1;   // Along the Vehicle Longitudinal axis (-2000, 2001)
+    required int32 latAccel = 2;    // Along the Vehicle Lateral axis (-2000, 2001)
+	// Units of 0.02 G steps over -2.52 to +2.54 G
+	// The value +127 shall be used for ranges >= 2.54 G
+	// The value -126 shall be used for ranges <= 2.52 G
+	// The value -127 shall be used for unavailable
+    required int32 vertAccel = 3;   // Along the Vehicle Vertical axis (-127, 127)
+    // Units of 0.01 degrees per second (signed)
+    required int32 yawRate = 4;     // (-32767..32767)
+}
+    

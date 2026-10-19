@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+package apollo.slam_local_indoor;
+
+import "modules/common_msgs/basic_msgs/header.proto";
+import "modules/common_msgs/sensor_msgs/pointcloud.proto";
+
+message cloudWithPoseInfo {
+    optional apollo.common.Header header = 1;
+    optional int32 imuAvailable = 2;
+    optional int32 odomAvailable = 3;
+    optional float imuRollInit = 4;
+    optional float imuPitchInit = 5;
+    optional float imuYawInit = 6;
+    optional float initialGuessX = 7;
+    optional float initialGuessY = 8;
+    optional float initialGuessZ = 9;
+    optional float initialGuessRoll = 10;
+    optional float initialGuessPitch = 11;
+    optional float initialGuessYaw = 12;
+    optional apollo.drivers.PointCloud cloud_deskewed = 13;
+}

@@ -1,0 +1,259 @@
+syntax = "proto2";
+
+package apollo.trafficlight;
+
+import "modules/traffic_light_wj/proto/commons.proto";
+import "modules/traffic_light_wj/proto/geometry.proto";
+import "modules/traffic_light_wj/proto/def_motion.proto";
+
+// BSM: 车辆基本安全信息，用来在车辆之间交换安全状态数据。
+message BSM {
+    // 消息来源。
+    optional int32 msgCnt = 1;
+    // 车辆自己生成的临时ID，ID值会定期变化。长度：8
+    required bytes vehicleId = 2;
+
+    // 采集数据的UTC时间。
+    required DDateTime timeStamp = 3;
+    optional int32 timeConfidence = 4; // (0..39)
+
+    // 位置信息。
+    required Position3D pos = 5;
+    optional PositionalAccuracy posConfidence = 6;
+
+    // 车辆档位状态
+    optional TransmissionState transmission = 7;
+    // (0, 8191) 车辆或其他交通参与者的速度大小。单位为0.02米每秒。值为8191时代表无效数值。
+    required int32 speed = 8;
+    // (0, 28800) 车辆或交通参与者的航向角。为运动方向与正北方向的顺时针夹角。单位为0.0125°。
+    required int32 heading = 9;
+    // (-126, 127) 定义车辆转向轮角度。向右为正，向左为负。单位为1.5°。值为127时代表无效值。
+    required int32 angle = 10;
+    // 描述车辆运行状态的精度。
+    optional MotionConfidenceSet motionConfidence = 11;
+    // 描述车辆运行加速度状态，包括在车身坐标系下的横纵向、垂直加速度，及车辆前进方向的转动角速度
+    required AccelerationSet4Way accelSet = 12;
+    // 定义车辆的刹车系统状态。
+    required BrakeSystemStatus brakes = 13;
+    // 定义车辆类型。包含车辆基本类型以及燃料动力类型。
+    required VehicleClassification vehicleClass = 14;
+    // 定义车辆尺寸大小。
+    required VehicleSize size = 15;
+    required VehSafetyExt vehicleSafetyExtensions = 16;
+    // 定义紧急车辆或特种车辆的辅助信息集合。
+    // 用于BSM消息中，向周围车辆告知本车在进行特殊作业的状态，需要周围车辆予以优先或避让。
+    // 包括车辆特殊行驶状态、警笛和指示灯的使用等.各项信息均为可选项。
+    required VehEmgExt vehicleEmergencyExtensions = 17;
+}
+
+// 档位状态
+enum TransmissionState {
+    TRANS_NEUTRAL = 0;
+    TRANS_PARK = 1;
+    TRANS_FORWARD = 2;
+    TRANS_REVERSE = 3;
+    TRANS_RESERVED1 = 4;
+    TRANS_RESERVED2 = 5;
+    TRANS_RESERVED3 = 6;
+    TRANS_UNAVAILABLE = 7;
+}
+
+// 定义车辆的刹车系统状态。包括7种不同类型的状态。
+message BrakeSystemStatus {
+    enum BrakePedalType {
+        BRK_UNUSABLE = 0;
+        TRIGGER = 1;
+        RELEASE = 2;
+    }
+    // 指示刹车踏板状态，是否处在被踩下状态。
+    optional BrakePedalType brakePedalStatus = 1;
+    // 车辆车轮制动情况，定义四轮分别的刹车状态。
+    optional WheelBrakesStatus wheelBrakesStatus = 2;
+
+    enum TractionStatusType {
+        TRACTION_UNUSABLE = 0;
+        TRACTION_CLOSE = 1;
+        TRACTION_OPEN_AND_RELEASE = 2;
+        TRACTION_OPEN_AND_TRIGGER = 3;
+    }
+    // 牵引力控制系统实时状态。
+    optional TractionStatusType tractionStatus = 3;
+
+    enum ABSStatusType {
+        ABS_UNUSABLE = 0;
+        ABS_CLOSE = 1;
+        ABS_OPEN_AND_RELEASE = 2;
+        ABS_OPEN_AND_TRIGGER = 3;
+    }
+    // 刹车防抱死系统（ABS）状态。
+    optional ABSStatusType absStatus = 4;
+
+    enum SCSStatusType {
+        SCS_UNUSABLE = 0;
+        SCS_CLOSE = 1;
+        SCS_OPEN_AND_RELEASE = 2;
+        SCS_OPEN_AND_TRIGGER = 3;
+    }
+    // 车辆动态稳定控制系统状态。
+    optional SCSStatusType scsStatus = 5;
+
+    enum BrakeBoostStatusType {
+        BBS_UNUSABLE = 0;
+        BBS_CLOSE = 1;
+        BBS_OPEN = 2;
+    }
+    // 刹车助力系统作用情况。
+    optional BrakeBoostStatusType brakeBoostStatus = 6;
+
+    enum AuxBrakeStatusType {
+        AUX_UNUSABLE = 0;
+        AUX_CLOSE = 1;
+        AUX_OPEN = 2;
+        AUX_RESERVED = 3;
+    }
+    // 辅助制动系统（一般指手刹）情况。
+    optional AuxBrakeStatusType auxBrakesStatus = 7;
+}
+
+message WheelBrakesStatus {
+    // When set, the brake applied status is unavailable
+    optional bool setStatus = 1 [default = false];
+    // Left Front Active
+    optional bool leftFront = 2 [default = false];
+    // Left Rear Active
+    optional bool leftRear = 3 [default = false];
+    // Right Front Active
+    optional bool rightFront = 4 [default = false];
+    // Right Rear Active
+    optional bool rightRear = 5 [default = false];
+}
+
+message VehSafetyExt {
+    optional VehEventFlags vehEventFlags = 1;
+    optional LightStatus lights = 2;
+    optional PathHistory pathHistory = 3;
+}
+
+message VehEmgExt {
+    enum EmergencyStatusType {
+        // 紧急情况下的主动服务呼叫
+        EMG_STATUS_EMERGENCY = 0;
+        EMG_STATUS_NONEMERGENCY = 1;
+        // 发送者驾驶可能不稳定
+        EMG_STATUS_PURSUIT = 2;
+        // 发送器不移动，停在路边
+        EMG_STATUS_STATIONARY = 3;
+        // 如垃圾卡车等
+        EMG_STATUS_SLOW_MOVING = 4;
+        // 如校车或垃圾车
+        EMG_STATUS_STOP_AND_GO = 5;
+    }
+    // 定义紧急车辆或特殊车辆当前的行驶状态或驾驶行为
+    optional EmergencyStatusType emergencyStatus = 1;
+
+    enum SirenInUseType {
+        EMG_SIREN_UNAVAILABLE = 0;
+        EMG_SIREN_NOT_IN_USE = 1;
+        EMG_SIREN_IN_USE = 2;
+        EMG_SIREN_RESERVED = 3;
+    }
+    // 定义紧急车辆或特殊车辆的警笛或任何专用发声装置的状态。
+    optional SirenInUseType sirenUse = 2;
+
+    enum LightbarInUseType {
+        EMG_LIGHT_UNAVAILABLE = 0;
+        EMG_LIGHT_NOT_IN_USE = 1;
+        EMG_LIGHT_IN_USE = 2;
+        EMG_LIGHT_YELLOW_CAUTION = 3;
+        EMG_LIGHT_SCHOOL_BUS = 4;
+        EMG_LIGHT_ARROW_SIGNS = 5;
+        EMG_LIGHT_SLOW_MOVING = 6;
+        EMG_LIGHT_FREQ_STOP = 7;
+    }
+    // 定义紧急车辆或特殊车辆的警示灯或外置专用显示设备的工作状态。
+    optional LightbarInUseType lightsUse = 3;
+}
+
+message VehEventFlags {
+    // 车辆警示灯亮起
+    required bool hazardLights = 1 [default = false];
+    // 车辆在到达路口前预测自己可能会来不及刹车而越过停止线
+    required bool stopLineViolation = 2 [default = false];
+    // ABS系统被触发并超过100毫秒
+    required bool ABSActivated = 3 [default = false];
+    // 电子系统控制牵引力被触发并超过100毫秒
+    required bool tractionControlLoss = 4 [default = false];
+    // 车身稳定控制被触发并超过100毫秒
+    required bool stabilityControlActivated = 5 [default = false];
+    // 危险品运输车
+    required bool hazardousMaterials = 6 [default = false];
+    // 紧急制动，并且减速度大于0.4G
+    required bool hardBraking = 7 [default = false];
+    // 过去2s内，车灯状态改变
+    required bool lightsChanged = 8 [default = false];
+    // 过去2s内，雨刮器更换
+    required bool wipersChanged = 9 [default = false];
+    // 车俩发现至少1个轮胎爆胎了
+    required bool flatTire = 10 [default = false];
+    // 车辆故障，无法行驶
+    required bool disabledVehicle = 11 [default = false];
+    // 安全气囊展开
+    required bool airBagDeployment = 12 [default = false];
+}
+
+message LightStatus {
+    // 近光灯前照灯
+    required bool lowBeamHeadLights = 1 [default = false];
+    // 远光灯
+    required bool highBeamHeadLights = 2 [default = false];
+    // 左转信号灯
+    required bool leftTurnSignal = 3 [default = false];
+    // 右转信号灯
+    required bool rightTurnSignal = 4 [default = false];
+    // 车辆警示灯
+    required bool hazardSignal = 5 [default = false];
+    // 自动灯光控制
+    required bool automaticLightControl = 6 [default = false];
+    // 日间行车灯
+    required bool daytimeRunningLights = 7 [default = false];
+    // 雾灯
+    required bool fogLight = 8 [default = false];
+    // 停车灯
+    required bool parkingLights = 9 [default = false];
+}
+
+message PathHistory {
+    // ------------- FullPositionVector -------------
+    optional DDateTime refTimestamp = 1;
+    required Position3D refPos = 2;
+    // (0, 28800) 车辆或交通参与者的航向角。为运动方向与正北方向的顺时针夹角。单位为0.0125°。
+    optional int32 heading = 3;
+    // 车辆档位状态
+    optional TransmissionState transmission = 4;
+    // (0, 8191) 车辆或其他交通参与者的速度大小。单位为0.02米每秒。值为8191时代表无效数值。
+    optional int32 speed = 5;
+    // 位置精度
+    optional PositionalAccuracy posConfidence = 6;
+    // 时间精度
+    optional int32 timeConfidence = 7; // (0..39)
+    // 描述车辆运行状态的精度。
+    optional MotionConfidenceSet motionConfidence = 8;
+
+    // ------------- GNSSstatus -------------
+    optional bool unavailable = 10 [default = false];
+    optional bool isHealthy = 11 [default = false];
+    optional bool isMonitored = 12 [default = false];
+    // 0: 移动基站，流动基站；1：固定基站
+    optional bool baseStationType = 13 [default = false];
+    // 精度稀释度大于5
+    optional bool aPDOPofUnder5 = 14 [default = false];
+    // 视野内少于5颗卫星
+    optional bool inViewOfUnder5 = 15 [default = false];
+    // 使用伪距校正
+    optional bool localCorrectionsPresent = 16 [default = false];
+    // 使用RTK类型校正
+    optional bool networkCorrectionsPresent = 17 [default = false];
+
+    // ------------- PathHistoryPointList -------------
+    repeated Position3D historyPoint = 20;
+}

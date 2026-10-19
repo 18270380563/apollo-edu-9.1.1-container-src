@@ -1,0 +1,139 @@
+syntax = "proto2";
+
+package apollo.trafficlight;
+
+import "modules/traffic_light_wj/proto/commons.proto";
+
+// SPAT: 信号灯消息，包含了一个或多个路口信号灯的当前状态信息。
+message SPAT {
+    enum SPATSourceType {
+        SPAT_SRC_UNKNOWN = 0;
+        SPAT_SRC_POLICE = 1;
+        SPAT_SRC_GOVERNMENT = 2;
+        SPAT_SRC_METEOROLOGICAL = 3;
+        SPAT_SRC_INTERNET = 4;
+        SPAT_SRC_DETECTION = 5;
+        SPAT_SRC_V2XSERVER = 6;
+        SPAT_SRC_RSU = 7;
+        SPAT_SRC_OBU = 8;
+        SPAT_SRC_SIGNALMACHINE = 9;
+    }
+    // 来源的具体类型。
+    optional SPATSourceType spatSource = 1;
+    // 路口信号灯集合。
+    repeated IntersectionStateDTO intersections = 2;
+    // 平台推送消息的UTC时间。
+    optional DDateTime timeStamp = 3;
+    // 供理解的名称描述。
+    optional string name = 4;
+}
+
+message IntersectionStateDTO {
+    // 节点属性ID。
+    required NodeReferenceId intersectionId = 1;
+    // 路口信号机的工作状态指示。
+    optional IntersectionStatusObject intersectionStatusObject = 2;
+    // 信号机发送信号时携带的UTC时间。
+    optional DDateTime timeStamp = 3;
+    // 数值描述了95%置信水平的时间精度。
+    optional int32 timeConfidence = 4;
+    // 信号灯各道路方向的灯态列表。
+    repeated PhaseDTO phases = 5;
+}
+
+
+message IntersectionStatusObject {
+    // 手动控制状态开启。
+    optional bool manualControlIsEnabled = 1;
+    // 停止计时状态激活。
+    optional bool stopTimeIsActivated = 2;
+    // 用于硬件故障检测。
+    optional bool failureFlash = 3;
+    // 优先状态激活。
+    optional bool preemptIsActive = 4;
+    // 信号优先级状态激活。
+    optional bool signalPriorityIsActive = 5;
+    // 固定配时。
+    optional bool fixedTimeOperation = 6;
+    // 基于交通流状态的配时。
+    optional bool trafficDependentOperation = 7;
+    // 备用操作，可部分关闭或闪烁。
+    optional bool standbyOperation = 8;
+    // 故障模式。
+    optional bool failureMode = 9;
+    // 控制状态关闭。
+    optional bool controllerOff = 10;
+    // 近期地图内容数据更新。
+    optional bool recentMapMessageUpdate = 11;
+    // 近期地图道路id数据更新。
+    optional bool recentChangeInMapAssignedLanesIdsUsed = 12;
+    // 此时无有效地图。
+    optional bool noValidMapIsAvailableAtThisTime = 13;
+    // 此时无有效spat信息。
+    optional bool noValidSpatIsAvailableAtThisTime = 14;
+}
+
+message PhaseDTO {
+    // 定义信号灯相位ID。数值0表示无效ID。
+    required int32 phaseId = 1;
+    // 一个信号灯的一个相位状态列表。
+    // 列表中每一个相位状态物理上对应了一种相位灯色，
+    // 其属性包括了该状态的实时计时信息。
+    repeated PhaseStateDTO phaseStates = 2;
+}
+
+message PhaseStateDTO {
+    enum LightStateType {
+        LIGHT_UNUSABLE = 0;
+        LIGHT_BLACK = 1;
+        LIGHT_FLASHING_RED = 2;
+        LIGHT_RED = 3;
+        LIGHT_FLASHING_GREEN = 4;
+        LIGHT_PERMISSIVE_GREEN = 5;
+        LIGHT_PROTECTED_GREEN = 6;
+        LIGHT_YELLOW = 7;
+        LIGHT_FLASHING_YELLOW = 8;
+    }
+    // 定义信号灯相位的灯色状态。
+    // 支持GB14886规定的红绿黄三种信号灯灯色，以及亮灯、闪烁和熄灭三种状态。
+    required LightStateType lightState = 1;
+    // 定义一个信号灯相位的计时状态。
+    // 提供了两种可选的计时状态格式，
+    // 一种是倒计时形式，
+    // 另一种是UTC世界标准时间的形式。
+    // 在实际使用时，由路侧设施根据实际情况选用。
+    optional TimeChangeDetailsDTO timing = 2;
+}
+
+message TimeChangeDetailsDTO {
+    // 倒计时形式，描述一个信号灯相位状态的完整计时状态。
+    optional TimeCountingDownDTO counting = 1;
+    // 用UTC世界标准时间形式，描述一个信号灯相位状态的完整计时状态。
+    optional UTCTimingDTO utcTiming = 2;
+}
+
+message TimeCountingDownDTO {
+    // int64: 以0.1秒为单位，定义一小时中的时间。
+    // 可以表示当前小时中的时刻，也可以表示长度不超过1小时的时间段，单位为0.1秒。
+    required int64 startTime = 1;
+    optional int64 minEndTime = 2;
+    optional int64 maxEndTime = 3;
+    required int64 likelyEndTime = 4;
+    // 定义置信度。单位为0.5%。
+    optional int32 timeConfidence = 5;
+    optional int64 nextStartTime = 6;
+    optional int64 nextDuration = 7;
+}
+
+message UTCTimingDTO {
+    // int64: 以0.1秒为单位，定义一小时中的时间。
+    // 可以表示当前小时中的时刻，也可以表示长度不超过1小时的时间段，单位为0.1秒。
+    required int64 startUtcTime = 1;
+    optional int64 minEndUtcTime = 2;
+    optional int64 maxEndUtcTime = 3;
+    required int64 likelyEndUtcTime = 4;
+    // 定义置信度。单位为0.5%。
+    optional int32 timeConfidence = 5;
+    optional int64 nextStartUtcTime = 6;
+    optional int64 nextEndUtcTime = 7;
+}
