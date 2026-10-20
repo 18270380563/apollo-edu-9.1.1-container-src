@@ -1,0 +1,57 @@
+{
+    "name": "transform",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo transform module.",
+    "deps": [
+        "common",
+        "cyber",
+        "common-msgs",
+        "3rd-gtest",
+        "3rd-absl",
+        "3rd-yaml-cpp",
+        "3rd-tf2"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/transform/dag/static_transform.dag' ]; then mkdir -p '/apollo/modules/transform/dag' && ln -snf '/opt/apollo/neo/share/modules/transform/dag/static_transform.dag' '/apollo/modules/transform/dag/static_transform.dag'; fi",
+        "if [ ! -e '/apollo/modules/transform/launch/static_transform.launch' ]; then mkdir -p '/apollo/modules/transform/launch' && ln -snf '/opt/apollo/neo/share/modules/transform/launch/static_transform.launch' '/apollo/modules/transform/launch/static_transform.launch'; fi",
+        "if [ ! -e '/apollo/modules/transform/conf/static_transform_conf.pb.txt' ]; then mkdir -p '/apollo/modules/transform/conf' && ln -snf '/opt/apollo/neo/share/modules/transform/conf/static_transform_conf.pb.txt' '/apollo/modules/transform/conf/static_transform_conf.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/transform",
+        "rm -rf /opt/apollo/neo/include/modules/transform",
+        "rm -rf /opt/apollo/neo/lib/modules/transform",
+        "rm -rf /opt/apollo/neo/python/modules/transform",
+        "rm -rf /opt/apollo/neo/src/modules/transform",
+        "rm -rf /opt/apollo/neo/share/packages/transform"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/transform",
+            "des": "/opt/apollo/neo/share/modules/transform"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/transform",
+            "des": "/opt/apollo/neo/include/modules/transform"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/transform",
+            "des": "/opt/apollo/neo/lib/modules/transform"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/transform",
+            "des": "/opt/apollo/neo/python/modules/transform"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/transform",
+            "des": "/opt/apollo/neo/src/modules/transform"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/transform",
+            "des": "/opt/apollo/neo/share/packages/transform"
+        }
+    ],
+    "type": "neo"
+}

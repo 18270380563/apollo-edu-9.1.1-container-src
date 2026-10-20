@@ -1,0 +1,73 @@
+# !/bin/sh
+APOLLO_PATH='/opt/apollo/neo/'
+PACKAGE_NAME='perception-model-horizontal-caffe'
+PACKAGE_NAME_WITH_VER='perception-model-horizontal-caffe/9.1.1'
+INCLUDE_PATH=''
+echo "[INFO] start to create symbolic links of ${PACKAGE_NAME}"
+echo '[WARN] the links of pre-version will be overwrited!'
+
+mkdir -p ${APOLLO_PATH}bin
+mkdir -p ${APOLLO_PATH}include
+mkdir -p ${APOLLO_PATH}lib
+
+chmod a+rw ${APOLLO_PATH}bin ${APOLLO_PATH}include ${APOLLO_PATH}lib ${APOLLO_PATH}packages
+
+if [ ! -d ${APOLLO_PATH}/share/packages/${PACKAGE_NAME} ]
+then
+    ln -snf ${APOLLO_PATH}packages/${PACKAGE_NAME_WITH_VER} ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest
+
+    if [ "${INCLUDE_PATH}" = "" ]
+    then
+        ori_inc_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include"
+        if [ -d ${ori_inc_path} ]
+        then
+            for file in $(ls ${ori_inc_path})
+            do
+                if [ -d ${ori_inc_path}"/"${file} ]
+                then
+                    ln -snf ${ori_inc_path}"/"${file} "${APOLLO_PATH}include/${file}"
+                fi
+            done
+        fi
+    else
+        if [ $(dirname ${INCLUDE_PATH}) != '.' ]
+        then
+            mkdir -p "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+            chmod a+rw "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+        fi
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include" "${APOLLO_PATH}include/${INCLUDE_PATH}"
+    fi
+
+    if [ -d ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib ]
+    then
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib" "${APOLLO_PATH}lib/${PACKAGE_NAME}"
+    fi
+
+    bin_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/bin"
+    if [ -d ${bin_path} ]
+    then
+        for file in $(ls ${bin_path})
+        do
+            if [ -d ${bin_path}"/"${file} ]
+            then
+                continue
+            else
+                ln -snf "${bin_path}/${file}" "${APOLLO_PATH}bin/${file}"
+            fi
+        done
+    fi
+fi
+
+if [ ! -e '/apollo/modules/perception/data/models/horizontal_caffe/baidu_iter_200000.caffemodel.metadata' ]; then mkdir -p '/apollo/modules/perception/data/models/horizontal_caffe' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/horizontal_caffe/baidu_iter_200000.caffemodel.metadata' '/apollo/modules/perception/data/models/horizontal_caffe/baidu_iter_200000.caffemodel.metadata'; fi
+if [ ! -e '/apollo/modules/perception/data/models/horizontal_caffe/apollo_deploy.yaml' ]; then mkdir -p '/apollo/modules/perception/data/models/horizontal_caffe' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/horizontal_caffe/apollo_deploy.yaml' '/apollo/modules/perception/data/models/horizontal_caffe/apollo_deploy.yaml'; fi
+if [ ! -e '/apollo/modules/perception/data/models/horizontal_caffe/README' ]; then mkdir -p '/apollo/modules/perception/data/models/horizontal_caffe' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/horizontal_caffe/README' '/apollo/modules/perception/data/models/horizontal_caffe/README'; fi
+if [ ! -e '/apollo/modules/perception/data/models/horizontal_caffe/BUILD' ]; then mkdir -p '/apollo/modules/perception/data/models/horizontal_caffe' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/horizontal_caffe/BUILD' '/apollo/modules/perception/data/models/horizontal_caffe/BUILD'; fi
+if [ ! -e '/apollo/modules/perception/data/models/horizontal_caffe/deploy.prototxt' ]; then mkdir -p '/apollo/modules/perception/data/models/horizontal_caffe' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/horizontal_caffe/deploy.prototxt' '/apollo/modules/perception/data/models/horizontal_caffe/deploy.prototxt'; fi
+if [ ! -e '/apollo/modules/perception/data/models/horizontal_caffe/baidu_iter_200000.caffemodel' ]; then mkdir -p '/apollo/modules/perception/data/models/horizontal_caffe' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/horizontal_caffe/baidu_iter_200000.caffemodel' '/apollo/modules/perception/data/models/horizontal_caffe/baidu_iter_200000.caffemodel'; fi
+
+echo "[INFO] symbolic links of ${PACKAGE_NAME} created."
+
+if [ -f "${APOLLO_PATH}update_dylib.sh" ]
+then
+    sh ${APOLLO_PATH}update_dylib.sh
+fi

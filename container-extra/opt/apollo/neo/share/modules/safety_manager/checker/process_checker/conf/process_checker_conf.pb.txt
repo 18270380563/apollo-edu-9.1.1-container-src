@@ -1,0 +1,3 @@
+item {name: "Perception Process Group", type: MAINBOARD_PROCESS_GROUP, value: "perception", level: FATAL}
+item {name: "Guardian Components", type: DAG, value: "guardian.dag", level: FATAL}
+item {name: "Recorder Process", type: GENERAL_PROCESS, value: "cyber_recorder record -all", level: WARN}

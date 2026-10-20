@@ -1,0 +1,68 @@
+{
+    "name": "planning-scenario-park-and-go",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-scenario-park-and-go module.",
+    "deps": [
+        "bazel-extend-tools",
+        "planning-interface-base"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/scenarios/park_and_go/plugins.xml' ]; then mkdir -p '/apollo/modules/planning/scenarios/park_and_go' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/park_and_go/plugins.xml' '/apollo/modules/planning/scenarios/park_and_go/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/park_and_go/conf/scenario_conf.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/park_and_go/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/park_and_go/conf/scenario_conf.pb.txt' '/apollo/modules/planning/scenarios/park_and_go/conf/scenario_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/park_and_go/conf/pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/park_and_go/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/park_and_go/conf/pipeline.pb.txt' '/apollo/modules/planning/scenarios/park_and_go/conf/pipeline.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_cruise/path_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_cruise' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/park_and_go/conf/park_and_go_cruise/path_decider.pb.txt' '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_cruise/path_decider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_pre_cruise/open_space_roi_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_pre_cruise' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/park_and_go/conf/park_and_go_pre_cruise/open_space_roi_decider.pb.txt' '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_pre_cruise/open_space_roi_decider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_pre_cruise/open_space_trajectory_provider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_pre_cruise' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/park_and_go/conf/park_and_go_pre_cruise/open_space_trajectory_provider.pb.txt' '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_pre_cruise/open_space_trajectory_provider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_check/open_space_roi_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_check' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/park_and_go/conf/park_and_go_check/open_space_roi_decider.pb.txt' '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_check/open_space_roi_decider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_adjust/open_space_roi_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_adjust' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/park_and_go/conf/park_and_go_adjust/open_space_roi_decider.pb.txt' '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_adjust/open_space_roi_decider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_adjust/open_space_trajectory_provider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_adjust' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/park_and_go/conf/park_and_go_adjust/open_space_trajectory_provider.pb.txt' '/apollo/modules/planning/scenarios/park_and_go/conf/park_and_go_adjust/open_space_trajectory_provider.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/scenarios/park_and_go",
+        "rm -rf /opt/apollo/neo/include/modules/planning/scenarios/park_and_go",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/park_and_go",
+        "rm -rf /opt/apollo/neo/python/modules/planning/scenarios/park_and_go",
+        "rm -rf /opt/apollo/neo/src/modules/planning/scenarios/park_and_go",
+        "rm -rf /opt/apollo/neo/share/packages/planning-scenario-park-and-go",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/park_and_go",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__park_and_go__libpark_and_go_scenario.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/scenarios/park_and_go",
+            "des": "/opt/apollo/neo/share/modules/planning/scenarios/park_and_go"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/scenarios/park_and_go",
+            "des": "/opt/apollo/neo/include/modules/planning/scenarios/park_and_go"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/park_and_go",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/park_and_go"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/scenarios/park_and_go",
+            "des": "/opt/apollo/neo/python/modules/planning/scenarios/park_and_go"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/scenarios/park_and_go",
+            "des": "/opt/apollo/neo/src/modules/planning/scenarios/park_and_go"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-scenario-park-and-go",
+            "des": "/opt/apollo/neo/share/packages/planning-scenario-park-and-go"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/park_and_go",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/park_and_go"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__park_and_go__libpark_and_go_scenario.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__park_and_go__libpark_and_go_scenario.so"
+        }
+    ],
+    "type": "neo"
+}

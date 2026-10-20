@@ -1,0 +1,9 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/common
+rm -rf /opt/apollo/neo/include/modules/common
+rm -rf /opt/apollo/neo/lib/modules/common
+rm -rf /opt/apollo/neo/python/modules/common
+rm -rf /opt/apollo/neo/src/modules/common
+rm -rf /opt/apollo/neo/share/packages/common
+rm -rf /opt/apollo/neo//bin/kv_db_tool

@@ -1,0 +1,3 @@
+third_party/rtklib/librtklib.so:lib/third_party/rtklib/librtklib.so
+third_party/rtklib/cyberfile.xml:third_party/rtklib/cyberfile.xml
+src_path:third_party/rtklib

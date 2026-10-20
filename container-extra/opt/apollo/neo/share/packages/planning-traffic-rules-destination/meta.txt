@@ -1,0 +1,12 @@
+modules/planning/traffic_rules/destination/conf/default_conf.pb.txt:share/modules/planning/traffic_rules/destination/conf/default_conf.pb.txt
+modules/planning/traffic_rules/destination/libdestination.so:lib/modules/planning/traffic_rules/destination/libdestination.so
+modules/planning/traffic_rules/destination/cyberfile.xml:modules/planning/traffic_rules/destination/cyberfile.xml
+modules/planning/traffic_rules/destination/plugins.xml:plugin_meta@modules/planning/traffic_rules/destination@plugins.xml
+modules/planning/traffic_rules/destination/proto/destination.pb.h:include/modules/planning/traffic_rules/destination/proto/destination.pb.h
+modules/planning/traffic_rules/destination/proto/destination.pb.cc:include/modules/planning/traffic_rules/destination/proto/destination.pb.cc
+modules/planning/traffic_rules/destination/proto/lib_destination_proto.a:include/modules/planning/traffic_rules/destination/proto/lib_destination_proto.a
+modules/planning/traffic_rules/destination/proto/lib_destination_proto.pic.a:include/modules/planning/traffic_rules/destination/proto/lib_destination_proto.pic.a
+modules/planning/traffic_rules/destination/proto/lib_destination_proto.so:include/modules/planning/traffic_rules/destination/proto/lib_destination_proto.so
+modules/planning/traffic_rules/destination/proto/destination_pb2.py:python/modules/planning/traffic_rules/destination/proto/destination_pb2.py
+modules/planning/traffic_rules/destination/proto/lib_destination_proto_mptdp_bin.so:lib/modules/planning/traffic_rules/destination/proto/lib_destination_proto_mptdp_bin.so
+src_path:modules/planning/traffic_rules/destination

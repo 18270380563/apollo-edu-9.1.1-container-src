@@ -1,0 +1,80 @@
+{
+    "name": "control-controller-lat-based-lqr-plus-controller",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo control-controller-lat-based-lqr-plus-controller module.",
+    "deps": [
+        "bazel-extend-tools",
+        "control",
+        "control-task-base-extend",
+        "common",
+        "common-msgs",
+        "3rd-eigen3",
+        "3rd-absl"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/plugins.xml' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/plugins.xml' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_chassis.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_chassis.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_localization.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_localization.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_planning.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_planning.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_planning.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_localization.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_localization.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/controller_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/controller_conf.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/controller_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/params_pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/params_pipeline.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/params_pipeline.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_s_turn_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_s_turn_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_s_turn_param.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/controller_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/controller_conf.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/controller_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_forward_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_forward_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_forward_param.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_s_turn_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_s_turn_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_s_turn_param.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_backward_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_backward_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_backward_param.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_param.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/params_pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/params_pipeline.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/params_pipeline.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_param.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller",
+        "rm -rf /opt/apollo/neo/include/modules/control/controllers/lat_based_lqr_plus_controller",
+        "rm -rf /opt/apollo/neo/lib/modules/control/controllers/lat_based_lqr_plus_controller",
+        "rm -rf /opt/apollo/neo/python/modules/control/controllers/lat_based_lqr_plus_controller",
+        "rm -rf /opt/apollo/neo/src/modules/control/controllers/lat_based_lqr_plus_controller",
+        "rm -rf /opt/apollo/neo/share/packages/control-controller-lat-based-lqr-plus-controller",
+        "rm -rf /opt/apollo/neo/lib/modules/control/controllers/lat_based_lqr_plus_controller",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__lat_based_lqr_plus_controller__liblat_plus_controller.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller",
+            "des": "/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/control/controllers/lat_based_lqr_plus_controller",
+            "des": "/opt/apollo/neo/include/modules/control/controllers/lat_based_lqr_plus_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/control/controllers/lat_based_lqr_plus_controller",
+            "des": "/opt/apollo/neo/lib/modules/control/controllers/lat_based_lqr_plus_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/control/controllers/lat_based_lqr_plus_controller",
+            "des": "/opt/apollo/neo/python/modules/control/controllers/lat_based_lqr_plus_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/control/controllers/lat_based_lqr_plus_controller",
+            "des": "/opt/apollo/neo/src/modules/control/controllers/lat_based_lqr_plus_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/control-controller-lat-based-lqr-plus-controller",
+            "des": "/opt/apollo/neo/share/packages/control-controller-lat-based-lqr-plus-controller"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/control/controllers/lat_based_lqr_plus_controller",
+            "des": "/opt/apollo/neo/lib/modules/control/controllers/lat_based_lqr_plus_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__lat_based_lqr_plus_controller__liblat_plus_controller.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__lat_based_lqr_plus_controller__liblat_plus_controller.so"
+        }
+    ],
+    "type": "neo"
+}

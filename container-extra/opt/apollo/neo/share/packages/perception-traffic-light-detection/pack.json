@@ -1,0 +1,63 @@
+{
+    "name": "perception-traffic-light-detection",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-traffic-light-detection module.",
+    "deps": [
+        "cyber",
+        "perception-common",
+        "perception-model-tl-detection-caffe",
+        "perception-model-tl-detection-yolox",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/traffic_light_detection/data/detection_caffe.pb.txt' ]; then mkdir -p '/apollo/modules/perception/traffic_light_detection/data' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_detection/data/detection_caffe.pb.txt' '/apollo/modules/perception/traffic_light_detection/data/detection_caffe.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_detection/data/detection_yolox.pb.txt' ]; then mkdir -p '/apollo/modules/perception/traffic_light_detection/data' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_detection/data/detection_yolox.pb.txt' '/apollo/modules/perception/traffic_light_detection/data/detection_yolox.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_detection/dag/traffic_light_detection_yolox.dag' ]; then mkdir -p '/apollo/modules/perception/traffic_light_detection/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_detection/dag/traffic_light_detection_yolox.dag' '/apollo/modules/perception/traffic_light_detection/dag/traffic_light_detection_yolox.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_detection/dag/traffic_light_detection.dag' ]; then mkdir -p '/apollo/modules/perception/traffic_light_detection/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_detection/dag/traffic_light_detection.dag' '/apollo/modules/perception/traffic_light_detection/dag/traffic_light_detection.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_detection/launch/traffic_light_detection_yolox.launch' ]; then mkdir -p '/apollo/modules/perception/traffic_light_detection/launch' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_detection/launch/traffic_light_detection_yolox.launch' '/apollo/modules/perception/traffic_light_detection/launch/traffic_light_detection_yolox.launch'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_detection/launch/traffic_light_detection.launch' ]; then mkdir -p '/apollo/modules/perception/traffic_light_detection/launch' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_detection/launch/traffic_light_detection.launch' '/apollo/modules/perception/traffic_light_detection/launch/traffic_light_detection.launch'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_detection/conf/traffic_light_detection_yolox_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/traffic_light_detection/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_detection/conf/traffic_light_detection_yolox_config.pb.txt' '/apollo/modules/perception/traffic_light_detection/conf/traffic_light_detection_yolox_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_detection/conf/traffic_light_detection_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/traffic_light_detection/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_detection/conf/traffic_light_detection_config.pb.txt' '/apollo/modules/perception/traffic_light_detection/conf/traffic_light_detection_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/traffic_light_detection",
+        "rm -rf /opt/apollo/neo/include/modules/perception/traffic_light_detection",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/traffic_light_detection",
+        "rm -rf /opt/apollo/neo/python/modules/perception/traffic_light_detection",
+        "rm -rf /opt/apollo/neo/src/modules/perception/traffic_light_detection",
+        "rm -rf /opt/apollo/neo/share/packages/perception-traffic-light-detection"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/traffic_light_detection",
+            "des": "/opt/apollo/neo/share/modules/perception/traffic_light_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/traffic_light_detection",
+            "des": "/opt/apollo/neo/include/modules/perception/traffic_light_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/traffic_light_detection",
+            "des": "/opt/apollo/neo/lib/modules/perception/traffic_light_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/perception/traffic_light_detection",
+            "des": "/opt/apollo/neo/python/modules/perception/traffic_light_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/traffic_light_detection",
+            "des": "/opt/apollo/neo/src/modules/perception/traffic_light_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-traffic-light-detection",
+            "des": "/opt/apollo/neo/share/packages/perception-traffic-light-detection"
+        }
+    ],
+    "type": "neo"
+}

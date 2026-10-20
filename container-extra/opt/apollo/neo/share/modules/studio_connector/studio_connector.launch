@@ -1,0 +1,7 @@
+<cyber>
+    <module extra_args="--disable_plugin_autoload">
+        <name>studio_connector</name>
+        <dag_conf>modules/studio_connector/studio_connector.dag</dag_conf>
+        <process_name></process_name>
+    </module>
+</cyber>

@@ -1,0 +1,3 @@
+<library path="modules/dreamview_plus_plugins/map_creator_tool/libdv_map_creator_plugin.so">
+    <class type="apollo::dreamview::MapCreatorPlugin" base_class="apollo::dreamview::DvPluginBase"></class>
+</library>

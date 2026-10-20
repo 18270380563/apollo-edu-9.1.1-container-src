@@ -1,0 +1,43 @@
+{
+    "name": "planning-interface-base",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-interface-base module.",
+    "deps": [
+        "planning-base"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/planning_interface_base",
+        "rm -rf /opt/apollo/neo/include/modules/planning/planning_interface_base",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/planning_interface_base",
+        "rm -rf /opt/apollo/neo/python/modules/planning/planning_interface_base",
+        "rm -rf /opt/apollo/neo/src/modules/planning/planning_interface_base",
+        "rm -rf /opt/apollo/neo/share/packages/planning-interface-base"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/planning_interface_base",
+            "des": "/opt/apollo/neo/include/modules/planning/planning_interface_base"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/planning_interface_base",
+            "des": "/opt/apollo/neo/lib/modules/planning/planning_interface_base"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/planning_interface_base",
+            "des": "/opt/apollo/neo/python/modules/planning/planning_interface_base"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/planning_interface_base",
+            "des": "/opt/apollo/neo/src/modules/planning/planning_interface_base"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-interface-base",
+            "des": "/opt/apollo/neo/share/packages/planning-interface-base"
+        }
+    ],
+    "type": "neo"
+}

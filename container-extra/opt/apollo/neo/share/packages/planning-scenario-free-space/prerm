@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/planning/scenarios/free_space
+rm -rf /opt/apollo/neo/include/modules/planning/scenarios/free_space
+rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/free_space
+rm -rf /opt/apollo/neo/python/modules/planning/scenarios/free_space
+rm -rf /opt/apollo/neo/src/modules/planning/scenarios/free_space
+rm -rf /opt/apollo/neo/share/packages/planning-scenario-free-space
+rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/free_space
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__free_space__libfree_space_scenario.so

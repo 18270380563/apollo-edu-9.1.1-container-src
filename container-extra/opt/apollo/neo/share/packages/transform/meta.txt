@@ -1,0 +1,15 @@
+modules/transform/libapollo_transform.so:lib/modules/transform/libapollo_transform.so
+modules/transform/libDO_NOT_IMPORT_static_transform_component.so:lib/modules/transform/libDO_NOT_IMPORT_static_transform_component.so
+modules/transform/libstatic_transform_component.so:lib/modules/transform/libstatic_transform_component.so
+modules/transform/conf/static_transform_conf.pb.txt:share/modules/transform/conf/static_transform_conf.pb.txt
+modules/transform/dag/static_transform.dag:share/modules/transform/dag/static_transform.dag
+modules/transform/launch/static_transform.launch:share/modules/transform/launch/static_transform.launch
+modules/transform/cyberfile.xml:modules/transform/cyberfile.xml
+modules/transform/proto/static_transform_conf.pb.h:include/modules/transform/proto/static_transform_conf.pb.h
+modules/transform/proto/static_transform_conf.pb.cc:include/modules/transform/proto/static_transform_conf.pb.cc
+modules/transform/proto/lib_static_transform_conf_proto.a:include/modules/transform/proto/lib_static_transform_conf_proto.a
+modules/transform/proto/lib_static_transform_conf_proto.pic.a:include/modules/transform/proto/lib_static_transform_conf_proto.pic.a
+modules/transform/proto/lib_static_transform_conf_proto.so:include/modules/transform/proto/lib_static_transform_conf_proto.so
+modules/transform/proto/static_transform_conf_pb2.py:python/modules/transform/proto/static_transform_conf_pb2.py
+modules/transform/proto/lib_static_transform_conf_proto_mtp_bin.so:lib/modules/transform/proto/lib_static_transform_conf_proto_mtp_bin.so
+src_path:modules/transform

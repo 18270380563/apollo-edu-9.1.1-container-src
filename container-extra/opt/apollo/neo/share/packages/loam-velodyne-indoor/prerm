@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/loam_velodyne_indoor
+rm -rf /opt/apollo/neo/include/modules/loam_velodyne_indoor
+rm -rf /opt/apollo/neo/lib/modules/loam_velodyne_indoor
+rm -rf /opt/apollo/neo/python/modules/loam_velodyne_indoor
+rm -rf /opt/apollo/neo/src/modules/loam_velodyne_indoor
+rm -rf /opt/apollo/neo/share/packages/loam-velodyne-indoor

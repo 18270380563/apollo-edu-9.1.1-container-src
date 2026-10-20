@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/planning/planning_interface_base
+rm -rf /opt/apollo/neo/include/modules/planning/planning_interface_base
+rm -rf /opt/apollo/neo/lib/modules/planning/planning_interface_base
+rm -rf /opt/apollo/neo/python/modules/planning/planning_interface_base
+rm -rf /opt/apollo/neo/src/modules/planning/planning_interface_base
+rm -rf /opt/apollo/neo/share/packages/planning-interface-base

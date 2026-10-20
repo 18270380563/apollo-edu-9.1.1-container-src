@@ -1,0 +1,7 @@
+modules/perception/data/models/mask_pillars_torch/BUILD:share/modules/perception/data/models/mask_pillars_torch/BUILD
+modules/perception/data/models/mask_pillars_torch/README:share/modules/perception/data/models/mask_pillars_torch/README
+modules/perception/data/models/mask_pillars_torch/apollo_deploy.yaml:share/modules/perception/data/models/mask_pillars_torch/apollo_deploy.yaml
+modules/perception/data/models/mask_pillars_torch/cyberfile.xml:share/modules/perception/data/models/mask_pillars_torch/cyberfile.xml
+modules/perception/data/models/mask_pillars_torch/maskpillars.zip:share/modules/perception/data/models/mask_pillars_torch/maskpillars.zip
+modules/perception/data/models/mask_pillars_torch/cyberfile.xml:modules/perception/data/models/mask_pillars_torch/cyberfile.xml
+src_path:modules/perception/data/models/mask_pillars_torch

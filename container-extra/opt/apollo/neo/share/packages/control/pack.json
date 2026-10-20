@@ -1,0 +1,111 @@
+{
+    "name": "control",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo control module.",
+    "deps": [
+        "cyber",
+        "common",
+        "common-msgs",
+        "3rd-gflags",
+        "3rd-gtest",
+        "3rd-eigen3",
+        "3rd-absl",
+        "3rd-osqp",
+        "bazel-extend-tools",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-bazel-skylib",
+        "3rd-rules-proto",
+        "3rd-py"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/control/control_component/launch/control_mpc_control.launch' ]; then mkdir -p '/apollo/modules/control/control_component/launch' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/launch/control_mpc_control.launch' '/apollo/modules/control/control_component/launch/control_mpc_control.launch'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/launch/control.launch' ]; then mkdir -p '/apollo/modules/control/control_component/launch' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/launch/control.launch' '/apollo/modules/control/control_component/launch/control.launch'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/launch/control_lateral_longitudinal_control.launch' ]; then mkdir -p '/apollo/modules/control/control_component/launch' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/launch/control_lateral_longitudinal_control.launch' '/apollo/modules/control/control_component/launch/control_lateral_longitudinal_control.launch'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/conf/control.conf' ]; then mkdir -p '/apollo/modules/control/control_component/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/conf/control.conf' '/apollo/modules/control/control_component/conf/control.conf'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/conf/calibration_table.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/conf/calibration_table.pb.txt' '/apollo/modules/control/control_component/conf/calibration_table.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/conf/pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/conf/pipeline.pb.txt' '/apollo/modules/control/control_component/conf/pipeline.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/control_tester/localization.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/control_tester' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/control_tester/localization.pb.txt' '/apollo/modules/control/control_component/testdata/control_tester/localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/control_tester/planning.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/control_tester' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/control_tester/planning.pb.txt' '/apollo/modules/control/control_component/testdata/control_tester/planning.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/control_tester/pad_msg.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/control_tester' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/control_tester/pad_msg.pb.txt' '/apollo/modules/control/control_component/testdata/control_tester/pad_msg.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/control_tester/chassis.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/control_tester' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/control_tester/chassis.pb.txt' '/apollo/modules/control/control_component/testdata/control_tester/chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/simple_control_test/1_monitor.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/simple_control_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/simple_control_test/1_monitor.pb.txt' '/apollo/modules/control/control_component/testdata/simple_control_test/1_monitor.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/simple_control_test/result_pad_reset_0.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/simple_control_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/simple_control_test/result_pad_reset_0.pb.txt' '/apollo/modules/control/control_component/testdata/simple_control_test/result_pad_reset_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/simple_control_test/1_localization.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/simple_control_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/simple_control_test/1_localization.pb.txt' '/apollo/modules/control/control_component/testdata/simple_control_test/1_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/simple_control_test/2_pad.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/simple_control_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/simple_control_test/2_pad.pb.txt' '/apollo/modules/control/control_component/testdata/simple_control_test/2_pad.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/simple_control_test/result_monitor_fatal_0.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/simple_control_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/simple_control_test/result_monitor_fatal_0.pb.txt' '/apollo/modules/control/control_component/testdata/simple_control_test/result_monitor_fatal_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/simple_control_test/1_pad.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/simple_control_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/simple_control_test/1_pad.pb.txt' '/apollo/modules/control/control_component/testdata/simple_control_test/1_pad.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/simple_control_test/result_simple_test_0.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/simple_control_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/simple_control_test/result_simple_test_0.pb.txt' '/apollo/modules/control/control_component/testdata/simple_control_test/result_simple_test_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/simple_control_test/result_state_exact_match_0.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/simple_control_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/simple_control_test/result_state_exact_match_0.pb.txt' '/apollo/modules/control/control_component/testdata/simple_control_test/result_state_exact_match_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/simple_control_test/1_planning.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/simple_control_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/simple_control_test/1_planning.pb.txt' '/apollo/modules/control/control_component/testdata/simple_control_test/1_planning.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/simple_control_test/1_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/simple_control_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/simple_control_test/1_chassis.pb.txt' '/apollo/modules/control/control_component/testdata/simple_control_test/1_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/leadlag_speed_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/leadlag_speed_conf.pb.txt' '/apollo/modules/control/control_component/testdata/conf/leadlag_speed_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/station_pid_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/station_pid_conf.pb.txt' '/apollo/modules/control/control_component/testdata/conf/station_pid_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/mrac_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/mrac_conf.pb.txt' '/apollo/modules/control/control_component/testdata/conf/mrac_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/leadlag_station_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/leadlag_station_conf.pb.txt' '/apollo/modules/control/control_component/testdata/conf/leadlag_station_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/speed_pid_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/speed_pid_conf.pb.txt' '/apollo/modules/control/control_component/testdata/conf/speed_pid_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/control_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/control_conf.pb.txt' '/apollo/modules/control/control_component/testdata/conf/control_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/control_conf_lite.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/control_conf_lite.pb.txt' '/apollo/modules/control/control_component/testdata/conf/control_conf_lite.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/pipeline.pb.txt' '/apollo/modules/control/control_component/testdata/conf/pipeline.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/plugins/lon_based_pid_controller/plugins.xml' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf/plugins/lon_based_pid_controller' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/plugins/lon_based_pid_controller/plugins.xml' '/apollo/modules/control/control_component/testdata/conf/plugins/lon_based_pid_controller/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/plugins/lon_based_pid_controller/conf/controller_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf/plugins/lon_based_pid_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/plugins/lon_based_pid_controller/conf/controller_conf.pb.txt' '/apollo/modules/control/control_component/testdata/conf/plugins/lon_based_pid_controller/conf/controller_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/plugins/lat_based_lqr_controller/plugins.xml' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf/plugins/lat_based_lqr_controller' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/plugins/lat_based_lqr_controller/plugins.xml' '/apollo/modules/control/control_component/testdata/conf/plugins/lat_based_lqr_controller/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/conf/plugins/lat_based_lqr_controller/conf/controller_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/conf/plugins/lat_based_lqr_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/conf/plugins/lat_based_lqr_controller/conf/controller_conf.pb.txt' '/apollo/modules/control/control_component/testdata/conf/plugins/lat_based_lqr_controller/conf/controller_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/relative_position_test/0_apollo_localization_pose.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/relative_position_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/relative_position_test/0_apollo_localization_pose.pb.txt' '/apollo/modules/control/control_component/testdata/relative_position_test/0_apollo_localization_pose.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/relative_position_test/0_apollo_planning.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/relative_position_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/relative_position_test/0_apollo_planning.pb.txt' '/apollo/modules/control/control_component/testdata/relative_position_test/0_apollo_planning.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/relative_position_test/0_apollo_canbus_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/relative_position_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/relative_position_test/0_apollo_canbus_chassis.pb.txt' '/apollo/modules/control/control_component/testdata/relative_position_test/0_apollo_canbus_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/relative_position_test/0_pad.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/relative_position_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/relative_position_test/0_pad.pb.txt' '/apollo/modules/control/control_component/testdata/relative_position_test/0_pad.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/testdata/relative_position_test/result_simple_left_0.pb.txt' ]; then mkdir -p '/apollo/modules/control/control_component/testdata/relative_position_test' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/testdata/relative_position_test/result_simple_left_0.pb.txt' '/apollo/modules/control/control_component/testdata/relative_position_test/result_simple_left_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/dag/control.dag' ]; then mkdir -p '/apollo/modules/control/control_component/dag' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/dag/control.dag' '/apollo/modules/control/control_component/dag/control.dag'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/dag/lateral_longitudinal_module.dag' ]; then mkdir -p '/apollo/modules/control/control_component/dag' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/dag/lateral_longitudinal_module.dag' '/apollo/modules/control/control_component/dag/lateral_longitudinal_module.dag'; fi",
+        "if [ ! -e '/apollo/modules/control/control_component/dag/mpc_module.dag' ]; then mkdir -p '/apollo/modules/control/control_component/dag' && ln -snf '/opt/apollo/neo/share/modules/control/control_component/dag/mpc_module.dag' '/apollo/modules/control/control_component/dag/mpc_module.dag'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/control/control_component",
+        "rm -rf /opt/apollo/neo/include/modules/control/control_component",
+        "rm -rf /opt/apollo/neo/lib/modules/control/control_component",
+        "rm -rf /opt/apollo/neo/python/modules/control/control_component",
+        "rm -rf /opt/apollo/neo/src/modules/control/control_component",
+        "rm -rf /opt/apollo/neo/share/packages/control",
+        "rm -rf /opt/apollo/neo//bin/control_tester",
+        "rm -rf /opt/apollo/neo//bin/pad_terminal"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/control/control_component",
+            "des": "/opt/apollo/neo/share/modules/control/control_component"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/control/control_component",
+            "des": "/opt/apollo/neo/include/modules/control/control_component"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/control/control_component",
+            "des": "/opt/apollo/neo/lib/modules/control/control_component"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/control/control_component",
+            "des": "/opt/apollo/neo/python/modules/control/control_component"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/control/control_component",
+            "des": "/opt/apollo/neo/src/modules/control/control_component"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/control",
+            "des": "/opt/apollo/neo/share/packages/control"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/control_tester",
+            "des": "/opt/apollo/neo//bin/control_tester"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/pad_terminal",
+            "des": "/opt/apollo/neo//bin/pad_terminal"
+        }
+    ],
+    "type": "neo"
+}

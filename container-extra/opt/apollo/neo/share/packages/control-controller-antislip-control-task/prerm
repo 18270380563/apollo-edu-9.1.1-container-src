@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/control/controllers/slope_anti_slip_control_task
+rm -rf /opt/apollo/neo/include/modules/control/controllers/slope_anti_slip_control_task
+rm -rf /opt/apollo/neo/lib/modules/control/controllers/slope_anti_slip_control_task
+rm -rf /opt/apollo/neo/python/modules/control/controllers/slope_anti_slip_control_task
+rm -rf /opt/apollo/neo/src/modules/control/controllers/slope_anti_slip_control_task
+rm -rf /opt/apollo/neo/share/packages/control-controller-antislip-control-task
+rm -rf /opt/apollo/neo/lib/modules/control/controllers/slope_anti_slip_control_task
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__slope_anti_slip_control_task__libanti_slip_control_task.so

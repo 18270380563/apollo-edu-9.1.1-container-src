@@ -1,0 +1,10 @@
+modules/perception/data/models/cnnseg16_caffe/BUILD:share/modules/perception/data/models/cnnseg16_caffe/BUILD
+modules/perception/data/models/cnnseg16_caffe/README:share/modules/perception/data/models/cnnseg16_caffe/README
+modules/perception/data/models/cnnseg16_caffe/apollo_deploy.yaml:share/modules/perception/data/models/cnnseg16_caffe/apollo_deploy.yaml
+modules/perception/data/models/cnnseg16_caffe/cyberfile.xml:share/modules/perception/data/models/cnnseg16_caffe/cyberfile.xml
+modules/perception/data/models/cnnseg16_caffe/deploy.caffemodel:share/modules/perception/data/models/cnnseg16_caffe/deploy.caffemodel
+modules/perception/data/models/cnnseg16_caffe/deploy.caffemodel.metadata:share/modules/perception/data/models/cnnseg16_caffe/deploy.caffemodel.metadata
+modules/perception/data/models/cnnseg16_caffe/deploy.prototxt:share/modules/perception/data/models/cnnseg16_caffe/deploy.prototxt
+modules/perception/data/models/cnnseg16_caffe/engine.conf:share/modules/perception/data/models/cnnseg16_caffe/engine.conf
+modules/perception/data/models/cnnseg16_caffe/cyberfile.xml:modules/perception/data/models/cnnseg16_caffe/cyberfile.xml
+src_path:modules/perception/data/models/cnnseg16_caffe

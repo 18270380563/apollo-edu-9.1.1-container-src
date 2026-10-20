@@ -1,0 +1,21 @@
+<package format="2">
+  <name>hg-exporter</name>
+  <version>9.1.1</version>
+  <description>
+    Apollo hg-exporter module.
+  </description>
+
+  <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+  <license>Apache License 2.0</license>
+  <url type="website">https://www.apollo.auto/</url>
+  <url type="repository">https://github.com/ApolloAuto/apollo</url>
+  <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+
+  <type>module</type>
+  <src_path url="https://github.com/ApolloAuto/apollo">//modules/hg_exporter</src_path>
+
+  <depend repo_name="cyber" type="binary">cyber</depend>
+  <depend lib_names="common-msgs" repo_name="common-msgs" type="binary">common-msgs</depend>
+  <depend repo_name="canbus-vehiclekit" type="binary">canbus-vehiclekit</depend>
+  <depend>bazel-extend-tools</depend>
+</package>

@@ -1,0 +1,66 @@
+{
+    "name": "perception-pointcloud-ground-detection",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-pointcloud-ground-detection module.",
+    "deps": [
+        "cyber",
+        "common",
+        "perception-common",
+        "3rd-eigen3",
+        "3rd-pcl",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/pointcloud_ground_detection/data/ground_service_detector.pb.txt' ]; then mkdir -p '/apollo/modules/perception/pointcloud_ground_detection/data' && ln -snf '/opt/apollo/neo/share/modules/perception/pointcloud_ground_detection/data/ground_service_detector.pb.txt' '/apollo/modules/perception/pointcloud_ground_detection/data/ground_service_detector.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/pointcloud_ground_detection/data/spatio_temporal_ground_detector.pb.txt' ]; then mkdir -p '/apollo/modules/perception/pointcloud_ground_detection/data' && ln -snf '/opt/apollo/neo/share/modules/perception/pointcloud_ground_detection/data/spatio_temporal_ground_detector.pb.txt' '/apollo/modules/perception/pointcloud_ground_detection/data/spatio_temporal_ground_detector.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/pointcloud_ground_detection/dag/pointcloud_ground_detection.dag' ]; then mkdir -p '/apollo/modules/perception/pointcloud_ground_detection/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/pointcloud_ground_detection/dag/pointcloud_ground_detection.dag' '/apollo/modules/perception/pointcloud_ground_detection/dag/pointcloud_ground_detection.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/pointcloud_ground_detection/launch/pointcloud_ground_detection.launch' ]; then mkdir -p '/apollo/modules/perception/pointcloud_ground_detection/launch' && ln -snf '/opt/apollo/neo/share/modules/perception/pointcloud_ground_detection/launch/pointcloud_ground_detection.launch' '/apollo/modules/perception/pointcloud_ground_detection/launch/pointcloud_ground_detection.launch'; fi",
+        "if [ ! -e '/apollo/modules/perception/pointcloud_ground_detection/conf/pointcloud_ground_detection_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/pointcloud_ground_detection/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/pointcloud_ground_detection/conf/pointcloud_ground_detection_config.pb.txt' '/apollo/modules/perception/pointcloud_ground_detection/conf/pointcloud_ground_detection_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/pointcloud_ground_detection",
+        "rm -rf /opt/apollo/neo/include/modules/perception/pointcloud_ground_detection",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/pointcloud_ground_detection",
+        "rm -rf /opt/apollo/neo/python/modules/perception/pointcloud_ground_detection",
+        "rm -rf /opt/apollo/neo/src/modules/perception/pointcloud_ground_detection",
+        "rm -rf /opt/apollo/neo/share/packages/perception-pointcloud-ground-detection",
+        "rm -rf /opt/apollo/neo//bin/offline_pointcloud_ground_detection"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/pointcloud_ground_detection",
+            "des": "/opt/apollo/neo/share/modules/perception/pointcloud_ground_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/pointcloud_ground_detection",
+            "des": "/opt/apollo/neo/include/modules/perception/pointcloud_ground_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/pointcloud_ground_detection",
+            "des": "/opt/apollo/neo/lib/modules/perception/pointcloud_ground_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/perception/pointcloud_ground_detection",
+            "des": "/opt/apollo/neo/python/modules/perception/pointcloud_ground_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/pointcloud_ground_detection",
+            "des": "/opt/apollo/neo/src/modules/perception/pointcloud_ground_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-pointcloud-ground-detection",
+            "des": "/opt/apollo/neo/share/packages/perception-pointcloud-ground-detection"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/offline_pointcloud_ground_detection",
+            "des": "/opt/apollo/neo//bin/offline_pointcloud_ground_detection"
+        }
+    ],
+    "type": "neo"
+}

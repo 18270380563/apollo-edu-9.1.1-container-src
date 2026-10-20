@@ -1,0 +1,7 @@
+modules/statistics/resource/libDO_NOT_IMPORT_resource_statistic_component.so:lib/modules/statistics/resource/libDO_NOT_IMPORT_resource_statistic_component.so
+modules/statistics/resource/libresource_statistic_component.so:lib/modules/statistics/resource/libresource_statistic_component.so
+modules/statistics/resource/conf/resource_statistic_conf.pb.txt:share/modules/statistics/resource/conf/resource_statistic_conf.pb.txt
+modules/statistics/resource/conf/resource_statistic_gflags.conf:share/modules/statistics/resource/conf/resource_statistic_gflags.conf
+modules/statistics/resource/dag/resource_statistic.dag:share/modules/statistics/resource/dag/resource_statistic.dag
+modules/statistics/resource/cyberfile.xml:modules/statistics/resource/cyberfile.xml
+src_path:modules/statistics/resource

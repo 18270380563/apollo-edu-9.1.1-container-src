@@ -1,0 +1,39 @@
+<package format="2">
+  <name>tile-map-images-creator</name>
+  <version>9.1.1</version>
+  <description>
+    The tile map images creator program.
+  </description>
+
+  <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+  <license>Apache License 2.0</license>
+  <url type="website">https://www.apollo.auto/</url>
+  <url type="repository">https://github.com/ApolloAuto/apollo</url>
+  <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+
+  <depend lib_names="gflags" repo_name="com_github_gflags_gflags">3rd-gflags</depend>
+  <depend lib_names="glog" repo_name="com_github_google_glog">3rd-glog</depend>
+  <depend lib_names="yaml-cpp" repo_name="com_github_jbeder_yaml_cpp">3rd-yaml-cpp</depend>
+  <depend repo_name="boost">3rd-boost</depend>
+  <depend lib_names="gtest,gtest_main" repo_name="com_google_googletest">3rd-gtest</depend>
+  <depend expose="False">3rd-pcl</depend>
+  <depend repo_name="eigen">3rd-eigen3</depend>
+  <depend lib_names="absl" repo_name="com_google_absl">3rd-absl</depend>
+  <depend lib_names="core,highgui,imgproc,imgcodecs" repo_name="opencv">3rd-opencv</depend>
+  <depend lib_names="common" repo_name="common" type="binary">common</depend>
+  <depend lib_names="common-msgs" repo_name="common-msgs" type="binary">common-msgs</depend>
+  <depend repo_name="cyber" type="binary">cyber</depend>
+  <depend lib_names="transform" repo_name="transform" type="binary">transform</depend>
+  <depend lib_names="gtest,gtest_main" repo_name="com_google_googletest">3rd-gtest</depend>
+
+
+  <depend expose="False">3rd-rules-python</depend>
+  <depend expose="False">3rd-grpc</depend>
+  <depend expose="False">3rd-bazel-skylib</depend>
+  <depend expose="False">3rd-rules-proto</depend>
+  <depend expose="False">3rd-py</depend>
+
+  <type>module</type>
+  <src_path url="https://github.com/ApolloAuto/apollo">//modules/private_tools/tile_map_images_creator</src_path>
+
+</package>

@@ -1,0 +1,105 @@
+# !/bin/sh
+APOLLO_PATH='/opt/apollo/neo/'
+PACKAGE_NAME='prediction'
+PACKAGE_NAME_WITH_VER='prediction/9.1.1'
+INCLUDE_PATH=''
+echo "[INFO] start to create symbolic links of ${PACKAGE_NAME}"
+echo '[WARN] the links of pre-version will be overwrited!'
+
+mkdir -p ${APOLLO_PATH}bin
+mkdir -p ${APOLLO_PATH}include
+mkdir -p ${APOLLO_PATH}lib
+
+chmod a+rw ${APOLLO_PATH}bin ${APOLLO_PATH}include ${APOLLO_PATH}lib ${APOLLO_PATH}packages
+
+if [ ! -d ${APOLLO_PATH}/share/packages/${PACKAGE_NAME} ]
+then
+    ln -snf ${APOLLO_PATH}packages/${PACKAGE_NAME_WITH_VER} ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest
+
+    if [ "${INCLUDE_PATH}" = "" ]
+    then
+        ori_inc_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include"
+        if [ -d ${ori_inc_path} ]
+        then
+            for file in $(ls ${ori_inc_path})
+            do
+                if [ -d ${ori_inc_path}"/"${file} ]
+                then
+                    ln -snf ${ori_inc_path}"/"${file} "${APOLLO_PATH}include/${file}"
+                fi
+            done
+        fi
+    else
+        if [ $(dirname ${INCLUDE_PATH}) != '.' ]
+        then
+            mkdir -p "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+            chmod a+rw "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+        fi
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include" "${APOLLO_PATH}include/${INCLUDE_PATH}"
+    fi
+
+    if [ -d ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib ]
+    then
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib" "${APOLLO_PATH}lib/${PACKAGE_NAME}"
+    fi
+
+    bin_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/bin"
+    if [ -d ${bin_path} ]
+    then
+        for file in $(ls ${bin_path})
+        do
+            if [ -d ${bin_path}"/"${file} ]
+            then
+                continue
+            else
+                ln -snf "${bin_path}/${file}" "${APOLLO_PATH}bin/${file}"
+            fi
+        done
+    fi
+fi
+
+if [ ! -e '/apollo/modules/prediction/dag/prediction_lego.dag' ]; then mkdir -p '/apollo/modules/prediction/dag' && ln -snf '/opt/apollo/neo/share/modules/prediction/dag/prediction_lego.dag' '/apollo/modules/prediction/dag/prediction_lego.dag'; fi
+if [ ! -e '/apollo/modules/prediction/dag/prediction_navi.dag' ]; then mkdir -p '/apollo/modules/prediction/dag' && ln -snf '/opt/apollo/neo/share/modules/prediction/dag/prediction_navi.dag' '/apollo/modules/prediction/dag/prediction_navi.dag'; fi
+if [ ! -e '/apollo/modules/prediction/dag/prediction.dag' ]; then mkdir -p '/apollo/modules/prediction/dag' && ln -snf '/opt/apollo/neo/share/modules/prediction/dag/prediction.dag' '/apollo/modules/prediction/dag/prediction.dag'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/single_perception_cyclist_onlane.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/testdata' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/single_perception_cyclist_onlane.pb.txt' '/apollo/modules/prediction/testdata/single_perception_cyclist_onlane.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/multiple_perception_pedestrians.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/testdata' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/multiple_perception_pedestrians.pb.txt' '/apollo/modules/prediction/testdata/multiple_perception_pedestrians.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/perception_vehicles_pedestrians.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/testdata' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/perception_vehicles_pedestrians.pb.txt' '/apollo/modules/prediction/testdata/perception_vehicles_pedestrians.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/single_perception_vehicle_onlane.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/testdata' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/single_perception_vehicle_onlane.pb.txt' '/apollo/modules/prediction/testdata/single_perception_vehicle_onlane.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/single_perception_vehicle_injunction.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/testdata' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/single_perception_vehicle_injunction.pb.txt' '/apollo/modules/prediction/testdata/single_perception_vehicle_injunction.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/single_perception_vehicle_offlane.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/testdata' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/single_perception_vehicle_offlane.pb.txt' '/apollo/modules/prediction/testdata/single_perception_vehicle_offlane.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/kml_map.bin' ]; then mkdir -p '/apollo/modules/prediction/testdata' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/kml_map.bin' '/apollo/modules/prediction/testdata/kml_map.bin'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/prediction_conf.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/testdata' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/prediction_conf.pb.txt' '/apollo/modules/prediction/testdata/prediction_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/adapter_conf.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/testdata' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/adapter_conf.pb.txt' '/apollo/modules/prediction/testdata/adapter_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/frame_sequence/frame_2.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/testdata/frame_sequence' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/frame_sequence/frame_2.pb.txt' '/apollo/modules/prediction/testdata/frame_sequence/frame_2.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/frame_sequence/frame_1.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/testdata/frame_sequence' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/frame_sequence/frame_1.pb.txt' '/apollo/modules/prediction/testdata/frame_sequence/frame_1.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/testdata/frame_sequence/frame_3.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/testdata/frame_sequence' && ln -snf '/opt/apollo/neo/share/modules/prediction/testdata/frame_sequence/frame_3.pb.txt' '/apollo/modules/prediction/testdata/frame_sequence/frame_3.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/launch/prediction.launch' ]; then mkdir -p '/apollo/modules/prediction/launch' && ln -snf '/opt/apollo/neo/share/modules/prediction/launch/prediction.launch' '/apollo/modules/prediction/launch/prediction.launch'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu/plugins.xml' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu/plugins.xml' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu/plugins.xml'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu/data/semantic_lstm_vehicle_cpu_model.pt' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu/data' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu/data/semantic_lstm_vehicle_cpu_model.pt' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu/data/semantic_lstm_vehicle_cpu_model.pt'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu/conf/default_conf.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu/conf' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu/conf/default_conf.pb.txt' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu/conf/default_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_pedestrian_torch_gpu/plugins.xml' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_pedestrian_torch_gpu' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/multi_agent_pedestrian_torch_gpu/plugins.xml' '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_pedestrian_torch_gpu/plugins.xml'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_pedestrian_torch_cpu/plugins.xml' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_pedestrian_torch_cpu' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/multi_agent_pedestrian_torch_cpu/plugins.xml' '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_pedestrian_torch_cpu/plugins.xml'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_vehicle_torch_cpu/plugins.xml' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_vehicle_torch_cpu' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/multi_agent_vehicle_torch_cpu/plugins.xml' '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_vehicle_torch_cpu/plugins.xml'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_vehicle_torch_gpu/plugins.xml' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_vehicle_torch_gpu' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/multi_agent_vehicle_torch_gpu/plugins.xml' '/apollo/modules/prediction/evaluator/model_manager/model/multi_agent_vehicle_torch_gpu/plugins.xml'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu/plugins.xml' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu/plugins.xml' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu/plugins.xml'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu/data/semantic_lstm_vehicle_model.pt' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu/data' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu/data/semantic_lstm_vehicle_model.pt' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu/data/semantic_lstm_vehicle_model.pt'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu/conf/default_conf.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu/conf' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu/conf/default_conf.pb.txt' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu/conf/default_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu/plugins.xml' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu/plugins.xml' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu/plugins.xml'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu/data/semantic_lstm_pedestrian_model.pt' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu/data' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu/data/semantic_lstm_pedestrian_model.pt' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu/data/semantic_lstm_pedestrian_model.pt'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu/conf/default_conf.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu/conf' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu/conf/default_conf.pb.txt' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu/conf/default_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu/plugins.xml' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu/plugins.xml' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu/plugins.xml'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu/data/semantic_lstm_pedestrian_cpu_model.pt' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu/data' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu/data/semantic_lstm_pedestrian_cpu_model.pt' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu/data/semantic_lstm_pedestrian_cpu_model.pt'; fi
+if [ ! -e '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu/conf/default_conf.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu/conf' && ln -snf '/opt/apollo/neo/share/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu/conf/default_conf.pb.txt' '/apollo/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu/conf/default_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/conf/prediction.conf' ]; then mkdir -p '/apollo/modules/prediction/conf' && ln -snf '/opt/apollo/neo/share/modules/prediction/conf/prediction.conf' '/apollo/modules/prediction/conf/prediction.conf'; fi
+if [ ! -e '/apollo/modules/prediction/conf/offline_prediction.conf' ]; then mkdir -p '/apollo/modules/prediction/conf' && ln -snf '/opt/apollo/neo/share/modules/prediction/conf/offline_prediction.conf' '/apollo/modules/prediction/conf/offline_prediction.conf'; fi
+if [ ! -e '/apollo/modules/prediction/conf/adapter.conf' ]; then mkdir -p '/apollo/modules/prediction/conf' && ln -snf '/opt/apollo/neo/share/modules/prediction/conf/adapter.conf' '/apollo/modules/prediction/conf/adapter.conf'; fi
+if [ ! -e '/apollo/modules/prediction/conf/prediction_navi.conf' ]; then mkdir -p '/apollo/modules/prediction/conf' && ln -snf '/opt/apollo/neo/share/modules/prediction/conf/prediction_navi.conf' '/apollo/modules/prediction/conf/prediction_navi.conf'; fi
+if [ ! -e '/apollo/modules/prediction/conf/prediction_navi_conf.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/conf' && ln -snf '/opt/apollo/neo/share/modules/prediction/conf/prediction_navi_conf.pb.txt' '/apollo/modules/prediction/conf/prediction_navi_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/prediction/conf/prediction_conf.pb.txt' ]; then mkdir -p '/apollo/modules/prediction/conf' && ln -snf '/opt/apollo/neo/share/modules/prediction/conf/prediction_conf.pb.txt' '/apollo/modules/prediction/conf/prediction_conf.pb.txt'; fi
+
+echo "[INFO] symbolic links of ${PACKAGE_NAME} created."
+
+if [ -f "${APOLLO_PATH}update_dylib.sh" ]
+then
+    sh ${APOLLO_PATH}update_dylib.sh
+fi

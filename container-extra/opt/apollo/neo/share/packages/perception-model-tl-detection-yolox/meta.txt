@@ -1,0 +1,6 @@
+modules/perception/data/models/tl_detection_yolox/BUILD:share/modules/perception/data/models/tl_detection_yolox/BUILD
+modules/perception/data/models/tl_detection_yolox/README:share/modules/perception/data/models/tl_detection_yolox/README
+modules/perception/data/models/tl_detection_yolox/cyberfile.xml:share/modules/perception/data/models/tl_detection_yolox/cyberfile.xml
+modules/perception/data/models/tl_detection_yolox/yolox.onnx:share/modules/perception/data/models/tl_detection_yolox/yolox.onnx
+modules/perception/data/models/tl_detection_yolox/cyberfile.xml:modules/perception/data/models/tl_detection_yolox/cyberfile.xml
+src_path:modules/perception/data/models/tl_detection_yolox

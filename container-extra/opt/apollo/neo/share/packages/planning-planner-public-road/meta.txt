@@ -1,0 +1,12 @@
+modules/planning/planners/public_road/conf/planner_config.pb.txt:share/modules/planning/planners/public_road/conf/planner_config.pb.txt
+modules/planning/planners/public_road/libpublic_road_planner.so:lib/modules/planning/planners/public_road/libpublic_road_planner.so
+modules/planning/planners/public_road/cyberfile.xml:modules/planning/planners/public_road/cyberfile.xml
+modules/planning/planners/public_road/plugins.xml:plugin_meta@modules/planning/planners/public_road@plugins.xml
+modules/planning/planners/public_road/proto/planner_config.pb.h:include/modules/planning/planners/public_road/proto/planner_config.pb.h
+modules/planning/planners/public_road/proto/planner_config.pb.cc:include/modules/planning/planners/public_road/proto/planner_config.pb.cc
+modules/planning/planners/public_road/proto/lib_planner_config_proto.a:include/modules/planning/planners/public_road/proto/lib_planner_config_proto.a
+modules/planning/planners/public_road/proto/lib_planner_config_proto.pic.a:include/modules/planning/planners/public_road/proto/lib_planner_config_proto.pic.a
+modules/planning/planners/public_road/proto/lib_planner_config_proto.so:include/modules/planning/planners/public_road/proto/lib_planner_config_proto.so
+modules/planning/planners/public_road/proto/planner_config_pb2.py:python/modules/planning/planners/public_road/proto/planner_config_pb2.py
+modules/planning/planners/public_road/proto/lib_planner_config_proto_mpppp_bin.so:lib/modules/planning/planners/public_road/proto/lib_planner_config_proto_mpppp_bin.so
+src_path:modules/planning/planners/public_road

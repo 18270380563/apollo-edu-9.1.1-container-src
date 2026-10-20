@@ -1,0 +1,61 @@
+{
+    "name": "planning-task-reuse-path",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-task-reuse-path module.",
+    "deps": [
+        "bazel-extend-tools",
+        "planning-interface-base"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/tasks/reuse_path/plugins.xml' ]; then mkdir -p '/apollo/modules/planning/tasks/reuse_path' && ln -snf '/opt/apollo/neo/share/modules/planning/tasks/reuse_path/plugins.xml' '/apollo/modules/planning/tasks/reuse_path/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/planning/tasks/reuse_path/conf/default_conf.pb.txt' ]; then mkdir -p '/apollo/modules/planning/tasks/reuse_path/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/tasks/reuse_path/conf/default_conf.pb.txt' '/apollo/modules/planning/tasks/reuse_path/conf/default_conf.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/tasks/reuse_path",
+        "rm -rf /opt/apollo/neo/include/modules/planning/tasks/reuse_path",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/tasks/reuse_path",
+        "rm -rf /opt/apollo/neo/python/modules/planning/tasks/reuse_path",
+        "rm -rf /opt/apollo/neo/src/modules/planning/tasks/reuse_path",
+        "rm -rf /opt/apollo/neo/share/packages/planning-task-reuse-path",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/tasks/reuse_path",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__reuse_path__libreuse_path.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/tasks/reuse_path",
+            "des": "/opt/apollo/neo/share/modules/planning/tasks/reuse_path"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/tasks/reuse_path",
+            "des": "/opt/apollo/neo/include/modules/planning/tasks/reuse_path"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/tasks/reuse_path",
+            "des": "/opt/apollo/neo/lib/modules/planning/tasks/reuse_path"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/tasks/reuse_path",
+            "des": "/opt/apollo/neo/python/modules/planning/tasks/reuse_path"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/tasks/reuse_path",
+            "des": "/opt/apollo/neo/src/modules/planning/tasks/reuse_path"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-task-reuse-path",
+            "des": "/opt/apollo/neo/share/packages/planning-task-reuse-path"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/tasks/reuse_path",
+            "des": "/opt/apollo/neo/lib/modules/planning/tasks/reuse_path"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__reuse_path__libreuse_path.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__reuse_path__libreuse_path.so"
+        }
+    ],
+    "type": "neo"
+}

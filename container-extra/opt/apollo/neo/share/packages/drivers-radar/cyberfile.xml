@@ -1,0 +1,47 @@
+<package format="2">
+  <name>drivers-radar</name>
+  <version>9.1.1</version>
+  <description>
+    Apollo drivers module.
+  </description>
+
+  <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+  <license>Apache License 2.0</license>
+  <url type="website">https://www.apollo.auto/</url>
+  <url type="repository">https://github.com/ApolloAuto/apollo</url>
+  <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+
+  <depend repo_name="cyber" type="binary">cyber</depend>
+  <depend lib_names="common" repo_name="common" type="binary">common</depend>
+  <depend lib_names="common-msgs" repo_name="common-msgs" type="binary">common-msgs</depend>
+  <depend lib_names="transform" repo_name="transform" type="binary">transform</depend>
+  <depend lib_names="drivers-canbus" repo_name="drivers-canbus" type="binary">drivers-canbus</depend>
+  <depend lib_names="gflags" repo_name="com_github_gflags_gflags">3rd-gflags</depend>
+  <depend lib_names="gtest,gtest_main" repo_name="com_google_googletest">3rd-gtest</depend>
+  <depend repo_name="proj">3rd-proj</depend>
+  <depend repo_name="eigen">3rd-eigen3</depend>
+  <depend lib_names="absl" repo_name="com_google_absl">3rd-absl</depend>
+  <depend lib_names="yaml-cpp" repo_name="com_github_jbeder_yaml_cpp">3rd-yaml-cpp</depend>
+  <depend repo_name="boost">3rd-boost</depend>
+  <depend lib_names="core,highgui,imgproc,imgcodecs" repo_name="opencv">3rd-opencv</depend>
+  <depend lib_names="hermes_can" repo_name="can_card_library" type="binary">3rd-can-card-library</depend>
+  <depend lib_names="smartereye" repo_name="camera_library_dev" type="binary">3rd-camera-library</depend>
+  <depend lib_names="3rd-rtklib" repo_name="3rd-rtklib" type="binary">3rd-rtklib</depend>
+  <depend repo_name="portaudio">3rd-portaudio</depend>
+  <depend lib_names="avcodec,avformat,swscale,avutil" repo_name="ffmpeg">3rd-ffmpeg</depend>
+  <depend lib_names="adv_plat" repo_name="adv_plat">3rd-adv-plat</depend>
+
+  <depend expose="False">3rd-pcl</depend>
+  <depend>libpcap-dev</depend>
+
+  <depend>bazel-extend-tools</depend>
+  <depend expose="False">3rd-rules-python</depend>
+  <depend expose="False">3rd-grpc</depend>
+  <depend expose="False">3rd-bazel-skylib</depend>
+  <depend expose="False">3rd-rules-proto</depend>
+  <depend expose="False">3rd-py</depend>
+
+  <type>module</type>
+  <src_path url="https://github.com/ApolloAuto/apollo">//modules/drivers/radar</src_path>
+
+</package>

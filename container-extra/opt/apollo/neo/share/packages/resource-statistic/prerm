@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/statistics/resource
+rm -rf /opt/apollo/neo/include/modules/statistics/resource
+rm -rf /opt/apollo/neo/lib/modules/statistics/resource
+rm -rf /opt/apollo/neo/python/modules/statistics/resource
+rm -rf /opt/apollo/neo/src/modules/statistics/resource
+rm -rf /opt/apollo/neo/share/packages/resource-statistic

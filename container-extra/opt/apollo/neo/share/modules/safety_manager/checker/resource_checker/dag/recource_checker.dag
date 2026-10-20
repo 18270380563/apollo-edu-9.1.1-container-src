@@ -1,0 +1,19 @@
+module_config {
+    module_library : "modules/safety_manager/checker/resource_checker/libsafety_resource_checker_component.so"
+    components {
+        class_name : "ResourceCheckerComponent"
+        config {
+            name: "safety_resource_checker"
+            config_file_path: "/apollo/modules/safety_manager/checker/resource_checker/conf/resource_checker_conf.pb.txt"
+            flag_file_path: "/apollo/modules/safety_manager/checker/resource_checker/conf/resource_checker_gflags.conf"
+            readers: [
+                {
+                    channel: "/apollo/statistics/resources"
+                    qos_profile: {
+                        depth : 1
+                    }
+                }
+            ]
+        }
+    }
+}

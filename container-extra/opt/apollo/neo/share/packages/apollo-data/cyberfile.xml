@@ -1,0 +1,24 @@
+<package format="2">
+  <name>apollo-data</name>
+  <version>9.1.1</version>
+  <description>
+    This module provides binary which tools of apollo may use.
+  </description>
+  
+  <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+  <license>Apache License 2.0</license>
+  <url type="website">https://www.apollo.auto/</url>
+  <url type="repository">https://github.com/ApolloAuto/apollo</url>
+  <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+
+  <type>module</type>
+  <src_path url="https://github.com/ApolloAuto/apollo">//modules/data</src_path>
+
+  <depend repo_name="cyber" type="binary">cyber</depend>
+  <depend repo_name="canbus" type="binary">canbus</depend>
+  <depend lib_names="common" repo_name="common" type="binary">common</depend>
+  <depend repo_name="monitor" type="binary">monitor</depend>
+  <depend lib_names="dreamview" repo_name="dreamview" type="binary">dreamview</depend>
+  <depend lib_names="absl" repo_name="com_google_absl">3rd-absl</depend>
+  
+</package>

@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/planning/tasks/smooth_stop_trajectory_fallback
+rm -rf /opt/apollo/neo/include/modules/planning/tasks/smooth_stop_trajectory_fallback
+rm -rf /opt/apollo/neo/lib/modules/planning/tasks/smooth_stop_trajectory_fallback
+rm -rf /opt/apollo/neo/python/modules/planning/tasks/smooth_stop_trajectory_fallback
+rm -rf /opt/apollo/neo/src/modules/planning/tasks/smooth_stop_trajectory_fallback
+rm -rf /opt/apollo/neo/share/packages/planning-task-smooth-stop-trajectory-fallback
+rm -rf /opt/apollo/neo/lib/modules/planning/tasks/smooth_stop_trajectory_fallback
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__smooth_stop_trajectory_fallback__libsmooth_stop_trajectory_fallback.so

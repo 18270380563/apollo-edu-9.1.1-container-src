@@ -1,0 +1,17 @@
+# Define all coms in DAG streaming.
+module_config {
+    module_library : "/opt/apollo/neo/lib/modules/studio_connector/libstudio_connector_component.so"
+    components {
+        class_name : "StudioConnectorComponent"
+        config {
+            name : "studio_connector"
+            flag_file_path: "modules/studio_connector/studio_connector.conf"
+            readers: [
+                {
+                    channel: "/apollo/dreamview/plugins/studio_connector/dv_request"
+                    pending_queue_size: 10,
+                }
+            ]
+        }
+    }
+}

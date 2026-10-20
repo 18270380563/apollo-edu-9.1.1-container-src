@@ -1,0 +1,19 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/prediction
+rm -rf /opt/apollo/neo/include/modules/prediction
+rm -rf /opt/apollo/neo/lib/modules/prediction
+rm -rf /opt/apollo/neo/python/modules/prediction
+rm -rf /opt/apollo/neo/src/modules/prediction
+rm -rf /opt/apollo/neo/share/packages/prediction
+rm -rf /opt/apollo/neo//bin/vector_net_feature
+rm -rf /opt/apollo/neo//bin/vector_net_offline_data
+rm -rf /opt/apollo/neo//bin/records_to_offline_data
+rm -rf /opt/apollo/neo/lib/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_cpu
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__prediction__evaluator__model_manager__model__semantic_lstm_pedestrian_torch_cpu__libmodel.so
+rm -rf /opt/apollo/neo/lib/modules/prediction/evaluator/model_manager/model/semantic_lstm_pedestrian_torch_gpu
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__prediction__evaluator__model_manager__model__semantic_lstm_pedestrian_torch_gpu__libmodel.so
+rm -rf /opt/apollo/neo/lib/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_cpu
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__prediction__evaluator__model_manager__model__semantic_lstm_vehicle_torch_cpu__libmodel.so
+rm -rf /opt/apollo/neo/lib/modules/prediction/evaluator/model_manager/model/semantic_lstm_vehicle_torch_gpu
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__prediction__evaluator__model_manager__model__semantic_lstm_vehicle_torch_gpu__libmodel.so

@@ -1,0 +1,62 @@
+{
+    "name": "planning-scenario-traffic-light-unprotected-right-turn",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-scenario-traffic-light-unprotected-right-turn module.",
+    "deps": [
+        "bazel-extend-tools",
+        "planning-interface-base"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/scenarios/traffic_light_unprotected_right_turn/plugins.xml' ]; then mkdir -p '/apollo/modules/planning/scenarios/traffic_light_unprotected_right_turn' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/traffic_light_unprotected_right_turn/plugins.xml' '/apollo/modules/planning/scenarios/traffic_light_unprotected_right_turn/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/traffic_light_unprotected_right_turn/conf/scenario_conf.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/traffic_light_unprotected_right_turn/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/traffic_light_unprotected_right_turn/conf/scenario_conf.pb.txt' '/apollo/modules/planning/scenarios/traffic_light_unprotected_right_turn/conf/scenario_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/traffic_light_unprotected_right_turn/conf/pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/traffic_light_unprotected_right_turn/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/traffic_light_unprotected_right_turn/conf/pipeline.pb.txt' '/apollo/modules/planning/scenarios/traffic_light_unprotected_right_turn/conf/pipeline.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+        "rm -rf /opt/apollo/neo/include/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+        "rm -rf /opt/apollo/neo/python/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+        "rm -rf /opt/apollo/neo/src/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+        "rm -rf /opt/apollo/neo/share/packages/planning-scenario-traffic-light-unprotected-right-turn",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__traffic_light_unprotected_right_turn__libtraffic_light_unprotected_right_turn_scenario.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+            "des": "/opt/apollo/neo/share/modules/planning/scenarios/traffic_light_unprotected_right_turn"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+            "des": "/opt/apollo/neo/include/modules/planning/scenarios/traffic_light_unprotected_right_turn"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/traffic_light_unprotected_right_turn"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+            "des": "/opt/apollo/neo/python/modules/planning/scenarios/traffic_light_unprotected_right_turn"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+            "des": "/opt/apollo/neo/src/modules/planning/scenarios/traffic_light_unprotected_right_turn"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-scenario-traffic-light-unprotected-right-turn",
+            "des": "/opt/apollo/neo/share/packages/planning-scenario-traffic-light-unprotected-right-turn"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/traffic_light_unprotected_right_turn",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/traffic_light_unprotected_right_turn"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__traffic_light_unprotected_right_turn__libtraffic_light_unprotected_right_turn_scenario.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__traffic_light_unprotected_right_turn__libtraffic_light_unprotected_right_turn_scenario.so"
+        }
+    ],
+    "type": "neo"
+}

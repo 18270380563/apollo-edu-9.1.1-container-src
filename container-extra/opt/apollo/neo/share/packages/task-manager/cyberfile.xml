@@ -1,0 +1,23 @@
+<package format="2">
+  <name>task-manager</name>
+  <version>9.1.1</version>
+  <description>
+    Apollo task_manager module.
+  </description>
+
+  <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+  <license>Apache License 2.0</license>
+  <url type="website">https://www.apollo.auto/</url>
+  <url type="repository">https://github.com/ApolloAuto/apollo</url>
+  <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+
+  <type>module</type>
+  <depend lib_names="common-msgs" repo_name="common-msgs" type="binary">common-msgs</depend>
+  <depend lib_names="common" repo_name="common" type="binary">common</depend>
+  <depend lib_names="dreamview" repo_name="dreamview" type="binary">dreamview</depend>
+  <depend lib_names="gflags" repo_name="com_github_gflags_gflags">3rd-gflags</depend>
+  <depend lib_names="protobuf" repo_name="com_google_protobuf">3rd-protobuf</depend>
+  <depend expose="False">3rd-rules-proto</depend>
+  <src_path url="https://github.com/ApolloAuto/apollo">//modules/task_manager</src_path>
+
+</package>

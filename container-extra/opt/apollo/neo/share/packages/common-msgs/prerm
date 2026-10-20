@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/common_msgs
+rm -rf /opt/apollo/neo/include/modules/common_msgs
+rm -rf /opt/apollo/neo/lib/modules/common_msgs
+rm -rf /opt/apollo/neo/python/modules/common_msgs
+rm -rf /opt/apollo/neo/src/modules/common_msgs
+rm -rf /opt/apollo/neo/share/packages/common-msgs

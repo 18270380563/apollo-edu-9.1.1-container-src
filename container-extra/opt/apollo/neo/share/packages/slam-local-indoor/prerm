@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/slam_local_indoor
+rm -rf /opt/apollo/neo/include/modules/slam_local_indoor
+rm -rf /opt/apollo/neo/lib/modules/slam_local_indoor
+rm -rf /opt/apollo/neo/python/modules/slam_local_indoor
+rm -rf /opt/apollo/neo/src/modules/slam_local_indoor
+rm -rf /opt/apollo/neo/share/packages/slam-local-indoor

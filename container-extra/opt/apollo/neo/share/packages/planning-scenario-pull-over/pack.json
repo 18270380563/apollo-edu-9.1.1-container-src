@@ -1,0 +1,66 @@
+{
+    "name": "planning-scenario-pull-over",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-scenario-pull-over module.",
+    "deps": [
+        "bazel-extend-tools",
+        "planning-interface-base"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/scenarios/pull_over/plugins.xml' ]; then mkdir -p '/apollo/modules/planning/scenarios/pull_over' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/pull_over/plugins.xml' '/apollo/modules/planning/scenarios/pull_over/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/pull_over/conf/scenario_conf.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/pull_over/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/pull_over/conf/scenario_conf.pb.txt' '/apollo/modules/planning/scenarios/pull_over/conf/scenario_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/pull_over/conf/pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/pull_over/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/pull_over/conf/pipeline.pb.txt' '/apollo/modules/planning/scenarios/pull_over/conf/pipeline.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_retry_approach_parking/open_space_pre_stop_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_retry_approach_parking' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/pull_over/conf/pull_over_retry_approach_parking/open_space_pre_stop_decider.pb.txt' '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_retry_approach_parking/open_space_pre_stop_decider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_retry_parking/open_space_roi_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_retry_parking' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/pull_over/conf/pull_over_retry_parking/open_space_roi_decider.pb.txt' '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_retry_parking/open_space_roi_decider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_retry_parking/open_space_trajectory_partition.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_retry_parking' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/pull_over/conf/pull_over_retry_parking/open_space_trajectory_partition.pb.txt' '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_retry_parking/open_space_trajectory_partition.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_approach/pull_over_path.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_approach' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/pull_over/conf/pull_over_approach/pull_over_path.pb.txt' '/apollo/modules/planning/scenarios/pull_over/conf/pull_over_approach/pull_over_path.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/scenarios/pull_over",
+        "rm -rf /opt/apollo/neo/include/modules/planning/scenarios/pull_over",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/pull_over",
+        "rm -rf /opt/apollo/neo/python/modules/planning/scenarios/pull_over",
+        "rm -rf /opt/apollo/neo/src/modules/planning/scenarios/pull_over",
+        "rm -rf /opt/apollo/neo/share/packages/planning-scenario-pull-over",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/pull_over",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__pull_over__libpull_over_scenario.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/scenarios/pull_over",
+            "des": "/opt/apollo/neo/share/modules/planning/scenarios/pull_over"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/scenarios/pull_over",
+            "des": "/opt/apollo/neo/include/modules/planning/scenarios/pull_over"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/pull_over",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/pull_over"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/scenarios/pull_over",
+            "des": "/opt/apollo/neo/python/modules/planning/scenarios/pull_over"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/scenarios/pull_over",
+            "des": "/opt/apollo/neo/src/modules/planning/scenarios/pull_over"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-scenario-pull-over",
+            "des": "/opt/apollo/neo/share/packages/planning-scenario-pull-over"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/pull_over",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/pull_over"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__pull_over__libpull_over_scenario.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__pull_over__libpull_over_scenario.so"
+        }
+    ],
+    "type": "neo"
+}

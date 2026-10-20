@@ -1,0 +1,20 @@
+module_config {
+    module_library : "modules/safety_manager/analyzer/libsafety_analyzer_component.so"
+    components {
+        class_name : "SafetyAnalyzerComponent"
+        config {
+            name: "safety_analyzer"
+            config_file_path: "/apollo/modules/safety_manager/analyzer/conf/rule_matcher_conf.pb.txt"
+            flag_file_path: "/apollo/modules/safety_manager/analyzer/conf/analyzer_gflags.conf"
+            readers: [
+                {
+                    channel: "/apollo/safety/status"
+                    qos_profile: {
+                        depth : 1
+                    }
+                    pending_queue_size: 50
+                }
+            ]
+        }
+    }
+}

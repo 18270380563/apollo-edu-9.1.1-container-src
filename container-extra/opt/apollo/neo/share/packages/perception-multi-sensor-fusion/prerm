@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/perception/multi_sensor_fusion
+rm -rf /opt/apollo/neo/include/modules/perception/multi_sensor_fusion
+rm -rf /opt/apollo/neo/lib/modules/perception/multi_sensor_fusion
+rm -rf /opt/apollo/neo/python/modules/perception/multi_sensor_fusion
+rm -rf /opt/apollo/neo/src/modules/perception/multi_sensor_fusion
+rm -rf /opt/apollo/neo/share/packages/perception-multi-sensor-fusion

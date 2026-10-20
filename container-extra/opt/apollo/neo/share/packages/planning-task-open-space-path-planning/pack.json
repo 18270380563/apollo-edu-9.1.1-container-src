@@ -1,0 +1,62 @@
+{
+    "name": "planning-task-open-space-path-planning",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-task-open-space-path-planning module.",
+    "deps": [
+        "bazel-extend-tools",
+        "planning-interface-base",
+        "planning-open-space"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/tasks/open_space_path_planning/plugins.xml' ]; then mkdir -p '/apollo/modules/planning/tasks/open_space_path_planning' && ln -snf '/opt/apollo/neo/share/modules/planning/tasks/open_space_path_planning/plugins.xml' '/apollo/modules/planning/tasks/open_space_path_planning/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/planning/tasks/open_space_path_planning/conf/default_conf.pb.txt' ]; then mkdir -p '/apollo/modules/planning/tasks/open_space_path_planning/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/tasks/open_space_path_planning/conf/default_conf.pb.txt' '/apollo/modules/planning/tasks/open_space_path_planning/conf/default_conf.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/tasks/open_space_path_planning",
+        "rm -rf /opt/apollo/neo/include/modules/planning/tasks/open_space_path_planning",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/tasks/open_space_path_planning",
+        "rm -rf /opt/apollo/neo/python/modules/planning/tasks/open_space_path_planning",
+        "rm -rf /opt/apollo/neo/src/modules/planning/tasks/open_space_path_planning",
+        "rm -rf /opt/apollo/neo/share/packages/planning-task-open-space-path-planning",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/tasks/open_space_path_planning",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__open_space_path_planning__libopen_space_path_planning.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/tasks/open_space_path_planning",
+            "des": "/opt/apollo/neo/share/modules/planning/tasks/open_space_path_planning"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/tasks/open_space_path_planning",
+            "des": "/opt/apollo/neo/include/modules/planning/tasks/open_space_path_planning"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/tasks/open_space_path_planning",
+            "des": "/opt/apollo/neo/lib/modules/planning/tasks/open_space_path_planning"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/tasks/open_space_path_planning",
+            "des": "/opt/apollo/neo/python/modules/planning/tasks/open_space_path_planning"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/tasks/open_space_path_planning",
+            "des": "/opt/apollo/neo/src/modules/planning/tasks/open_space_path_planning"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-task-open-space-path-planning",
+            "des": "/opt/apollo/neo/share/packages/planning-task-open-space-path-planning"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/tasks/open_space_path_planning",
+            "des": "/opt/apollo/neo/lib/modules/planning/tasks/open_space_path_planning"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__open_space_path_planning__libopen_space_path_planning.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__open_space_path_planning__libopen_space_path_planning.so"
+        }
+    ],
+    "type": "neo"
+}

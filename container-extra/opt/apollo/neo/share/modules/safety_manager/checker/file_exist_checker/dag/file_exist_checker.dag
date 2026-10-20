@@ -1,0 +1,11 @@
+module_config {
+    module_library : "modules/safety_manager/checker/file_exist_checker/libsafety_file_exist_checker_component.so"
+    timer_components {
+        class_name : "FileExistCheckerComponent"
+        config {
+            name: "safety_file_exist_checker"
+            interval: 1000 # in milliseconds
+            config_file_path: "/apollo/modules/safety_manager/checker/file_exist_checker/conf/file_exist_checker_conf.pb.txt"
+        }
+    }
+}

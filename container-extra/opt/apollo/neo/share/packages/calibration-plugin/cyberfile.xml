@@ -1,0 +1,26 @@
+<package>
+  <name>calibration-plugin</name>
+  <version>9.1.1</version>
+  <description>
+    A calibration tool plugin for dreamview plus.
+  </description>
+  <maintainer email="apollo-support">apollo-support@baidu.com</maintainer>
+  <type>module</type>
+  <src_path>//modules/dreamview_plus_plugins/calibration_tool</src_path>
+  <license>Apache License 2.0</license>
+  <author>Apollo</author>
+  <depend>bazel-extend-tools</depend>
+  <depend repo_name="cyber" type="binary">cyber</depend>
+  <depend repo_name="dreamview-plus" type="binary">dreamview-plus</depend>
+  <depend repo_name="status-collector" type="binary">status-collector</depend>
+  <depend repo_name="sensor-calibration" type="binary">sensor-calibration</depend>  
+
+  <depend expose="False">3rd-pcl</depend>
+  <depend repo_name="eigen">3rd-eigen3</depend>
+  <depend lib_names="single_json,json" repo_name="com_github_nlohmann_json">3rd-nlohmann-json</depend>
+  <depend lib_names="yaml-cpp" repo_name="com_github_jbeder_yaml_cpp">3rd-yaml-cpp</depend>
+  <depend lib_names="core,highgui,imgproc,imgcodecs" repo_name="opencv">3rd-opencv</depend>
+
+  <builder>bazel</builder>
+  <depend>bazel-extend-tools</depend>
+</package>

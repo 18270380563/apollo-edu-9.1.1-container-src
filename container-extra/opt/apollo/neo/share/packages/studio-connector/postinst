@@ -1,0 +1,78 @@
+# !/bin/sh
+APOLLO_PATH='/opt/apollo/neo/'
+PACKAGE_NAME='studio-connector'
+PACKAGE_NAME_WITH_VER='studio-connector/9.1.1'
+INCLUDE_PATH=''
+echo "[INFO] start to create symbolic links of ${PACKAGE_NAME}"
+echo '[WARN] the links of pre-version will be overwrited!'
+
+mkdir -p ${APOLLO_PATH}bin
+mkdir -p ${APOLLO_PATH}include
+mkdir -p ${APOLLO_PATH}lib
+
+chmod a+rw ${APOLLO_PATH}bin ${APOLLO_PATH}include ${APOLLO_PATH}lib ${APOLLO_PATH}packages
+
+if [ ! -d ${APOLLO_PATH}/share/packages/${PACKAGE_NAME} ]
+then
+    ln -snf ${APOLLO_PATH}packages/${PACKAGE_NAME_WITH_VER} ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest
+
+    if [ "${INCLUDE_PATH}" = "" ]
+    then
+        ori_inc_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include"
+        if [ -d ${ori_inc_path} ]
+        then
+            for file in $(ls ${ori_inc_path})
+            do
+                if [ -d ${ori_inc_path}"/"${file} ]
+                then
+                    ln -snf ${ori_inc_path}"/"${file} "${APOLLO_PATH}include/${file}"
+                fi
+            done
+        fi
+    else
+        if [ $(dirname ${INCLUDE_PATH}) != '.' ]
+        then
+            mkdir -p "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+            chmod a+rw "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+        fi
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include" "${APOLLO_PATH}include/${INCLUDE_PATH}"
+    fi
+
+    if [ -d ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib ]
+    then
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib" "${APOLLO_PATH}lib/${PACKAGE_NAME}"
+    fi
+
+    bin_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/bin"
+    if [ -d ${bin_path} ]
+    then
+        for file in $(ls ${bin_path})
+        do
+            if [ -d ${bin_path}"/"${file} ]
+            then
+                continue
+            else
+                ln -snf "${bin_path}/${file}" "${APOLLO_PATH}bin/${file}"
+            fi
+        done
+    fi
+fi
+
+if [ ! -e '/apollo/modules/studio_connector/studio_connector.launch' ]; then mkdir -p '/apollo/modules/studio_connector' && ln -snf '/opt/apollo/neo/share/modules/studio_connector/studio_connector.launch' '/apollo/modules/studio_connector/studio_connector.launch'; fi
+if [ ! -e '/apollo/modules/studio_connector/studio_connector.conf' ]; then mkdir -p '/apollo/modules/studio_connector' && ln -snf '/opt/apollo/neo/share/modules/studio_connector/studio_connector.conf' '/apollo/modules/studio_connector/studio_connector.conf'; fi
+if [ ! -e '/apollo/modules/studio_connector/studio_connector.dag' ]; then mkdir -p '/apollo/modules/studio_connector' && ln -snf '/opt/apollo/neo/share/modules/studio_connector/studio_connector.dag' '/apollo/modules/studio_connector/studio_connector.dag'; fi
+if [ ! -e '/apollo/modules/studio_connector/test/client_test.crt' ]; then mkdir -p '/apollo/modules/studio_connector/test' && ln -snf '/opt/apollo/neo/share/modules/studio_connector/test/client_test.crt' '/apollo/modules/studio_connector/test/client_test.crt'; fi
+if [ ! -e '/apollo/modules/studio_connector/test/AUTH_ID' ]; then mkdir -p '/apollo/modules/studio_connector/test' && ln -snf '/opt/apollo/neo/share/modules/studio_connector/test/AUTH_ID' '/apollo/modules/studio_connector/test/AUTH_ID'; fi
+if [ ! -e '/apollo/modules/studio_connector/test/client_test.key' ]; then mkdir -p '/apollo/modules/studio_connector/test' && ln -snf '/opt/apollo/neo/share/modules/studio_connector/test/client_test.key' '/apollo/modules/studio_connector/test/client_test.key'; fi
+if [ ! -e '/apollo/modules/studio_connector/testdata/install_plugin_test.sh' ]; then mkdir -p '/apollo/modules/studio_connector/testdata' && ln -snf '/opt/apollo/neo/share/modules/studio_connector/testdata/install_plugin_test.sh' '/apollo/modules/studio_connector/testdata/install_plugin_test.sh'; fi
+if [ ! -e '/apollo/modules/studio_connector/testdata/dreamview/plugins/studio_connector/studio_connector_plugin_config.pb.txt' ]; then mkdir -p '/apollo/modules/studio_connector/testdata/dreamview/plugins/studio_connector' && ln -snf '/opt/apollo/neo/share/modules/studio_connector/testdata/dreamview/plugins/studio_connector/studio_connector_plugin_config.pb.txt' '/apollo/modules/studio_connector/testdata/dreamview/plugins/studio_connector/studio_connector_plugin_config.pb.txt'; fi
+if [ ! -e '/apollo/modules/studio_connector/testdata/dreamview/plugins/studio_connector/studio_connector.conf' ]; then mkdir -p '/apollo/modules/studio_connector/testdata/dreamview/plugins/studio_connector' && ln -snf '/opt/apollo/neo/share/modules/studio_connector/testdata/dreamview/plugins/studio_connector/studio_connector.conf' '/apollo/modules/studio_connector/testdata/dreamview/plugins/studio_connector/studio_connector.conf'; fi
+if [ ! -e '/apollo/modules/studio_connector/testdata/resources/scenario_sets/scenario_set_id_1/scenario_set.json' ]; then mkdir -p '/apollo/modules/studio_connector/testdata/resources/scenario_sets/scenario_set_id_1' && ln -snf '/opt/apollo/neo/share/modules/studio_connector/testdata/resources/scenario_sets/scenario_set_id_1/scenario_set.json' '/apollo/modules/studio_connector/testdata/resources/scenario_sets/scenario_set_id_1/scenario_set.json'; fi
+if [ ! -e '/apollo/modules/studio_connector/testdata/resources/scenario_sets/scenario_set_id_1/scenarios/62187be06406e2aebbaaa973.json' ]; then mkdir -p '/apollo/modules/studio_connector/testdata/resources/scenario_sets/scenario_set_id_1/scenarios' && ln -snf '/opt/apollo/neo/share/modules/studio_connector/testdata/resources/scenario_sets/scenario_set_id_1/scenarios/62187be06406e2aebbaaa973.json' '/apollo/modules/studio_connector/testdata/resources/scenario_sets/scenario_set_id_1/scenarios/62187be06406e2aebbaaa973.json'; fi
+
+echo "[INFO] symbolic links of ${PACKAGE_NAME} created."
+
+if [ -f "${APOLLO_PATH}update_dylib.sh" ]
+then
+    sh ${APOLLO_PATH}update_dylib.sh
+fi

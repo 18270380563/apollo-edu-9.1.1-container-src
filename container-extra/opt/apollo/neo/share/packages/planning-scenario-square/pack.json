@@ -1,0 +1,67 @@
+{
+    "name": "planning-scenario-square",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-scenario-square module.",
+    "deps": [
+        "bazel-extend-tools",
+        "planning-interface-base",
+        "planning-open-space"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/scenarios/square/plugins.xml' ]; then mkdir -p '/apollo/modules/planning/scenarios/square' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/square/plugins.xml' '/apollo/modules/planning/scenarios/square/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/square/conf/scenario_conf.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/square/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/square/conf/scenario_conf.pb.txt' '/apollo/modules/planning/scenarios/square/conf/scenario_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/square/conf/pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/square/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/square/conf/pipeline.pb.txt' '/apollo/modules/planning/scenarios/square/conf/pipeline.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/square/conf/square_lane_follow_stage/lane_borrow_path_generic.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/square/conf/square_lane_follow_stage' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/square/conf/square_lane_follow_stage/lane_borrow_path_generic.pb.txt' '/apollo/modules/planning/scenarios/square/conf/square_lane_follow_stage/lane_borrow_path_generic.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/square/conf/square_lane_follow_stage/path_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/square/conf/square_lane_follow_stage' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/square/conf/square_lane_follow_stage/path_decider.pb.txt' '/apollo/modules/planning/scenarios/square/conf/square_lane_follow_stage/path_decider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/square/conf/extricate_stage/lane_borrow_path_generic.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/square/conf/extricate_stage' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/square/conf/extricate_stage/lane_borrow_path_generic.pb.txt' '/apollo/modules/planning/scenarios/square/conf/extricate_stage/lane_borrow_path_generic.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/square/conf/extricate_stage/piecewise_jerk_speed.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/square/conf/extricate_stage' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/square/conf/extricate_stage/piecewise_jerk_speed.pb.txt' '/apollo/modules/planning/scenarios/square/conf/extricate_stage/piecewise_jerk_speed.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/scenarios/square",
+        "rm -rf /opt/apollo/neo/include/modules/planning/scenarios/square",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/square",
+        "rm -rf /opt/apollo/neo/python/modules/planning/scenarios/square",
+        "rm -rf /opt/apollo/neo/src/modules/planning/scenarios/square",
+        "rm -rf /opt/apollo/neo/share/packages/planning-scenario-square",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/square",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__square__libsquare_scenario.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/scenarios/square",
+            "des": "/opt/apollo/neo/share/modules/planning/scenarios/square"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/scenarios/square",
+            "des": "/opt/apollo/neo/include/modules/planning/scenarios/square"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/square",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/square"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/scenarios/square",
+            "des": "/opt/apollo/neo/python/modules/planning/scenarios/square"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/scenarios/square",
+            "des": "/opt/apollo/neo/src/modules/planning/scenarios/square"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-scenario-square",
+            "des": "/opt/apollo/neo/share/packages/planning-scenario-square"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/square",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/square"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__square__libsquare_scenario.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__square__libsquare_scenario.so"
+        }
+    ],
+    "type": "neo"
+}

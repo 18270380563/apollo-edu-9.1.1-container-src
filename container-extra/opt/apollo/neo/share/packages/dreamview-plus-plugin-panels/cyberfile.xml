@@ -1,0 +1,18 @@
+<package format="2">
+  <name>dreamview-plus-plugin-panels</name>
+  <version>9.1.1</version>
+  <description>
+    The dreamview_plus plugin panels.
+  </description>
+
+  <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+  <license>Apache License 2.0</license>
+  <url type="website">https://www.apollo.auto/</url>
+  <url type="repository">https://github.com/ApolloAuto/apollo</url>
+  <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+  <depend>bazel-extend-tools</depend>
+
+  <type>module</type>
+  <src_path url="https://github.com/ApolloAuto/apollo">//modules/dreamview_plus_plugin_panels</src_path>
+
+</package>

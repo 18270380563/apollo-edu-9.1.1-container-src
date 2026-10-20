@@ -1,0 +1,12 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/routing
+rm -rf /opt/apollo/neo/include/modules/routing
+rm -rf /opt/apollo/neo/lib/modules/routing
+rm -rf /opt/apollo/neo/python/modules/routing
+rm -rf /opt/apollo/neo/src/modules/routing
+rm -rf /opt/apollo/neo/share/packages/routing
+rm -rf /opt/apollo/neo//bin/topo_creator
+rm -rf /opt/apollo/neo//bin/routing_dump
+rm -rf /opt/apollo/neo//bin/routing_cast
+rm -rf /opt/apollo/neo//bin/routing_tester

@@ -1,0 +1,61 @@
+{
+    "name": "planning-traffic-rules-yield-sign",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-traffic-rules-yield-sign module.",
+    "deps": [
+        "bazel-extend-tools",
+        "planning-interface-base"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/traffic_rules/yield_sign/plugins.xml' ]; then mkdir -p '/apollo/modules/planning/traffic_rules/yield_sign' && ln -snf '/opt/apollo/neo/share/modules/planning/traffic_rules/yield_sign/plugins.xml' '/apollo/modules/planning/traffic_rules/yield_sign/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/planning/traffic_rules/yield_sign/conf/default_conf.pb.txt' ]; then mkdir -p '/apollo/modules/planning/traffic_rules/yield_sign/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/traffic_rules/yield_sign/conf/default_conf.pb.txt' '/apollo/modules/planning/traffic_rules/yield_sign/conf/default_conf.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/traffic_rules/yield_sign",
+        "rm -rf /opt/apollo/neo/include/modules/planning/traffic_rules/yield_sign",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/traffic_rules/yield_sign",
+        "rm -rf /opt/apollo/neo/python/modules/planning/traffic_rules/yield_sign",
+        "rm -rf /opt/apollo/neo/src/modules/planning/traffic_rules/yield_sign",
+        "rm -rf /opt/apollo/neo/share/packages/planning-traffic-rules-yield-sign",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/traffic_rules/yield_sign",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__traffic_rules__yield_sign__libyield_sign.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/traffic_rules/yield_sign",
+            "des": "/opt/apollo/neo/share/modules/planning/traffic_rules/yield_sign"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/traffic_rules/yield_sign",
+            "des": "/opt/apollo/neo/include/modules/planning/traffic_rules/yield_sign"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/traffic_rules/yield_sign",
+            "des": "/opt/apollo/neo/lib/modules/planning/traffic_rules/yield_sign"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/traffic_rules/yield_sign",
+            "des": "/opt/apollo/neo/python/modules/planning/traffic_rules/yield_sign"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/traffic_rules/yield_sign",
+            "des": "/opt/apollo/neo/src/modules/planning/traffic_rules/yield_sign"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-traffic-rules-yield-sign",
+            "des": "/opt/apollo/neo/share/packages/planning-traffic-rules-yield-sign"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/traffic_rules/yield_sign",
+            "des": "/opt/apollo/neo/lib/modules/planning/traffic_rules/yield_sign"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__traffic_rules__yield_sign__libyield_sign.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__traffic_rules__yield_sign__libyield_sign.so"
+        }
+    ],
+    "type": "neo"
+}

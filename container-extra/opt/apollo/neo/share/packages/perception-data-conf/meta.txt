@@ -1,0 +1,9 @@
+modules/perception/data/conf/BUILD:share/modules/perception/data/conf/BUILD
+modules/perception/data/conf/cyberfile.xml:share/modules/perception/data/conf/cyberfile.xml
+modules/perception/data/conf/ground_service.conf:share/modules/perception/data/conf/ground_service.conf
+modules/perception/data/conf/object_template.pb.txt:share/modules/perception/data/conf/object_template.pb.txt
+modules/perception/data/conf/roi_service.conf:share/modules/perception/data/conf/roi_service.conf
+modules/perception/data/conf/scene_manager.conf:share/modules/perception/data/conf/scene_manager.conf
+modules/perception/data/conf/sensor_meta.pb.txt:share/modules/perception/data/conf/sensor_meta.pb.txt
+modules/perception/data/conf/cyberfile.xml:modules/perception/data/conf/cyberfile.xml
+src_path:modules/perception/data/conf

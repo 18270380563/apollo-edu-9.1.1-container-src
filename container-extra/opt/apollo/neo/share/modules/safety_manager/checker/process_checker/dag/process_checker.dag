@@ -1,0 +1,12 @@
+module_config {
+    module_library : "modules/safety_manager/checker/process_checker/libsafety_process_checker_component.so"
+    timer_components {
+        class_name : "ProcessCheckerComponent"
+        config {
+            name: "safety_process_checker"
+            interval: 205  # in milliseconds
+            config_file_path: "/apollo/modules/safety_manager/checker/process_checker/conf/process_checker_conf.pb.txt"
+            flag_file_path: "/apollo/modules/safety_manager/checker/process_checker/conf/process_checker_gflags.conf"
+        }
+    }
+}

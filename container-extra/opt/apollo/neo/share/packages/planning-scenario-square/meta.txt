@@ -1,0 +1,17 @@
+modules/planning/scenarios/square/conf/extricate_stage/lane_borrow_path_generic.pb.txt:share/modules/planning/scenarios/square/conf/extricate_stage/lane_borrow_path_generic.pb.txt
+modules/planning/scenarios/square/conf/extricate_stage/piecewise_jerk_speed.pb.txt:share/modules/planning/scenarios/square/conf/extricate_stage/piecewise_jerk_speed.pb.txt
+modules/planning/scenarios/square/conf/pipeline.pb.txt:share/modules/planning/scenarios/square/conf/pipeline.pb.txt
+modules/planning/scenarios/square/conf/scenario_conf.pb.txt:share/modules/planning/scenarios/square/conf/scenario_conf.pb.txt
+modules/planning/scenarios/square/conf/square_lane_follow_stage/lane_borrow_path_generic.pb.txt:share/modules/planning/scenarios/square/conf/square_lane_follow_stage/lane_borrow_path_generic.pb.txt
+modules/planning/scenarios/square/conf/square_lane_follow_stage/path_decider.pb.txt:share/modules/planning/scenarios/square/conf/square_lane_follow_stage/path_decider.pb.txt
+modules/planning/scenarios/square/libsquare_scenario.so:lib/modules/planning/scenarios/square/libsquare_scenario.so
+modules/planning/scenarios/square/cyberfile.xml:modules/planning/scenarios/square/cyberfile.xml
+modules/planning/scenarios/square/plugins.xml:plugin_meta@modules/planning/scenarios/square@plugins.xml
+modules/planning/scenarios/square/proto/square.pb.h:include/modules/planning/scenarios/square/proto/square.pb.h
+modules/planning/scenarios/square/proto/square.pb.cc:include/modules/planning/scenarios/square/proto/square.pb.cc
+modules/planning/scenarios/square/proto/lib_square_proto.a:include/modules/planning/scenarios/square/proto/lib_square_proto.a
+modules/planning/scenarios/square/proto/lib_square_proto.pic.a:include/modules/planning/scenarios/square/proto/lib_square_proto.pic.a
+modules/planning/scenarios/square/proto/lib_square_proto.so:include/modules/planning/scenarios/square/proto/lib_square_proto.so
+modules/planning/scenarios/square/proto/square_pb2.py:python/modules/planning/scenarios/square/proto/square_pb2.py
+modules/planning/scenarios/square/proto/lib_square_proto_mpssp_bin.so:lib/modules/planning/scenarios/square/proto/lib_square_proto_mpssp_bin.so
+src_path:modules/planning/scenarios/square

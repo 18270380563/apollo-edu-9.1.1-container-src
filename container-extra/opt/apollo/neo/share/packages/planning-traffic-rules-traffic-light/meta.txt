@@ -1,0 +1,12 @@
+modules/planning/traffic_rules/traffic_light/conf/default_conf.pb.txt:share/modules/planning/traffic_rules/traffic_light/conf/default_conf.pb.txt
+modules/planning/traffic_rules/traffic_light/libtraffic_light.so:lib/modules/planning/traffic_rules/traffic_light/libtraffic_light.so
+modules/planning/traffic_rules/traffic_light/cyberfile.xml:modules/planning/traffic_rules/traffic_light/cyberfile.xml
+modules/planning/traffic_rules/traffic_light/plugins.xml:plugin_meta@modules/planning/traffic_rules/traffic_light@plugins.xml
+modules/planning/traffic_rules/traffic_light/proto/traffic_light.pb.h:include/modules/planning/traffic_rules/traffic_light/proto/traffic_light.pb.h
+modules/planning/traffic_rules/traffic_light/proto/traffic_light.pb.cc:include/modules/planning/traffic_rules/traffic_light/proto/traffic_light.pb.cc
+modules/planning/traffic_rules/traffic_light/proto/lib_traffic_light_proto.a:include/modules/planning/traffic_rules/traffic_light/proto/lib_traffic_light_proto.a
+modules/planning/traffic_rules/traffic_light/proto/lib_traffic_light_proto.pic.a:include/modules/planning/traffic_rules/traffic_light/proto/lib_traffic_light_proto.pic.a
+modules/planning/traffic_rules/traffic_light/proto/lib_traffic_light_proto.so:include/modules/planning/traffic_rules/traffic_light/proto/lib_traffic_light_proto.so
+modules/planning/traffic_rules/traffic_light/proto/traffic_light_pb2.py:python/modules/planning/traffic_rules/traffic_light/proto/traffic_light_pb2.py
+modules/planning/traffic_rules/traffic_light/proto/lib_traffic_light_proto_mpttp_bin.so:lib/modules/planning/traffic_rules/traffic_light/proto/lib_traffic_light_proto_mpttp_bin.so
+src_path:modules/planning/traffic_rules/traffic_light

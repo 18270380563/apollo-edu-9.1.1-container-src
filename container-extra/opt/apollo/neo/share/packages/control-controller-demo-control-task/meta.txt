@@ -1,0 +1,12 @@
+modules/control/controllers/demo_control_task/conf/controller_conf.pb.txt:share/modules/control/controllers/demo_control_task/conf/controller_conf.pb.txt
+modules/control/controllers/demo_control_task/libdemo_control_task.so:lib/modules/control/controllers/demo_control_task/libdemo_control_task.so
+modules/control/controllers/demo_control_task/cyberfile.xml:modules/control/controllers/demo_control_task/cyberfile.xml
+modules/control/controllers/demo_control_task/plugins.xml:plugin_meta@modules/control/controllers/demo_control_task@plugins.xml
+modules/control/controllers/demo_control_task/proto/demo_control_task_conf.pb.h:include/modules/control/controllers/demo_control_task/proto/demo_control_task_conf.pb.h
+modules/control/controllers/demo_control_task/proto/demo_control_task_conf.pb.cc:include/modules/control/controllers/demo_control_task/proto/demo_control_task_conf.pb.cc
+modules/control/controllers/demo_control_task/proto/lib_demo_control_task_conf_proto.a:include/modules/control/controllers/demo_control_task/proto/lib_demo_control_task_conf_proto.a
+modules/control/controllers/demo_control_task/proto/lib_demo_control_task_conf_proto.pic.a:include/modules/control/controllers/demo_control_task/proto/lib_demo_control_task_conf_proto.pic.a
+modules/control/controllers/demo_control_task/proto/lib_demo_control_task_conf_proto.so:include/modules/control/controllers/demo_control_task/proto/lib_demo_control_task_conf_proto.so
+modules/control/controllers/demo_control_task/proto/demo_control_task_conf_pb2.py:python/modules/control/controllers/demo_control_task/proto/demo_control_task_conf_pb2.py
+modules/control/controllers/demo_control_task/proto/lib_demo_control_task_conf_proto_mccdp_bin.so:lib/modules/control/controllers/demo_control_task/proto/lib_demo_control_task_conf_proto_mccdp_bin.so
+src_path:modules/control/controllers/demo_control_task

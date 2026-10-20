@@ -1,0 +1,9 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/sim_obstacle
+rm -rf /opt/apollo/neo/include/modules/sim_obstacle
+rm -rf /opt/apollo/neo/lib/modules/sim_obstacle
+rm -rf /opt/apollo/neo/python/modules/sim_obstacle
+rm -rf /opt/apollo/neo/src/modules/sim_obstacle
+rm -rf /opt/apollo/neo/share/packages/sim-obstacle
+rm -rf /opt/apollo/neo//bin/sim_obstacle

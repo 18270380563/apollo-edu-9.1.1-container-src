@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/canbus
+rm -rf /opt/apollo/neo/include/modules/canbus
+rm -rf /opt/apollo/neo/lib/modules/canbus
+rm -rf /opt/apollo/neo/python/modules/canbus
+rm -rf /opt/apollo/neo/src/modules/canbus
+rm -rf /opt/apollo/neo/share/packages/canbus
+rm -rf /opt/apollo/neo//bin/canbus_tester
+rm -rf /opt/apollo/neo//bin/teleop

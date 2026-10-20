@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/safety_manager/checker/resource_checker
+rm -rf /opt/apollo/neo/include/modules/safety_manager/checker/resource_checker
+rm -rf /opt/apollo/neo/lib/modules/safety_manager/checker/resource_checker
+rm -rf /opt/apollo/neo/python/modules/safety_manager/checker/resource_checker
+rm -rf /opt/apollo/neo/src/modules/safety_manager/checker/resource_checker
+rm -rf /opt/apollo/neo/share/packages/safety-resource-checker

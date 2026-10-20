@@ -1,0 +1,55 @@
+{
+    "name": "monitor",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo monitor module.",
+    "deps": [
+        "cyber",
+        "common",
+        "drivers-canbus",
+        "common-msgs",
+        "3rd-gflags",
+        "3rd-gtest",
+        "3rd-absl",
+        "3rd-glog",
+        "dreamview",
+        "3rd-protobuf"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/monitor/dag/monitor.dag' ]; then mkdir -p '/apollo/modules/monitor/dag' && ln -snf '/opt/apollo/neo/share/modules/monitor/dag/monitor.dag' '/apollo/modules/monitor/dag/monitor.dag'; fi",
+        "if [ ! -e '/apollo/modules/monitor/launch/monitor.launch' ]; then mkdir -p '/apollo/modules/monitor/launch' && ln -snf '/opt/apollo/neo/share/modules/monitor/launch/monitor.launch' '/apollo/modules/monitor/launch/monitor.launch'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/monitor",
+        "rm -rf /opt/apollo/neo/include/modules/monitor",
+        "rm -rf /opt/apollo/neo/lib/modules/monitor",
+        "rm -rf /opt/apollo/neo/python/modules/monitor",
+        "rm -rf /opt/apollo/neo/src/modules/monitor",
+        "rm -rf /opt/apollo/neo/share/packages/monitor"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/monitor",
+            "des": "/opt/apollo/neo/share/modules/monitor"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/monitor",
+            "des": "/opt/apollo/neo/include/modules/monitor"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/monitor",
+            "des": "/opt/apollo/neo/lib/modules/monitor"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/monitor",
+            "des": "/opt/apollo/neo/src/modules/monitor"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/monitor",
+            "des": "/opt/apollo/neo/share/packages/monitor"
+        }
+    ],
+    "type": "neo"
+}

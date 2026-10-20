@@ -1,0 +1,88 @@
+# !/bin/sh
+APOLLO_PATH='/opt/apollo/neo/'
+PACKAGE_NAME='map'
+PACKAGE_NAME_WITH_VER='map/9.1.1'
+INCLUDE_PATH=''
+echo "[INFO] start to create symbolic links of ${PACKAGE_NAME}"
+echo '[WARN] the links of pre-version will be overwrited!'
+
+mkdir -p ${APOLLO_PATH}bin
+mkdir -p ${APOLLO_PATH}include
+mkdir -p ${APOLLO_PATH}lib
+
+chmod a+rw ${APOLLO_PATH}bin ${APOLLO_PATH}include ${APOLLO_PATH}lib ${APOLLO_PATH}packages
+
+if [ ! -d ${APOLLO_PATH}/share/packages/${PACKAGE_NAME} ]
+then
+    ln -snf ${APOLLO_PATH}packages/${PACKAGE_NAME_WITH_VER} ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest
+
+    if [ "${INCLUDE_PATH}" = "" ]
+    then
+        ori_inc_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include"
+        if [ -d ${ori_inc_path} ]
+        then
+            for file in $(ls ${ori_inc_path})
+            do
+                if [ -d ${ori_inc_path}"/"${file} ]
+                then
+                    ln -snf ${ori_inc_path}"/"${file} "${APOLLO_PATH}include/${file}"
+                fi
+            done
+        fi
+    else
+        if [ $(dirname ${INCLUDE_PATH}) != '.' ]
+        then
+            mkdir -p "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+            chmod a+rw "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+        fi
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include" "${APOLLO_PATH}include/${INCLUDE_PATH}"
+    fi
+
+    if [ -d ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib ]
+    then
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib" "${APOLLO_PATH}lib/${PACKAGE_NAME}"
+    fi
+
+    bin_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/bin"
+    if [ -d ${bin_path} ]
+    then
+        for file in $(ls ${bin_path})
+        do
+            if [ -d ${bin_path}"/"${file} ]
+            then
+                continue
+            else
+                ln -snf "${bin_path}/${file}" "${APOLLO_PATH}bin/${file}"
+            fi
+        done
+    fi
+fi
+
+if [ ! -e '/apollo/modules/map/data/demo/sim_map.txt' ]; then mkdir -p '/apollo/modules/map/data/demo' && ln -snf '/opt/apollo/neo/share/modules/map/data/demo/sim_map.txt' '/apollo/modules/map/data/demo/sim_map.txt'; fi
+if [ ! -e '/apollo/modules/map/data/demo/garage_routing.pb.txt' ]; then mkdir -p '/apollo/modules/map/data/demo' && ln -snf '/opt/apollo/neo/share/modules/map/data/demo/garage_routing.pb.txt' '/apollo/modules/map/data/demo/garage_routing.pb.txt'; fi
+if [ ! -e '/apollo/modules/map/data/demo/routing_map.txt' ]; then mkdir -p '/apollo/modules/map/data/demo' && ln -snf '/opt/apollo/neo/share/modules/map/data/demo/routing_map.txt' '/apollo/modules/map/data/demo/routing_map.txt'; fi
+if [ ! -e '/apollo/modules/map/data/demo/default_end_way_point.txt' ]; then mkdir -p '/apollo/modules/map/data/demo' && ln -snf '/opt/apollo/neo/share/modules/map/data/demo/default_end_way_point.txt' '/apollo/modules/map/data/demo/default_end_way_point.txt'; fi
+if [ ! -e '/apollo/modules/map/data/demo/base_map.txt' ]; then mkdir -p '/apollo/modules/map/data/demo' && ln -snf '/opt/apollo/neo/share/modules/map/data/demo/base_map.txt' '/apollo/modules/map/data/demo/base_map.txt'; fi
+if [ ! -e '/apollo/modules/map/data/borregas_ave/routing_map.bin' ]; then mkdir -p '/apollo/modules/map/data/borregas_ave' && ln -snf '/opt/apollo/neo/share/modules/map/data/borregas_ave/routing_map.bin' '/apollo/modules/map/data/borregas_ave/routing_map.bin'; fi
+if [ ! -e '/apollo/modules/map/data/borregas_ave/base_map.bin' ]; then mkdir -p '/apollo/modules/map/data/borregas_ave' && ln -snf '/opt/apollo/neo/share/modules/map/data/borregas_ave/base_map.bin' '/apollo/modules/map/data/borregas_ave/base_map.bin'; fi
+if [ ! -e '/apollo/modules/map/data/borregas_ave/sim_map.bin' ]; then mkdir -p '/apollo/modules/map/data/borregas_ave' && ln -snf '/opt/apollo/neo/share/modules/map/data/borregas_ave/sim_map.bin' '/apollo/modules/map/data/borregas_ave/sim_map.bin'; fi
+if [ ! -e '/apollo/modules/map/pnc_map/testdata/sample_sunnyvale_loop_routing.pb.txt' ]; then mkdir -p '/apollo/modules/map/pnc_map/testdata' && ln -snf '/opt/apollo/neo/share/modules/map/pnc_map/testdata/sample_sunnyvale_loop_routing.pb.txt' '/apollo/modules/map/pnc_map/testdata/sample_sunnyvale_loop_routing.pb.txt'; fi
+if [ ! -e '/apollo/modules/map/testdata/navigation_dummy/navigation_info.pb.txt' ]; then mkdir -p '/apollo/modules/map/testdata/navigation_dummy' && ln -snf '/opt/apollo/neo/share/modules/map/testdata/navigation_dummy/navigation_info.pb.txt' '/apollo/modules/map/testdata/navigation_dummy/navigation_info.pb.txt'; fi
+if [ ! -e '/apollo/modules/map/hdmap/test-data/base_map.bin' ]; then mkdir -p '/apollo/modules/map/hdmap/test-data' && ln -snf '/opt/apollo/neo/share/modules/map/hdmap/test-data/base_map.bin' '/apollo/modules/map/hdmap/test-data/base_map.bin'; fi
+if [ ! -e '/apollo/modules/map/relative_map/dag/relative_map.dag' ]; then mkdir -p '/apollo/modules/map/relative_map/dag' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/dag/relative_map.dag' '/apollo/modules/map/relative_map/dag/relative_map.dag'; fi
+if [ ! -e '/apollo/modules/map/relative_map/testdata/multi_lane_map/right.smoothed' ]; then mkdir -p '/apollo/modules/map/relative_map/testdata/multi_lane_map' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/testdata/multi_lane_map/right.smoothed' '/apollo/modules/map/relative_map/testdata/multi_lane_map/right.smoothed'; fi
+if [ ! -e '/apollo/modules/map/relative_map/testdata/multi_lane_map/localization_info.pb.txt' ]; then mkdir -p '/apollo/modules/map/relative_map/testdata/multi_lane_map' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/testdata/multi_lane_map/localization_info.pb.txt' '/apollo/modules/map/relative_map/testdata/multi_lane_map/localization_info.pb.txt'; fi
+if [ ! -e '/apollo/modules/map/relative_map/testdata/multi_lane_map/middle.smoothed' ]; then mkdir -p '/apollo/modules/map/relative_map/testdata/multi_lane_map' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/testdata/multi_lane_map/middle.smoothed' '/apollo/modules/map/relative_map/testdata/multi_lane_map/middle.smoothed'; fi
+if [ ! -e '/apollo/modules/map/relative_map/testdata/multi_lane_map/chassis_info.pb.txt' ]; then mkdir -p '/apollo/modules/map/relative_map/testdata/multi_lane_map' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/testdata/multi_lane_map/chassis_info.pb.txt' '/apollo/modules/map/relative_map/testdata/multi_lane_map/chassis_info.pb.txt'; fi
+if [ ! -e '/apollo/modules/map/relative_map/testdata/multi_lane_map/left.smoothed' ]; then mkdir -p '/apollo/modules/map/relative_map/testdata/multi_lane_map' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/testdata/multi_lane_map/left.smoothed' '/apollo/modules/map/relative_map/testdata/multi_lane_map/left.smoothed'; fi
+if [ ! -e '/apollo/modules/map/relative_map/launch/relative_map.launch' ]; then mkdir -p '/apollo/modules/map/relative_map/launch' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/launch/relative_map.launch' '/apollo/modules/map/relative_map/launch/relative_map.launch'; fi
+if [ ! -e '/apollo/modules/map/relative_map/conf/relative_map.conf' ]; then mkdir -p '/apollo/modules/map/relative_map/conf' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/conf/relative_map.conf' '/apollo/modules/map/relative_map/conf/relative_map.conf'; fi
+if [ ! -e '/apollo/modules/map/relative_map/conf/navigator_config.pb.txt' ]; then mkdir -p '/apollo/modules/map/relative_map/conf' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/conf/navigator_config.pb.txt' '/apollo/modules/map/relative_map/conf/navigator_config.pb.txt'; fi
+if [ ! -e '/apollo/modules/map/relative_map/conf/relative_map_config.pb.txt' ]; then mkdir -p '/apollo/modules/map/relative_map/conf' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/conf/relative_map_config.pb.txt' '/apollo/modules/map/relative_map/conf/relative_map_config.pb.txt'; fi
+
+echo "[INFO] symbolic links of ${PACKAGE_NAME} created."
+
+if [ -f "${APOLLO_PATH}update_dylib.sh" ]
+then
+    sh ${APOLLO_PATH}update_dylib.sh
+fi

@@ -1,0 +1,54 @@
+{
+    "name": "canbus-vehiclekit",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo canbus-vehiclekit module.",
+    "deps": [
+        "cyber",
+        "common",
+        "canbus",
+        "common-msgs",
+        "drivers-canbus",
+        "3rd-gtest"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/canbus_vehicle/devkit/testdata/devkit_canbus_conf_test.pb.txt' ]; then mkdir -p '/apollo/modules/canbus_vehicle/devkit/testdata' && ln -snf '/opt/apollo/neo/share/modules/canbus_vehicle/devkit/testdata/devkit_canbus_conf_test.pb.txt' '/apollo/modules/canbus_vehicle/devkit/testdata/devkit_canbus_conf_test.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/canbus_vehicle/devkit",
+        "rm -rf /opt/apollo/neo/include/modules/canbus_vehicle/devkit",
+        "rm -rf /opt/apollo/neo/lib/modules/canbus_vehicle/devkit",
+        "rm -rf /opt/apollo/neo/python/modules/canbus_vehicle/devkit",
+        "rm -rf /opt/apollo/neo/src/modules/canbus_vehicle/devkit",
+        "rm -rf /opt/apollo/neo/share/packages/canbus-vehiclekit"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/canbus_vehicle/devkit",
+            "des": "/opt/apollo/neo/share/modules/canbus_vehicle/devkit"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/canbus_vehicle/devkit",
+            "des": "/opt/apollo/neo/include/modules/canbus_vehicle/devkit"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/canbus_vehicle/devkit",
+            "des": "/opt/apollo/neo/lib/modules/canbus_vehicle/devkit"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/canbus_vehicle/devkit",
+            "des": "/opt/apollo/neo/python/modules/canbus_vehicle/devkit"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/canbus_vehicle/devkit",
+            "des": "/opt/apollo/neo/src/modules/canbus_vehicle/devkit"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/canbus-vehiclekit",
+            "des": "/opt/apollo/neo/share/packages/canbus-vehiclekit"
+        }
+    ],
+    "type": "neo"
+}

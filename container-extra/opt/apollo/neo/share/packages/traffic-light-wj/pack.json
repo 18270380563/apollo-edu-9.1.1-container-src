@@ -1,0 +1,53 @@
+{
+    "name": "traffic-light-wj",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo traffic-light-wj module.",
+    "deps": [
+        "cyber",
+        "common",
+        "common-msgs",
+        "bazel-extend-tools"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/traffic_light_wj/dag/traffic_light.dag' ]; then mkdir -p '/apollo/modules/traffic_light_wj/dag' && ln -snf '/opt/apollo/neo/share/modules/traffic_light_wj/dag/traffic_light.dag' '/apollo/modules/traffic_light_wj/dag/traffic_light.dag'; fi",
+        "if [ ! -e '/apollo/modules/traffic_light_wj/conf/traffic_light.conf' ]; then mkdir -p '/apollo/modules/traffic_light_wj/conf' && ln -snf '/opt/apollo/neo/share/modules/traffic_light_wj/conf/traffic_light.conf' '/apollo/modules/traffic_light_wj/conf/traffic_light.conf'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/traffic_light_wj",
+        "rm -rf /opt/apollo/neo/include/modules/traffic_light_wj",
+        "rm -rf /opt/apollo/neo/lib/modules/traffic_light_wj",
+        "rm -rf /opt/apollo/neo/python/modules/traffic_light_wj",
+        "rm -rf /opt/apollo/neo/src/modules/traffic_light_wj",
+        "rm -rf /opt/apollo/neo/share/packages/traffic-light-wj"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/traffic_light_wj",
+            "des": "/opt/apollo/neo/share/modules/traffic_light_wj"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/traffic_light_wj",
+            "des": "/opt/apollo/neo/include/modules/traffic_light_wj"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/traffic_light_wj",
+            "des": "/opt/apollo/neo/lib/modules/traffic_light_wj"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/traffic_light_wj",
+            "des": "/opt/apollo/neo/python/modules/traffic_light_wj"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/traffic_light_wj",
+            "des": "/opt/apollo/neo/src/modules/traffic_light_wj"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/traffic-light-wj",
+            "des": "/opt/apollo/neo/share/packages/traffic-light-wj"
+        }
+    ],
+    "type": "neo"
+}

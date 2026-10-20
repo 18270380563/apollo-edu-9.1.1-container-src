@@ -1,0 +1,10 @@
+modules/perception/data/models/center_point_paddle/BUILD:share/modules/perception/data/models/center_point_paddle/BUILD
+modules/perception/data/models/center_point_paddle/README:share/modules/perception/data/models/center_point_paddle/README
+modules/perception/data/models/center_point_paddle/apollo_deploy.yaml:share/modules/perception/data/models/center_point_paddle/apollo_deploy.yaml
+modules/perception/data/models/center_point_paddle/centerpoint.pdiparams:share/modules/perception/data/models/center_point_paddle/centerpoint.pdiparams
+modules/perception/data/models/center_point_paddle/centerpoint.pdiparams.info:share/modules/perception/data/models/center_point_paddle/centerpoint.pdiparams.info
+modules/perception/data/models/center_point_paddle/centerpoint.pdmodel:share/modules/perception/data/models/center_point_paddle/centerpoint.pdmodel
+modules/perception/data/models/center_point_paddle/collect_shape_info_3lidar_20.pbtxt:share/modules/perception/data/models/center_point_paddle/collect_shape_info_3lidar_20.pbtxt
+modules/perception/data/models/center_point_paddle/cyberfile.xml:share/modules/perception/data/models/center_point_paddle/cyberfile.xml
+modules/perception/data/models/center_point_paddle/cyberfile.xml:modules/perception/data/models/center_point_paddle/cyberfile.xml
+src_path:modules/perception/data/models/center_point_paddle

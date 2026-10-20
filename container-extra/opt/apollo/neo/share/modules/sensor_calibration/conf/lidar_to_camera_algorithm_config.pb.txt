@@ -1,0 +1,97 @@
+final_seg {
+  normal_distance_weight: 0.1
+  radius_search: 0.2
+  method_type: "SAC_RANSAC"
+  max_iterations: 5000
+  distance_threshold: 0.15
+  min_plane_size: 20
+  eps_angle: 10
+}
+
+prepare_seg {
+  normal_distance_weight: 0.2
+  radius_search: 0.1
+  method_type: "SAC_RANSAC"
+  max_iterations: 2000
+  distance_threshold: 0.05
+  min_plane_size: 10
+  eps_angle: 10
+  enable_seg_plane: false
+}
+
+extract_cluster {
+  cluster_tolerance: 0.2
+  max_cluster_size: 10000
+  min_cluster_size: 30
+}
+
+extract_cluster_final {
+  cluster_tolerance: 0.2
+  max_cluster_size: 10000
+  min_cluster_size: 30
+  enable_cluster: true
+}
+
+statistical_outlier_removal {
+  mean_k: 2000
+  mul_thresh: 1.5
+  remove: false
+}
+
+lidar_extract {
+  enable_pre_rotation: false
+  pre_rotation: 0
+  nums_of_optiminal_results: 100
+  roi_filter {
+    x_max: 8.0
+    x_min: 1.5
+    y_max: 4.0
+    y_min: -4.0
+    z_max: 5.0
+    z_min: -5.0
+    enable_roi: true
+  }
+  get_corner_para {
+    offset: 0.25
+    offset_delta: 0.01
+    deg_offset: 90
+    deg_offset_delta: 10
+  }
+  ceres_params {
+    max_num_iterations: 10000
+    function_tolerance: 1e-12
+    minimizer_progress_to_stdout: false
+    x_negative: -200
+    x_positive: 200
+    y_negative: -200
+    y_positive: 200
+    angle_negative: -90
+    angle_positive: 90 
+  }
+  filter_params {
+    height_min: 0.2
+    height_max: 100
+    distance_min: 0.2
+    distance_max: 0.7
+    distance_multi_std_thresh: 2
+    normals_threshold: 0.15
+    max_thickness: 0.15
+    min_longitude_distance: 0.4
+    enable_normals_filter: false
+  }
+  extract_cluster_for_project {
+    cluster_tolerance: 0.3
+    max_cluster_size: 10000
+    min_cluster_size: 1
+  }
+  enable_ground_plane_extract: true
+}
+
+camera_detector {
+  save_point_size: 2.0
+  solve_method: "SOLVEPNP_ITERATIVE"
+}
+
+error_threshold: 30.0
+score_base: 10
+score_increntment: 5.0

@@ -1,0 +1,11 @@
+module_config {
+    module_library : "modules/safety_manager/checker/localization_checker/libsafety_localization_checker_component.so"
+    timer_components {
+        class_name : "LocalizationCheckerComponent"
+        config {
+            name: "safety_localization_checker"
+            interval: 500  # in milliseconds
+            flag_file_path: "/apollo/modules/safety_manager/checker/localization_checker/conf/localization_checker_gflags.conf"
+        }
+    }
+}

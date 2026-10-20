@@ -1,0 +1,71 @@
+{
+    "name": "calibration-plugin",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo calibration-plugin module.",
+    "deps": [
+        "bazel-extend-tools",
+        "cyber",
+        "dreamview-plus",
+        "status-collector",
+        "sensor-calibration",
+        "3rd-pcl",
+        "3rd-eigen3",
+        "3rd-nlohmann-json",
+        "3rd-yaml-cpp",
+        "3rd-opencv",
+        "bazel-extend-tools"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/dreamview_plus_plugins/calibration_tool/plugins.xml' ]; then mkdir -p '/apollo/modules/dreamview_plus_plugins/calibration_tool' && ln -snf '/opt/apollo/neo/share/modules/dreamview_plus_plugins/calibration_tool/plugins.xml' '/apollo/modules/dreamview_plus_plugins/calibration_tool/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/dreamview_plus_plugins/calibration_tool/conf/calibration_conf.pb.txt' ]; then mkdir -p '/apollo/modules/dreamview_plus_plugins/calibration_tool/conf' && ln -snf '/opt/apollo/neo/share/modules/dreamview_plus_plugins/calibration_tool/conf/calibration_conf.pb.txt' '/apollo/modules/dreamview_plus_plugins/calibration_tool/conf/calibration_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/dreamview_plus_plugins/calibration_tool/conf/handler_info.conf' ]; then mkdir -p '/apollo/modules/dreamview_plus_plugins/calibration_tool/conf' && ln -snf '/opt/apollo/neo/share/modules/dreamview_plus_plugins/calibration_tool/conf/handler_info.conf' '/apollo/modules/dreamview_plus_plugins/calibration_tool/conf/handler_info.conf'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/dreamview_plus_plugins/calibration_tool",
+        "rm -rf /opt/apollo/neo/include/modules/dreamview_plus_plugins/calibration_tool",
+        "rm -rf /opt/apollo/neo/lib/modules/dreamview_plus_plugins/calibration_tool",
+        "rm -rf /opt/apollo/neo/python/modules/dreamview_plus_plugins/calibration_tool",
+        "rm -rf /opt/apollo/neo/src/modules/dreamview_plus_plugins/calibration_tool",
+        "rm -rf /opt/apollo/neo/share/packages/calibration-plugin",
+        "rm -rf /opt/apollo/neo/lib/modules/dreamview_plus_plugins/calibration_tool",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__dreamview_plus_plugins__calibration_tool__libdv_calibration_plugin.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/dreamview_plus_plugins/calibration_tool",
+            "des": "/opt/apollo/neo/share/modules/dreamview_plus_plugins/calibration_tool"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/dreamview_plus_plugins/calibration_tool",
+            "des": "/opt/apollo/neo/include/modules/dreamview_plus_plugins/calibration_tool"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/dreamview_plus_plugins/calibration_tool",
+            "des": "/opt/apollo/neo/lib/modules/dreamview_plus_plugins/calibration_tool"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/dreamview_plus_plugins/calibration_tool",
+            "des": "/opt/apollo/neo/python/modules/dreamview_plus_plugins/calibration_tool"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/dreamview_plus_plugins/calibration_tool",
+            "des": "/opt/apollo/neo/src/modules/dreamview_plus_plugins/calibration_tool"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/calibration-plugin",
+            "des": "/opt/apollo/neo/share/packages/calibration-plugin"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/dreamview_plus_plugins/calibration_tool",
+            "des": "/opt/apollo/neo/lib/modules/dreamview_plus_plugins/calibration_tool"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__dreamview_plus_plugins__calibration_tool__libdv_calibration_plugin.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__dreamview_plus_plugins__calibration_tool__libdv_calibration_plugin.so"
+        }
+    ],
+    "type": "neo"
+}

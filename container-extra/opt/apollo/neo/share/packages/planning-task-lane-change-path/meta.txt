@@ -1,0 +1,12 @@
+modules/planning/tasks/lane_change_path/conf/default_conf.pb.txt:share/modules/planning/tasks/lane_change_path/conf/default_conf.pb.txt
+modules/planning/tasks/lane_change_path/liblane_change_path.so:lib/modules/planning/tasks/lane_change_path/liblane_change_path.so
+modules/planning/tasks/lane_change_path/cyberfile.xml:modules/planning/tasks/lane_change_path/cyberfile.xml
+modules/planning/tasks/lane_change_path/plugins.xml:plugin_meta@modules/planning/tasks/lane_change_path@plugins.xml
+modules/planning/tasks/lane_change_path/proto/lane_change_path.pb.h:include/modules/planning/tasks/lane_change_path/proto/lane_change_path.pb.h
+modules/planning/tasks/lane_change_path/proto/lane_change_path.pb.cc:include/modules/planning/tasks/lane_change_path/proto/lane_change_path.pb.cc
+modules/planning/tasks/lane_change_path/proto/lib_lane_change_path_proto.a:include/modules/planning/tasks/lane_change_path/proto/lib_lane_change_path_proto.a
+modules/planning/tasks/lane_change_path/proto/lib_lane_change_path_proto.pic.a:include/modules/planning/tasks/lane_change_path/proto/lib_lane_change_path_proto.pic.a
+modules/planning/tasks/lane_change_path/proto/lib_lane_change_path_proto.so:include/modules/planning/tasks/lane_change_path/proto/lib_lane_change_path_proto.so
+modules/planning/tasks/lane_change_path/proto/lane_change_path_pb2.py:python/modules/planning/tasks/lane_change_path/proto/lane_change_path_pb2.py
+modules/planning/tasks/lane_change_path/proto/lib_lane_change_path_proto_mptlp_bin.so:lib/modules/planning/tasks/lane_change_path/proto/lib_lane_change_path_proto_mptlp_bin.so
+src_path:modules/planning/tasks/lane_change_path

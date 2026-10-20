@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/sensor_calibration
+rm -rf /opt/apollo/neo/include/modules/sensor_calibration
+rm -rf /opt/apollo/neo/lib/modules/sensor_calibration
+rm -rf /opt/apollo/neo/python/modules/sensor_calibration
+rm -rf /opt/apollo/neo/src/modules/sensor_calibration
+rm -rf /opt/apollo/neo/share/packages/sensor-calibration
+rm -rf /opt/apollo/neo//bin/lidar_to_imu_binary
+rm -rf /opt/apollo/neo//bin/lidar_to_camera_binary

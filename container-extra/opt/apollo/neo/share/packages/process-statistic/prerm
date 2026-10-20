@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/statistics/process
+rm -rf /opt/apollo/neo/include/modules/statistics/process
+rm -rf /opt/apollo/neo/lib/modules/statistics/process
+rm -rf /opt/apollo/neo/python/modules/statistics/process
+rm -rf /opt/apollo/neo/src/modules/statistics/process
+rm -rf /opt/apollo/neo/share/packages/process-statistic

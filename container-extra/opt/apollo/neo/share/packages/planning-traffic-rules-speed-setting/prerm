@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/planning/traffic_rules/speed_setting
+rm -rf /opt/apollo/neo/include/modules/planning/traffic_rules/speed_setting
+rm -rf /opt/apollo/neo/lib/modules/planning/traffic_rules/speed_setting
+rm -rf /opt/apollo/neo/python/modules/planning/traffic_rules/speed_setting
+rm -rf /opt/apollo/neo/src/modules/planning/traffic_rules/speed_setting
+rm -rf /opt/apollo/neo/share/packages/planning-traffic-rules-speed-setting
+rm -rf /opt/apollo/neo/lib/modules/planning/traffic_rules/speed_setting
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__traffic_rules__speed_setting__libspeed_setting.so

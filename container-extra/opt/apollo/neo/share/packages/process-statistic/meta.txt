@@ -1,0 +1,7 @@
+modules/statistics/process/libDO_NOT_IMPORT_process_statistic_component.so:lib/modules/statistics/process/libDO_NOT_IMPORT_process_statistic_component.so
+modules/statistics/process/libprocess_statistic_component.so:lib/modules/statistics/process/libprocess_statistic_component.so
+modules/statistics/process/conf/process_statistic_conf.pb.txt:share/modules/statistics/process/conf/process_statistic_conf.pb.txt
+modules/statistics/process/conf/process_statistic_gflags.conf:share/modules/statistics/process/conf/process_statistic_gflags.conf
+modules/statistics/process/dag/process_statistic.dag:share/modules/statistics/process/dag/process_statistic.dag
+modules/statistics/process/cyberfile.xml:modules/statistics/process/cyberfile.xml
+src_path:modules/statistics/process

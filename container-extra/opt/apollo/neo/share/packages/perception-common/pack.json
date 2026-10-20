@@ -1,0 +1,158 @@
+{
+    "name": "perception-common",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-common module.",
+    "deps": [
+        "3rd-libtorch-gpu",
+        "3rd-gflags",
+        "3rd-absl",
+        "3rd-gtest",
+        "cyber",
+        "common",
+        "map",
+        "transform",
+        "common-msgs",
+        "perception-data-conf",
+        "perception-data-flag",
+        "perception-data-params",
+        "3rd-opencv",
+        "3rd-glog",
+        "3rd-eigen3",
+        "3rd-boost",
+        "3rd-npp",
+        "3rd-pcl",
+        "3rd-rules-python",
+        "3rd-paddleinference",
+        "3rd-tensorrt",
+        "3rd-bazel-skylib",
+        "3rd-rules-proto",
+        "3rd-py",
+        "3rd-mkl",
+        "3rd-gpus",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/common/inference/libtorch/test_data/3_off/0.png' ]; then mkdir -p '/apollo/modules/perception/common/inference/libtorch/test_data/3_off' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/libtorch/test_data/3_off/0.png' '/apollo/modules/perception/common/inference/libtorch/test_data/3_off/0.png'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/libtorch/test_data/0_green/0.png' ]; then mkdir -p '/apollo/modules/perception/common/inference/libtorch/test_data/0_green' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/libtorch/test_data/0_green/0.png' '/apollo/modules/perception/common/inference/libtorch/test_data/0_green/0.png'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/libtorch/test_data/detect_data/img1.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/libtorch/test_data/detect_data' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/libtorch/test_data/detect_data/img1.jpg' '/apollo/modules/perception/common/inference/libtorch/test_data/detect_data/img1.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/libtorch/test_data/1_red/0.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/libtorch/test_data/1_red' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/libtorch/test_data/1_red/0.jpg' '/apollo/modules/perception/common/inference/libtorch/test_data/1_red/0.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/libtorch/test_data/2_yellow/0.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/libtorch/test_data/2_yellow' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/libtorch/test_data/2_yellow/0.jpg' '/apollo/modules/perception/common/inference/libtorch/test_data/2_yellow/0.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/onnx/testdata/dog.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/onnx/testdata' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/onnx/testdata/dog.jpg' '/apollo/modules/perception/common/inference/onnx/testdata/dog.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/onnx/testdata/coco.names' ]; then mkdir -p '/apollo/modules/perception/common/inference/onnx/testdata' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/onnx/testdata/coco.names' '/apollo/modules/perception/common/inference/onnx/testdata/coco.names'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/onnx/testdata/giraffe.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/onnx/testdata' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/onnx/testdata/giraffe.jpg' '/apollo/modules/perception/common/inference/onnx/testdata/giraffe.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/image_list.txt' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/image_list.txt' '/apollo/modules/perception/common/inference/inference_test_data/image_list.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/denseline_parser/deploy.caffemodel.metadata' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/denseline_parser' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/denseline_parser/deploy.caffemodel.metadata' '/apollo/modules/perception/common/inference/inference_test_data/denseline_parser/deploy.caffemodel.metadata'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/denseline_parser/blob_names.txt' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/denseline_parser' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/denseline_parser/blob_names.txt' '/apollo/modules/perception/common/inference/inference_test_data/denseline_parser/blob_names.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/denseline_parser/deploy.prototxt' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/denseline_parser' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/denseline_parser/deploy.prototxt' '/apollo/modules/perception/common/inference/inference_test_data/denseline_parser/deploy.prototxt'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/yolo/caffe.pt' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/yolo' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/yolo/caffe.pt' '/apollo/modules/perception/common/inference/inference_test_data/yolo/caffe.pt'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/yolo/CalibrationTable' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/yolo' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/yolo/CalibrationTable' '/apollo/modules/perception/common/inference/inference_test_data/yolo/CalibrationTable'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/yolo/blob_names.txt' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/yolo' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/yolo/blob_names.txt' '/apollo/modules/perception/common/inference/inference_test_data/yolo/blob_names.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/yolo/deploy.pt' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/yolo' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/yolo/deploy.pt' '/apollo/modules/perception/common/inference/inference_test_data/yolo/deploy.pt'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/yolo/caffe.caffemodel.metadata' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/yolo' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/yolo/caffe.caffemodel.metadata' '/apollo/modules/perception/common/inference/inference_test_data/yolo/caffe.caffemodel.metadata'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/yolo/result.dat.metadata' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/yolo' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/yolo/result.dat.metadata' '/apollo/modules/perception/common/inference/inference_test_data/yolo/result.dat.metadata'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_894.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/images' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_894.jpg' '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_894.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_560.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/images' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_560.jpg' '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_560.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_606.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/images' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_606.jpg' '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_606.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_520.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/images' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_520.jpg' '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_520.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/images/KL000_15_1517627412_1517627472_313.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/images' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/images/KL000_15_1517627412_1517627472_313.jpg' '/apollo/modules/perception/common/inference/inference_test_data/images/KL000_15_1517627412_1517627472_313.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_834.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/images' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_834.jpg' '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_834.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_854.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/images' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_854.jpg' '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_854.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_580.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/images' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_580.jpg' '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_580.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_540.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/images' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_540.jpg' '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_540.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_874.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/images' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_874.jpg' '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_874.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_500.jpg' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/images' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_500.jpg' '/apollo/modules/perception/common/inference/inference_test_data/images/ARZ034_12_1499218335_1499218635_500.jpg'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch1' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/tensorrt' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch1' '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch1'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch2' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/tensorrt' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch2' '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch2'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch3' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/tensorrt' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch3' '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch3'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch2' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/tensorrt' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch2' '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch2'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/CalibrationTable' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/tensorrt' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/tensorrt/CalibrationTable' '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/CalibrationTable'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch3' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/tensorrt' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch3' '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch3'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch0' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/tensorrt' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch0' '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch0'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch1' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/tensorrt' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch1' '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_2x1x1x1Batch1'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch0' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/tensorrt' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch0' '/apollo/modules/perception/common/inference/inference_test_data/tensorrt/bs_1x1x1x1Batch0'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/data' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/data' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/data'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/data_bc4' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/data_bc4' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/data_bc4'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/fc_out_bc4_gd' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/fc_out_bc4_gd' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/fc_out_bc4_gd'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/deploy.caffemodel' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/deploy.caffemodel' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/deploy.caffemodel'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/fc_out_gd' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/fc_out_gd' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/fc_out_gd'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/deploy.prototxt' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/deploy.prototxt' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/deploy.prototxt'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/softmax_gd' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/softmax_gd' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/softmax_gd'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/softmax_bc4_gd' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/softmax_bc4_gd' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/darkSCNN/softmax_bc4_gd'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/data' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/data' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/data'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/deploy.caffemodel.metadata' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/deploy.caffemodel.metadata' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/deploy.caffemodel.metadata'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/CalibrationTable' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/CalibrationTable' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/CalibrationTable'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/data_bc4' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/data_bc4' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/data_bc4'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/conv_out_gd' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/conv_out_gd' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/conv_out_gd'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/deploy.caffemodel' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/deploy.caffemodel' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/deploy.caffemodel'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/conv_out_bc4_gd' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/conv_out_bc4_gd' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/conv_out_bc4_gd'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/deploy.prototxt' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/deploy.prototxt' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/lane_detector/denseline/deploy.prototxt'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/img' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/img' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/img'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/bbox_pred_gd' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/bbox_pred_gd' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/bbox_pred_gd'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/baidu_iter_140000.caffemodel.metadata' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/baidu_iter_140000.caffemodel.metadata' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/baidu_iter_140000.caffemodel.metadata'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/baidu_iter_140000.caffemodel' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/baidu_iter_140000.caffemodel' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/baidu_iter_140000.caffemodel'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/im_info' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/im_info' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/im_info'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/bboxes_gd' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/bboxes_gd' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/bboxes_gd'; fi",
+        "if [ ! -e '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/deploy.prototxt' ]; then mkdir -p '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection' && ln -snf '/opt/apollo/neo/share/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/deploy.prototxt' '/apollo/modules/perception/common/inference/inference_test_data/migraphx/traffic_light_detection/deploy.prototxt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/common",
+        "rm -rf /opt/apollo/neo/include/modules/perception/common",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/common",
+        "rm -rf /opt/apollo/neo/python/modules/perception/common",
+        "rm -rf /opt/apollo/neo/src/modules/perception/common",
+        "rm -rf /opt/apollo/neo/share/packages/perception-common",
+        "rm -rf /opt/apollo/neo//bin/cal_table_generator",
+        "rm -rf /opt/apollo/neo//bin/denseline_sample",
+        "rm -rf /opt/apollo/neo//bin/lane_sample",
+        "rm -rf /opt/apollo/neo//bin/yolo_sample"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/common",
+            "des": "/opt/apollo/neo/share/modules/perception/common"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/common",
+            "des": "/opt/apollo/neo/include/modules/perception/common"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/common",
+            "des": "/opt/apollo/neo/lib/modules/perception/common"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/perception/common",
+            "des": "/opt/apollo/neo/python/modules/perception/common"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/common",
+            "des": "/opt/apollo/neo/src/modules/perception/common"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-common",
+            "des": "/opt/apollo/neo/share/packages/perception-common"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/cal_table_generator",
+            "des": "/opt/apollo/neo//bin/cal_table_generator"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/denseline_sample",
+            "des": "/opt/apollo/neo//bin/denseline_sample"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/lane_sample",
+            "des": "/opt/apollo/neo//bin/lane_sample"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/yolo_sample",
+            "des": "/opt/apollo/neo//bin/yolo_sample"
+        }
+    ],
+    "type": "neo"
+}

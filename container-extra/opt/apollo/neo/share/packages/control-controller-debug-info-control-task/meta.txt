@@ -1,0 +1,4 @@
+modules/control/controllers/debug_info_control_task/libdebug_info_control_task.so:lib/modules/control/controllers/debug_info_control_task/libdebug_info_control_task.so
+modules/control/controllers/debug_info_control_task/cyberfile.xml:modules/control/controllers/debug_info_control_task/cyberfile.xml
+modules/control/controllers/debug_info_control_task/plugins.xml:plugin_meta@modules/control/controllers/debug_info_control_task@plugins.xml
+src_path:modules/control/controllers/debug_info_control_task

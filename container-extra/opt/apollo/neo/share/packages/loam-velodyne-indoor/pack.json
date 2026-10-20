@@ -1,0 +1,76 @@
+{
+    "name": "loam-velodyne-indoor",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo loam-velodyne-indoor module.",
+    "deps": [
+        "3rd-gflags",
+        "3rd-glog",
+        "3rd-yaml-cpp",
+        "3rd-boost",
+        "3rd-gtest",
+        "3rd-pcl",
+        "3rd-eigen3",
+        "3rd-fastrtps",
+        "3rd-absl",
+        "3rd-proj",
+        "3rd-opencv",
+        "common",
+        "common-msgs",
+        "cyber",
+        "transform",
+        "3rd-localization-msf",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-bazel-skylib",
+        "3rd-rules-proto",
+        "3rd-py"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/loam_velodyne_indoor/dag/laser_multiscan_registration.dag' ]; then mkdir -p '/apollo/modules/loam_velodyne_indoor/dag' && ln -snf '/opt/apollo/neo/share/modules/loam_velodyne_indoor/dag/laser_multiscan_registration.dag' '/apollo/modules/loam_velodyne_indoor/dag/laser_multiscan_registration.dag'; fi",
+        "if [ ! -e '/apollo/modules/loam_velodyne_indoor/dag/localization_mapping.dag' ]; then mkdir -p '/apollo/modules/loam_velodyne_indoor/dag' && ln -snf '/opt/apollo/neo/share/modules/loam_velodyne_indoor/dag/localization_mapping.dag' '/apollo/modules/loam_velodyne_indoor/dag/localization_mapping.dag'; fi",
+        "if [ ! -e '/apollo/modules/loam_velodyne_indoor/dag/laser_odometry.dag' ]; then mkdir -p '/apollo/modules/loam_velodyne_indoor/dag' && ln -snf '/opt/apollo/neo/share/modules/loam_velodyne_indoor/dag/laser_odometry.dag' '/apollo/modules/loam_velodyne_indoor/dag/laser_odometry.dag'; fi",
+        "if [ ! -e '/apollo/modules/loam_velodyne_indoor/launch/loam_velodyne_indoor.launch' ]; then mkdir -p '/apollo/modules/loam_velodyne_indoor/launch' && ln -snf '/opt/apollo/neo/share/modules/loam_velodyne_indoor/launch/loam_velodyne_indoor.launch' '/apollo/modules/loam_velodyne_indoor/launch/loam_velodyne_indoor.launch'; fi",
+        "if [ ! -e '/apollo/modules/loam_velodyne_indoor/conf/laser_multiscan_registration_conf.pb.txt' ]; then mkdir -p '/apollo/modules/loam_velodyne_indoor/conf' && ln -snf '/opt/apollo/neo/share/modules/loam_velodyne_indoor/conf/laser_multiscan_registration_conf.pb.txt' '/apollo/modules/loam_velodyne_indoor/conf/laser_multiscan_registration_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/loam_velodyne_indoor/conf/localization_conf.pb.txt' ]; then mkdir -p '/apollo/modules/loam_velodyne_indoor/conf' && ln -snf '/opt/apollo/neo/share/modules/loam_velodyne_indoor/conf/localization_conf.pb.txt' '/apollo/modules/loam_velodyne_indoor/conf/localization_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/loam_velodyne_indoor/conf/localization_conf.conf' ]; then mkdir -p '/apollo/modules/loam_velodyne_indoor/conf' && ln -snf '/opt/apollo/neo/share/modules/loam_velodyne_indoor/conf/localization_conf.conf' '/apollo/modules/loam_velodyne_indoor/conf/localization_conf.conf'; fi",
+        "if [ ! -e '/apollo/modules/loam_velodyne_indoor/conf/laser_odometry_conf.pb.txt' ]; then mkdir -p '/apollo/modules/loam_velodyne_indoor/conf' && ln -snf '/opt/apollo/neo/share/modules/loam_velodyne_indoor/conf/laser_odometry_conf.pb.txt' '/apollo/modules/loam_velodyne_indoor/conf/laser_odometry_conf.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/loam_velodyne_indoor",
+        "rm -rf /opt/apollo/neo/include/modules/loam_velodyne_indoor",
+        "rm -rf /opt/apollo/neo/lib/modules/loam_velodyne_indoor",
+        "rm -rf /opt/apollo/neo/python/modules/loam_velodyne_indoor",
+        "rm -rf /opt/apollo/neo/src/modules/loam_velodyne_indoor",
+        "rm -rf /opt/apollo/neo/share/packages/loam-velodyne-indoor"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/loam_velodyne_indoor",
+            "des": "/opt/apollo/neo/share/modules/loam_velodyne_indoor"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/loam_velodyne_indoor",
+            "des": "/opt/apollo/neo/include/modules/loam_velodyne_indoor"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/loam_velodyne_indoor",
+            "des": "/opt/apollo/neo/lib/modules/loam_velodyne_indoor"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/loam_velodyne_indoor",
+            "des": "/opt/apollo/neo/python/modules/loam_velodyne_indoor"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/loam_velodyne_indoor",
+            "des": "/opt/apollo/neo/src/modules/loam_velodyne_indoor"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/loam-velodyne-indoor",
+            "des": "/opt/apollo/neo/share/packages/loam-velodyne-indoor"
+        }
+    ],
+    "type": "neo"
+}

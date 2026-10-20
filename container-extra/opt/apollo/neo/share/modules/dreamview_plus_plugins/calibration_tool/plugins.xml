@@ -1,0 +1,3 @@
+<library path="modules/dreamview_plus_plugins/calibration_tool/libdv_calibration_plugin.so">
+    <class type="apollo::dreamview::CalibrationPlugin" base_class="apollo::dreamview::DvPluginBase"></class>
+</library>

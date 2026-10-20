@@ -1,0 +1,59 @@
+{
+    "name": "apollo-data",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo apollo-data module.",
+    "deps": [
+        "cyber",
+        "canbus",
+        "common",
+        "monitor",
+        "dreamview",
+        "3rd-absl"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/data/tools/smart_recorder/conf/smart_recorder_config.pb.txt' ]; then mkdir -p '/apollo/modules/data/tools/smart_recorder/conf' && ln -snf '/opt/apollo/neo/share/modules/data/tools/smart_recorder/conf/smart_recorder_config.pb.txt' '/apollo/modules/data/tools/smart_recorder/conf/smart_recorder_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/data",
+        "rm -rf /opt/apollo/neo/include/modules/data",
+        "rm -rf /opt/apollo/neo/lib/modules/data",
+        "rm -rf /opt/apollo/neo/python/modules/data",
+        "rm -rf /opt/apollo/neo/src/modules/data",
+        "rm -rf /opt/apollo/neo/share/packages/apollo-data",
+        "rm -rf /opt/apollo/neo//bin/smart_recorder"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/data",
+            "des": "/opt/apollo/neo/share/modules/data"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/data",
+            "des": "/opt/apollo/neo/include/modules/data"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/data",
+            "des": "/opt/apollo/neo/lib/modules/data"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/data",
+            "des": "/opt/apollo/neo/python/modules/data"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/data",
+            "des": "/opt/apollo/neo/src/modules/data"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/apollo-data",
+            "des": "/opt/apollo/neo/share/packages/apollo-data"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/smart_recorder",
+            "des": "/opt/apollo/neo//bin/smart_recorder"
+        }
+    ],
+    "type": "neo"
+}

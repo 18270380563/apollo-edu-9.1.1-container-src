@@ -1,0 +1,17 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/map
+rm -rf /opt/apollo/neo/include/modules/map
+rm -rf /opt/apollo/neo/lib/modules/map
+rm -rf /opt/apollo/neo/python/modules/map
+rm -rf /opt/apollo/neo/src/modules/map
+rm -rf /opt/apollo/neo/share/packages/map
+rm -rf /opt/apollo/neo//bin/map_tool
+rm -rf /opt/apollo/neo//bin/map_xysl
+rm -rf /opt/apollo/neo//bin/refresh_default_end_way_point
+rm -rf /opt/apollo/neo//bin/sim_map_generator
+rm -rf /opt/apollo/neo//bin/proto_map_generator
+rm -rf /opt/apollo/neo//bin/bin_map_generator
+rm -rf /opt/apollo/neo//bin/quaternion_euler
+rm -rf /opt/apollo/neo//bin/map_datachecker_client
+rm -rf /opt/apollo/neo//bin/map_datachecker_server

@@ -1,0 +1,127 @@
+# !/bin/sh
+APOLLO_PATH='/opt/apollo/neo/'
+PACKAGE_NAME='localization'
+PACKAGE_NAME_WITH_VER='localization/9.1.1'
+INCLUDE_PATH=''
+echo "[INFO] start to create symbolic links of ${PACKAGE_NAME}"
+echo '[WARN] the links of pre-version will be overwrited!'
+
+mkdir -p ${APOLLO_PATH}bin
+mkdir -p ${APOLLO_PATH}include
+mkdir -p ${APOLLO_PATH}lib
+
+chmod a+rw ${APOLLO_PATH}bin ${APOLLO_PATH}include ${APOLLO_PATH}lib ${APOLLO_PATH}packages
+
+if [ ! -d ${APOLLO_PATH}/share/packages/${PACKAGE_NAME} ]
+then
+    ln -snf ${APOLLO_PATH}packages/${PACKAGE_NAME_WITH_VER} ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest
+
+    if [ "${INCLUDE_PATH}" = "" ]
+    then
+        ori_inc_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include"
+        if [ -d ${ori_inc_path} ]
+        then
+            for file in $(ls ${ori_inc_path})
+            do
+                if [ -d ${ori_inc_path}"/"${file} ]
+                then
+                    ln -snf ${ori_inc_path}"/"${file} "${APOLLO_PATH}include/${file}"
+                fi
+            done
+        fi
+    else
+        if [ $(dirname ${INCLUDE_PATH}) != '.' ]
+        then
+            mkdir -p "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+            chmod a+rw "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+        fi
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include" "${APOLLO_PATH}include/${INCLUDE_PATH}"
+    fi
+
+    if [ -d ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib ]
+    then
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib" "${APOLLO_PATH}lib/${PACKAGE_NAME}"
+    fi
+
+    bin_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/bin"
+    if [ -d ${bin_path} ]
+    then
+        for file in $(ls ${bin_path})
+        do
+            if [ -d ${bin_path}"/"${file} ]
+            then
+                continue
+            else
+                ln -snf "${bin_path}/${file}" "${APOLLO_PATH}bin/${file}"
+            fi
+        done
+    fi
+fi
+
+if [ ! -e '/apollo/modules/localization/msf/common/test_data/test_folder/file2.txt' ]; then mkdir -p '/apollo/modules/localization/msf/common/test_data/test_folder' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/common/test_data/test_folder/file2.txt' '/apollo/modules/localization/msf/common/test_data/test_folder/file2.txt'; fi
+if [ ! -e '/apollo/modules/localization/msf/common/test_data/test_folder/file3.txt' ]; then mkdir -p '/apollo/modules/localization/msf/common/test_data/test_folder' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/common/test_data/test_folder/file3.txt' '/apollo/modules/localization/msf/common/test_data/test_folder/file3.txt'; fi
+if [ ! -e '/apollo/modules/localization/msf/common/test_data/test_folder/file1.txt' ]; then mkdir -p '/apollo/modules/localization/msf/common/test_data/test_folder' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/common/test_data/test_folder/file1.txt' '/apollo/modules/localization/msf/common/test_data/test_folder/file1.txt'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/ndt_map/pcds/poses.txt' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/ndt_map/pcds' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/ndt_map/pcds/poses.txt' '/apollo/modules/localization/msf/local_map/test_data/ndt_map/pcds/poses.txt'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/ndt_map/pcds/1.pcd' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/ndt_map/pcds' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/ndt_map/pcds/1.pcd' '/apollo/modules/localization/msf/local_map/test_data/ndt_map/pcds/1.pcd'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/ndt_map/pcds/2.pcd' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/ndt_map/pcds' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/ndt_map/pcds/2.pcd' '/apollo/modules/localization/msf/local_map/test_data/ndt_map/pcds/2.pcd'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/config.xml' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/config.xml' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/config.xml'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003435' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003435' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003435'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003436' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003436' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003436'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003437' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003437' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003437'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003438' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003438' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034635/00003438'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637/00003435' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637/00003435' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637/00003435'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637/00003436' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637/00003436' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637/00003436'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637/00003437' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637/00003437' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034637/00003437'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003435' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003435' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003435'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003436' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003436' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003436'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003437' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003437' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003437'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003438' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003438' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034636/00003438'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638/00003435' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638/00003435' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638/00003435'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638/00003436' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638/00003436' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638/00003436'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638/00003437' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638/00003437' '/apollo/modules/localization/msf/local_map/test_data/lossy_single_map/map/000/north/50/00034638/00003437'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/config.xml' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossless_single_map/config.xml' '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/config.xml'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635/00003435' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635/00003435' '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635/00003435'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635/00003437' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635/00003437' '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635/00003437'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635/00003438' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635/00003438' '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034635/00003438'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638/00003435' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638/00003435' '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638/00003435'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638/00003436' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638/00003436' '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638/00003436'; fi
+if [ ! -e '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638/00003437' ]; then mkdir -p '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638/00003437' '/apollo/modules/localization/msf/local_map/test_data/lossless_single_map/map/000/north/50/00034638/00003437'; fi
+if [ ! -e '/apollo/modules/localization/msf/params/novatel_localization_extrinsics.yaml' ]; then mkdir -p '/apollo/modules/localization/msf/params' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/params/novatel_localization_extrinsics.yaml' '/apollo/modules/localization/msf/params/novatel_localization_extrinsics.yaml'; fi
+if [ ! -e '/apollo/modules/localization/msf/params/imu_localization_extrinsics.yaml' ]; then mkdir -p '/apollo/modules/localization/msf/params' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/params/imu_localization_extrinsics.yaml' '/apollo/modules/localization/msf/params/imu_localization_extrinsics.yaml'; fi
+if [ ! -e '/apollo/modules/localization/msf/params/gnss_params/ant_imu_leverarm.yaml' ]; then mkdir -p '/apollo/modules/localization/msf/params/gnss_params' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/params/gnss_params/ant_imu_leverarm.yaml' '/apollo/modules/localization/msf/params/gnss_params/ant_imu_leverarm.yaml'; fi
+if [ ! -e '/apollo/modules/localization/msf/params/velodyne_params/velodyne64_novatel_extrinsics_example.yaml' ]; then mkdir -p '/apollo/modules/localization/msf/params/velodyne_params' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/params/velodyne_params/velodyne64_novatel_extrinsics_example.yaml' '/apollo/modules/localization/msf/params/velodyne_params/velodyne64_novatel_extrinsics_example.yaml'; fi
+if [ ! -e '/apollo/modules/localization/msf/params/velodyne_params/64E_S3_calibration_example.yaml' ]; then mkdir -p '/apollo/modules/localization/msf/params/velodyne_params' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/params/velodyne_params/64E_S3_calibration_example.yaml' '/apollo/modules/localization/msf/params/velodyne_params/64E_S3_calibration_example.yaml'; fi
+if [ ! -e '/apollo/modules/localization/msf/params/velodyne_params/velodyne64_height.yaml' ]; then mkdir -p '/apollo/modules/localization/msf/params/velodyne_params' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/params/velodyne_params/velodyne64_height.yaml' '/apollo/modules/localization/msf/params/velodyne_params/velodyne64_height.yaml'; fi
+if [ ! -e '/apollo/modules/localization/msf/params/vehicle_params/vehicle_imu_extrinsics.yaml' ]; then mkdir -p '/apollo/modules/localization/msf/params/vehicle_params' && ln -snf '/opt/apollo/neo/share/modules/localization/msf/params/vehicle_params/vehicle_imu_extrinsics.yaml' '/apollo/modules/localization/msf/params/vehicle_params/vehicle_imu_extrinsics.yaml'; fi
+if [ ! -e '/apollo/modules/localization/dag/dag_streaming_rtk_localization.dag' ]; then mkdir -p '/apollo/modules/localization/dag' && ln -snf '/opt/apollo/neo/share/modules/localization/dag/dag_streaming_rtk_localization.dag' '/apollo/modules/localization/dag/dag_streaming_rtk_localization.dag'; fi
+if [ ! -e '/apollo/modules/localization/dag/dag_streaming_msf_visualizer.dag' ]; then mkdir -p '/apollo/modules/localization/dag' && ln -snf '/opt/apollo/neo/share/modules/localization/dag/dag_streaming_msf_visualizer.dag' '/apollo/modules/localization/dag/dag_streaming_msf_visualizer.dag'; fi
+if [ ! -e '/apollo/modules/localization/dag/dag_streaming_ndt_localization.dag' ]; then mkdir -p '/apollo/modules/localization/dag' && ln -snf '/opt/apollo/neo/share/modules/localization/dag/dag_streaming_ndt_localization.dag' '/apollo/modules/localization/dag/dag_streaming_ndt_localization.dag'; fi
+if [ ! -e '/apollo/modules/localization/dag/dag_streaming_msf_localization.dag' ]; then mkdir -p '/apollo/modules/localization/dag' && ln -snf '/opt/apollo/neo/share/modules/localization/dag/dag_streaming_msf_localization.dag' '/apollo/modules/localization/dag/dag_streaming_msf_localization.dag'; fi
+if [ ! -e '/apollo/modules/localization/testdata/1_imu_result.pb.txt' ]; then mkdir -p '/apollo/modules/localization/testdata' && ln -snf '/opt/apollo/neo/share/modules/localization/testdata/1_imu_result.pb.txt' '/apollo/modules/localization/testdata/1_imu_result.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/testdata/2_imu_1.pb.txt' ]; then mkdir -p '/apollo/modules/localization/testdata' && ln -snf '/opt/apollo/neo/share/modules/localization/testdata/2_imu_1.pb.txt' '/apollo/modules/localization/testdata/2_imu_1.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/testdata/1_imu_1.pb.txt' ]; then mkdir -p '/apollo/modules/localization/testdata' && ln -snf '/opt/apollo/neo/share/modules/localization/testdata/1_imu_1.pb.txt' '/apollo/modules/localization/testdata/1_imu_1.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/testdata/3_gps_1.pb.txt' ]; then mkdir -p '/apollo/modules/localization/testdata' && ln -snf '/opt/apollo/neo/share/modules/localization/testdata/3_gps_1.pb.txt' '/apollo/modules/localization/testdata/3_gps_1.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/testdata/3_imu_1.pb.txt' ]; then mkdir -p '/apollo/modules/localization/testdata' && ln -snf '/opt/apollo/neo/share/modules/localization/testdata/3_imu_1.pb.txt' '/apollo/modules/localization/testdata/3_imu_1.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/testdata/3_localization_result_2.pb.txt' ]; then mkdir -p '/apollo/modules/localization/testdata' && ln -snf '/opt/apollo/neo/share/modules/localization/testdata/3_localization_result_2.pb.txt' '/apollo/modules/localization/testdata/3_localization_result_2.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/testdata/2_imu_2.pb.txt' ]; then mkdir -p '/apollo/modules/localization/testdata' && ln -snf '/opt/apollo/neo/share/modules/localization/testdata/2_imu_2.pb.txt' '/apollo/modules/localization/testdata/2_imu_2.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/testdata/1_imu_2.pb.txt' ]; then mkdir -p '/apollo/modules/localization/testdata' && ln -snf '/opt/apollo/neo/share/modules/localization/testdata/1_imu_2.pb.txt' '/apollo/modules/localization/testdata/1_imu_2.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/testdata/2_imu_result.pb.txt' ]; then mkdir -p '/apollo/modules/localization/testdata' && ln -snf '/opt/apollo/neo/share/modules/localization/testdata/2_imu_result.pb.txt' '/apollo/modules/localization/testdata/2_imu_result.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/testdata/3_localization_result_1.pb.txt' ]; then mkdir -p '/apollo/modules/localization/testdata' && ln -snf '/opt/apollo/neo/share/modules/localization/testdata/3_localization_result_1.pb.txt' '/apollo/modules/localization/testdata/3_localization_result_1.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/launch/msf_localization_with_visualizer.launch' ]; then mkdir -p '/apollo/modules/localization/launch' && ln -snf '/opt/apollo/neo/share/modules/localization/launch/msf_localization_with_visualizer.launch' '/apollo/modules/localization/launch/msf_localization_with_visualizer.launch'; fi
+if [ ! -e '/apollo/modules/localization/launch/ndt_localization.launch' ]; then mkdir -p '/apollo/modules/localization/launch' && ln -snf '/opt/apollo/neo/share/modules/localization/launch/ndt_localization.launch' '/apollo/modules/localization/launch/ndt_localization.launch'; fi
+if [ ! -e '/apollo/modules/localization/launch/msf_localization.launch' ]; then mkdir -p '/apollo/modules/localization/launch' && ln -snf '/opt/apollo/neo/share/modules/localization/launch/msf_localization.launch' '/apollo/modules/localization/launch/msf_localization.launch'; fi
+if [ ! -e '/apollo/modules/localization/launch/msf_visualizer.launch' ]; then mkdir -p '/apollo/modules/localization/launch' && ln -snf '/opt/apollo/neo/share/modules/localization/launch/msf_visualizer.launch' '/apollo/modules/localization/launch/msf_visualizer.launch'; fi
+if [ ! -e '/apollo/modules/localization/launch/rtk_localization.launch' ]; then mkdir -p '/apollo/modules/localization/launch' && ln -snf '/opt/apollo/neo/share/modules/localization/launch/rtk_localization.launch' '/apollo/modules/localization/launch/rtk_localization.launch'; fi
+if [ ! -e '/apollo/modules/localization/launch/localization.launch' ]; then mkdir -p '/apollo/modules/localization/launch' && ln -snf '/opt/apollo/neo/share/modules/localization/launch/localization.launch' '/apollo/modules/localization/launch/localization.launch'; fi
+if [ ! -e '/apollo/modules/localization/conf/rtk_localization.pb.txt' ]; then mkdir -p '/apollo/modules/localization/conf' && ln -snf '/opt/apollo/neo/share/modules/localization/conf/rtk_localization.pb.txt' '/apollo/modules/localization/conf/rtk_localization.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/conf/localization.conf' ]; then mkdir -p '/apollo/modules/localization/conf' && ln -snf '/opt/apollo/neo/share/modules/localization/conf/localization.conf' '/apollo/modules/localization/conf/localization.conf'; fi
+if [ ! -e '/apollo/modules/localization/conf/localization_config.pb.txt' ]; then mkdir -p '/apollo/modules/localization/conf' && ln -snf '/opt/apollo/neo/share/modules/localization/conf/localization_config.pb.txt' '/apollo/modules/localization/conf/localization_config.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/conf/msf_localization.pb.txt' ]; then mkdir -p '/apollo/modules/localization/conf' && ln -snf '/opt/apollo/neo/share/modules/localization/conf/msf_localization.pb.txt' '/apollo/modules/localization/conf/msf_localization.pb.txt'; fi
+if [ ! -e '/apollo/modules/localization/conf/navi_localization_config.pb.txt' ]; then mkdir -p '/apollo/modules/localization/conf' && ln -snf '/opt/apollo/neo/share/modules/localization/conf/navi_localization_config.pb.txt' '/apollo/modules/localization/conf/navi_localization_config.pb.txt'; fi
+
+echo "[INFO] symbolic links of ${PACKAGE_NAME} created."
+
+if [ -f "${APOLLO_PATH}update_dylib.sh" ]
+then
+    sh ${APOLLO_PATH}update_dylib.sh
+fi

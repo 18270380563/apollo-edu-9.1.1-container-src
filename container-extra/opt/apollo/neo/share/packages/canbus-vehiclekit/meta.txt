@@ -1,0 +1,13 @@
+modules/canbus_vehicle/devkit/libapollo_canbus_vehicle_devkit.so:lib/modules/canbus_vehicle/devkit/libapollo_canbus_vehicle_devkit.so
+modules/canbus_vehicle/devkit/libDO_NOT_IMPORT_devkit_vehicle_factory_lib.so:lib/modules/canbus_vehicle/devkit/libDO_NOT_IMPORT_devkit_vehicle_factory_lib.so
+modules/canbus_vehicle/devkit/libdevkit_vehicle_factory_lib.so:lib/modules/canbus_vehicle/devkit/libdevkit_vehicle_factory_lib.so
+modules/canbus_vehicle/devkit/testdata/devkit_canbus_conf_test.pb.txt:share/modules/canbus_vehicle/devkit/testdata/devkit_canbus_conf_test.pb.txt
+modules/canbus_vehicle/devkit/cyberfile.xml:modules/canbus_vehicle/devkit/cyberfile.xml
+modules/canbus_vehicle/devkit/proto/devkit.pb.h:include/modules/canbus_vehicle/devkit/proto/devkit.pb.h
+modules/canbus_vehicle/devkit/proto/devkit.pb.cc:include/modules/canbus_vehicle/devkit/proto/devkit.pb.cc
+modules/canbus_vehicle/devkit/proto/lib_devkit_proto.a:include/modules/canbus_vehicle/devkit/proto/lib_devkit_proto.a
+modules/canbus_vehicle/devkit/proto/lib_devkit_proto.pic.a:include/modules/canbus_vehicle/devkit/proto/lib_devkit_proto.pic.a
+modules/canbus_vehicle/devkit/proto/lib_devkit_proto.so:include/modules/canbus_vehicle/devkit/proto/lib_devkit_proto.so
+modules/canbus_vehicle/devkit/proto/devkit_pb2.py:python/modules/canbus_vehicle/devkit/proto/devkit_pb2.py
+modules/canbus_vehicle/devkit/proto/lib_devkit_proto_mcdp_bin.so:lib/modules/canbus_vehicle/devkit/proto/lib_devkit_proto_mcdp_bin.so
+src_path:modules/canbus_vehicle/devkit

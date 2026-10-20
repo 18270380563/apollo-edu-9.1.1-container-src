@@ -1,0 +1,9 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/dreamview_plus
+rm -rf /opt/apollo/neo/include/modules/dreamview_plus
+rm -rf /opt/apollo/neo/lib/modules/dreamview_plus
+rm -rf /opt/apollo/neo/python/modules/dreamview_plus
+rm -rf /opt/apollo/neo/src/modules/dreamview_plus
+rm -rf /opt/apollo/neo/share/packages/dreamview-plus
+rm -rf /opt/apollo/neo//bin/dreamview_plus

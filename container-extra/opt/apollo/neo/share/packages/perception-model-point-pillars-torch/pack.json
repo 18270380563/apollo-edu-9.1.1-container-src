@@ -1,0 +1,50 @@
+{
+    "name": "perception-model-point-pillars-torch",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-model-point-pillars-torch module.",
+    "deps": [
+        "bazel-extend-tools",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-rules-proto",
+        "3rd-py",
+        "3rd-gpus",
+        "3rd-bazel-skylib"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/data/models/point_pillars_torch/apollo_deploy.yaml' ]; then mkdir -p '/apollo/modules/perception/data/models/point_pillars_torch' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/point_pillars_torch/apollo_deploy.yaml' '/apollo/modules/perception/data/models/point_pillars_torch/apollo_deploy.yaml'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/models/point_pillars_torch/README' ]; then mkdir -p '/apollo/modules/perception/data/models/point_pillars_torch' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/point_pillars_torch/README' '/apollo/modules/perception/data/models/point_pillars_torch/README'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/models/point_pillars_torch/pointpillars.zip' ]; then mkdir -p '/apollo/modules/perception/data/models/point_pillars_torch' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/point_pillars_torch/pointpillars.zip' '/apollo/modules/perception/data/models/point_pillars_torch/pointpillars.zip'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/models/point_pillars_torch/BUILD' ]; then mkdir -p '/apollo/modules/perception/data/models/point_pillars_torch' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/point_pillars_torch/BUILD' '/apollo/modules/perception/data/models/point_pillars_torch/BUILD'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/data/models/point_pillars_torch",
+        "rm -rf /opt/apollo/neo/include/modules/perception/data/models/point_pillars_torch",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/data/models/point_pillars_torch",
+        "rm -rf /opt/apollo/neo/python/modules/perception/data/models/point_pillars_torch",
+        "rm -rf /opt/apollo/neo/src/modules/perception/data/models/point_pillars_torch",
+        "rm -rf /opt/apollo/neo/share/packages/perception-model-point-pillars-torch"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/data/models/point_pillars_torch",
+            "des": "/opt/apollo/neo/share/modules/perception/data/models/point_pillars_torch"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/data/models/point_pillars_torch",
+            "des": "/opt/apollo/neo/include/modules/perception/data/models/point_pillars_torch"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/data/models/point_pillars_torch",
+            "des": "/opt/apollo/neo/src/modules/perception/data/models/point_pillars_torch"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-model-point-pillars-torch",
+            "des": "/opt/apollo/neo/share/packages/perception-model-point-pillars-torch"
+        }
+    ],
+    "type": "neo"
+}

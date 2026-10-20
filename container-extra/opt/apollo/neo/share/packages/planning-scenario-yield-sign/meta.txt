@@ -1,0 +1,13 @@
+modules/planning/scenarios/yield_sign/conf/pipeline.pb.txt:share/modules/planning/scenarios/yield_sign/conf/pipeline.pb.txt
+modules/planning/scenarios/yield_sign/conf/scenario_conf.pb.txt:share/modules/planning/scenarios/yield_sign/conf/scenario_conf.pb.txt
+modules/planning/scenarios/yield_sign/libyield_sign_scenario.so:lib/modules/planning/scenarios/yield_sign/libyield_sign_scenario.so
+modules/planning/scenarios/yield_sign/cyberfile.xml:modules/planning/scenarios/yield_sign/cyberfile.xml
+modules/planning/scenarios/yield_sign/plugins.xml:plugin_meta@modules/planning/scenarios/yield_sign@plugins.xml
+modules/planning/scenarios/yield_sign/proto/yield_sign.pb.h:include/modules/planning/scenarios/yield_sign/proto/yield_sign.pb.h
+modules/planning/scenarios/yield_sign/proto/yield_sign.pb.cc:include/modules/planning/scenarios/yield_sign/proto/yield_sign.pb.cc
+modules/planning/scenarios/yield_sign/proto/lib_yield_sign_proto.a:include/modules/planning/scenarios/yield_sign/proto/lib_yield_sign_proto.a
+modules/planning/scenarios/yield_sign/proto/lib_yield_sign_proto.pic.a:include/modules/planning/scenarios/yield_sign/proto/lib_yield_sign_proto.pic.a
+modules/planning/scenarios/yield_sign/proto/lib_yield_sign_proto.so:include/modules/planning/scenarios/yield_sign/proto/lib_yield_sign_proto.so
+modules/planning/scenarios/yield_sign/proto/yield_sign_pb2.py:python/modules/planning/scenarios/yield_sign/proto/yield_sign_pb2.py
+modules/planning/scenarios/yield_sign/proto/lib_yield_sign_proto_mpsyp_bin.so:lib/modules/planning/scenarios/yield_sign/proto/lib_yield_sign_proto_mpsyp_bin.so
+src_path:modules/planning/scenarios/yield_sign

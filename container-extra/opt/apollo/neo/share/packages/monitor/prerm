@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/monitor
+rm -rf /opt/apollo/neo/include/modules/monitor
+rm -rf /opt/apollo/neo/lib/modules/monitor
+rm -rf /opt/apollo/neo/python/modules/monitor
+rm -rf /opt/apollo/neo/src/modules/monitor
+rm -rf /opt/apollo/neo/share/packages/monitor

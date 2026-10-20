@@ -1,0 +1,59 @@
+{
+    "name": "perception-traffic-light-tracking",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-traffic-light-tracking module.",
+    "deps": [
+        "cyber",
+        "perception-common",
+        "common-msgs",
+        "3rd-opencv",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/traffic_light_tracking/data/semantic.pb.txt' ]; then mkdir -p '/apollo/modules/perception/traffic_light_tracking/data' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_tracking/data/semantic.pb.txt' '/apollo/modules/perception/traffic_light_tracking/data/semantic.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_tracking/dag/traffic_light_tracking.dag' ]; then mkdir -p '/apollo/modules/perception/traffic_light_tracking/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_tracking/dag/traffic_light_tracking.dag' '/apollo/modules/perception/traffic_light_tracking/dag/traffic_light_tracking.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_tracking/launch/traffic_light_tracking.launch' ]; then mkdir -p '/apollo/modules/perception/traffic_light_tracking/launch' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_tracking/launch/traffic_light_tracking.launch' '/apollo/modules/perception/traffic_light_tracking/launch/traffic_light_tracking.launch'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_tracking/conf/traffic_light_tracking_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/traffic_light_tracking/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_tracking/conf/traffic_light_tracking_config.pb.txt' '/apollo/modules/perception/traffic_light_tracking/conf/traffic_light_tracking_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/traffic_light_tracking",
+        "rm -rf /opt/apollo/neo/include/modules/perception/traffic_light_tracking",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/traffic_light_tracking",
+        "rm -rf /opt/apollo/neo/python/modules/perception/traffic_light_tracking",
+        "rm -rf /opt/apollo/neo/src/modules/perception/traffic_light_tracking",
+        "rm -rf /opt/apollo/neo/share/packages/perception-traffic-light-tracking"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/traffic_light_tracking",
+            "des": "/opt/apollo/neo/share/modules/perception/traffic_light_tracking"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/traffic_light_tracking",
+            "des": "/opt/apollo/neo/include/modules/perception/traffic_light_tracking"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/traffic_light_tracking",
+            "des": "/opt/apollo/neo/lib/modules/perception/traffic_light_tracking"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/perception/traffic_light_tracking",
+            "des": "/opt/apollo/neo/python/modules/perception/traffic_light_tracking"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/traffic_light_tracking",
+            "des": "/opt/apollo/neo/src/modules/perception/traffic_light_tracking"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-traffic-light-tracking",
+            "des": "/opt/apollo/neo/share/packages/perception-traffic-light-tracking"
+        }
+    ],
+    "type": "neo"
+}

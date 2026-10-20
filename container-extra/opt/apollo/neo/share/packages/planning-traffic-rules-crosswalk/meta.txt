@@ -1,0 +1,12 @@
+modules/planning/traffic_rules/crosswalk/conf/default_conf.pb.txt:share/modules/planning/traffic_rules/crosswalk/conf/default_conf.pb.txt
+modules/planning/traffic_rules/crosswalk/libcrosswalk.so:lib/modules/planning/traffic_rules/crosswalk/libcrosswalk.so
+modules/planning/traffic_rules/crosswalk/cyberfile.xml:modules/planning/traffic_rules/crosswalk/cyberfile.xml
+modules/planning/traffic_rules/crosswalk/plugins.xml:plugin_meta@modules/planning/traffic_rules/crosswalk@plugins.xml
+modules/planning/traffic_rules/crosswalk/proto/crosswalk.pb.h:include/modules/planning/traffic_rules/crosswalk/proto/crosswalk.pb.h
+modules/planning/traffic_rules/crosswalk/proto/crosswalk.pb.cc:include/modules/planning/traffic_rules/crosswalk/proto/crosswalk.pb.cc
+modules/planning/traffic_rules/crosswalk/proto/lib_crosswalk_proto.a:include/modules/planning/traffic_rules/crosswalk/proto/lib_crosswalk_proto.a
+modules/planning/traffic_rules/crosswalk/proto/lib_crosswalk_proto.pic.a:include/modules/planning/traffic_rules/crosswalk/proto/lib_crosswalk_proto.pic.a
+modules/planning/traffic_rules/crosswalk/proto/lib_crosswalk_proto.so:include/modules/planning/traffic_rules/crosswalk/proto/lib_crosswalk_proto.so
+modules/planning/traffic_rules/crosswalk/proto/crosswalk_pb2.py:python/modules/planning/traffic_rules/crosswalk/proto/crosswalk_pb2.py
+modules/planning/traffic_rules/crosswalk/proto/lib_crosswalk_proto_mptcp_bin.so:lib/modules/planning/traffic_rules/crosswalk/proto/lib_crosswalk_proto_mptcp_bin.so
+src_path:modules/planning/traffic_rules/crosswalk

@@ -1,0 +1,113 @@
+{
+    "name": "planning",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning module.",
+    "deps": [
+        "planning-base",
+        "planning-interface-base",
+        "planning-planner-public-road",
+        "planning-lane-follow-map",
+        "planning-scenario-bare-intersection-unprotected",
+        "planning-scenario-emergency-pull-over",
+        "planning-scenario-emergency-stop",
+        "planning-scenario-lane-follow",
+        "planning-scenario-park-and-go",
+        "planning-scenario-pull-over",
+        "planning-scenario-stop-sign-unprotected",
+        "planning-scenario-traffic-light-protected",
+        "planning-scenario-traffic-light-unprotected-left-turn",
+        "planning-scenario-traffic-light-unprotected-right-turn",
+        "planning-scenario-valet-parking",
+        "planning-scenario-yield-sign",
+        "planning-task-fallback-path",
+        "planning-task-fast-stop-trajectory-fallback",
+        "planning-task-lane-borrow-path",
+        "planning-task-lane-change-path",
+        "planning-task-lane-follow-path",
+        "planning-task-open-space-fallback-decider",
+        "planning-task-open-space-pre-stop-decider",
+        "planning-task-open-space-roi-decider",
+        "planning-task-open-space-trajectory-partition",
+        "planning-task-open-space-trajectory-provider",
+        "planning-task-path-decider",
+        "planning-task-path-reference-decider",
+        "planning-task-path-time-heuristic",
+        "planning-task-piecewise-jerk-speed",
+        "planning-task-piecewise-jerk-speed-nonlinear",
+        "planning-task-pull-over-path",
+        "planning-task-reuse-path",
+        "planning-task-rss-decider",
+        "planning-task-rule-based-stop-decider",
+        "planning-task-speed-bounds-decider",
+        "planning-task-speed-decider",
+        "planning-task-st-bounds-decider",
+        "planning-traffic-rules-backside-vehicle",
+        "planning-traffic-rules-crosswalk",
+        "planning-traffic-rules-destination",
+        "planning-traffic-rules-keepclear",
+        "planning-traffic-rules-reference-line-end",
+        "planning-traffic-rules-rerouting",
+        "planning-traffic-rules-stop-sign",
+        "planning-traffic-rules-traffic-light",
+        "planning-traffic-rules-yield-sign",
+        "external-command-action",
+        "external-command-demo",
+        "external-command-lane-follow",
+        "external-command-process",
+        "external-command-processor-base",
+        "external-command-valet-parking",
+        "old-routing-adpter",
+        "routing"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/planning_component/launch/planning.launch' ]; then mkdir -p '/apollo/modules/planning/planning_component/launch' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/launch/planning.launch' '/apollo/modules/planning/planning_component/launch/planning.launch'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/planning.conf' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/planning.conf' '/apollo/modules/planning/planning_component/conf/planning.conf'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/spiral_smoother_config.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/spiral_smoother_config.pb.txt' '/apollo/modules/planning/planning_component/conf/spiral_smoother_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/planning_navi.conf' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/planning_navi.conf' '/apollo/modules/planning/planning_component/conf/planning_navi.conf'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/traffic_rule_config.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/traffic_rule_config.pb.txt' '/apollo/modules/planning/planning_component/conf/traffic_rule_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/planning_config.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/planning_config.pb.txt' '/apollo/modules/planning/planning_component/conf/planning_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/planning_semantic_map_config.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/planning_semantic_map_config.pb.txt' '/apollo/modules/planning/planning_component/conf/planning_semantic_map_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/qp_spline_smoother_config.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/qp_spline_smoother_config.pb.txt' '/apollo/modules/planning/planning_component/conf/qp_spline_smoother_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/planner_open_space_config.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/planner_open_space_config.pb.txt' '/apollo/modules/planning/planning_component/conf/planner_open_space_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/public_road_planner_config.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/public_road_planner_config.pb.txt' '/apollo/modules/planning/planning_component/conf/public_road_planner_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/navi_planner_config.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/navi_planner_config.pb.txt' '/apollo/modules/planning/planning_component/conf/navi_planner_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/discrete_points_smoother_config.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/discrete_points_smoother_config.pb.txt' '/apollo/modules/planning/planning_component/conf/discrete_points_smoother_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/conf/public_road_planner_config.pb.txt.bak.20260814_192058' ]; then mkdir -p '/apollo/modules/planning/planning_component/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/conf/public_road_planner_config.pb.txt.bak.20260814_192058' '/apollo/modules/planning/planning_component/conf/public_road_planner_config.pb.txt.bak.20260814_192058'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/dag/planning_navi.dag' ]; then mkdir -p '/apollo/modules/planning/planning_component/dag' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/dag/planning_navi.dag' '/apollo/modules/planning/planning_component/dag/planning_navi.dag'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_component/dag/planning.dag' ]; then mkdir -p '/apollo/modules/planning/planning_component/dag' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_component/dag/planning.dag' '/apollo/modules/planning/planning_component/dag/planning.dag'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/planning_component",
+        "rm -rf /opt/apollo/neo/include/modules/planning/planning_component",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/planning_component",
+        "rm -rf /opt/apollo/neo/python/modules/planning/planning_component",
+        "rm -rf /opt/apollo/neo/src/modules/planning/planning_component",
+        "rm -rf /opt/apollo/neo/share/packages/planning"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/planning_component",
+            "des": "/opt/apollo/neo/share/modules/planning/planning_component"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/planning_component",
+            "des": "/opt/apollo/neo/include/modules/planning/planning_component"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/planning_component",
+            "des": "/opt/apollo/neo/lib/modules/planning/planning_component"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/planning_component",
+            "des": "/opt/apollo/neo/src/modules/planning/planning_component"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning",
+            "des": "/opt/apollo/neo/share/packages/planning"
+        }
+    ],
+    "type": "neo"
+}

@@ -1,0 +1,68 @@
+{
+    "name": "private-map-tool",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo private-map-tool module.",
+    "deps": [
+        "3rd-gflags",
+        "3rd-glog",
+        "3rd-boost",
+        "3rd-gtest",
+        "3rd-pcl",
+        "3rd-eigen3",
+        "3rd-absl",
+        "3rd-nlohmann-json",
+        "3rd-opencv",
+        "common",
+        "common-msgs",
+        "map",
+        "routing",
+        "tile-map-images-creator",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-bazel-skylib",
+        "3rd-rules-proto",
+        "3rd-py"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/private_tools/map_tool/conf/map_validator_checker_conf.pb.txt' ]; then mkdir -p '/apollo/modules/private_tools/map_tool/conf' && ln -snf '/opt/apollo/neo/share/modules/private_tools/map_tool/conf/map_validator_checker_conf.pb.txt' '/apollo/modules/private_tools/map_tool/conf/map_validator_checker_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/private_tools/map_tool/conf/map_validator_errcode_conf.pb.txt' ]; then mkdir -p '/apollo/modules/private_tools/map_tool/conf' && ln -snf '/opt/apollo/neo/share/modules/private_tools/map_tool/conf/map_validator_errcode_conf.pb.txt' '/apollo/modules/private_tools/map_tool/conf/map_validator_errcode_conf.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/private_tools/map_tool",
+        "rm -rf /opt/apollo/neo/include/modules/private_tools/map_tool",
+        "rm -rf /opt/apollo/neo/lib/modules/private_tools/map_tool",
+        "rm -rf /opt/apollo/neo/python/modules/private_tools/map_tool",
+        "rm -rf /opt/apollo/neo/src/modules/private_tools/map_tool",
+        "rm -rf /opt/apollo/neo/share/packages/private-map-tool"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/private_tools/map_tool",
+            "des": "/opt/apollo/neo/share/modules/private_tools/map_tool"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/private_tools/map_tool",
+            "des": "/opt/apollo/neo/include/modules/private_tools/map_tool"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/private_tools/map_tool",
+            "des": "/opt/apollo/neo/lib/modules/private_tools/map_tool"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/private_tools/map_tool",
+            "des": "/opt/apollo/neo/python/modules/private_tools/map_tool"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/private_tools/map_tool",
+            "des": "/opt/apollo/neo/src/modules/private_tools/map_tool"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/private-map-tool",
+            "des": "/opt/apollo/neo/share/packages/private-map-tool"
+        }
+    ],
+    "type": "neo"
+}

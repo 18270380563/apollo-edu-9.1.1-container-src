@@ -1,0 +1,41 @@
+<package format="2">
+  <name>dreamview</name>
+  <version>9.1.1</version>
+  <description>
+    Dreamview or Apollo's HMI module provides a web application that helps developers visualize the output of
+    other relevant autonomous driving modules, e.g. the vehicle's planning trajectory, car localization, chassis status etc.
+  </description>
+
+  <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+  <license>Apache License 2.0</license>
+  <url type="website">https://www.apollo.auto/</url>
+  <url type="repository">https://github.com/ApolloAuto/apollo</url>
+  <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+
+  <type>module</type>
+
+  <depend repo_name="cyber" type="binary">cyber</depend>
+  <depend type="binary">calibration</depend>
+  <depend lib_names="common" repo_name="common" type="binary">common</depend>
+  <depend lib_names="map" repo_name="map" type="binary">map</depend>
+  <depend lib_names="transform" repo_name="transform" type="binary">transform</depend>
+  <depend lib_names="common-msgs" repo_name="common-msgs" type="binary">common-msgs</depend>
+
+  <depend lib_names="gflags" repo_name="com_github_gflags_gflags">3rd-gflags</depend>
+  <depend lib_names="gtest,gtest_main" repo_name="com_google_googletest">3rd-gtest</depend>
+  <depend lib_names="absl" repo_name="com_google_absl">3rd-absl</depend>
+  <depend repo_name="boost">3rd-boost</depend>
+  <depend lib_names="civetweb++" repo_name="civetweb">3rd-civetweb</depend>
+  <depend lib_names="imgcodecs" repo_name="opencv">3rd-opencv</depend>
+  <depend lib_names="glog" repo_name="com_github_google_glog">3rd-glog</depend>
+  <depend lib_names="single_json,json" repo_name="com_github_nlohmann_json">3rd-nlohmann-json</depend>
+  <depend repo_name="eigen">3rd-eigen3</depend>
+  <depend lib_names="protobuf" repo_name="com_google_protobuf">3rd-protobuf</depend>
+
+  <depend expose="False">3rd-pcl</depend>
+
+  <depend expose="False">3rd-rules-proto</depend>
+
+  <src_path url="https://github.com/ApolloAuto/apollo">//modules/dreamview</src_path>
+
+</package>

@@ -1,0 +1,3 @@
+modules/private_common/http_handler/libhttp_handler.so:lib/modules/private_common/http_handler/libhttp_handler.so
+modules/private_common/http_handler/cyberfile.xml:modules/private_common/http_handler/cyberfile.xml
+src_path:modules/private_common/http_handler

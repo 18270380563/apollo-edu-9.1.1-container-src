@@ -1,0 +1,12 @@
+modules/planning/tasks/square_path/conf/default_conf.pb.txt:share/modules/planning/tasks/square_path/conf/default_conf.pb.txt
+modules/planning/tasks/square_path/libsquare_path.so:lib/modules/planning/tasks/square_path/libsquare_path.so
+modules/planning/tasks/square_path/cyberfile.xml:modules/planning/tasks/square_path/cyberfile.xml
+modules/planning/tasks/square_path/plugins.xml:plugin_meta@modules/planning/tasks/square_path@plugins.xml
+modules/planning/tasks/square_path/proto/square_path.pb.h:include/modules/planning/tasks/square_path/proto/square_path.pb.h
+modules/planning/tasks/square_path/proto/square_path.pb.cc:include/modules/planning/tasks/square_path/proto/square_path.pb.cc
+modules/planning/tasks/square_path/proto/lib_square_path_proto.a:include/modules/planning/tasks/square_path/proto/lib_square_path_proto.a
+modules/planning/tasks/square_path/proto/lib_square_path_proto.pic.a:include/modules/planning/tasks/square_path/proto/lib_square_path_proto.pic.a
+modules/planning/tasks/square_path/proto/lib_square_path_proto.so:include/modules/planning/tasks/square_path/proto/lib_square_path_proto.so
+modules/planning/tasks/square_path/proto/square_path_pb2.py:python/modules/planning/tasks/square_path/proto/square_path_pb2.py
+modules/planning/tasks/square_path/proto/lib_square_path_proto_mptsp_bin.so:lib/modules/planning/tasks/square_path/proto/lib_square_path_proto_mptsp_bin.so
+src_path:modules/planning/tasks/square_path

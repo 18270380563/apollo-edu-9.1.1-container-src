@@ -1,0 +1,100 @@
+
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_import")
+load("@apollo_src//tools:apollo_package.bzl", "apollo_deps_library")
+cc_library(
+    name = "map",
+    hdrs = glob(["include/modules/map/**/*.h"]) + glob(["include/modules/map/**/*.hpp"]),
+    srcs = [],
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+)
+
+
+apollo_deps_library(
+    name = "modules_Smap_CDO_NOT_IMPORT_relative_map_component",
+    srcs = ["lib/modules/map/libDO_NOT_IMPORT_relative_map_component.so"],
+    deps = ["@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cdrive_state_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cerror_code_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cgeometry_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cheader_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cpnc_point_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cvehicle_id_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cvehicle_signal_proto","@common-msgs//:modules_Scommon_msgs_Schassis_msgs_Cchassis_proto","@common-msgs//:modules_Scommon_msgs_Slocalization_msgs_Clocalization_proto","@common-msgs//:modules_Scommon_msgs_Slocalization_msgs_Clocalization_status_proto","@common-msgs//:modules_Scommon_msgs_Slocalization_msgs_Cpose_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_area_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_barrier_gate_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_clear_area_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_crosswalk_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_geometry_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_id_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_junction_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_lane_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_overlap_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_parking_space_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_pnc_junction_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_road_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_rsu_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_signal_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_speed_bump_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_stop_sign_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_yield_sign_proto","@common-msgs//:modules_Scommon_msgs_Smonitor_msgs_Cmonitor_log_proto","@common-msgs//:modules_Scommon_msgs_Sperception_msgs_Cperception_obstacle_proto","@common-msgs//:modules_Scommon_msgs_Splanning_msgs_Cnavigation_proto","@common-msgs//:modules_Scommon_msgs_Splanning_msgs_Cplanning_command_proto","@common-msgs//:modules_Scommon_msgs_Srouting_msgs_Cpoi_proto","@common-msgs//:modules_Scommon_msgs_Srouting_msgs_Crouting_geometry_proto","@common-msgs//:modules_Scommon_msgs_Srouting_msgs_Crouting_proto","@common-msgs//:modules_Scommon_msgs_Ssensor_msgs_Cgnss_best_pose_proto","@common//:modules_Scommon_Sadapters_Cadapter_gflags","@common//:modules_Scommon_Sconfigs_Cconfig_gflags","@common//:modules_Scommon_Smath_Cmath","@common//:modules_Scommon_Smath_Sqp_solver_Cqp_solver","@common//:modules_Scommon_Smonitor_log_Cmonitor_log","@common//:modules_Scommon_Sstatus_Cstatus","@common//:modules_Scommon_Sutil_Ccommon_util","@common//:modules_Scommon_Sutil_Cmessage_util","@common//:modules_Scommon_Sutil_Cutil_tool","@common//:modules_Scommon_Svehicle_state_Cvehicle_state_provider","@common//:modules_Scommon_Svehicle_state_Sproto_Cvehicle_state_proto","@cyber//:cyber_Ccyber","@cyber//:cyber_Ccyber_binary","@cyber//:cyber_Ccyber_state","@cyber//:cyber_Sbase_Ccyber_base","@cyber//:cyber_Sblocker_Ccyber_blocker","@cyber//:cyber_Sclass_loader_Ccyber_class_loader","@cyber//:cyber_Sclass_loader_Sshared_library_Cshared_library","@cyber//:cyber_Sclass_loader_Sutility_Cclass_loader_utility","@cyber//:cyber_Scommon_Ccyber_common","@cyber//:cyber_Scomponent_Ccyber_component","@cyber//:cyber_Scontext_Ccyber_context","@cyber//:cyber_Scroutine_Ccyber_croutine","@cyber//:cyber_Sdata_Ccyber_data","@cyber//:cyber_Sevent_Ccyber_event","@cyber//:cyber_Sio_Ccyber_io","@cyber//:cyber_Slogger_Ccyber_logger","@cyber//:cyber_Smessage_Ccyber_message","@cyber//:cyber_Snode_Ccyber_node","@cyber//:cyber_Sparameter_Ccyber_parameter","@cyber//:cyber_Splugin_manager_Ccyber_plugin_manager","@cyber//:cyber_Sprofiler_Ccyber_profiler","@cyber//:cyber_Sproto_Cchoreography_conf_proto","@cyber//:cyber_Sproto_Cclassic_conf_proto","@cyber//:cyber_Sproto_Cclock_proto","@cyber//:cyber_Sproto_Ccomponent_conf_proto","@cyber//:cyber_Sproto_Ccyber_conf_proto","@cyber//:cyber_Sproto_Cparameter_proto","@cyber//:cyber_Sproto_Cperf_conf_proto","@cyber//:cyber_Sproto_Cproto_desc_proto","@cyber//:cyber_Sproto_Cqos_profile_proto","@cyber//:cyber_Sproto_Crecord_proto","@cyber//:cyber_Sproto_Crole_attributes_proto","@cyber//:cyber_Sproto_Crun_mode_conf_proto","@cyber//:cyber_Sproto_Cscheduler_conf_proto","@cyber//:cyber_Sproto_Ctopology_change_proto","@cyber//:cyber_Sproto_Ctransport_conf_proto","@cyber//:cyber_Srecord_Ccyber_record","@cyber//:cyber_Sscheduler_Ccyber_scheduler","@cyber//:cyber_Sservice_Ccyber_service","@cyber//:cyber_Sservice_discovery_Ccyber_service_discovery","@cyber//:cyber_Sservice_discovery_Ccyber_service_discovery_role","@cyber//:cyber_Sstatistics_Capollo_statistics","@cyber//:cyber_Ssysmo_Ccyber_sysmo","@cyber//:cyber_Stask_Ccyber_task","@cyber//:cyber_Stime_Ccyber_time","@cyber//:cyber_Stimer_Ccyber_timer","@cyber//:cyber_Stransport_Ccyber_transport","@map//:modules_Smap_Capollo_map","@map//:modules_Smap_Srelative_map_Sproto_Crelative_map_config_proto"],
+    linkopts = ["-lbvar"],
+    visibility = ["//visibility:public"],
+    alwayslink = True,
+)
+
+
+apollo_deps_library(
+    name = "modules_Smap_Capollo_map",
+    srcs = ["lib/modules/map/libapollo_map.so"],
+    deps = ["@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cdrive_state_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cerror_code_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cgeometry_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cheader_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cpnc_point_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cvehicle_id_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cvehicle_signal_proto","@common-msgs//:modules_Scommon_msgs_Schassis_msgs_Cchassis_proto","@common-msgs//:modules_Scommon_msgs_Slocalization_msgs_Clocalization_proto","@common-msgs//:modules_Scommon_msgs_Slocalization_msgs_Clocalization_status_proto","@common-msgs//:modules_Scommon_msgs_Slocalization_msgs_Cpose_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_area_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_barrier_gate_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_clear_area_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_crosswalk_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_geometry_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_id_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_junction_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_lane_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_overlap_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_parking_space_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_pnc_junction_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_road_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_rsu_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_signal_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_speed_bump_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_stop_sign_proto","@common-msgs//:modules_Scommon_msgs_Smap_msgs_Cmap_yield_sign_proto","@common-msgs//:modules_Scommon_msgs_Smonitor_msgs_Cmonitor_log_proto","@common-msgs//:modules_Scommon_msgs_Sperception_msgs_Cperception_obstacle_proto","@common-msgs//:modules_Scommon_msgs_Splanning_msgs_Cnavigation_proto","@common-msgs//:modules_Scommon_msgs_Splanning_msgs_Cplanning_command_proto","@common-msgs//:modules_Scommon_msgs_Srouting_msgs_Cpoi_proto","@common-msgs//:modules_Scommon_msgs_Srouting_msgs_Crouting_geometry_proto","@common-msgs//:modules_Scommon_msgs_Srouting_msgs_Crouting_proto","@common-msgs//:modules_Scommon_msgs_Ssensor_msgs_Cgnss_best_pose_proto","@common//:modules_Scommon_Sadapters_Cadapter_gflags","@common//:modules_Scommon_Sconfigs_Cconfig_gflags","@common//:modules_Scommon_Smath_Cmath","@common//:modules_Scommon_Smath_Sqp_solver_Cqp_solver","@common//:modules_Scommon_Smonitor_log_Cmonitor_log","@common//:modules_Scommon_Sstatus_Cstatus","@common//:modules_Scommon_Sutil_Ccommon_util","@common//:modules_Scommon_Sutil_Cmessage_util","@common//:modules_Scommon_Sutil_Cutil_tool","@common//:modules_Scommon_Svehicle_state_Cvehicle_state_provider","@common//:modules_Scommon_Svehicle_state_Sproto_Cvehicle_state_proto","@cyber//:cyber_Ccyber","@cyber//:cyber_Ccyber_binary","@cyber//:cyber_Ccyber_state","@cyber//:cyber_Sbase_Ccyber_base","@cyber//:cyber_Sblocker_Ccyber_blocker","@cyber//:cyber_Sclass_loader_Ccyber_class_loader","@cyber//:cyber_Sclass_loader_Sshared_library_Cshared_library","@cyber//:cyber_Sclass_loader_Sutility_Cclass_loader_utility","@cyber//:cyber_Scommon_Ccyber_common","@cyber//:cyber_Scomponent_Ccyber_component","@cyber//:cyber_Scontext_Ccyber_context","@cyber//:cyber_Scroutine_Ccyber_croutine","@cyber//:cyber_Sdata_Ccyber_data","@cyber//:cyber_Sevent_Ccyber_event","@cyber//:cyber_Sio_Ccyber_io","@cyber//:cyber_Slogger_Ccyber_logger","@cyber//:cyber_Smessage_Ccyber_message","@cyber//:cyber_Snode_Ccyber_node","@cyber//:cyber_Sparameter_Ccyber_parameter","@cyber//:cyber_Splugin_manager_Ccyber_plugin_manager","@cyber//:cyber_Sprofiler_Ccyber_profiler","@cyber//:cyber_Sproto_Cchoreography_conf_proto","@cyber//:cyber_Sproto_Cclassic_conf_proto","@cyber//:cyber_Sproto_Cclock_proto","@cyber//:cyber_Sproto_Ccomponent_conf_proto","@cyber//:cyber_Sproto_Ccyber_conf_proto","@cyber//:cyber_Sproto_Cparameter_proto","@cyber//:cyber_Sproto_Cperf_conf_proto","@cyber//:cyber_Sproto_Cproto_desc_proto","@cyber//:cyber_Sproto_Cqos_profile_proto","@cyber//:cyber_Sproto_Crecord_proto","@cyber//:cyber_Sproto_Crole_attributes_proto","@cyber//:cyber_Sproto_Crun_mode_conf_proto","@cyber//:cyber_Sproto_Cscheduler_conf_proto","@cyber//:cyber_Sproto_Ctopology_change_proto","@cyber//:cyber_Sproto_Ctransport_conf_proto","@cyber//:cyber_Srecord_Ccyber_record","@cyber//:cyber_Sscheduler_Ccyber_scheduler","@cyber//:cyber_Sservice_Ccyber_service","@cyber//:cyber_Sservice_discovery_Ccyber_service_discovery","@cyber//:cyber_Sservice_discovery_Ccyber_service_discovery_role","@cyber//:cyber_Sstatistics_Capollo_statistics","@cyber//:cyber_Ssysmo_Ccyber_sysmo","@cyber//:cyber_Stask_Ccyber_task","@cyber//:cyber_Stime_Ccyber_time","@cyber//:cyber_Stimer_Ccyber_timer","@cyber//:cyber_Stransport_Ccyber_transport","@map//:modules_Smap_Srelative_map_Sproto_Crelative_map_config_proto"],
+    linkopts = ["-lbvar"],
+    visibility = ["//visibility:public"],
+    alwayslink = True,
+)
+
+
+apollo_deps_library(
+    name = "modules_Smap_Srelative_map_Sproto_Cnavigator_config_proto",
+    srcs = ["lib/modules/map/relative_map/proto/lib_navigator_config_proto_mmrp_bin.so"],
+    deps = [],
+    linkopts = [],
+    visibility = ["//visibility:public"],
+    alwayslink = True,
+)
+
+
+apollo_deps_library(
+    name = "modules_Smap_Srelative_map_Sproto_Crelative_map_config_proto",
+    srcs = ["lib/modules/map/relative_map/proto/lib_relative_map_config_proto_mmrp_bin.so"],
+    deps = [],
+    linkopts = [],
+    visibility = ["//visibility:public"],
+    alwayslink = True,
+)
+
+
+apollo_deps_library(
+    name = "modules_Smap_Stools_Smap_datachecker_Sclient_Capollo_map_tools_map_datachecker_client",
+    srcs = ["lib/modules/map/tools/map_datachecker/client/libapollo_map_tools_map_datachecker_client.so"],
+    deps = ["@cyber//:cyber_Ccyber","@cyber//:cyber_Ccyber_binary","@cyber//:cyber_Ccyber_state","@cyber//:cyber_Sbase_Ccyber_base","@cyber//:cyber_Sblocker_Ccyber_blocker","@cyber//:cyber_Sclass_loader_Ccyber_class_loader","@cyber//:cyber_Sclass_loader_Sshared_library_Cshared_library","@cyber//:cyber_Sclass_loader_Sutility_Cclass_loader_utility","@cyber//:cyber_Scommon_Ccyber_common","@cyber//:cyber_Scomponent_Ccyber_component","@cyber//:cyber_Scontext_Ccyber_context","@cyber//:cyber_Scroutine_Ccyber_croutine","@cyber//:cyber_Sdata_Ccyber_data","@cyber//:cyber_Sevent_Ccyber_event","@cyber//:cyber_Sio_Ccyber_io","@cyber//:cyber_Slogger_Ccyber_logger","@cyber//:cyber_Smessage_Ccyber_message","@cyber//:cyber_Snode_Ccyber_node","@cyber//:cyber_Sparameter_Ccyber_parameter","@cyber//:cyber_Splugin_manager_Ccyber_plugin_manager","@cyber//:cyber_Sprofiler_Ccyber_profiler","@cyber//:cyber_Sproto_Cchoreography_conf_proto","@cyber//:cyber_Sproto_Cclassic_conf_proto","@cyber//:cyber_Sproto_Cclock_proto","@cyber//:cyber_Sproto_Ccomponent_conf_proto","@cyber//:cyber_Sproto_Ccyber_conf_proto","@cyber//:cyber_Sproto_Cparameter_proto","@cyber//:cyber_Sproto_Cperf_conf_proto","@cyber//:cyber_Sproto_Cproto_desc_proto","@cyber//:cyber_Sproto_Cqos_profile_proto","@cyber//:cyber_Sproto_Crecord_proto","@cyber//:cyber_Sproto_Crole_attributes_proto","@cyber//:cyber_Sproto_Crun_mode_conf_proto","@cyber//:cyber_Sproto_Cscheduler_conf_proto","@cyber//:cyber_Sproto_Ctopology_change_proto","@cyber//:cyber_Sproto_Ctransport_conf_proto","@cyber//:cyber_Srecord_Ccyber_record","@cyber//:cyber_Sscheduler_Ccyber_scheduler","@cyber//:cyber_Sservice_Ccyber_service","@cyber//:cyber_Sservice_discovery_Ccyber_service_discovery","@cyber//:cyber_Sservice_discovery_Ccyber_service_discovery_role","@cyber//:cyber_Sstatistics_Capollo_statistics","@cyber//:cyber_Ssysmo_Ccyber_sysmo","@cyber//:cyber_Stask_Ccyber_task","@cyber//:cyber_Stime_Ccyber_time","@cyber//:cyber_Stimer_Ccyber_timer","@cyber//:cyber_Stransport_Ccyber_transport","@map//:modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_check_message_proto","@map//:modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_error_code_proto","@map//:modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_service_proto"],
+    linkopts = ["-lbvar"],
+    visibility = ["//visibility:public"],
+    alwayslink = True,
+)
+
+
+apollo_deps_library(
+    name = "modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_check_message_proto",
+    srcs = ["lib/modules/map/tools/map_datachecker/proto/lib_collection_check_message_proto_mmtmp_bin.so"],
+    deps = ["@map//:modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_error_code_proto"],
+    linkopts = [],
+    visibility = ["//visibility:public"],
+    alwayslink = True,
+)
+
+
+apollo_deps_library(
+    name = "modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_error_code_proto",
+    srcs = ["lib/modules/map/tools/map_datachecker/proto/lib_collection_error_code_proto_mmtmp_bin.so"],
+    deps = [],
+    linkopts = [],
+    visibility = ["//visibility:public"],
+    alwayslink = True,
+)
+
+
+apollo_deps_library(
+    name = "modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_service_proto",
+    srcs = ["lib/modules/map/tools/map_datachecker/proto/lib_collection_service_proto_mmtmp_bin.so"],
+    deps = ["@map//:modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_check_message_proto","@map//:modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_error_code_proto"],
+    linkopts = [],
+    visibility = ["//visibility:public"],
+    alwayslink = True,
+)
+
+
+apollo_deps_library(
+    name = "modules_Smap_Stools_Smap_datachecker_Sserver_Capollo_map_tools_map_datachecker_server",
+    srcs = ["lib/modules/map/tools/map_datachecker/server/libapollo_map_tools_map_datachecker_server.so"],
+    deps = ["@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cerror_code_proto","@common-msgs//:modules_Scommon_msgs_Sbasic_msgs_Cheader_proto","@common-msgs//:modules_Scommon_msgs_Ssensor_msgs_Cgnss_best_pose_proto","@cyber//:cyber_Ccyber","@cyber//:cyber_Ccyber_binary","@cyber//:cyber_Ccyber_state","@cyber//:cyber_Sbase_Ccyber_base","@cyber//:cyber_Sblocker_Ccyber_blocker","@cyber//:cyber_Sclass_loader_Ccyber_class_loader","@cyber//:cyber_Sclass_loader_Sshared_library_Cshared_library","@cyber//:cyber_Sclass_loader_Sutility_Cclass_loader_utility","@cyber//:cyber_Scommon_Ccyber_common","@cyber//:cyber_Scomponent_Ccyber_component","@cyber//:cyber_Scontext_Ccyber_context","@cyber//:cyber_Scroutine_Ccyber_croutine","@cyber//:cyber_Sdata_Ccyber_data","@cyber//:cyber_Sevent_Ccyber_event","@cyber//:cyber_Sio_Ccyber_io","@cyber//:cyber_Slogger_Ccyber_logger","@cyber//:cyber_Smessage_Ccyber_message","@cyber//:cyber_Snode_Ccyber_node","@cyber//:cyber_Sparameter_Ccyber_parameter","@cyber//:cyber_Splugin_manager_Ccyber_plugin_manager","@cyber//:cyber_Sprofiler_Ccyber_profiler","@cyber//:cyber_Sproto_Cchoreography_conf_proto","@cyber//:cyber_Sproto_Cclassic_conf_proto","@cyber//:cyber_Sproto_Cclock_proto","@cyber//:cyber_Sproto_Ccomponent_conf_proto","@cyber//:cyber_Sproto_Ccyber_conf_proto","@cyber//:cyber_Sproto_Cparameter_proto","@cyber//:cyber_Sproto_Cperf_conf_proto","@cyber//:cyber_Sproto_Cproto_desc_proto","@cyber//:cyber_Sproto_Cqos_profile_proto","@cyber//:cyber_Sproto_Crecord_proto","@cyber//:cyber_Sproto_Crole_attributes_proto","@cyber//:cyber_Sproto_Crun_mode_conf_proto","@cyber//:cyber_Sproto_Cscheduler_conf_proto","@cyber//:cyber_Sproto_Ctopology_change_proto","@cyber//:cyber_Sproto_Ctransport_conf_proto","@cyber//:cyber_Srecord_Ccyber_record","@cyber//:cyber_Sscheduler_Ccyber_scheduler","@cyber//:cyber_Sservice_Ccyber_service","@cyber//:cyber_Sservice_discovery_Ccyber_service_discovery","@cyber//:cyber_Sservice_discovery_Ccyber_service_discovery_role","@cyber//:cyber_Sstatistics_Capollo_statistics","@cyber//:cyber_Ssysmo_Ccyber_sysmo","@cyber//:cyber_Stask_Ccyber_task","@cyber//:cyber_Stime_Ccyber_time","@cyber//:cyber_Stimer_Ccyber_timer","@cyber//:cyber_Stransport_Ccyber_transport","@map//:modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_check_message_proto","@map//:modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_error_code_proto","@map//:modules_Smap_Stools_Smap_datachecker_Sproto_Ccollection_service_proto"],
+    linkopts = ["-lbvar"],
+    visibility = ["//visibility:public"],
+    alwayslink = True,
+)

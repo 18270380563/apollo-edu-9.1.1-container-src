@@ -1,0 +1,61 @@
+{
+    "name": "perception-lidar-segmentation",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-lidar-segmentation module.",
+    "deps": [
+        "cyber",
+        "perception-common",
+        "perception-lidar-detection",
+        "3rd-eigen3",
+        "3rd-vtk",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/lidar_segmentation/data/graph_segmentation.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lidar_segmentation/data' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_segmentation/data/graph_segmentation.pb.txt' '/apollo/modules/perception/lidar_segmentation/data/graph_segmentation.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/lidar_segmentation/data/ncut_param.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lidar_segmentation/data' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_segmentation/data/ncut_param.pb.txt' '/apollo/modules/perception/lidar_segmentation/data/ncut_param.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/lidar_segmentation/dag/lidar_segmentation.dag' ]; then mkdir -p '/apollo/modules/perception/lidar_segmentation/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_segmentation/dag/lidar_segmentation.dag' '/apollo/modules/perception/lidar_segmentation/dag/lidar_segmentation.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/lidar_segmentation/launch/lidar_segmentation.launch' ]; then mkdir -p '/apollo/modules/perception/lidar_segmentation/launch' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_segmentation/launch/lidar_segmentation.launch' '/apollo/modules/perception/lidar_segmentation/launch/lidar_segmentation.launch'; fi",
+        "if [ ! -e '/apollo/modules/perception/lidar_segmentation/conf/lidar_segmentation_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lidar_segmentation/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_segmentation/conf/lidar_segmentation_config.pb.txt' '/apollo/modules/perception/lidar_segmentation/conf/lidar_segmentation_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/lidar_segmentation",
+        "rm -rf /opt/apollo/neo/include/modules/perception/lidar_segmentation",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/lidar_segmentation",
+        "rm -rf /opt/apollo/neo/python/modules/perception/lidar_segmentation",
+        "rm -rf /opt/apollo/neo/src/modules/perception/lidar_segmentation",
+        "rm -rf /opt/apollo/neo/share/packages/perception-lidar-segmentation"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/lidar_segmentation",
+            "des": "/opt/apollo/neo/share/modules/perception/lidar_segmentation"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/lidar_segmentation",
+            "des": "/opt/apollo/neo/include/modules/perception/lidar_segmentation"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/lidar_segmentation",
+            "des": "/opt/apollo/neo/lib/modules/perception/lidar_segmentation"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/perception/lidar_segmentation",
+            "des": "/opt/apollo/neo/python/modules/perception/lidar_segmentation"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/lidar_segmentation",
+            "des": "/opt/apollo/neo/src/modules/perception/lidar_segmentation"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-lidar-segmentation",
+            "des": "/opt/apollo/neo/share/packages/perception-lidar-segmentation"
+        }
+    ],
+    "type": "neo"
+}

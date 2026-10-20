@@ -1,0 +1,62 @@
+{
+    "name": "perception-traffic-light-recognition",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-traffic-light-recognition module.",
+    "deps": [
+        "cyber",
+        "perception-common",
+        "perception-model-horizontal-caffe",
+        "perception-model-quadrate-caffe",
+        "perception-model-vertical-caffe",
+        "perception-model-efficient-net",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/traffic_light_recognition/data/recognition.pb.txt' ]; then mkdir -p '/apollo/modules/perception/traffic_light_recognition/data' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_recognition/data/recognition.pb.txt' '/apollo/modules/perception/traffic_light_recognition/data/recognition.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_recognition/data/efficient_net.pb.txt' ]; then mkdir -p '/apollo/modules/perception/traffic_light_recognition/data' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_recognition/data/efficient_net.pb.txt' '/apollo/modules/perception/traffic_light_recognition/data/efficient_net.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_recognition/dag/traffic_light_recognition.dag' ]; then mkdir -p '/apollo/modules/perception/traffic_light_recognition/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_recognition/dag/traffic_light_recognition.dag' '/apollo/modules/perception/traffic_light_recognition/dag/traffic_light_recognition.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_recognition/launch/traffic_light_recognition.launch' ]; then mkdir -p '/apollo/modules/perception/traffic_light_recognition/launch' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_recognition/launch/traffic_light_recognition.launch' '/apollo/modules/perception/traffic_light_recognition/launch/traffic_light_recognition.launch'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_recognition/conf/traffic_light_recognition_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/traffic_light_recognition/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_recognition/conf/traffic_light_recognition_config.pb.txt' '/apollo/modules/perception/traffic_light_recognition/conf/traffic_light_recognition_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/traffic_light_recognition",
+        "rm -rf /opt/apollo/neo/include/modules/perception/traffic_light_recognition",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/traffic_light_recognition",
+        "rm -rf /opt/apollo/neo/python/modules/perception/traffic_light_recognition",
+        "rm -rf /opt/apollo/neo/src/modules/perception/traffic_light_recognition",
+        "rm -rf /opt/apollo/neo/share/packages/perception-traffic-light-recognition"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/traffic_light_recognition",
+            "des": "/opt/apollo/neo/share/modules/perception/traffic_light_recognition"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/traffic_light_recognition",
+            "des": "/opt/apollo/neo/include/modules/perception/traffic_light_recognition"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/traffic_light_recognition",
+            "des": "/opt/apollo/neo/lib/modules/perception/traffic_light_recognition"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/perception/traffic_light_recognition",
+            "des": "/opt/apollo/neo/python/modules/perception/traffic_light_recognition"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/traffic_light_recognition",
+            "des": "/opt/apollo/neo/src/modules/perception/traffic_light_recognition"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-traffic-light-recognition",
+            "des": "/opt/apollo/neo/share/packages/perception-traffic-light-recognition"
+        }
+    ],
+    "type": "neo"
+}

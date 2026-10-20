@@ -1,0 +1,83 @@
+# !/bin/sh
+APOLLO_PATH='/opt/apollo/neo/'
+PACKAGE_NAME='control-controller-lat-based-lqr-plus-controller'
+PACKAGE_NAME_WITH_VER='control-controller-lat-based-lqr-plus-controller/9.1.1'
+INCLUDE_PATH=''
+echo "[INFO] start to create symbolic links of ${PACKAGE_NAME}"
+echo '[WARN] the links of pre-version will be overwrited!'
+
+mkdir -p ${APOLLO_PATH}bin
+mkdir -p ${APOLLO_PATH}include
+mkdir -p ${APOLLO_PATH}lib
+
+chmod a+rw ${APOLLO_PATH}bin ${APOLLO_PATH}include ${APOLLO_PATH}lib ${APOLLO_PATH}packages
+
+if [ ! -d ${APOLLO_PATH}/share/packages/${PACKAGE_NAME} ]
+then
+    ln -snf ${APOLLO_PATH}packages/${PACKAGE_NAME_WITH_VER} ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest
+
+    if [ "${INCLUDE_PATH}" = "" ]
+    then
+        ori_inc_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include"
+        if [ -d ${ori_inc_path} ]
+        then
+            for file in $(ls ${ori_inc_path})
+            do
+                if [ -d ${ori_inc_path}"/"${file} ]
+                then
+                    ln -snf ${ori_inc_path}"/"${file} "${APOLLO_PATH}include/${file}"
+                fi
+            done
+        fi
+    else
+        if [ $(dirname ${INCLUDE_PATH}) != '.' ]
+        then
+            mkdir -p "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+            chmod a+rw "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+        fi
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include" "${APOLLO_PATH}include/${INCLUDE_PATH}"
+    fi
+
+    if [ -d ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib ]
+    then
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib" "${APOLLO_PATH}lib/${PACKAGE_NAME}"
+    fi
+
+    bin_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/bin"
+    if [ -d ${bin_path} ]
+    then
+        for file in $(ls ${bin_path})
+        do
+            if [ -d ${bin_path}"/"${file} ]
+            then
+                continue
+            else
+                ln -snf "${bin_path}/${file}" "${APOLLO_PATH}bin/${file}"
+            fi
+        done
+    fi
+fi
+
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/plugins.xml' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/plugins.xml' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/plugins.xml'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_chassis.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_chassis.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_chassis.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_chassis.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_localization.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_localization.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_localization.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_planning.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_planning.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/1_planning.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_localization.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_localization.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/2_localization.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/controller_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/controller_conf.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/controller_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/params_pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/params_pipeline.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/lateral_controller_test/conf/params_pipeline.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_s_turn_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_s_turn_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_s_turn_param.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/controller_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/controller_conf.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/controller_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_forward_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_forward_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_forward_param.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_s_turn_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_s_turn_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_s_turn_param.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_backward_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_backward_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/open_space_backward_param.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/public_road_forward_param.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/params_pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/params_pipeline.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/params_pipeline.pb.txt'; fi
+if [ ! -e '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_param.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_param.pb.txt' '/apollo/modules/control/controllers/lat_based_lqr_plus_controller/conf/edge_follow_public_road_forward_param.pb.txt'; fi
+
+echo "[INFO] symbolic links of ${PACKAGE_NAME} created."
+
+if [ -f "${APOLLO_PATH}update_dylib.sh" ]
+then
+    sh ${APOLLO_PATH}update_dylib.sh
+fi

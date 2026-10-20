@@ -1,0 +1,51 @@
+{
+    "name": "perception-plugin-onnx-multibatch-inference",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-plugin-onnx-multibatch-inference module.",
+    "deps": [
+        "perception-common"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/perception_plugin/onnx_multi_batch/plugins.xml' ]; then mkdir -p '/apollo/modules/perception/perception_plugin/onnx_multi_batch' && ln -snf '/opt/apollo/neo/share/modules/perception/perception_plugin/onnx_multi_batch/plugins.xml' '/apollo/modules/perception/perception_plugin/onnx_multi_batch/plugins.xml'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/perception_plugin/onnx_multi_batch",
+        "rm -rf /opt/apollo/neo/include/modules/perception/perception_plugin/onnx_multi_batch",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/perception_plugin/onnx_multi_batch",
+        "rm -rf /opt/apollo/neo/python/modules/perception/perception_plugin/onnx_multi_batch",
+        "rm -rf /opt/apollo/neo/src/modules/perception/perception_plugin/onnx_multi_batch",
+        "rm -rf /opt/apollo/neo/share/packages/perception-plugin-onnx-multibatch-inference",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/perception_plugin/onnx_multi_batch",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__perception__perception_plugin__onnx_multi_batch__libonnx_multi_batch.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/perception_plugin/onnx_multi_batch",
+            "des": "/opt/apollo/neo/share/modules/perception/perception_plugin/onnx_multi_batch"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/perception_plugin/onnx_multi_batch",
+            "des": "/opt/apollo/neo/include/modules/perception/perception_plugin/onnx_multi_batch"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/perception_plugin/onnx_multi_batch",
+            "des": "/opt/apollo/neo/lib/modules/perception/perception_plugin/onnx_multi_batch"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-plugin-onnx-multibatch-inference",
+            "des": "/opt/apollo/neo/share/packages/perception-plugin-onnx-multibatch-inference"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/perception_plugin/onnx_multi_batch",
+            "des": "/opt/apollo/neo/lib/modules/perception/perception_plugin/onnx_multi_batch"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__perception__perception_plugin__onnx_multi_batch__libonnx_multi_batch.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__perception__perception_plugin__onnx_multi_batch__libonnx_multi_batch.so"
+        }
+    ],
+    "type": "neo"
+}

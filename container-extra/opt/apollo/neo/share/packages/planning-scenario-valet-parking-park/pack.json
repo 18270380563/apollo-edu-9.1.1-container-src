@@ -1,0 +1,76 @@
+{
+    "name": "planning-scenario-valet-parking-park",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-scenario-valet-parking-park module.",
+    "deps": [
+        "bazel-extend-tools",
+        "planning-interface-base",
+        "planning-open-space"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/plugins.xml' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/plugins.xml' '/apollo/modules/planning/scenarios/valet_parking_park/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/scenario_conf.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/scenario_conf.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/scenario_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/pipeline.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/pipeline.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_trajectory_optimizer.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_trajectory_optimizer.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_trajectory_optimizer.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_replan_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_replan_decider.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_replan_decider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_path_planning.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_path_planning.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_path_planning.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_trajectory_post_process.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_trajectory_post_process.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_trajectory_post_process.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_fallback_decider_park.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_fallback_decider_park.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_fallback_decider_park.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_roi_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_roi_decider.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_parking_park/open_space_roi_decider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_trajectory_optimizer.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_trajectory_optimizer.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_trajectory_optimizer.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_replan_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_replan_decider.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_replan_decider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_path_planning.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_path_planning.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_path_planning.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_trajectory_post_process.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_trajectory_post_process.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_trajectory_post_process.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_fallback_decider_park.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_fallback_decider_park.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_fallback_decider_park.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_roi_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_roi_decider.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_retry_park/open_space_roi_decider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_approaching_parking_spot_park/open_space_pre_stop_decider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_approaching_parking_spot_park' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park/conf/valet_parking_approaching_parking_spot_park/open_space_pre_stop_decider.pb.txt' '/apollo/modules/planning/scenarios/valet_parking_park/conf/valet_parking_approaching_parking_spot_park/open_space_pre_stop_decider.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park",
+        "rm -rf /opt/apollo/neo/include/modules/planning/scenarios/valet_parking_park",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/valet_parking_park",
+        "rm -rf /opt/apollo/neo/python/modules/planning/scenarios/valet_parking_park",
+        "rm -rf /opt/apollo/neo/src/modules/planning/scenarios/valet_parking_park",
+        "rm -rf /opt/apollo/neo/share/packages/planning-scenario-valet-parking-park",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/valet_parking_park",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__valet_parking_park__libvalet_parking_scenario_park.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park",
+            "des": "/opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/scenarios/valet_parking_park",
+            "des": "/opt/apollo/neo/include/modules/planning/scenarios/valet_parking_park"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/valet_parking_park",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/valet_parking_park"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/scenarios/valet_parking_park",
+            "des": "/opt/apollo/neo/python/modules/planning/scenarios/valet_parking_park"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/scenarios/valet_parking_park",
+            "des": "/opt/apollo/neo/src/modules/planning/scenarios/valet_parking_park"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-scenario-valet-parking-park",
+            "des": "/opt/apollo/neo/share/packages/planning-scenario-valet-parking-park"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/valet_parking_park",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/valet_parking_park"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__valet_parking_park__libvalet_parking_scenario_park.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__valet_parking_park__libvalet_parking_scenario_park.so"
+        }
+    ],
+    "type": "neo"
+}

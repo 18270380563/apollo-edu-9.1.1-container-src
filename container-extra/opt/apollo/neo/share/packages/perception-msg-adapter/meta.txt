@@ -1,0 +1,7 @@
+modules/perception/msg_adapter/dag/msg_adapter.dag:share/modules/perception/msg_adapter/dag/msg_adapter.dag
+modules/perception/msg_adapter/launch/msg_adapter.launch:share/modules/perception/msg_adapter/launch/msg_adapter.launch
+modules/perception/msg_adapter/libapollo_perception_msg_adapter.so:lib/modules/perception/msg_adapter/libapollo_perception_msg_adapter.so
+modules/perception/msg_adapter/libDO_NOT_IMPORT_msg_adapter_component.so:lib/modules/perception/msg_adapter/libDO_NOT_IMPORT_msg_adapter_component.so
+modules/perception/msg_adapter/libmsg_adapter_component.so:lib/modules/perception/msg_adapter/libmsg_adapter_component.so
+modules/perception/msg_adapter/cyberfile.xml:modules/perception/msg_adapter/cyberfile.xml
+src_path:modules/perception/msg_adapter

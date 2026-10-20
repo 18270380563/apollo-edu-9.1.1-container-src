@@ -1,0 +1,3 @@
+modules/planning/park_data_center/libapollo_park_data_center.so:lib/modules/planning/park_data_center/libapollo_park_data_center.so
+modules/planning/park_data_center/cyberfile.xml:modules/planning/park_data_center/cyberfile.xml
+src_path:modules/planning/park_data_center

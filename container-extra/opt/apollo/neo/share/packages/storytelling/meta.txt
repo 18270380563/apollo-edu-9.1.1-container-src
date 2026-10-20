@@ -1,0 +1,15 @@
+modules/storytelling/libapollo_storytelling.so:lib/modules/storytelling/libapollo_storytelling.so
+modules/storytelling/libDO_NOT_IMPORT_storytelling_component.so:lib/modules/storytelling/libDO_NOT_IMPORT_storytelling_component.so
+modules/storytelling/libstorytelling_component.so:lib/modules/storytelling/libstorytelling_component.so
+modules/storytelling/conf/storytelling_conf.pb.txt:share/modules/storytelling/conf/storytelling_conf.pb.txt
+modules/storytelling/dag/storytelling.dag:share/modules/storytelling/dag/storytelling.dag
+modules/storytelling/launch/storytelling.launch:share/modules/storytelling/launch/storytelling.launch
+modules/storytelling/cyberfile.xml:modules/storytelling/cyberfile.xml
+modules/storytelling/proto/storytelling_config.pb.h:include/modules/storytelling/proto/storytelling_config.pb.h
+modules/storytelling/proto/storytelling_config.pb.cc:include/modules/storytelling/proto/storytelling_config.pb.cc
+modules/storytelling/proto/lib_storytelling_config_proto.a:include/modules/storytelling/proto/lib_storytelling_config_proto.a
+modules/storytelling/proto/lib_storytelling_config_proto.pic.a:include/modules/storytelling/proto/lib_storytelling_config_proto.pic.a
+modules/storytelling/proto/lib_storytelling_config_proto.so:include/modules/storytelling/proto/lib_storytelling_config_proto.so
+modules/storytelling/proto/storytelling_config_pb2.py:python/modules/storytelling/proto/storytelling_config_pb2.py
+modules/storytelling/proto/lib_storytelling_config_proto_msp_bin.so:lib/modules/storytelling/proto/lib_storytelling_config_proto_msp_bin.so
+src_path:modules/storytelling

@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/dreamview_plus_plugins/calibration_tool
+rm -rf /opt/apollo/neo/include/modules/dreamview_plus_plugins/calibration_tool
+rm -rf /opt/apollo/neo/lib/modules/dreamview_plus_plugins/calibration_tool
+rm -rf /opt/apollo/neo/python/modules/dreamview_plus_plugins/calibration_tool
+rm -rf /opt/apollo/neo/src/modules/dreamview_plus_plugins/calibration_tool
+rm -rf /opt/apollo/neo/share/packages/calibration-plugin
+rm -rf /opt/apollo/neo/lib/modules/dreamview_plus_plugins/calibration_tool
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__dreamview_plus_plugins__calibration_tool__libdv_calibration_plugin.so

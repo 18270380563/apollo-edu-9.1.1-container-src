@@ -1,0 +1,62 @@
+{
+    "name": "perception-camera-location-refinement",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-camera-location-refinement module.",
+    "deps": [
+        "cyber",
+        "perception-common",
+        "3rd-glog",
+        "3rd-eigen3",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/camera_location_refinement/data/location_refiner.pb.txt' ]; then mkdir -p '/apollo/modules/perception/camera_location_refinement/data' && ln -snf '/opt/apollo/neo/share/modules/perception/camera_location_refinement/data/location_refiner.pb.txt' '/apollo/modules/perception/camera_location_refinement/data/location_refiner.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/camera_location_refinement/dag/camera_location_refinement_rear.dag' ]; then mkdir -p '/apollo/modules/perception/camera_location_refinement/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/camera_location_refinement/dag/camera_location_refinement_rear.dag' '/apollo/modules/perception/camera_location_refinement/dag/camera_location_refinement_rear.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/camera_location_refinement/dag/camera_location_refinement_front.dag' ]; then mkdir -p '/apollo/modules/perception/camera_location_refinement/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/camera_location_refinement/dag/camera_location_refinement_front.dag' '/apollo/modules/perception/camera_location_refinement/dag/camera_location_refinement_front.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/camera_location_refinement/dag/camera_location_refinement.dag' ]; then mkdir -p '/apollo/modules/perception/camera_location_refinement/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/camera_location_refinement/dag/camera_location_refinement.dag' '/apollo/modules/perception/camera_location_refinement/dag/camera_location_refinement.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/camera_location_refinement/conf/camera_location_refinement_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/camera_location_refinement/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/camera_location_refinement/conf/camera_location_refinement_config.pb.txt' '/apollo/modules/perception/camera_location_refinement/conf/camera_location_refinement_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/camera_location_refinement/conf/camera_location_refinement_front_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/camera_location_refinement/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/camera_location_refinement/conf/camera_location_refinement_front_config.pb.txt' '/apollo/modules/perception/camera_location_refinement/conf/camera_location_refinement_front_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/camera_location_refinement/conf/camera_location_refinement_rear_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/camera_location_refinement/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/camera_location_refinement/conf/camera_location_refinement_rear_config.pb.txt' '/apollo/modules/perception/camera_location_refinement/conf/camera_location_refinement_rear_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/camera_location_refinement",
+        "rm -rf /opt/apollo/neo/include/modules/perception/camera_location_refinement",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/camera_location_refinement",
+        "rm -rf /opt/apollo/neo/python/modules/perception/camera_location_refinement",
+        "rm -rf /opt/apollo/neo/src/modules/perception/camera_location_refinement",
+        "rm -rf /opt/apollo/neo/share/packages/perception-camera-location-refinement"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/camera_location_refinement",
+            "des": "/opt/apollo/neo/share/modules/perception/camera_location_refinement"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/camera_location_refinement",
+            "des": "/opt/apollo/neo/include/modules/perception/camera_location_refinement"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/camera_location_refinement",
+            "des": "/opt/apollo/neo/lib/modules/perception/camera_location_refinement"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/perception/camera_location_refinement",
+            "des": "/opt/apollo/neo/python/modules/perception/camera_location_refinement"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/camera_location_refinement",
+            "des": "/opt/apollo/neo/src/modules/perception/camera_location_refinement"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-camera-location-refinement",
+            "des": "/opt/apollo/neo/share/packages/perception-camera-location-refinement"
+        }
+    ],
+    "type": "neo"
+}

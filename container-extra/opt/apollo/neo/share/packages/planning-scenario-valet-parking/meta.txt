@@ -1,0 +1,17 @@
+modules/planning/scenarios/valet_parking/conf/pipeline.pb.txt:share/modules/planning/scenarios/valet_parking/conf/pipeline.pb.txt
+modules/planning/scenarios/valet_parking/conf/scenario_conf.pb.txt:share/modules/planning/scenarios/valet_parking/conf/scenario_conf.pb.txt
+modules/planning/scenarios/valet_parking/conf/valet_parking_approaching_parking_spot/open_space_pre_stop_decider.pb.txt:share/modules/planning/scenarios/valet_parking/conf/valet_parking_approaching_parking_spot/open_space_pre_stop_decider.pb.txt
+modules/planning/scenarios/valet_parking/conf/valet_parking_parking/open_space_roi_decider.pb.txt:share/modules/planning/scenarios/valet_parking/conf/valet_parking_parking/open_space_roi_decider.pb.txt
+modules/planning/scenarios/valet_parking/conf/valet_parking_parking/open_space_trajectory_partition.pb.txt:share/modules/planning/scenarios/valet_parking/conf/valet_parking_parking/open_space_trajectory_partition.pb.txt
+modules/planning/scenarios/valet_parking/conf/valet_parking_parking/open_space_trajectory_provider.pb.txt:share/modules/planning/scenarios/valet_parking/conf/valet_parking_parking/open_space_trajectory_provider.pb.txt
+modules/planning/scenarios/valet_parking/libvalet_parking_scenario.so:lib/modules/planning/scenarios/valet_parking/libvalet_parking_scenario.so
+modules/planning/scenarios/valet_parking/cyberfile.xml:modules/planning/scenarios/valet_parking/cyberfile.xml
+modules/planning/scenarios/valet_parking/plugins.xml:plugin_meta@modules/planning/scenarios/valet_parking@plugins.xml
+modules/planning/scenarios/valet_parking/proto/valet_parking.pb.h:include/modules/planning/scenarios/valet_parking/proto/valet_parking.pb.h
+modules/planning/scenarios/valet_parking/proto/valet_parking.pb.cc:include/modules/planning/scenarios/valet_parking/proto/valet_parking.pb.cc
+modules/planning/scenarios/valet_parking/proto/lib_valet_parking_proto.a:include/modules/planning/scenarios/valet_parking/proto/lib_valet_parking_proto.a
+modules/planning/scenarios/valet_parking/proto/lib_valet_parking_proto.pic.a:include/modules/planning/scenarios/valet_parking/proto/lib_valet_parking_proto.pic.a
+modules/planning/scenarios/valet_parking/proto/lib_valet_parking_proto.so:include/modules/planning/scenarios/valet_parking/proto/lib_valet_parking_proto.so
+modules/planning/scenarios/valet_parking/proto/valet_parking_pb2.py:python/modules/planning/scenarios/valet_parking/proto/valet_parking_pb2.py
+modules/planning/scenarios/valet_parking/proto/lib_valet_parking_proto_mpsvp_bin.so:lib/modules/planning/scenarios/valet_parking/proto/lib_valet_parking_proto_mpsvp_bin.so
+src_path:modules/planning/scenarios/valet_parking

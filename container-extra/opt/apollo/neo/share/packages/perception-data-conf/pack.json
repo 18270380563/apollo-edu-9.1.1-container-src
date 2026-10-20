@@ -1,0 +1,52 @@
+{
+    "name": "perception-data-conf",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-data-conf module.",
+    "deps": [
+        "bazel-extend-tools",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-rules-proto",
+        "3rd-py",
+        "3rd-gpus",
+        "3rd-bazel-skylib"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/data/conf/roi_service.conf' ]; then mkdir -p '/apollo/modules/perception/data/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/data/conf/roi_service.conf' '/apollo/modules/perception/data/conf/roi_service.conf'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/conf/ground_service.conf' ]; then mkdir -p '/apollo/modules/perception/data/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/data/conf/ground_service.conf' '/apollo/modules/perception/data/conf/ground_service.conf'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/conf/sensor_meta.pb.txt' ]; then mkdir -p '/apollo/modules/perception/data/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/data/conf/sensor_meta.pb.txt' '/apollo/modules/perception/data/conf/sensor_meta.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/conf/BUILD' ]; then mkdir -p '/apollo/modules/perception/data/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/data/conf/BUILD' '/apollo/modules/perception/data/conf/BUILD'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/conf/scene_manager.conf' ]; then mkdir -p '/apollo/modules/perception/data/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/data/conf/scene_manager.conf' '/apollo/modules/perception/data/conf/scene_manager.conf'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/conf/object_template.pb.txt' ]; then mkdir -p '/apollo/modules/perception/data/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/data/conf/object_template.pb.txt' '/apollo/modules/perception/data/conf/object_template.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/data/conf",
+        "rm -rf /opt/apollo/neo/include/modules/perception/data/conf",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/data/conf",
+        "rm -rf /opt/apollo/neo/python/modules/perception/data/conf",
+        "rm -rf /opt/apollo/neo/src/modules/perception/data/conf",
+        "rm -rf /opt/apollo/neo/share/packages/perception-data-conf"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/data/conf",
+            "des": "/opt/apollo/neo/share/modules/perception/data/conf"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/data/conf",
+            "des": "/opt/apollo/neo/include/modules/perception/data/conf"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/data/conf",
+            "des": "/opt/apollo/neo/src/modules/perception/data/conf"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-data-conf",
+            "des": "/opt/apollo/neo/share/packages/perception-data-conf"
+        }
+    ],
+    "type": "neo"
+}

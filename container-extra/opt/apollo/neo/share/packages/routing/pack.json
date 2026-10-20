@@ -1,0 +1,83 @@
+{
+    "name": "routing",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo routing module.",
+    "deps": [
+        "3rd-gflags",
+        "common-msgs",
+        "common",
+        "map",
+        "cyber",
+        "3rd-gtest",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-bazel-skylib",
+        "3rd-rules-proto",
+        "3rd-py"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/routing/dag/routing.dag' ]; then mkdir -p '/apollo/modules/routing/dag' && ln -snf '/opt/apollo/neo/share/modules/routing/dag/routing.dag' '/apollo/modules/routing/dag/routing.dag'; fi",
+        "if [ ! -e '/apollo/modules/routing/launch/routing.launch' ]; then mkdir -p '/apollo/modules/routing/launch' && ln -snf '/opt/apollo/neo/share/modules/routing/launch/routing.launch' '/apollo/modules/routing/launch/routing.launch'; fi",
+        "if [ ! -e '/apollo/modules/routing/tools/routing_tester/routing_test.pb.txt' ]; then mkdir -p '/apollo/modules/routing/tools/routing_tester' && ln -snf '/opt/apollo/neo/share/modules/routing/tools/routing_tester/routing_test.pb.txt' '/apollo/modules/routing/tools/routing_tester/routing_test.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/routing/conf/routing_config.pb.txt' ]; then mkdir -p '/apollo/modules/routing/conf' && ln -snf '/opt/apollo/neo/share/modules/routing/conf/routing_config.pb.txt' '/apollo/modules/routing/conf/routing_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/routing/conf/routing.conf' ]; then mkdir -p '/apollo/modules/routing/conf' && ln -snf '/opt/apollo/neo/share/modules/routing/conf/routing.conf' '/apollo/modules/routing/conf/routing.conf'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/routing",
+        "rm -rf /opt/apollo/neo/include/modules/routing",
+        "rm -rf /opt/apollo/neo/lib/modules/routing",
+        "rm -rf /opt/apollo/neo/python/modules/routing",
+        "rm -rf /opt/apollo/neo/src/modules/routing",
+        "rm -rf /opt/apollo/neo/share/packages/routing",
+        "rm -rf /opt/apollo/neo//bin/topo_creator",
+        "rm -rf /opt/apollo/neo//bin/routing_dump",
+        "rm -rf /opt/apollo/neo//bin/routing_cast",
+        "rm -rf /opt/apollo/neo//bin/routing_tester"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/routing",
+            "des": "/opt/apollo/neo/share/modules/routing"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/routing",
+            "des": "/opt/apollo/neo/include/modules/routing"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/routing",
+            "des": "/opt/apollo/neo/lib/modules/routing"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/routing",
+            "des": "/opt/apollo/neo/python/modules/routing"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/routing",
+            "des": "/opt/apollo/neo/src/modules/routing"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/routing",
+            "des": "/opt/apollo/neo/share/packages/routing"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/topo_creator",
+            "des": "/opt/apollo/neo//bin/topo_creator"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/routing_dump",
+            "des": "/opt/apollo/neo//bin/routing_dump"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/routing_cast",
+            "des": "/opt/apollo/neo//bin/routing_cast"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/routing_tester",
+            "des": "/opt/apollo/neo//bin/routing_tester"
+        }
+    ],
+    "type": "neo"
+}

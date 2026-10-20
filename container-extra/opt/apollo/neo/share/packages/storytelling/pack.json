@@ -1,0 +1,55 @@
+{
+    "name": "storytelling",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo storytelling module.",
+    "deps": [
+        "cyber",
+        "common",
+        "map",
+        "common-msgs",
+        "3rd-gflags"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/storytelling/dag/storytelling.dag' ]; then mkdir -p '/apollo/modules/storytelling/dag' && ln -snf '/opt/apollo/neo/share/modules/storytelling/dag/storytelling.dag' '/apollo/modules/storytelling/dag/storytelling.dag'; fi",
+        "if [ ! -e '/apollo/modules/storytelling/launch/storytelling.launch' ]; then mkdir -p '/apollo/modules/storytelling/launch' && ln -snf '/opt/apollo/neo/share/modules/storytelling/launch/storytelling.launch' '/apollo/modules/storytelling/launch/storytelling.launch'; fi",
+        "if [ ! -e '/apollo/modules/storytelling/conf/storytelling_conf.pb.txt' ]; then mkdir -p '/apollo/modules/storytelling/conf' && ln -snf '/opt/apollo/neo/share/modules/storytelling/conf/storytelling_conf.pb.txt' '/apollo/modules/storytelling/conf/storytelling_conf.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/storytelling",
+        "rm -rf /opt/apollo/neo/include/modules/storytelling",
+        "rm -rf /opt/apollo/neo/lib/modules/storytelling",
+        "rm -rf /opt/apollo/neo/python/modules/storytelling",
+        "rm -rf /opt/apollo/neo/src/modules/storytelling",
+        "rm -rf /opt/apollo/neo/share/packages/storytelling"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/storytelling",
+            "des": "/opt/apollo/neo/share/modules/storytelling"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/storytelling",
+            "des": "/opt/apollo/neo/include/modules/storytelling"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/storytelling",
+            "des": "/opt/apollo/neo/lib/modules/storytelling"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/storytelling",
+            "des": "/opt/apollo/neo/python/modules/storytelling"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/storytelling",
+            "des": "/opt/apollo/neo/src/modules/storytelling"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/storytelling",
+            "des": "/opt/apollo/neo/share/packages/storytelling"
+        }
+    ],
+    "type": "neo"
+}

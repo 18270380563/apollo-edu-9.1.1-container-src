@@ -1,0 +1,76 @@
+{
+    "name": "common",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo common module.",
+    "deps": [
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-gflags",
+        "3rd-bazel-skylib",
+        "3rd-absl",
+        "libsqlite3-dev",
+        "3rd-rules-proto",
+        "3rd-eigen3",
+        "3rd-gpus",
+        "3rd-osqp",
+        "3rd-boost",
+        "3rd-gtest",
+        "cyber",
+        "3rd-py",
+        "3rd-nlohmann-json",
+        "common-msgs"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/common/data/global_flagfile.txt' ]; then mkdir -p '/apollo/modules/common/data' && ln -snf '/opt/apollo/neo/share/modules/common/data/global_flagfile.txt' '/apollo/modules/common/data/global_flagfile.txt'; fi",
+        "if [ ! -e '/apollo/modules/common/data/vehicle_param.pb.txt' ]; then mkdir -p '/apollo/modules/common/data' && ln -snf '/opt/apollo/neo/share/modules/common/data/vehicle_param.pb.txt' '/apollo/modules/common/data/vehicle_param.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/common/vehicle_state/testdata/3_localization_result_1.pb.txt' ]; then mkdir -p '/apollo/modules/common/vehicle_state/testdata' && ln -snf '/opt/apollo/neo/share/modules/common/vehicle_state/testdata/3_localization_result_1.pb.txt' '/apollo/modules/common/vehicle_state/testdata/3_localization_result_1.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/common/vehicle_model/testdata/chassis_pre.pb.txt' ]; then mkdir -p '/apollo/modules/common/vehicle_model/testdata' && ln -snf '/opt/apollo/neo/share/modules/common/vehicle_model/testdata/chassis_pre.pb.txt' '/apollo/modules/common/vehicle_model/testdata/chassis_pre.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/common/vehicle_model/testdata/chassis_post.pb.txt' ]; then mkdir -p '/apollo/modules/common/vehicle_model/testdata' && ln -snf '/opt/apollo/neo/share/modules/common/vehicle_model/testdata/chassis_post.pb.txt' '/apollo/modules/common/vehicle_model/testdata/chassis_post.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/common/vehicle_model/testdata/localization_post.pb.txt' ]; then mkdir -p '/apollo/modules/common/vehicle_model/testdata' && ln -snf '/opt/apollo/neo/share/modules/common/vehicle_model/testdata/localization_post.pb.txt' '/apollo/modules/common/vehicle_model/testdata/localization_post.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/common/vehicle_model/testdata/localization_pre.pb.txt' ]; then mkdir -p '/apollo/modules/common/vehicle_model/testdata' && ln -snf '/opt/apollo/neo/share/modules/common/vehicle_model/testdata/localization_pre.pb.txt' '/apollo/modules/common/vehicle_model/testdata/localization_pre.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/common/vehicle_model/conf/vehicle_model_config.pb.txt' ]; then mkdir -p '/apollo/modules/common/vehicle_model/conf' && ln -snf '/opt/apollo/neo/share/modules/common/vehicle_model/conf/vehicle_model_config.pb.txt' '/apollo/modules/common/vehicle_model/conf/vehicle_model_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/common",
+        "rm -rf /opt/apollo/neo/include/modules/common",
+        "rm -rf /opt/apollo/neo/lib/modules/common",
+        "rm -rf /opt/apollo/neo/python/modules/common",
+        "rm -rf /opt/apollo/neo/src/modules/common",
+        "rm -rf /opt/apollo/neo/share/packages/common",
+        "rm -rf /opt/apollo/neo//bin/kv_db_tool"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/common",
+            "des": "/opt/apollo/neo/share/modules/common"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/common",
+            "des": "/opt/apollo/neo/include/modules/common"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/common",
+            "des": "/opt/apollo/neo/lib/modules/common"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/common",
+            "des": "/opt/apollo/neo/python/modules/common"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/common",
+            "des": "/opt/apollo/neo/src/modules/common"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/common",
+            "des": "/opt/apollo/neo/share/packages/common"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/kv_db_tool",
+            "des": "/opt/apollo/neo//bin/kv_db_tool"
+        }
+    ],
+    "type": "neo"
+}

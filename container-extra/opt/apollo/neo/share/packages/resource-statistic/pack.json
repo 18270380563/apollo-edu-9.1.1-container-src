@@ -1,0 +1,48 @@
+{
+    "name": "resource-statistic",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo resource-statistic module.",
+    "deps": [
+        "cyber",
+        "common",
+        "statistics-msgs",
+        "common-msgs",
+        "3rd-gpus",
+        "bazel-extend-tools"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/statistics/resource/dag/resource_statistic.dag' ]; then mkdir -p '/apollo/modules/statistics/resource/dag' && ln -snf '/opt/apollo/neo/share/modules/statistics/resource/dag/resource_statistic.dag' '/apollo/modules/statistics/resource/dag/resource_statistic.dag'; fi",
+        "if [ ! -e '/apollo/modules/statistics/resource/conf/resource_statistic_conf.pb.txt' ]; then mkdir -p '/apollo/modules/statistics/resource/conf' && ln -snf '/opt/apollo/neo/share/modules/statistics/resource/conf/resource_statistic_conf.pb.txt' '/apollo/modules/statistics/resource/conf/resource_statistic_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/statistics/resource/conf/resource_statistic_gflags.conf' ]; then mkdir -p '/apollo/modules/statistics/resource/conf' && ln -snf '/opt/apollo/neo/share/modules/statistics/resource/conf/resource_statistic_gflags.conf' '/apollo/modules/statistics/resource/conf/resource_statistic_gflags.conf'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/statistics/resource",
+        "rm -rf /opt/apollo/neo/include/modules/statistics/resource",
+        "rm -rf /opt/apollo/neo/lib/modules/statistics/resource",
+        "rm -rf /opt/apollo/neo/python/modules/statistics/resource",
+        "rm -rf /opt/apollo/neo/src/modules/statistics/resource",
+        "rm -rf /opt/apollo/neo/share/packages/resource-statistic"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/statistics/resource",
+            "des": "/opt/apollo/neo/share/modules/statistics/resource"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/statistics/resource",
+            "des": "/opt/apollo/neo/include/modules/statistics/resource"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/statistics/resource",
+            "des": "/opt/apollo/neo/lib/modules/statistics/resource"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/resource-statistic",
+            "des": "/opt/apollo/neo/share/packages/resource-statistic"
+        }
+    ],
+    "type": "neo"
+}

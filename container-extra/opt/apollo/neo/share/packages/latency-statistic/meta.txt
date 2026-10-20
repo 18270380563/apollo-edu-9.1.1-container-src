@@ -1,0 +1,6 @@
+modules/statistics/latency/libDO_NOT_IMPORT_latency_statistic_component.so:lib/modules/statistics/latency/libDO_NOT_IMPORT_latency_statistic_component.so
+modules/statistics/latency/liblatency_statistic_component.so:lib/modules/statistics/latency/liblatency_statistic_component.so
+modules/statistics/latency/conf/latency_statistic_gflags.conf:share/modules/statistics/latency/conf/latency_statistic_gflags.conf
+modules/statistics/latency/dag/latency_statistic.dag:share/modules/statistics/latency/dag/latency_statistic.dag
+modules/statistics/latency/cyberfile.xml:modules/statistics/latency/cyberfile.xml
+src_path:modules/statistics/latency

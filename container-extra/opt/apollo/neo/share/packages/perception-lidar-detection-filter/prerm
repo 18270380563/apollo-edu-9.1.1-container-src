@@ -1,0 +1,14 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/perception/lidar_detection_filter
+rm -rf /opt/apollo/neo/include/modules/perception/lidar_detection_filter
+rm -rf /opt/apollo/neo/lib/modules/perception/lidar_detection_filter
+rm -rf /opt/apollo/neo/python/modules/perception/lidar_detection_filter
+rm -rf /opt/apollo/neo/src/modules/perception/lidar_detection_filter
+rm -rf /opt/apollo/neo/share/packages/perception-lidar-detection-filter
+rm -rf /opt/apollo/neo/lib/modules/perception/lidar_detection_filter/object_filter_bank/background_filter
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__perception__lidar_detection_filter__object_filter_bank__background_filter__libbackground_filter.so
+rm -rf /opt/apollo/neo/lib/modules/perception/lidar_detection_filter/object_filter_bank/roi_boundary_filter
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__perception__lidar_detection_filter__object_filter_bank__roi_boundary_filter__libroi_boundary_filter.so
+rm -rf /opt/apollo/neo/lib/modules/perception/lidar_detection_filter/object_filter_bank/strategy_filter
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__perception__lidar_detection_filter__object_filter_bank__strategy_filter__libstrategy_filter.so

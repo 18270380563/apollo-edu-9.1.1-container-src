@@ -1,0 +1,46 @@
+<package format="2">
+  <name>dreamview-plus-toolbox-installer</name>
+  <version>9.1.1</version>
+  <description>
+    The dreamview_plus toolbox installer.
+  </description>
+
+  <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+  <license>Apache License 2.0</license>
+  <url type="website">https://www.apollo.auto/</url>
+  <url type="repository">https://github.com/ApolloAuto/apollo</url>
+  <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+
+  
+  <depend repo_name="dreamview-plus" type="binary">dreamview-plus</depend>
+  <depend repo_name="dreamview-plus-plugin-panels" type="binary">dreamview-plus-plugin-panels</depend>
+  <depend repo_name="calibration-plugin" type="binary">calibration-plugin</depend>
+  <depend repo_name="map-creator-plugin" type="binary">map-creator-plugin</depend>
+  <depend repo_name="vehicle-calibration-plugin" type="binary">vehicle-calibration-plugin</depend>
+  <depend repo_name="studio-connector" type="binary">studio-connector</depend>
+  <depend repo_name="monitor" type="binary">monitor</depend>
+
+  
+  <depend repo_name="drivers-gnss" type="binary">drivers-gnss</depend>
+  <depend repo_name="drivers-lidar" type="binary">drivers-lidar</depend>
+  <depend repo_name="drivers-camera" type="binary">drivers-camera</depend>
+
+  
+  <depend repo_name="localization" type="binary">localization</depend>
+  <depend repo_name="loam-velodyne" type="binary">loam-velodyne</depend>
+  <depend repo_name="loam-velodyne-indoor" type="binary">loam-velodyne-indoor</depend>
+
+  
+  <depend repo_name="transform" type="binary">transform</depend>
+
+  <depend expose="False">3rd-rules-python</depend>
+  <depend expose="False">3rd-grpc</depend>
+  <depend expose="False">3rd-bazel-skylib</depend>
+  <depend expose="False">3rd-rules-proto</depend>
+  <depend expose="False">3rd-py</depend>
+  <depend expose="False">3rd-gpus</depend>
+
+  <type>module</type>
+  <src_path url="https://github.com/ApolloAuto/apollo">//modules/dreamview_plus_toolbox_installer</src_path>
+
+</package>

@@ -1,0 +1,13 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/dreamview_plus_toolbox_installer
+rm -rf /opt/apollo/neo/include/modules/dreamview_plus_toolbox_installer
+rm -rf /opt/apollo/neo/lib/modules/dreamview_plus_toolbox_installer
+rm -rf /opt/apollo/neo/python/modules/dreamview_plus_toolbox_installer
+rm -rf /opt/apollo/neo/src/modules/dreamview_plus_toolbox_installer
+rm -rf /opt/apollo/neo/share/packages/dreamview-plus-toolbox-installer
+rm -rf /opt/apollo/neo//bin/toolbox_install.py
+rm -rf /opt/apollo/neo//bin/toolbox_install
+rm -rf /opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/modules/dreamview_plus_toolbox_installer/toolbox_install.py
+rm -rf /opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/modules/dreamview_plus_toolbox_installer/toolbox_install
+rm -rf /opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh

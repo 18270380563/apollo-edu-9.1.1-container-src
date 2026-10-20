@@ -1,0 +1,9 @@
+modules/perception/data/models/smoke_torch/BUILD:share/modules/perception/data/models/smoke_torch/BUILD
+modules/perception/data/models/smoke_torch/README:share/modules/perception/data/models/smoke_torch/README
+modules/perception/data/models/smoke_torch/apollo_deploy.yaml:share/modules/perception/data/models/smoke_torch/apollo_deploy.yaml
+modules/perception/data/models/smoke_torch/cyberfile.xml:share/modules/perception/data/models/smoke_torch/cyberfile.xml
+modules/perception/data/models/smoke_torch/feature.pt:share/modules/perception/data/models/smoke_torch/feature.pt
+modules/perception/data/models/smoke_torch/meta.txt:share/modules/perception/data/models/smoke_torch/meta.txt
+modules/perception/data/models/smoke_torch/smoke_libtorch_model.pth:share/modules/perception/data/models/smoke_torch/smoke_libtorch_model.pth
+modules/perception/data/models/smoke_torch/cyberfile.xml:modules/perception/data/models/smoke_torch/cyberfile.xml
+src_path:modules/perception/data/models/smoke_torch

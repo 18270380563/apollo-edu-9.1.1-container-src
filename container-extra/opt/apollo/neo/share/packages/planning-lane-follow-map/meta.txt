@@ -1,0 +1,4 @@
+modules/planning/pnc_map/lane_follow_map/liblane_follow_map.so:lib/modules/planning/pnc_map/lane_follow_map/liblane_follow_map.so
+modules/planning/pnc_map/lane_follow_map/cyberfile.xml:modules/planning/pnc_map/lane_follow_map/cyberfile.xml
+modules/planning/pnc_map/lane_follow_map/plugins.xml:plugin_meta@modules/planning/pnc_map/lane_follow_map@plugins.xml
+src_path:modules/planning/pnc_map/lane_follow_map

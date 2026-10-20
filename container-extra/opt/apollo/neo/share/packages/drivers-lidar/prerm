@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/drivers/lidar
+rm -rf /opt/apollo/neo/include/modules/drivers/lidar
+rm -rf /opt/apollo/neo/lib/modules/drivers/lidar
+rm -rf /opt/apollo/neo/python/modules/drivers/lidar
+rm -rf /opt/apollo/neo/src/modules/drivers/lidar
+rm -rf /opt/apollo/neo/share/packages/drivers-lidar

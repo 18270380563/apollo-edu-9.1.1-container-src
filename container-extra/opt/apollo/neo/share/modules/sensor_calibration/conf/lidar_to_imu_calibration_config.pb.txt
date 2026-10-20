@@ -1,0 +1,20 @@
+odometry_path: "/apollo_workspace/modules/sensor_calibration/example_data/lidar_to_imu_data/multi_lidar_to_gnss_calibration/"
+lidars_info {
+  name: "rshelios_rear"
+  path: "/apollo_workspace/modules/sensor_calibration/example_data/lidar_to_imu_data/multi_lidar_to_gnss_calibration/_apollo_sensor_rshelios_rear_PointCloud2/"
+  extrinsics {
+    rotation { x: 0.0 y: 0.0 z: 0.73 w: 0.68 }
+    translation { x: 0.35 y: -0.55 z: 1.0 }
+  }
+}
+lidars_info {
+  name: "rsm1"
+  path: "/apollo_workspace/modules/sensor_calibration/example_data/lidar_to_imu_data/multi_lidar_to_gnss_calibration/_apollo_sensor_rsm1_PointCloud2/"
+  extrinsics {
+    rotation { x: 0.0 y: 0.0 z: 0.707 w: 0.707 }
+    translation { x: -0.5 y: 0.25 z: 0.8 }
+  }
+}
+result_path: "/apollo_workspace/modules/sensor_calibration/example_data/lidar_to_imu_data/results3"
+calib_height: false
+frame: "UTM"

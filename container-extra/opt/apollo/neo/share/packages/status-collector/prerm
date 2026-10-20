@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/private_common/status_collector
+rm -rf /opt/apollo/neo/include/modules/private_common/status_collector
+rm -rf /opt/apollo/neo/lib/modules/private_common/status_collector
+rm -rf /opt/apollo/neo/python/modules/private_common/status_collector
+rm -rf /opt/apollo/neo/src/modules/private_common/status_collector
+rm -rf /opt/apollo/neo/share/packages/status-collector

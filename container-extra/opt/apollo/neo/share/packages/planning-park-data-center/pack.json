@@ -1,0 +1,43 @@
+{
+    "name": "planning-park-data-center",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-park-data-center module.",
+    "deps": [
+        "3rd-gflags",
+        "cyber",
+        "common",
+        "common-msgs",
+        "planning-base",
+        "bazel-extend-tools",
+        "3rd-libtorch-cpu",
+        "3rd-protobuf",
+        "3rd-gtest"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/park_data_center",
+        "rm -rf /opt/apollo/neo/include/modules/planning/park_data_center",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/park_data_center",
+        "rm -rf /opt/apollo/neo/python/modules/planning/park_data_center",
+        "rm -rf /opt/apollo/neo/src/modules/planning/park_data_center",
+        "rm -rf /opt/apollo/neo/share/packages/planning-park-data-center"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/park_data_center",
+            "des": "/opt/apollo/neo/include/modules/planning/park_data_center"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/park_data_center",
+            "des": "/opt/apollo/neo/lib/modules/planning/park_data_center"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-park-data-center",
+            "des": "/opt/apollo/neo/share/packages/planning-park-data-center"
+        }
+    ],
+    "type": "neo"
+}

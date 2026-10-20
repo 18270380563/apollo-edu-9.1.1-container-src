@@ -1,0 +1,12 @@
+modules/planning/tasks/obstacle_nudge_decider/conf/default_conf.pb.txt:share/modules/planning/tasks/obstacle_nudge_decider/conf/default_conf.pb.txt
+modules/planning/tasks/obstacle_nudge_decider/libobstacle_nudge_decider.so:lib/modules/planning/tasks/obstacle_nudge_decider/libobstacle_nudge_decider.so
+modules/planning/tasks/obstacle_nudge_decider/cyberfile.xml:modules/planning/tasks/obstacle_nudge_decider/cyberfile.xml
+modules/planning/tasks/obstacle_nudge_decider/plugins.xml:plugin_meta@modules/planning/tasks/obstacle_nudge_decider@plugins.xml
+modules/planning/tasks/obstacle_nudge_decider/proto/obstacle_nudge_decider.pb.h:include/modules/planning/tasks/obstacle_nudge_decider/proto/obstacle_nudge_decider.pb.h
+modules/planning/tasks/obstacle_nudge_decider/proto/obstacle_nudge_decider.pb.cc:include/modules/planning/tasks/obstacle_nudge_decider/proto/obstacle_nudge_decider.pb.cc
+modules/planning/tasks/obstacle_nudge_decider/proto/lib_obstacle_nudge_decider_proto.a:include/modules/planning/tasks/obstacle_nudge_decider/proto/lib_obstacle_nudge_decider_proto.a
+modules/planning/tasks/obstacle_nudge_decider/proto/lib_obstacle_nudge_decider_proto.pic.a:include/modules/planning/tasks/obstacle_nudge_decider/proto/lib_obstacle_nudge_decider_proto.pic.a
+modules/planning/tasks/obstacle_nudge_decider/proto/lib_obstacle_nudge_decider_proto.so:include/modules/planning/tasks/obstacle_nudge_decider/proto/lib_obstacle_nudge_decider_proto.so
+modules/planning/tasks/obstacle_nudge_decider/proto/obstacle_nudge_decider_pb2.py:python/modules/planning/tasks/obstacle_nudge_decider/proto/obstacle_nudge_decider_pb2.py
+modules/planning/tasks/obstacle_nudge_decider/proto/lib_obstacle_nudge_decider_proto_mptop_bin.so:lib/modules/planning/tasks/obstacle_nudge_decider/proto/lib_obstacle_nudge_decider_proto_mptop_bin.so
+src_path:modules/planning/tasks/obstacle_nudge_decider

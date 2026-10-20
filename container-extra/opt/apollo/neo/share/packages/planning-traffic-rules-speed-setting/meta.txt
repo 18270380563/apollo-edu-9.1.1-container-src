@@ -1,0 +1,4 @@
+modules/planning/traffic_rules/speed_setting/libspeed_setting.so:lib/modules/planning/traffic_rules/speed_setting/libspeed_setting.so
+modules/planning/traffic_rules/speed_setting/cyberfile.xml:modules/planning/traffic_rules/speed_setting/cyberfile.xml
+modules/planning/traffic_rules/speed_setting/plugins.xml:plugin_meta@modules/planning/traffic_rules/speed_setting@plugins.xml
+src_path:modules/planning/traffic_rules/speed_setting

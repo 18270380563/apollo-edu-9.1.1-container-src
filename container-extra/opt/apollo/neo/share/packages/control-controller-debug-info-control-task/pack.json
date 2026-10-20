@@ -1,0 +1,57 @@
+{
+    "name": "control-controller-debug-info-control-task",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo control-controller-debug-info-control-task module.",
+    "deps": [
+        "bazel-extend-tools",
+        "control",
+        "control-task-base-extend",
+        "common",
+        "common-msgs",
+        "3rd-eigen3",
+        "3rd-absl"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/control/controllers/debug_info_control_task/plugins.xml' ]; then mkdir -p '/apollo/modules/control/controllers/debug_info_control_task' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/debug_info_control_task/plugins.xml' '/apollo/modules/control/controllers/debug_info_control_task/plugins.xml'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/control/controllers/debug_info_control_task",
+        "rm -rf /opt/apollo/neo/include/modules/control/controllers/debug_info_control_task",
+        "rm -rf /opt/apollo/neo/lib/modules/control/controllers/debug_info_control_task",
+        "rm -rf /opt/apollo/neo/python/modules/control/controllers/debug_info_control_task",
+        "rm -rf /opt/apollo/neo/src/modules/control/controllers/debug_info_control_task",
+        "rm -rf /opt/apollo/neo/share/packages/control-controller-debug-info-control-task",
+        "rm -rf /opt/apollo/neo/lib/modules/control/controllers/debug_info_control_task",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__debug_info_control_task__libdebug_info_control_task.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/control/controllers/debug_info_control_task",
+            "des": "/opt/apollo/neo/share/modules/control/controllers/debug_info_control_task"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/control/controllers/debug_info_control_task",
+            "des": "/opt/apollo/neo/include/modules/control/controllers/debug_info_control_task"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/control/controllers/debug_info_control_task",
+            "des": "/opt/apollo/neo/lib/modules/control/controllers/debug_info_control_task"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/control-controller-debug-info-control-task",
+            "des": "/opt/apollo/neo/share/packages/control-controller-debug-info-control-task"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/control/controllers/debug_info_control_task",
+            "des": "/opt/apollo/neo/lib/modules/control/controllers/debug_info_control_task"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__debug_info_control_task__libdebug_info_control_task.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__debug_info_control_task__libdebug_info_control_task.so"
+        }
+    ],
+    "type": "neo"
+}

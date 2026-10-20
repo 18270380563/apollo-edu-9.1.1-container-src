@@ -1,0 +1,64 @@
+{
+    "name": "external-command-action",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo external-command-action module.",
+    "deps": [
+        "bazel-extend-tools",
+        "common",
+        "external-command-processor-base",
+        "routing"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/external_command/command_processor/action_command_processor/plugins.xml' ]; then mkdir -p '/apollo/modules/external_command/command_processor/action_command_processor' && ln -snf '/opt/apollo/neo/share/modules/external_command/command_processor/action_command_processor/plugins.xml' '/apollo/modules/external_command/command_processor/action_command_processor/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/external_command/command_processor/action_command_processor/conf/config.pb.txt' ]; then mkdir -p '/apollo/modules/external_command/command_processor/action_command_processor/conf' && ln -snf '/opt/apollo/neo/share/modules/external_command/command_processor/action_command_processor/conf/config.pb.txt' '/apollo/modules/external_command/command_processor/action_command_processor/conf/config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/external_command/command_processor/action_command_processor/conf/special_config.pb.txt' ]; then mkdir -p '/apollo/modules/external_command/command_processor/action_command_processor/conf' && ln -snf '/opt/apollo/neo/share/modules/external_command/command_processor/action_command_processor/conf/special_config.pb.txt' '/apollo/modules/external_command/command_processor/action_command_processor/conf/special_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/external_command/command_processor/action_command_processor",
+        "rm -rf /opt/apollo/neo/include/modules/external_command/command_processor/action_command_processor",
+        "rm -rf /opt/apollo/neo/lib/modules/external_command/command_processor/action_command_processor",
+        "rm -rf /opt/apollo/neo/python/modules/external_command/command_processor/action_command_processor",
+        "rm -rf /opt/apollo/neo/src/modules/external_command/command_processor/action_command_processor",
+        "rm -rf /opt/apollo/neo/share/packages/external-command-action",
+        "rm -rf /opt/apollo/neo/lib/modules/external_command/command_processor/action_command_processor",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__external_command__command_processor__action_command_processor__libaction_command_processor.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/external_command/command_processor/action_command_processor",
+            "des": "/opt/apollo/neo/share/modules/external_command/command_processor/action_command_processor"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/external_command/command_processor/action_command_processor",
+            "des": "/opt/apollo/neo/include/modules/external_command/command_processor/action_command_processor"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/external_command/command_processor/action_command_processor",
+            "des": "/opt/apollo/neo/lib/modules/external_command/command_processor/action_command_processor"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/external_command/command_processor/action_command_processor",
+            "des": "/opt/apollo/neo/python/modules/external_command/command_processor/action_command_processor"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/external_command/command_processor/action_command_processor",
+            "des": "/opt/apollo/neo/src/modules/external_command/command_processor/action_command_processor"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/external-command-action",
+            "des": "/opt/apollo/neo/share/packages/external-command-action"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/external_command/command_processor/action_command_processor",
+            "des": "/opt/apollo/neo/lib/modules/external_command/command_processor/action_command_processor"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__external_command__command_processor__action_command_processor__libaction_command_processor.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__external_command__command_processor__action_command_processor__libaction_command_processor.so"
+        }
+    ],
+    "type": "neo"
+}

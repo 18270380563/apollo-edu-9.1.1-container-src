@@ -1,0 +1,86 @@
+# !/bin/sh
+APOLLO_PATH='/opt/apollo/neo/'
+PACKAGE_NAME='drivers-camera'
+PACKAGE_NAME_WITH_VER='drivers-camera/9.1.1'
+INCLUDE_PATH=''
+echo "[INFO] start to create symbolic links of ${PACKAGE_NAME}"
+echo '[WARN] the links of pre-version will be overwrited!'
+
+mkdir -p ${APOLLO_PATH}bin
+mkdir -p ${APOLLO_PATH}include
+mkdir -p ${APOLLO_PATH}lib
+
+chmod a+rw ${APOLLO_PATH}bin ${APOLLO_PATH}include ${APOLLO_PATH}lib ${APOLLO_PATH}packages
+
+if [ ! -d ${APOLLO_PATH}/share/packages/${PACKAGE_NAME} ]
+then
+    ln -snf ${APOLLO_PATH}packages/${PACKAGE_NAME_WITH_VER} ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest
+
+    if [ "${INCLUDE_PATH}" = "" ]
+    then
+        ori_inc_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include"
+        if [ -d ${ori_inc_path} ]
+        then
+            for file in $(ls ${ori_inc_path})
+            do
+                if [ -d ${ori_inc_path}"/"${file} ]
+                then
+                    ln -snf ${ori_inc_path}"/"${file} "${APOLLO_PATH}include/${file}"
+                fi
+            done
+        fi
+    else
+        if [ $(dirname ${INCLUDE_PATH}) != '.' ]
+        then
+            mkdir -p "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+            chmod a+rw "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+        fi
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include" "${APOLLO_PATH}include/${INCLUDE_PATH}"
+    fi
+
+    if [ -d ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib ]
+    then
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib" "${APOLLO_PATH}lib/${PACKAGE_NAME}"
+    fi
+
+    bin_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/bin"
+    if [ -d ${bin_path} ]
+    then
+        for file in $(ls ${bin_path})
+        do
+            if [ -d ${bin_path}"/"${file} ]
+            then
+                continue
+            else
+                ln -snf "${bin_path}/${file}" "${APOLLO_PATH}bin/${file}"
+            fi
+        done
+    fi
+fi
+
+if [ ! -e '/apollo/modules/drivers/camera/dag/camera_no_compress.dag' ]; then mkdir -p '/apollo/modules/drivers/camera/dag' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/dag/camera_no_compress.dag' '/apollo/modules/drivers/camera/dag/camera_no_compress.dag'; fi
+if [ ! -e '/apollo/modules/drivers/camera/dag/compress_arm.dag' ]; then mkdir -p '/apollo/modules/drivers/camera/dag' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/dag/compress_arm.dag' '/apollo/modules/drivers/camera/dag/compress_arm.dag'; fi
+if [ ! -e '/apollo/modules/drivers/camera/dag/compress.dag' ]; then mkdir -p '/apollo/modules/drivers/camera/dag' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/dag/compress.dag' '/apollo/modules/drivers/camera/dag/compress.dag'; fi
+if [ ! -e '/apollo/modules/drivers/camera/dag/camera.dag' ]; then mkdir -p '/apollo/modules/drivers/camera/dag' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/dag/camera.dag' '/apollo/modules/drivers/camera/dag/camera.dag'; fi
+if [ ! -e '/apollo/modules/drivers/camera/launch/camera_and_video.launch' ]; then mkdir -p '/apollo/modules/drivers/camera/launch' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/launch/camera_and_video.launch' '/apollo/modules/drivers/camera/launch/camera_and_video.launch'; fi
+if [ ! -e '/apollo/modules/drivers/camera/launch/camera.launch' ]; then mkdir -p '/apollo/modules/drivers/camera/launch' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/launch/camera.launch' '/apollo/modules/drivers/camera/launch/camera.launch'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_front_6mm.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_front_6mm.pb.txt' '/apollo/modules/drivers/camera/conf/camera_front_6mm.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_left_fisheye.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_left_fisheye.pb.txt' '/apollo/modules/drivers/camera/conf/camera_left_fisheye.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_long_conf.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_long_conf.pb.txt' '/apollo/modules/drivers/camera/conf/camera_long_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_right_front.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_right_front.pb.txt' '/apollo/modules/drivers/camera/conf/camera_right_front.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_front_fisheye.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_front_fisheye.pb.txt' '/apollo/modules/drivers/camera/conf/camera_front_fisheye.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_left_rear.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_left_rear.pb.txt' '/apollo/modules/drivers/camera/conf/camera_left_rear.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_left_front.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_left_front.pb.txt' '/apollo/modules/drivers/camera/conf/camera_left_front.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_right_rear.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_right_rear.pb.txt' '/apollo/modules/drivers/camera/conf/camera_right_rear.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_front_conf.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_front_conf.pb.txt' '/apollo/modules/drivers/camera/conf/camera_front_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_short_conf.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_short_conf.pb.txt' '/apollo/modules/drivers/camera/conf/camera_short_conf.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_right_fisheye.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_right_fisheye.pb.txt' '/apollo/modules/drivers/camera/conf/camera_right_fisheye.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_front_12mm.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_front_12mm.pb.txt' '/apollo/modules/drivers/camera/conf/camera_front_12mm.pb.txt'; fi
+if [ ! -e '/apollo/modules/drivers/camera/conf/camera_rear_6mm.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/camera/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/camera/conf/camera_rear_6mm.pb.txt' '/apollo/modules/drivers/camera/conf/camera_rear_6mm.pb.txt'; fi
+
+echo "[INFO] symbolic links of ${PACKAGE_NAME} created."
+
+if [ -f "${APOLLO_PATH}update_dylib.sh" ]
+then
+    sh ${APOLLO_PATH}update_dylib.sh
+fi

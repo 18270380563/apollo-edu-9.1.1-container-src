@@ -1,0 +1,15 @@
+<package format="2">
+    <name>external-command-processor-base</name>
+    <version>9.1.1</version>
+    <description> The package contains command processor base and tools. </description>
+    <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+    <license>Apache License 2.0</license>
+    <url type="website">https://www.apollo.auto/</url>
+    <url type="repository">https://github.com/ApolloAuto/apollo</url>
+    <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+    <type>module</type>
+    <src_path url="https://github.com/ApolloAuto/apollo">//modules/external_command/command_processor/command_processor_base</src_path>
+    <depend lib_names="gflags" repo_name="com_github_gflags_gflags">3rd-gflags</depend>
+    <depend lib_names="common" repo_name="common" type="binary">common</depend>
+    <depend repo_name="routing" type="binary">routing</depend>
+</package>

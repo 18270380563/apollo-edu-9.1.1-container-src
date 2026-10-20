@@ -1,0 +1,54 @@
+{
+    "name": "old-routing-adpter",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo old-routing-adpter module.",
+    "deps": [
+        "3rd-gflags",
+        "common",
+        "map",
+        "routing"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/external_command/old_routing_adapter/dag/old_routing_adapter.dag' ]; then mkdir -p '/apollo/modules/external_command/old_routing_adapter/dag' && ln -snf '/opt/apollo/neo/share/modules/external_command/old_routing_adapter/dag/old_routing_adapter.dag' '/apollo/modules/external_command/old_routing_adapter/dag/old_routing_adapter.dag'; fi",
+        "if [ ! -e '/apollo/modules/external_command/old_routing_adapter/launch/old_routing_adapter.launch' ]; then mkdir -p '/apollo/modules/external_command/old_routing_adapter/launch' && ln -snf '/opt/apollo/neo/share/modules/external_command/old_routing_adapter/launch/old_routing_adapter.launch' '/apollo/modules/external_command/old_routing_adapter/launch/old_routing_adapter.launch'; fi",
+        "if [ ! -e '/apollo/modules/external_command/old_routing_adapter/conf/config.pb.txt' ]; then mkdir -p '/apollo/modules/external_command/old_routing_adapter/conf' && ln -snf '/opt/apollo/neo/share/modules/external_command/old_routing_adapter/conf/config.pb.txt' '/apollo/modules/external_command/old_routing_adapter/conf/config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/external_command/old_routing_adapter",
+        "rm -rf /opt/apollo/neo/include/modules/external_command/old_routing_adapter",
+        "rm -rf /opt/apollo/neo/lib/modules/external_command/old_routing_adapter",
+        "rm -rf /opt/apollo/neo/python/modules/external_command/old_routing_adapter",
+        "rm -rf /opt/apollo/neo/src/modules/external_command/old_routing_adapter",
+        "rm -rf /opt/apollo/neo/share/packages/old-routing-adpter"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/external_command/old_routing_adapter",
+            "des": "/opt/apollo/neo/share/modules/external_command/old_routing_adapter"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/external_command/old_routing_adapter",
+            "des": "/opt/apollo/neo/include/modules/external_command/old_routing_adapter"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/external_command/old_routing_adapter",
+            "des": "/opt/apollo/neo/lib/modules/external_command/old_routing_adapter"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/external_command/old_routing_adapter",
+            "des": "/opt/apollo/neo/python/modules/external_command/old_routing_adapter"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/external_command/old_routing_adapter",
+            "des": "/opt/apollo/neo/src/modules/external_command/old_routing_adapter"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/old-routing-adpter",
+            "des": "/opt/apollo/neo/share/packages/old-routing-adpter"
+        }
+    ],
+    "type": "neo"
+}

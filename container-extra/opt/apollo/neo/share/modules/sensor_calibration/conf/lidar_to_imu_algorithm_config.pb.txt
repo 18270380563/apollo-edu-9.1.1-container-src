@@ -1,0 +1,83 @@
+sac_segmentation_from_normals {
+  normal_distance_weight: 0.2
+  method_type: "SAC_RANSAC"
+  max_iterations: 200
+  distance_threshold: 0.2
+  k_search: 40
+  min_plane_size: 1000
+}
+calibration {
+  window: 30
+  turn: 20
+  roi_filter_enable: true
+  roi_max_x: 2;
+  roi_min_x: -2;
+  roi_max_y: 2;
+  roi_min_y: -2;
+  roi_max_z: 2;
+  roi_min_z: -2;
+  number_of_frame_not_to_use: 10;
+  max_number_of_frame_to_use: 3000;
+}
+save_stitching {
+  step: 3
+  octree_point_cloud_search: 0.05
+}
+registration_voxel_occupancy {
+  intensity_threshold: 1
+  octree_point_cloud_search: 0.05
+  save_step: 3
+  rpy_resolution: 0.03
+  xyz_resolution: 0.02
+  max_iteration: 100
+  roi_filter_enable: true
+  roi_max_x: 2;
+  roi_min_x: -2;
+  roi_max_y: 2;
+  roi_min_y: -2;
+  roi_max_z: 2;
+  roi_min_z: -2;
+  compute_voxel_occupancy_step: 3
+  ground_calib_enable: false
+  max_ponits_to_extract_ground: 50000
+  lidar_to_lidar_calib_frame: 30
+}
+error {
+  x: 0
+  y: 0
+  z: 0
+  roll: 0
+  pitch: 0
+  yaw: 0
+}
+point_cloud_save {
+  before_saved: false
+  after_saved: true
+  voxel_saved: false
+}
+literation_times: 1
+balm_config {
+  min_total_point_num: 10
+  feat_eigen_limit: 1.0
+  layer: 3
+  cut_size: 3.0
+  min_point_num: 5
+}
+lidar_odom {
+  num_of_saved_frame: 50
+  ndt_resolution: 0.5;
+  ndt_step_size: 0.2;
+  ndt_max_iterations: 1000;
+  ndt_tran_epsilon: 1e-3;
+  enable_lidar_odom: true;
+  downsample_size: 0.5
+  lidar_to_lidar_calib_enable: false
+  score_base: 0.1;
+}
+down_sample_para {
+  scans: 128
+  down_sample_rate: 8
+  fov_min: -15.0
+  fov_max: 15.0
+  is_enable: false
+}

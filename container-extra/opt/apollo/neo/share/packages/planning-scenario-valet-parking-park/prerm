@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/planning/scenarios/valet_parking_park
+rm -rf /opt/apollo/neo/include/modules/planning/scenarios/valet_parking_park
+rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/valet_parking_park
+rm -rf /opt/apollo/neo/python/modules/planning/scenarios/valet_parking_park
+rm -rf /opt/apollo/neo/src/modules/planning/scenarios/valet_parking_park
+rm -rf /opt/apollo/neo/share/packages/planning-scenario-valet-parking-park
+rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/valet_parking_park
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__valet_parking_park__libvalet_parking_scenario_park.so

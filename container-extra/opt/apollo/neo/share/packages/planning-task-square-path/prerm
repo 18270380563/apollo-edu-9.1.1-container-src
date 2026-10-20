@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/planning/tasks/square_path
+rm -rf /opt/apollo/neo/include/modules/planning/tasks/square_path
+rm -rf /opt/apollo/neo/lib/modules/planning/tasks/square_path
+rm -rf /opt/apollo/neo/python/modules/planning/tasks/square_path
+rm -rf /opt/apollo/neo/src/modules/planning/tasks/square_path
+rm -rf /opt/apollo/neo/share/packages/planning-task-square-path
+rm -rf /opt/apollo/neo/lib/modules/planning/tasks/square_path
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__square_path__libsquare_path.so

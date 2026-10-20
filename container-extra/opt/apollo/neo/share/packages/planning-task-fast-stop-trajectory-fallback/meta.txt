@@ -1,0 +1,4 @@
+modules/planning/tasks/fast_stop_trajectory_fallback/libfast_stop_trajectory_fallback.so:lib/modules/planning/tasks/fast_stop_trajectory_fallback/libfast_stop_trajectory_fallback.so
+modules/planning/tasks/fast_stop_trajectory_fallback/cyberfile.xml:modules/planning/tasks/fast_stop_trajectory_fallback/cyberfile.xml
+modules/planning/tasks/fast_stop_trajectory_fallback/plugins.xml:plugin_meta@modules/planning/tasks/fast_stop_trajectory_fallback@plugins.xml
+src_path:modules/planning/tasks/fast_stop_trajectory_fallback

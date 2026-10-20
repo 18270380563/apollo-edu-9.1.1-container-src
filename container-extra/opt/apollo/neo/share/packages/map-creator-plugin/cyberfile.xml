@@ -1,0 +1,23 @@
+<package>
+    <name>map-creator-plugin</name>
+    <version>9.1.1</version>
+    <description>
+     A map creator tool plugin for dreamview plus.
+    </description>
+    <maintainer email="apollo-support">apollo-support@baidu.com</maintainer>
+    <type>module</type>
+    <src_path>//modules/dreamview_plus_plugins/map_creator_tool</src_path>
+    <license>Apache License 2.0</license>
+    <author>Apollo</author>
+    <depend>bazel-extend-tools</depend>
+    <depend repo_name="proj">3rd-proj</depend>
+    <depend repo_name="cyber" type="binary">cyber</depend>
+    <depend repo_name="dreamview-plus" type="binary">dreamview-plus</depend>
+    <depend repo_name="drivers-gnss" type="binary">drivers-gnss</depend>
+    <depend repo_name="private-map-tool" type="binary">private-map-tool</depend>
+    <depend repo_name="tile-map-images-creator" type="binary">tile-map-images-creator</depend>
+    <depend repo_name="loam-velodyne" type="binary">loam-velodyne</depend>
+    <depend repo_name="http-handler" type="binary">http-handler</depend>
+    <builder>bazel</builder>
+    <depend>bazel-extend-tools</depend>
+  </package>

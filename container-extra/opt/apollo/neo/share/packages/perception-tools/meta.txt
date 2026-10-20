@@ -1,0 +1,8 @@
+modules/perception/tools/cyberfile.xml:modules/perception/tools/cyberfile.xml
+modules/perception/tools/common/libapollo_perception_tools_common.so:lib/modules/perception/tools/common/libapollo_perception_tools_common.so
+modules/perception/tools/exporter/libmsgexporterlib.so:lib/modules/perception/tools/exporter/libmsgexporterlib.so
+modules/perception/tools/exporter/msg_exporter:bin/msg_exporter
+modules/perception/tools/offline/libperception_visualizer.so:lib/modules/perception/tools/offline/libperception_visualizer.so
+modules/perception/tools/offline/libperception_transform_server.so:lib/modules/perception/tools/offline/libperception_transform_server.so
+modules/perception/tools/offline_camera_detection/offline_camera_detection:bin/offline_camera_detection
+src_path:modules/perception/tools

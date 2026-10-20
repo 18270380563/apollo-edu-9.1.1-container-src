@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/perception/tools
+rm -rf /opt/apollo/neo/include/modules/perception/tools
+rm -rf /opt/apollo/neo/lib/modules/perception/tools
+rm -rf /opt/apollo/neo/python/modules/perception/tools
+rm -rf /opt/apollo/neo/src/modules/perception/tools
+rm -rf /opt/apollo/neo/share/packages/perception-tools
+rm -rf /opt/apollo/neo//bin/msg_exporter
+rm -rf /opt/apollo/neo//bin/offline_camera_detection

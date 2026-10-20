@@ -1,0 +1,65 @@
+{
+    "name": "control-controller-demo-control-task",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo control-controller-demo-control-task module.",
+    "deps": [
+        "bazel-extend-tools",
+        "control",
+        "common",
+        "common-msgs",
+        "3rd-eigen3",
+        "3rd-absl"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/control/controllers/demo_control_task/plugins.xml' ]; then mkdir -p '/apollo/modules/control/controllers/demo_control_task' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/demo_control_task/plugins.xml' '/apollo/modules/control/controllers/demo_control_task/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/demo_control_task/conf/controller_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/demo_control_task/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/demo_control_task/conf/controller_conf.pb.txt' '/apollo/modules/control/controllers/demo_control_task/conf/controller_conf.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/control/controllers/demo_control_task",
+        "rm -rf /opt/apollo/neo/include/modules/control/controllers/demo_control_task",
+        "rm -rf /opt/apollo/neo/lib/modules/control/controllers/demo_control_task",
+        "rm -rf /opt/apollo/neo/python/modules/control/controllers/demo_control_task",
+        "rm -rf /opt/apollo/neo/src/modules/control/controllers/demo_control_task",
+        "rm -rf /opt/apollo/neo/share/packages/control-controller-demo-control-task",
+        "rm -rf /opt/apollo/neo/lib/modules/control/controllers/demo_control_task",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__demo_control_task__libdemo_control_task.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/control/controllers/demo_control_task",
+            "des": "/opt/apollo/neo/share/modules/control/controllers/demo_control_task"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/control/controllers/demo_control_task",
+            "des": "/opt/apollo/neo/include/modules/control/controllers/demo_control_task"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/control/controllers/demo_control_task",
+            "des": "/opt/apollo/neo/lib/modules/control/controllers/demo_control_task"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/control/controllers/demo_control_task",
+            "des": "/opt/apollo/neo/python/modules/control/controllers/demo_control_task"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/control/controllers/demo_control_task",
+            "des": "/opt/apollo/neo/src/modules/control/controllers/demo_control_task"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/control-controller-demo-control-task",
+            "des": "/opt/apollo/neo/share/packages/control-controller-demo-control-task"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/control/controllers/demo_control_task",
+            "des": "/opt/apollo/neo/lib/modules/control/controllers/demo_control_task"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__demo_control_task__libdemo_control_task.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__demo_control_task__libdemo_control_task.so"
+        }
+    ],
+    "type": "neo"
+}

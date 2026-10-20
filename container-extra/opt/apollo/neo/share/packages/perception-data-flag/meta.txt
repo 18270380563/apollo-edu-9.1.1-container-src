@@ -1,0 +1,5 @@
+modules/perception/data/flag/BUILD:share/modules/perception/data/flag/BUILD
+modules/perception/data/flag/cyberfile.xml:share/modules/perception/data/flag/cyberfile.xml
+modules/perception/data/flag/perception_common.flag:share/modules/perception/data/flag/perception_common.flag
+modules/perception/data/flag/cyberfile.xml:modules/perception/data/flag/cyberfile.xml
+src_path:modules/perception/data/flag

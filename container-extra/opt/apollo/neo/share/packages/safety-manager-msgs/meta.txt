@@ -1,0 +1,9 @@
+modules/safety_manager_msgs/safety_manager.pb.h:include/modules/safety_manager_msgs/safety_manager.pb.h
+modules/safety_manager_msgs/safety_manager.pb.cc:include/modules/safety_manager_msgs/safety_manager.pb.cc
+modules/safety_manager_msgs/lib_safety_manager_proto.a:include/modules/safety_manager_msgs/lib_safety_manager_proto.a
+modules/safety_manager_msgs/lib_safety_manager_proto.pic.a:include/modules/safety_manager_msgs/lib_safety_manager_proto.pic.a
+modules/safety_manager_msgs/lib_safety_manager_proto.so:include/modules/safety_manager_msgs/lib_safety_manager_proto.so
+modules/safety_manager_msgs/safety_manager_pb2.py:python/modules/safety_manager_msgs/safety_manager_pb2.py
+modules/safety_manager_msgs/lib_safety_manager_proto_ms_bin.so:lib/modules/safety_manager_msgs/lib_safety_manager_proto_ms_bin.so
+modules/safety_manager_msgs/cyberfile.xml:modules/safety_manager_msgs/cyberfile.xml
+src_path:modules/safety_manager_msgs

@@ -1,0 +1,10 @@
+modules/perception/data/models/yolox3d_onnx/BUILD:share/modules/perception/data/models/yolox3d_onnx/BUILD
+modules/perception/data/models/yolox3d_onnx/README:share/modules/perception/data/models/yolox3d_onnx/README
+modules/perception/data/models/yolox3d_onnx/apollo_deploy.yaml:share/modules/perception/data/models/yolox3d_onnx/apollo_deploy.yaml
+modules/perception/data/models/yolox3d_onnx/cyberfile.xml:share/modules/perception/data/models/yolox3d_onnx/cyberfile.xml
+modules/perception/data/models/yolox3d_onnx/yolo_onnx_model_3d_fp16.onnx:share/modules/perception/data/models/yolox3d_onnx/yolo_onnx_model_3d_fp16.onnx
+modules/perception/data/models/yolox3d_onnx/yolox3d_onnx_model_2d.onnx:share/modules/perception/data/models/yolox3d_onnx/yolox3d_onnx_model_2d.onnx
+modules/perception/data/models/yolox3d_onnx/yolox3d_onnx_model_2d_l.onnx:share/modules/perception/data/models/yolox3d_onnx/yolox3d_onnx_model_2d_l.onnx
+modules/perception/data/models/yolox3d_onnx/yolox3d_onnx_model_2d_m.onnx:share/modules/perception/data/models/yolox3d_onnx/yolox3d_onnx_model_2d_m.onnx
+modules/perception/data/models/yolox3d_onnx/cyberfile.xml:modules/perception/data/models/yolox3d_onnx/cyberfile.xml
+src_path:modules/perception/data/models/yolox3d_onnx

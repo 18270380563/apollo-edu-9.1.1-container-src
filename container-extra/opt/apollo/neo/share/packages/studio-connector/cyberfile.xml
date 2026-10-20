@@ -1,0 +1,30 @@
+<package format="2">
+  <name>studio-connector</name>
+  <version>9.1.1</version>
+  <description>
+    This module provides a service that helps developers get cloud resources,
+    e.g: scenarios.
+  </description>
+  
+  <maintainer email="apollo-support@baidu.com">Apollo Maintainer</maintainer>
+  <license>Apache License 2.0</license>
+  <url type="website">https://www.apollo.auto/</url>
+  <url type="repository">https://github.com/ApolloAuto/apollo</url>
+  <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+
+  <type>module</type>
+  <depend repo_name="cyber" type="binary">cyber</depend>
+  <depend lib_names="common" repo_name="common" type="binary">common</depend>
+  <depend lib_names="dreamview-plus" repo_name="dreamview-plus" type="binary">dreamview-plus</depend>
+  <depend lib_names="gflags" repo_name="com_github_gflags_gflags">3rd-gflags</depend>
+  <depend lib_names="gtest,gtest_main" repo_name="com_google_googletest">3rd-gtest</depend>
+  <depend lib_names="protobuf" repo_name="com_google_protobuf">3rd-protobuf</depend>
+  <depend repo_name="boost">3rd-boost</depend>
+  <depend expose="False">3rd-grpc</depend>
+  <depend>libcurl4-openssl-dev</depend>
+
+  <depend>bazel-extend-tools</depend>
+
+  <src_path url="https://github.com/ApolloAuto/apollo">//modules/studio_connector</src_path>
+
+</package>

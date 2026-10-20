@@ -1,0 +1,12 @@
+modules/planning/traffic_rules/keepclear/conf/default_conf.pb.txt:share/modules/planning/traffic_rules/keepclear/conf/default_conf.pb.txt
+modules/planning/traffic_rules/keepclear/libkeepclear.so:lib/modules/planning/traffic_rules/keepclear/libkeepclear.so
+modules/planning/traffic_rules/keepclear/cyberfile.xml:modules/planning/traffic_rules/keepclear/cyberfile.xml
+modules/planning/traffic_rules/keepclear/plugins.xml:plugin_meta@modules/planning/traffic_rules/keepclear@plugins.xml
+modules/planning/traffic_rules/keepclear/proto/keepclear.pb.h:include/modules/planning/traffic_rules/keepclear/proto/keepclear.pb.h
+modules/planning/traffic_rules/keepclear/proto/keepclear.pb.cc:include/modules/planning/traffic_rules/keepclear/proto/keepclear.pb.cc
+modules/planning/traffic_rules/keepclear/proto/lib_keepclear_proto.a:include/modules/planning/traffic_rules/keepclear/proto/lib_keepclear_proto.a
+modules/planning/traffic_rules/keepclear/proto/lib_keepclear_proto.pic.a:include/modules/planning/traffic_rules/keepclear/proto/lib_keepclear_proto.pic.a
+modules/planning/traffic_rules/keepclear/proto/lib_keepclear_proto.so:include/modules/planning/traffic_rules/keepclear/proto/lib_keepclear_proto.so
+modules/planning/traffic_rules/keepclear/proto/keepclear_pb2.py:python/modules/planning/traffic_rules/keepclear/proto/keepclear_pb2.py
+modules/planning/traffic_rules/keepclear/proto/lib_keepclear_proto_mptkp_bin.so:lib/modules/planning/traffic_rules/keepclear/proto/lib_keepclear_proto_mptkp_bin.so
+src_path:modules/planning/traffic_rules/keepclear

@@ -1,0 +1,59 @@
+{
+    "name": "perception-lidar-output",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-lidar-output module.",
+    "deps": [
+        "cyber",
+        "common",
+        "perception-common",
+        "common-msgs",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/lidar_output/dag/lidar_fusion_output.dag' ]; then mkdir -p '/apollo/modules/perception/lidar_output/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_output/dag/lidar_fusion_output.dag' '/apollo/modules/perception/lidar_output/dag/lidar_fusion_output.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/lidar_output/dag/lidar_output.dag' ]; then mkdir -p '/apollo/modules/perception/lidar_output/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_output/dag/lidar_output.dag' '/apollo/modules/perception/lidar_output/dag/lidar_output.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/lidar_output/dag/lidar_results_output.dag' ]; then mkdir -p '/apollo/modules/perception/lidar_output/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_output/dag/lidar_results_output.dag' '/apollo/modules/perception/lidar_output/dag/lidar_results_output.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/lidar_output/conf/lidar_output_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lidar_output/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_output/conf/lidar_output_config.pb.txt' '/apollo/modules/perception/lidar_output/conf/lidar_output_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/lidar_output",
+        "rm -rf /opt/apollo/neo/include/modules/perception/lidar_output",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/lidar_output",
+        "rm -rf /opt/apollo/neo/python/modules/perception/lidar_output",
+        "rm -rf /opt/apollo/neo/src/modules/perception/lidar_output",
+        "rm -rf /opt/apollo/neo/share/packages/perception-lidar-output"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/lidar_output",
+            "des": "/opt/apollo/neo/share/modules/perception/lidar_output"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/lidar_output",
+            "des": "/opt/apollo/neo/include/modules/perception/lidar_output"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/lidar_output",
+            "des": "/opt/apollo/neo/lib/modules/perception/lidar_output"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/perception/lidar_output",
+            "des": "/opt/apollo/neo/python/modules/perception/lidar_output"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/lidar_output",
+            "des": "/opt/apollo/neo/src/modules/perception/lidar_output"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-lidar-output",
+            "des": "/opt/apollo/neo/share/packages/perception-lidar-output"
+        }
+    ],
+    "type": "neo"
+}

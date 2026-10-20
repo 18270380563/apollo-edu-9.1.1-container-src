@@ -1,0 +1,55 @@
+{
+    "name": "external-command-demo",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo external-command-demo module.",
+    "deps": [
+        "3rd-gflags",
+        "common",
+        "routing"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/external_command/external_command_demo/dag/external_command_demo_wrapper.dag' ]; then mkdir -p '/apollo/modules/external_command/external_command_demo/dag' && ln -snf '/opt/apollo/neo/share/modules/external_command/external_command_demo/dag/external_command_demo_wrapper.dag' '/apollo/modules/external_command/external_command_demo/dag/external_command_demo_wrapper.dag'; fi",
+        "if [ ! -e '/apollo/modules/external_command/external_command_demo/dag/external_command_demo.dag' ]; then mkdir -p '/apollo/modules/external_command/external_command_demo/dag' && ln -snf '/opt/apollo/neo/share/modules/external_command/external_command_demo/dag/external_command_demo.dag' '/apollo/modules/external_command/external_command_demo/dag/external_command_demo.dag'; fi",
+        "if [ ! -e '/apollo/modules/external_command/external_command_demo/launch/external_command_demo.launch' ]; then mkdir -p '/apollo/modules/external_command/external_command_demo/launch' && ln -snf '/opt/apollo/neo/share/modules/external_command/external_command_demo/launch/external_command_demo.launch' '/apollo/modules/external_command/external_command_demo/launch/external_command_demo.launch'; fi",
+        "if [ ! -e '/apollo/modules/external_command/external_command_demo/launch/external_command_wrapper_demo.launch' ]; then mkdir -p '/apollo/modules/external_command/external_command_demo/launch' && ln -snf '/opt/apollo/neo/share/modules/external_command/external_command_demo/launch/external_command_wrapper_demo.launch' '/apollo/modules/external_command/external_command_demo/launch/external_command_wrapper_demo.launch'; fi",
+        "if [ ! -e '/apollo/modules/external_command/external_command_demo/conf/demo_config.pb.txt' ]; then mkdir -p '/apollo/modules/external_command/external_command_demo/conf' && ln -snf '/opt/apollo/neo/share/modules/external_command/external_command_demo/conf/demo_config.pb.txt' '/apollo/modules/external_command/external_command_demo/conf/demo_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/external_command/external_command_demo",
+        "rm -rf /opt/apollo/neo/include/modules/external_command/external_command_demo",
+        "rm -rf /opt/apollo/neo/lib/modules/external_command/external_command_demo",
+        "rm -rf /opt/apollo/neo/python/modules/external_command/external_command_demo",
+        "rm -rf /opt/apollo/neo/src/modules/external_command/external_command_demo",
+        "rm -rf /opt/apollo/neo/share/packages/external-command-demo"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/external_command/external_command_demo",
+            "des": "/opt/apollo/neo/share/modules/external_command/external_command_demo"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/external_command/external_command_demo",
+            "des": "/opt/apollo/neo/include/modules/external_command/external_command_demo"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/external_command/external_command_demo",
+            "des": "/opt/apollo/neo/lib/modules/external_command/external_command_demo"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/external_command/external_command_demo",
+            "des": "/opt/apollo/neo/python/modules/external_command/external_command_demo"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/external_command/external_command_demo",
+            "des": "/opt/apollo/neo/src/modules/external_command/external_command_demo"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/external-command-demo",
+            "des": "/opt/apollo/neo/share/packages/external-command-demo"
+        }
+    ],
+    "type": "neo"
+}

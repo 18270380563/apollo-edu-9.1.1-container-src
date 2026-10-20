@@ -1,0 +1,61 @@
+{
+    "name": "planning-task-open-space-pre-stop-decider",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-task-open-space-pre-stop-decider module.",
+    "deps": [
+        "bazel-extend-tools",
+        "planning-interface-base"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/tasks/open_space_pre_stop_decider/plugins.xml' ]; then mkdir -p '/apollo/modules/planning/tasks/open_space_pre_stop_decider' && ln -snf '/opt/apollo/neo/share/modules/planning/tasks/open_space_pre_stop_decider/plugins.xml' '/apollo/modules/planning/tasks/open_space_pre_stop_decider/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/planning/tasks/open_space_pre_stop_decider/conf/default_conf.pb.txt' ]; then mkdir -p '/apollo/modules/planning/tasks/open_space_pre_stop_decider/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/tasks/open_space_pre_stop_decider/conf/default_conf.pb.txt' '/apollo/modules/planning/tasks/open_space_pre_stop_decider/conf/default_conf.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/tasks/open_space_pre_stop_decider",
+        "rm -rf /opt/apollo/neo/include/modules/planning/tasks/open_space_pre_stop_decider",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/tasks/open_space_pre_stop_decider",
+        "rm -rf /opt/apollo/neo/python/modules/planning/tasks/open_space_pre_stop_decider",
+        "rm -rf /opt/apollo/neo/src/modules/planning/tasks/open_space_pre_stop_decider",
+        "rm -rf /opt/apollo/neo/share/packages/planning-task-open-space-pre-stop-decider",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/tasks/open_space_pre_stop_decider",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__open_space_pre_stop_decider__libopen_space_pre_stop_decider.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/tasks/open_space_pre_stop_decider",
+            "des": "/opt/apollo/neo/share/modules/planning/tasks/open_space_pre_stop_decider"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/tasks/open_space_pre_stop_decider",
+            "des": "/opt/apollo/neo/include/modules/planning/tasks/open_space_pre_stop_decider"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/tasks/open_space_pre_stop_decider",
+            "des": "/opt/apollo/neo/lib/modules/planning/tasks/open_space_pre_stop_decider"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/tasks/open_space_pre_stop_decider",
+            "des": "/opt/apollo/neo/python/modules/planning/tasks/open_space_pre_stop_decider"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/tasks/open_space_pre_stop_decider",
+            "des": "/opt/apollo/neo/src/modules/planning/tasks/open_space_pre_stop_decider"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-task-open-space-pre-stop-decider",
+            "des": "/opt/apollo/neo/share/packages/planning-task-open-space-pre-stop-decider"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/tasks/open_space_pre_stop_decider",
+            "des": "/opt/apollo/neo/lib/modules/planning/tasks/open_space_pre_stop_decider"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__open_space_pre_stop_decider__libopen_space_pre_stop_decider.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__open_space_pre_stop_decider__libopen_space_pre_stop_decider.so"
+        }
+    ],
+    "type": "neo"
+}

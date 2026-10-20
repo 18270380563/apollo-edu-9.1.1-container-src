@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/dreamview_plus_plugins/vehicle_calibration
+rm -rf /opt/apollo/neo/include/modules/dreamview_plus_plugins/vehicle_calibration
+rm -rf /opt/apollo/neo/lib/modules/dreamview_plus_plugins/vehicle_calibration
+rm -rf /opt/apollo/neo/python/modules/dreamview_plus_plugins/vehicle_calibration
+rm -rf /opt/apollo/neo/src/modules/dreamview_plus_plugins/vehicle_calibration
+rm -rf /opt/apollo/neo/share/packages/vehicle-calibration-plugin
+rm -rf /opt/apollo/neo/lib/modules/dreamview_plus_plugins/vehicle_calibration
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__dreamview_plus_plugins__vehicle_calibration__libdv_vehicle_calibration_plugin.so

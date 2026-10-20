@@ -1,0 +1,15 @@
+modules/perception/lidar_output/conf/lidar_output_config.pb.txt:share/modules/perception/lidar_output/conf/lidar_output_config.pb.txt
+modules/perception/lidar_output/dag/lidar_fusion_output.dag:share/modules/perception/lidar_output/dag/lidar_fusion_output.dag
+modules/perception/lidar_output/dag/lidar_output.dag:share/modules/perception/lidar_output/dag/lidar_output.dag
+modules/perception/lidar_output/dag/lidar_results_output.dag:share/modules/perception/lidar_output/dag/lidar_results_output.dag
+modules/perception/lidar_output/libDO_NOT_IMPORT_lidar_output_component.so:lib/modules/perception/lidar_output/libDO_NOT_IMPORT_lidar_output_component.so
+modules/perception/lidar_output/liblidar_output_component.so:lib/modules/perception/lidar_output/liblidar_output_component.so
+modules/perception/lidar_output/cyberfile.xml:modules/perception/lidar_output/cyberfile.xml
+modules/perception/lidar_output/proto/lidar_output_component_config.pb.h:include/modules/perception/lidar_output/proto/lidar_output_component_config.pb.h
+modules/perception/lidar_output/proto/lidar_output_component_config.pb.cc:include/modules/perception/lidar_output/proto/lidar_output_component_config.pb.cc
+modules/perception/lidar_output/proto/lib_lidar_output_component_config_proto.a:include/modules/perception/lidar_output/proto/lib_lidar_output_component_config_proto.a
+modules/perception/lidar_output/proto/lib_lidar_output_component_config_proto.pic.a:include/modules/perception/lidar_output/proto/lib_lidar_output_component_config_proto.pic.a
+modules/perception/lidar_output/proto/lib_lidar_output_component_config_proto.so:include/modules/perception/lidar_output/proto/lib_lidar_output_component_config_proto.so
+modules/perception/lidar_output/proto/lidar_output_component_config_pb2.py:python/modules/perception/lidar_output/proto/lidar_output_component_config_pb2.py
+modules/perception/lidar_output/proto/lib_lidar_output_component_config_proto_mplp_bin.so:lib/modules/perception/lidar_output/proto/lib_lidar_output_component_config_proto_mplp_bin.so
+src_path:modules/perception/lidar_output

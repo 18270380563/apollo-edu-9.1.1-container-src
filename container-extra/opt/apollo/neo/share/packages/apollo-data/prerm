@@ -1,0 +1,9 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/data
+rm -rf /opt/apollo/neo/include/modules/data
+rm -rf /opt/apollo/neo/lib/modules/data
+rm -rf /opt/apollo/neo/python/modules/data
+rm -rf /opt/apollo/neo/src/modules/data
+rm -rf /opt/apollo/neo/share/packages/apollo-data
+rm -rf /opt/apollo/neo//bin/smart_recorder

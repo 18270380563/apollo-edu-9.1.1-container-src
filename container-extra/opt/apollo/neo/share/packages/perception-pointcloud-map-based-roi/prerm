@@ -1,0 +1,12 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/perception/pointcloud_map_based_roi
+rm -rf /opt/apollo/neo/include/modules/perception/pointcloud_map_based_roi
+rm -rf /opt/apollo/neo/lib/modules/perception/pointcloud_map_based_roi
+rm -rf /opt/apollo/neo/python/modules/perception/pointcloud_map_based_roi
+rm -rf /opt/apollo/neo/src/modules/perception/pointcloud_map_based_roi
+rm -rf /opt/apollo/neo/share/packages/perception-pointcloud-map-based-roi
+rm -rf /opt/apollo/neo/lib/modules/perception/pointcloud_map_based_roi/roi_filter/hdmap_roi_filter
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__perception__pointcloud_map_based_roi__roi_filter__hdmap_roi_filter__libhdmap_roi_filter.so
+rm -rf /opt/apollo/neo/lib/modules/perception/pointcloud_map_based_roi/roi_filter/roi_service_filter
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__perception__pointcloud_map_based_roi__roi_filter__roi_service_filter__libroi_service_filter.so

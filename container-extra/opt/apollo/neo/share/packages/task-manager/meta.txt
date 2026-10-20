@@ -1,0 +1,15 @@
+modules/task_manager/libapollo_task_manager.so:lib/modules/task_manager/libapollo_task_manager.so
+modules/task_manager/libDO_NOT_IMPORT_task_manager_component.so:lib/modules/task_manager/libDO_NOT_IMPORT_task_manager_component.so
+modules/task_manager/libtask_manager_component.so:lib/modules/task_manager/libtask_manager_component.so
+modules/task_manager/conf/task_manager.conf:share/modules/task_manager/conf/task_manager.conf
+modules/task_manager/conf/task_manager_config.pb.txt:share/modules/task_manager/conf/task_manager_config.pb.txt
+modules/task_manager/dag/task_manager.dag:share/modules/task_manager/dag/task_manager.dag
+modules/task_manager/cyberfile.xml:modules/task_manager/cyberfile.xml
+modules/task_manager/proto/task_manager_config.pb.h:include/modules/task_manager/proto/task_manager_config.pb.h
+modules/task_manager/proto/task_manager_config.pb.cc:include/modules/task_manager/proto/task_manager_config.pb.cc
+modules/task_manager/proto/lib_task_manager_config_proto.a:include/modules/task_manager/proto/lib_task_manager_config_proto.a
+modules/task_manager/proto/lib_task_manager_config_proto.pic.a:include/modules/task_manager/proto/lib_task_manager_config_proto.pic.a
+modules/task_manager/proto/lib_task_manager_config_proto.so:include/modules/task_manager/proto/lib_task_manager_config_proto.so
+modules/task_manager/proto/task_manager_config_pb2.py:python/modules/task_manager/proto/task_manager_config_pb2.py
+modules/task_manager/proto/lib_task_manager_config_proto_mtp_bin.so:lib/modules/task_manager/proto/lib_task_manager_config_proto_mtp_bin.so
+src_path:modules/task_manager

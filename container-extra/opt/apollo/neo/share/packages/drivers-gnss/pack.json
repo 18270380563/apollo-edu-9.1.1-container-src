@@ -1,0 +1,83 @@
+{
+    "name": "drivers-gnss",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo drivers-gnss module.",
+    "deps": [
+        "cyber",
+        "common",
+        "common-msgs",
+        "transform",
+        "drivers-canbus",
+        "3rd-gflags",
+        "3rd-gtest",
+        "3rd-proj",
+        "3rd-eigen3",
+        "3rd-absl",
+        "3rd-yaml-cpp",
+        "3rd-boost",
+        "3rd-opencv",
+        "3rd-can-card-library",
+        "3rd-camera-library",
+        "3rd-rtklib",
+        "3rd-portaudio",
+        "3rd-ffmpeg",
+        "3rd-adv-plat",
+        "3rd-pcl",
+        "libpcap-dev",
+        "bazel-extend-tools",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-bazel-skylib",
+        "3rd-rules-proto",
+        "3rd-py"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/drivers/gnss/dag/gnss.dag' ]; then mkdir -p '/apollo/modules/drivers/gnss/dag' && ln -snf '/opt/apollo/neo/share/modules/drivers/gnss/dag/gnss.dag' '/apollo/modules/drivers/gnss/dag/gnss.dag'; fi",
+        "if [ ! -e '/apollo/modules/drivers/gnss/launch/gnss.launch' ]; then mkdir -p '/apollo/modules/drivers/gnss/launch' && ln -snf '/opt/apollo/neo/share/modules/drivers/gnss/launch/gnss.launch' '/apollo/modules/drivers/gnss/launch/gnss.launch'; fi",
+        "if [ ! -e '/apollo/modules/drivers/gnss/conf/gnss_conf.pb.txt' ]; then mkdir -p '/apollo/modules/drivers/gnss/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/gnss/conf/gnss_conf.pb.txt' '/apollo/modules/drivers/gnss/conf/gnss_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/drivers/gnss/conf/readme.txt' ]; then mkdir -p '/apollo/modules/drivers/gnss/conf' && ln -snf '/opt/apollo/neo/share/modules/drivers/gnss/conf/readme.txt' '/apollo/modules/drivers/gnss/conf/readme.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/drivers/gnss",
+        "rm -rf /opt/apollo/neo/include/modules/drivers/gnss",
+        "rm -rf /opt/apollo/neo/lib/modules/drivers/gnss",
+        "rm -rf /opt/apollo/neo/python/modules/drivers/gnss",
+        "rm -rf /opt/apollo/neo/src/modules/drivers/gnss",
+        "rm -rf /opt/apollo/neo/share/packages/drivers-gnss",
+        "rm -rf /opt/apollo/neo//bin/parser_cli"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/drivers/gnss",
+            "des": "/opt/apollo/neo/share/modules/drivers/gnss"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/drivers/gnss",
+            "des": "/opt/apollo/neo/include/modules/drivers/gnss"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/drivers/gnss",
+            "des": "/opt/apollo/neo/lib/modules/drivers/gnss"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/drivers/gnss",
+            "des": "/opt/apollo/neo/python/modules/drivers/gnss"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/drivers/gnss",
+            "des": "/opt/apollo/neo/src/modules/drivers/gnss"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/drivers-gnss",
+            "des": "/opt/apollo/neo/share/packages/drivers-gnss"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/parser_cli",
+            "des": "/opt/apollo/neo//bin/parser_cli"
+        }
+    ],
+    "type": "neo"
+}

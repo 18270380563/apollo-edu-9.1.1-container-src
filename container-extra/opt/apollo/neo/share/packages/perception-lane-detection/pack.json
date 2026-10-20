@@ -1,0 +1,68 @@
+{
+    "name": "perception-lane-detection",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-lane-detection module.",
+    "deps": [
+        "3rd-gflags",
+        "cyber",
+        "common",
+        "perception-common",
+        "perception-tools",
+        "common-msgs",
+        "3rd-opencv",
+        "3rd-glog",
+        "3rd-eigen3",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/lane_detection/data/config_denseline.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lane_detection/data' && ln -snf '/opt/apollo/neo/share/modules/perception/lane_detection/data/config_denseline.pb.txt' '/apollo/modules/perception/lane_detection/data/config_denseline.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/lane_detection/data/lane.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lane_detection/data' && ln -snf '/opt/apollo/neo/share/modules/perception/lane_detection/data/lane.pb.txt' '/apollo/modules/perception/lane_detection/data/lane.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/lane_detection/data/darkscNN_postprocess_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lane_detection/data' && ln -snf '/opt/apollo/neo/share/modules/perception/lane_detection/data/darkscNN_postprocess_config.pb.txt' '/apollo/modules/perception/lane_detection/data/darkscNN_postprocess_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/lane_detection/data/config_darkSCNN.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lane_detection/data' && ln -snf '/opt/apollo/neo/share/modules/perception/lane_detection/data/config_darkSCNN.pb.txt' '/apollo/modules/perception/lane_detection/data/config_darkSCNN.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/lane_detection/data/denseline_postprocess_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lane_detection/data' && ln -snf '/opt/apollo/neo/share/modules/perception/lane_detection/data/denseline_postprocess_config.pb.txt' '/apollo/modules/perception/lane_detection/data/denseline_postprocess_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/lane_detection/dag/lane_detection.dag' ]; then mkdir -p '/apollo/modules/perception/lane_detection/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/lane_detection/dag/lane_detection.dag' '/apollo/modules/perception/lane_detection/dag/lane_detection.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/lane_detection/launch/lane_detection.launch' ]; then mkdir -p '/apollo/modules/perception/lane_detection/launch' && ln -snf '/opt/apollo/neo/share/modules/perception/lane_detection/launch/lane_detection.launch' '/apollo/modules/perception/lane_detection/launch/lane_detection.launch'; fi",
+        "if [ ! -e '/apollo/modules/perception/lane_detection/conf/lane_detection_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lane_detection/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/lane_detection/conf/lane_detection_config.pb.txt' '/apollo/modules/perception/lane_detection/conf/lane_detection_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/lane_detection",
+        "rm -rf /opt/apollo/neo/include/modules/perception/lane_detection",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/lane_detection",
+        "rm -rf /opt/apollo/neo/python/modules/perception/lane_detection",
+        "rm -rf /opt/apollo/neo/src/modules/perception/lane_detection",
+        "rm -rf /opt/apollo/neo/share/packages/perception-lane-detection"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/lane_detection",
+            "des": "/opt/apollo/neo/share/modules/perception/lane_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/lane_detection",
+            "des": "/opt/apollo/neo/include/modules/perception/lane_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/lane_detection",
+            "des": "/opt/apollo/neo/lib/modules/perception/lane_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/perception/lane_detection",
+            "des": "/opt/apollo/neo/python/modules/perception/lane_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/lane_detection",
+            "des": "/opt/apollo/neo/src/modules/perception/lane_detection"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-lane-detection",
+            "des": "/opt/apollo/neo/share/packages/perception-lane-detection"
+        }
+    ],
+    "type": "neo"
+}

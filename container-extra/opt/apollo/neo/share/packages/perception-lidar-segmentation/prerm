@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/perception/lidar_segmentation
+rm -rf /opt/apollo/neo/include/modules/perception/lidar_segmentation
+rm -rf /opt/apollo/neo/lib/modules/perception/lidar_segmentation
+rm -rf /opt/apollo/neo/python/modules/perception/lidar_segmentation
+rm -rf /opt/apollo/neo/src/modules/perception/lidar_segmentation
+rm -rf /opt/apollo/neo/share/packages/perception-lidar-segmentation

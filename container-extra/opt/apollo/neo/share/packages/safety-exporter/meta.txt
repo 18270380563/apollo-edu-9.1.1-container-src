@@ -1,0 +1,4 @@
+modules/safety_manager/exporter/libsafety_exporter.so:lib/modules/safety_manager/exporter/libsafety_exporter.so
+modules/safety_manager/exporter/cyberfile.xml:modules/safety_manager/exporter/cyberfile.xml
+modules/safety_manager/exporter/examples/safety_exporter_example:bin/safety_exporter_example
+src_path:modules/safety_manager/exporter

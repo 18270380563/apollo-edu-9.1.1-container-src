@@ -1,0 +1,48 @@
+{
+    "name": "status-collector",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo status-collector module.",
+    "deps": [
+        "cyber",
+        "common",
+        "common-msgs",
+        "3rd-gflags",
+        "3rd-glog",
+        "3rd-boost",
+        "3rd-gtest",
+        "3rd-absl",
+        "3rd-nlohmann-json",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-bazel-skylib",
+        "3rd-rules-proto",
+        "3rd-py"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/private_common/status_collector",
+        "rm -rf /opt/apollo/neo/include/modules/private_common/status_collector",
+        "rm -rf /opt/apollo/neo/lib/modules/private_common/status_collector",
+        "rm -rf /opt/apollo/neo/python/modules/private_common/status_collector",
+        "rm -rf /opt/apollo/neo/src/modules/private_common/status_collector",
+        "rm -rf /opt/apollo/neo/share/packages/status-collector"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/include/modules/private_common/status_collector",
+            "des": "/opt/apollo/neo/include/modules/private_common/status_collector"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/private_common/status_collector",
+            "des": "/opt/apollo/neo/lib/modules/private_common/status_collector"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/status-collector",
+            "des": "/opt/apollo/neo/share/packages/status-collector"
+        }
+    ],
+    "type": "neo"
+}

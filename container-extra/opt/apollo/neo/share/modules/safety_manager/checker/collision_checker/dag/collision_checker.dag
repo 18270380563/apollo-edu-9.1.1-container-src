@@ -1,0 +1,12 @@
+module_config {
+    module_library : "modules/safety_manager/checker/collision_checker/libsafety_collision_checker_component.so"
+    timer_components {
+        class_name : "CollisionCheckerComponent"
+        config {
+            name: "safety_collision_checker"
+            interval: 1000  # in milliseconds
+            config_file_path: "/apollo/modules/safety_manager/checker/collision_checker/conf/collision_checker_conf.pb.txt"
+            flag_file_path: "/apollo/modules/safety_manager/checker/collision_checker/conf/collision_checker_gflags.conf"
+        }
+    }
+}

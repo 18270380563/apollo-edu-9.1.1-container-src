@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/planning/tasks/open_space_replan_decider
+rm -rf /opt/apollo/neo/include/modules/planning/tasks/open_space_replan_decider
+rm -rf /opt/apollo/neo/lib/modules/planning/tasks/open_space_replan_decider
+rm -rf /opt/apollo/neo/python/modules/planning/tasks/open_space_replan_decider
+rm -rf /opt/apollo/neo/src/modules/planning/tasks/open_space_replan_decider
+rm -rf /opt/apollo/neo/share/packages/planning-task-open-space-replan-decider
+rm -rf /opt/apollo/neo/lib/modules/planning/tasks/open_space_replan_decider
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__open_space_replan_decider__libopen_space_replan_decider.so

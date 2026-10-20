@@ -1,0 +1,13 @@
+modules/planning/scenarios/stop_sign_unprotected/conf/pipeline.pb.txt:share/modules/planning/scenarios/stop_sign_unprotected/conf/pipeline.pb.txt
+modules/planning/scenarios/stop_sign_unprotected/conf/scenario_conf.pb.txt:share/modules/planning/scenarios/stop_sign_unprotected/conf/scenario_conf.pb.txt
+modules/planning/scenarios/stop_sign_unprotected/libstop_sign_unprotected_scenario.so:lib/modules/planning/scenarios/stop_sign_unprotected/libstop_sign_unprotected_scenario.so
+modules/planning/scenarios/stop_sign_unprotected/cyberfile.xml:modules/planning/scenarios/stop_sign_unprotected/cyberfile.xml
+modules/planning/scenarios/stop_sign_unprotected/plugins.xml:plugin_meta@modules/planning/scenarios/stop_sign_unprotected@plugins.xml
+modules/planning/scenarios/stop_sign_unprotected/proto/stop_sign_unprotected.pb.h:include/modules/planning/scenarios/stop_sign_unprotected/proto/stop_sign_unprotected.pb.h
+modules/planning/scenarios/stop_sign_unprotected/proto/stop_sign_unprotected.pb.cc:include/modules/planning/scenarios/stop_sign_unprotected/proto/stop_sign_unprotected.pb.cc
+modules/planning/scenarios/stop_sign_unprotected/proto/lib_stop_sign_unprotected_proto.a:include/modules/planning/scenarios/stop_sign_unprotected/proto/lib_stop_sign_unprotected_proto.a
+modules/planning/scenarios/stop_sign_unprotected/proto/lib_stop_sign_unprotected_proto.pic.a:include/modules/planning/scenarios/stop_sign_unprotected/proto/lib_stop_sign_unprotected_proto.pic.a
+modules/planning/scenarios/stop_sign_unprotected/proto/lib_stop_sign_unprotected_proto.so:include/modules/planning/scenarios/stop_sign_unprotected/proto/lib_stop_sign_unprotected_proto.so
+modules/planning/scenarios/stop_sign_unprotected/proto/stop_sign_unprotected_pb2.py:python/modules/planning/scenarios/stop_sign_unprotected/proto/stop_sign_unprotected_pb2.py
+modules/planning/scenarios/stop_sign_unprotected/proto/lib_stop_sign_unprotected_proto_mpssp_bin.so:lib/modules/planning/scenarios/stop_sign_unprotected/proto/lib_stop_sign_unprotected_proto_mpssp_bin.so
+src_path:modules/planning/scenarios/stop_sign_unprotected

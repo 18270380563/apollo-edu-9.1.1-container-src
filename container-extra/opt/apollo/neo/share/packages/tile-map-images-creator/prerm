@@ -1,0 +1,9 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/private_tools/tile_map_images_creator
+rm -rf /opt/apollo/neo/include/modules/private_tools/tile_map_images_creator
+rm -rf /opt/apollo/neo/lib/modules/private_tools/tile_map_images_creator
+rm -rf /opt/apollo/neo/python/modules/private_tools/tile_map_images_creator
+rm -rf /opt/apollo/neo/src/modules/private_tools/tile_map_images_creator
+rm -rf /opt/apollo/neo/share/packages/tile-map-images-creator
+rm -rf /opt/apollo/neo//bin/tile_map_images_creator

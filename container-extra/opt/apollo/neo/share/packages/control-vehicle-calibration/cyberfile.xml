@@ -1,0 +1,25 @@
+<package>
+  <name>control-vehicle-calibration</name>
+  <version>9.1.1</version>
+  <description>
+    control vehicle calibration package
+  </description>
+  <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+  <type>module</type>
+  <src_path>//modules/control/vehicle_calibration</src_path>
+  <license>Apache License 2.0</license>
+  <author>Apollo</author>
+
+  <depend expose="False">3rd-rules-python</depend>
+  <depend expose="False">3rd-grpc</depend>
+  <depend expose="False">3rd-gpus</depend>
+  <depend expose="False">3rd-rules-proto</depend>
+  <depend expose="False">3rd-py</depend>
+  <depend>bazel-extend-tools</depend>
+  <depend expose="False">3rd-bazel-skylib</depend>
+
+  <depend repo_name="control" type="binary">control</depend>
+  <depend repo_name="cyber" type="binary">cyber</depend>
+  <depend lib_names="common-msgs" repo_name="common-msgs" type="binary">common-msgs</depend>
+
+</package>

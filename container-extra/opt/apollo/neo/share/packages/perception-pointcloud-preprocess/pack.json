@@ -1,0 +1,59 @@
+{
+    "name": "perception-pointcloud-preprocess",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-pointcloud-preprocess module.",
+    "deps": [
+        "cyber",
+        "perception-common",
+        "common-msgs",
+        "3rd-eigen3",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/pointcloud_preprocess/data/pointcloud_preprocessor.pb.txt' ]; then mkdir -p '/apollo/modules/perception/pointcloud_preprocess/data' && ln -snf '/opt/apollo/neo/share/modules/perception/pointcloud_preprocess/data/pointcloud_preprocessor.pb.txt' '/apollo/modules/perception/pointcloud_preprocess/data/pointcloud_preprocessor.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/perception/pointcloud_preprocess/dag/pointcloud_preprocess.dag' ]; then mkdir -p '/apollo/modules/perception/pointcloud_preprocess/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/pointcloud_preprocess/dag/pointcloud_preprocess.dag' '/apollo/modules/perception/pointcloud_preprocess/dag/pointcloud_preprocess.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/pointcloud_preprocess/launch/pointcloud_preprocess.launch' ]; then mkdir -p '/apollo/modules/perception/pointcloud_preprocess/launch' && ln -snf '/opt/apollo/neo/share/modules/perception/pointcloud_preprocess/launch/pointcloud_preprocess.launch' '/apollo/modules/perception/pointcloud_preprocess/launch/pointcloud_preprocess.launch'; fi",
+        "if [ ! -e '/apollo/modules/perception/pointcloud_preprocess/conf/pointcloud_preprocess_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/pointcloud_preprocess/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/pointcloud_preprocess/conf/pointcloud_preprocess_config.pb.txt' '/apollo/modules/perception/pointcloud_preprocess/conf/pointcloud_preprocess_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/pointcloud_preprocess",
+        "rm -rf /opt/apollo/neo/include/modules/perception/pointcloud_preprocess",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/pointcloud_preprocess",
+        "rm -rf /opt/apollo/neo/python/modules/perception/pointcloud_preprocess",
+        "rm -rf /opt/apollo/neo/src/modules/perception/pointcloud_preprocess",
+        "rm -rf /opt/apollo/neo/share/packages/perception-pointcloud-preprocess"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/pointcloud_preprocess",
+            "des": "/opt/apollo/neo/share/modules/perception/pointcloud_preprocess"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/pointcloud_preprocess",
+            "des": "/opt/apollo/neo/include/modules/perception/pointcloud_preprocess"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/pointcloud_preprocess",
+            "des": "/opt/apollo/neo/lib/modules/perception/pointcloud_preprocess"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/perception/pointcloud_preprocess",
+            "des": "/opt/apollo/neo/python/modules/perception/pointcloud_preprocess"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/pointcloud_preprocess",
+            "des": "/opt/apollo/neo/src/modules/perception/pointcloud_preprocess"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-pointcloud-preprocess",
+            "des": "/opt/apollo/neo/share/packages/perception-pointcloud-preprocess"
+        }
+    ],
+    "type": "neo"
+}

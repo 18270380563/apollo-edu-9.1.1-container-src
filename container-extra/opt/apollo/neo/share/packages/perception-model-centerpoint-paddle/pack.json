@@ -1,0 +1,53 @@
+{
+    "name": "perception-model-centerpoint-paddle",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-model-centerpoint-paddle module.",
+    "deps": [
+        "bazel-extend-tools",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-rules-proto",
+        "3rd-py",
+        "3rd-gpus",
+        "3rd-bazel-skylib"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/data/models/center_point_paddle/apollo_deploy.yaml' ]; then mkdir -p '/apollo/modules/perception/data/models/center_point_paddle' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/center_point_paddle/apollo_deploy.yaml' '/apollo/modules/perception/data/models/center_point_paddle/apollo_deploy.yaml'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/models/center_point_paddle/collect_shape_info_3lidar_20.pbtxt' ]; then mkdir -p '/apollo/modules/perception/data/models/center_point_paddle' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/center_point_paddle/collect_shape_info_3lidar_20.pbtxt' '/apollo/modules/perception/data/models/center_point_paddle/collect_shape_info_3lidar_20.pbtxt'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/models/center_point_paddle/README' ]; then mkdir -p '/apollo/modules/perception/data/models/center_point_paddle' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/center_point_paddle/README' '/apollo/modules/perception/data/models/center_point_paddle/README'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/models/center_point_paddle/BUILD' ]; then mkdir -p '/apollo/modules/perception/data/models/center_point_paddle' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/center_point_paddle/BUILD' '/apollo/modules/perception/data/models/center_point_paddle/BUILD'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/models/center_point_paddle/centerpoint.pdiparams' ]; then mkdir -p '/apollo/modules/perception/data/models/center_point_paddle' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/center_point_paddle/centerpoint.pdiparams' '/apollo/modules/perception/data/models/center_point_paddle/centerpoint.pdiparams'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/models/center_point_paddle/centerpoint.pdiparams.info' ]; then mkdir -p '/apollo/modules/perception/data/models/center_point_paddle' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/center_point_paddle/centerpoint.pdiparams.info' '/apollo/modules/perception/data/models/center_point_paddle/centerpoint.pdiparams.info'; fi",
+        "if [ ! -e '/apollo/modules/perception/data/models/center_point_paddle/centerpoint.pdmodel' ]; then mkdir -p '/apollo/modules/perception/data/models/center_point_paddle' && ln -snf '/opt/apollo/neo/share/modules/perception/data/models/center_point_paddle/centerpoint.pdmodel' '/apollo/modules/perception/data/models/center_point_paddle/centerpoint.pdmodel'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/data/models/center_point_paddle",
+        "rm -rf /opt/apollo/neo/include/modules/perception/data/models/center_point_paddle",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/data/models/center_point_paddle",
+        "rm -rf /opt/apollo/neo/python/modules/perception/data/models/center_point_paddle",
+        "rm -rf /opt/apollo/neo/src/modules/perception/data/models/center_point_paddle",
+        "rm -rf /opt/apollo/neo/share/packages/perception-model-centerpoint-paddle"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/data/models/center_point_paddle",
+            "des": "/opt/apollo/neo/share/modules/perception/data/models/center_point_paddle"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/data/models/center_point_paddle",
+            "des": "/opt/apollo/neo/include/modules/perception/data/models/center_point_paddle"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/data/models/center_point_paddle",
+            "des": "/opt/apollo/neo/src/modules/perception/data/models/center_point_paddle"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-model-centerpoint-paddle",
+            "des": "/opt/apollo/neo/share/packages/perception-model-centerpoint-paddle"
+        }
+    ],
+    "type": "neo"
+}

@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/perception/msg_adapter
+rm -rf /opt/apollo/neo/include/modules/perception/msg_adapter
+rm -rf /opt/apollo/neo/lib/modules/perception/msg_adapter
+rm -rf /opt/apollo/neo/python/modules/perception/msg_adapter
+rm -rf /opt/apollo/neo/src/modules/perception/msg_adapter
+rm -rf /opt/apollo/neo/share/packages/perception-msg-adapter

@@ -1,0 +1,22 @@
+cyber_modules {
+  key: "Canbus"
+  value: {
+    dag_files: "/apollo/modules/canbus/dag/canbus.dag"
+  }
+}
+
+monitored_components {
+  key: "Canbus"
+  value: {
+    process {
+      command_keywords: "mainboard"
+      command_keywords: "/apollo/modules/canbus/dag/canbus.dag"
+    }
+    channel {
+      name: "/apollo/canbus/chassis_detail"
+    }
+  }     
+}
+
+operations: None
+default_operation: None

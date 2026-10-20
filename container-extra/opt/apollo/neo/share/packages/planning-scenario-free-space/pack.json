@@ -1,0 +1,65 @@
+{
+    "name": "planning-scenario-free-space",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-scenario-free-space module.",
+    "deps": [
+        "bazel-extend-tools",
+        "planning-interface-base",
+        "planning-open-space"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/scenarios/free_space/plugins.xml' ]; then mkdir -p '/apollo/modules/planning/scenarios/free_space' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/free_space/plugins.xml' '/apollo/modules/planning/scenarios/free_space/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/free_space/conf/scenario_conf.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/free_space/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/free_space/conf/scenario_conf.pb.txt' '/apollo/modules/planning/scenarios/free_space/conf/scenario_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/free_space/conf/pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/free_space/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/free_space/conf/pipeline.pb.txt' '/apollo/modules/planning/scenarios/free_space/conf/pipeline.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/free_space/conf/stage_free_space/open_space_trajectory_provider.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/free_space/conf/stage_free_space' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/free_space/conf/stage_free_space/open_space_trajectory_provider.pb.txt' '/apollo/modules/planning/scenarios/free_space/conf/stage_free_space/open_space_trajectory_provider.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/free_space/conf/stage_free_space/open_space_trajectory_partition.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/free_space/conf/stage_free_space' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/free_space/conf/stage_free_space/open_space_trajectory_partition.pb.txt' '/apollo/modules/planning/scenarios/free_space/conf/stage_free_space/open_space_trajectory_partition.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/scenarios/free_space",
+        "rm -rf /opt/apollo/neo/include/modules/planning/scenarios/free_space",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/free_space",
+        "rm -rf /opt/apollo/neo/python/modules/planning/scenarios/free_space",
+        "rm -rf /opt/apollo/neo/src/modules/planning/scenarios/free_space",
+        "rm -rf /opt/apollo/neo/share/packages/planning-scenario-free-space",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/free_space",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__free_space__libfree_space_scenario.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/scenarios/free_space",
+            "des": "/opt/apollo/neo/share/modules/planning/scenarios/free_space"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/scenarios/free_space",
+            "des": "/opt/apollo/neo/include/modules/planning/scenarios/free_space"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/free_space",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/free_space"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/scenarios/free_space",
+            "des": "/opt/apollo/neo/python/modules/planning/scenarios/free_space"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/scenarios/free_space",
+            "des": "/opt/apollo/neo/src/modules/planning/scenarios/free_space"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-scenario-free-space",
+            "des": "/opt/apollo/neo/share/packages/planning-scenario-free-space"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/free_space",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/free_space"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__free_space__libfree_space_scenario.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__free_space__libfree_space_scenario.so"
+        }
+    ],
+    "type": "neo"
+}

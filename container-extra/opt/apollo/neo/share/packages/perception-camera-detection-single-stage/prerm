@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/perception/camera_detection_single_stage
+rm -rf /opt/apollo/neo/include/modules/perception/camera_detection_single_stage
+rm -rf /opt/apollo/neo/lib/modules/perception/camera_detection_single_stage
+rm -rf /opt/apollo/neo/python/modules/perception/camera_detection_single_stage
+rm -rf /opt/apollo/neo/src/modules/perception/camera_detection_single_stage
+rm -rf /opt/apollo/neo/share/packages/perception-camera-detection-single-stage

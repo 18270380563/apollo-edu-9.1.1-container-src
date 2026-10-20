@@ -1,0 +1,59 @@
+{
+    "name": "perception-traffic-light-region-proposal",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-traffic-light-region-proposal module.",
+    "deps": [
+        "3rd-gflags",
+        "cyber",
+        "common",
+        "perception-common",
+        "common-msgs",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/traffic_light_region_proposal/dag/traffic_light_region_proposal.dag' ]; then mkdir -p '/apollo/modules/perception/traffic_light_region_proposal/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_region_proposal/dag/traffic_light_region_proposal.dag' '/apollo/modules/perception/traffic_light_region_proposal/dag/traffic_light_region_proposal.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_region_proposal/launch/traffic_light_region_proposal.launch' ]; then mkdir -p '/apollo/modules/perception/traffic_light_region_proposal/launch' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_region_proposal/launch/traffic_light_region_proposal.launch' '/apollo/modules/perception/traffic_light_region_proposal/launch/traffic_light_region_proposal.launch'; fi",
+        "if [ ! -e '/apollo/modules/perception/traffic_light_region_proposal/conf/traffic_light_region_proposal_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/traffic_light_region_proposal/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/traffic_light_region_proposal/conf/traffic_light_region_proposal_config.pb.txt' '/apollo/modules/perception/traffic_light_region_proposal/conf/traffic_light_region_proposal_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/traffic_light_region_proposal",
+        "rm -rf /opt/apollo/neo/include/modules/perception/traffic_light_region_proposal",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/traffic_light_region_proposal",
+        "rm -rf /opt/apollo/neo/python/modules/perception/traffic_light_region_proposal",
+        "rm -rf /opt/apollo/neo/src/modules/perception/traffic_light_region_proposal",
+        "rm -rf /opt/apollo/neo/share/packages/perception-traffic-light-region-proposal"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/traffic_light_region_proposal",
+            "des": "/opt/apollo/neo/share/modules/perception/traffic_light_region_proposal"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/traffic_light_region_proposal",
+            "des": "/opt/apollo/neo/include/modules/perception/traffic_light_region_proposal"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/traffic_light_region_proposal",
+            "des": "/opt/apollo/neo/lib/modules/perception/traffic_light_region_proposal"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/perception/traffic_light_region_proposal",
+            "des": "/opt/apollo/neo/python/modules/perception/traffic_light_region_proposal"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/traffic_light_region_proposal",
+            "des": "/opt/apollo/neo/src/modules/perception/traffic_light_region_proposal"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-traffic-light-region-proposal",
+            "des": "/opt/apollo/neo/share/packages/perception-traffic-light-region-proposal"
+        }
+    ],
+    "type": "neo"
+}

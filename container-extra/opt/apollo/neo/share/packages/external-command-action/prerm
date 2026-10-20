@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/external_command/command_processor/action_command_processor
+rm -rf /opt/apollo/neo/include/modules/external_command/command_processor/action_command_processor
+rm -rf /opt/apollo/neo/lib/modules/external_command/command_processor/action_command_processor
+rm -rf /opt/apollo/neo/python/modules/external_command/command_processor/action_command_processor
+rm -rf /opt/apollo/neo/src/modules/external_command/command_processor/action_command_processor
+rm -rf /opt/apollo/neo/share/packages/external-command-action
+rm -rf /opt/apollo/neo/lib/modules/external_command/command_processor/action_command_processor
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__external_command__command_processor__action_command_processor__libaction_command_processor.so

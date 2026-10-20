@@ -1,0 +1,86 @@
+{
+    "name": "dreamview-plus-toolbox-installer",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo dreamview-plus-toolbox-installer module.",
+    "deps": [
+        "dreamview-plus",
+        "dreamview-plus-plugin-panels",
+        "calibration-plugin",
+        "map-creator-plugin",
+        "vehicle-calibration-plugin",
+        "studio-connector",
+        "monitor",
+        "drivers-gnss",
+        "drivers-lidar",
+        "drivers-camera",
+        "localization",
+        "loam-velodyne",
+        "loam-velodyne-indoor",
+        "transform",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-bazel-skylib",
+        "3rd-rules-proto",
+        "3rd-py",
+        "3rd-gpus"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/lidar_calibration.pb.txt' ]; then mkdir -p '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf' && ln -snf '/opt/apollo/neo/share/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/lidar_calibration.pb.txt' '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/lidar_calibration.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/map_collect.pb.txt' ]; then mkdir -p '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf' && ln -snf '/opt/apollo/neo/share/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/map_collect.pb.txt' '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/map_collect.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/dynamics_calibration.pb.txt' ]; then mkdir -p '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf' && ln -snf '/opt/apollo/neo/share/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/dynamics_calibration.pb.txt' '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/dynamics_calibration.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/camera_calibration.pb.txt' ]; then mkdir -p '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf' && ln -snf '/opt/apollo/neo/share/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/camera_calibration.pb.txt' '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/camera_calibration.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/canbus_debug.pb.txt' ]; then mkdir -p '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf' && ln -snf '/opt/apollo/neo/share/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/canbus_debug.pb.txt' '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/canbus_debug.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/map_editor.pb.txt' ]; then mkdir -p '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf' && ln -snf '/opt/apollo/neo/share/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/map_editor.pb.txt' '/apollo/modules/dreamview_plus_toolbox_installer/hmi_mode_conf/map_editor.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/dreamview_plus_toolbox_installer",
+        "rm -rf /opt/apollo/neo/include/modules/dreamview_plus_toolbox_installer",
+        "rm -rf /opt/apollo/neo/lib/modules/dreamview_plus_toolbox_installer",
+        "rm -rf /opt/apollo/neo/python/modules/dreamview_plus_toolbox_installer",
+        "rm -rf /opt/apollo/neo/src/modules/dreamview_plus_toolbox_installer",
+        "rm -rf /opt/apollo/neo/share/packages/dreamview-plus-toolbox-installer",
+        "rm -rf /opt/apollo/neo//bin/toolbox_install.py",
+        "rm -rf /opt/apollo/neo//bin/toolbox_install",
+        "rm -rf /opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/modules/dreamview_plus_toolbox_installer/toolbox_install.py",
+        "rm -rf /opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/modules/dreamview_plus_toolbox_installer/toolbox_install",
+        "rm -rf /opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/dreamview_plus_toolbox_installer",
+            "des": "/opt/apollo/neo/share/modules/dreamview_plus_toolbox_installer"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/dreamview_plus_toolbox_installer",
+            "des": "/opt/apollo/neo/include/modules/dreamview_plus_toolbox_installer"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/dreamview-plus-toolbox-installer",
+            "des": "/opt/apollo/neo/share/packages/dreamview-plus-toolbox-installer"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/toolbox_install.py",
+            "des": "/opt/apollo/neo//bin/toolbox_install.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/toolbox_install",
+            "des": "/opt/apollo/neo//bin/toolbox_install"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/modules/dreamview_plus_toolbox_installer/toolbox_install.py",
+            "des": "/opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/modules/dreamview_plus_toolbox_installer/toolbox_install.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/modules/dreamview_plus_toolbox_installer/toolbox_install",
+            "des": "/opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/modules/dreamview_plus_toolbox_installer/toolbox_install"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh",
+            "des": "/opt/apollo/neo//bin/toolbox_install.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh"
+        }
+    ],
+    "type": "neo"
+}

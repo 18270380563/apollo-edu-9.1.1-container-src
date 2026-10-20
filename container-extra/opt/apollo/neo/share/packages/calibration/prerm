@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/calibration
+rm -rf /opt/apollo/neo/include/modules/calibration
+rm -rf /opt/apollo/neo/lib/modules/calibration
+rm -rf /opt/apollo/neo/python/modules/calibration
+rm -rf /opt/apollo/neo/src/modules/calibration
+rm -rf /opt/apollo/neo/share/packages/calibration

@@ -1,0 +1,132 @@
+{
+    "name": "map",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo map module.",
+    "deps": [
+        "common",
+        "cyber",
+        "common-msgs",
+        "3rd-protobuf",
+        "3rd-proj",
+        "libtinyxml2-dev",
+        "3rd-yaml-cpp",
+        "3rd-eigen3",
+        "3rd-absl",
+        "3rd-glog",
+        "3rd-gtest",
+        "3rd-gflags",
+        "3rd-nlohmann-json",
+        "3rd-boost",
+        "3rd-gpus",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-bazel-skylib",
+        "3rd-rules-proto"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/map/data/demo/sim_map.txt' ]; then mkdir -p '/apollo/modules/map/data/demo' && ln -snf '/opt/apollo/neo/share/modules/map/data/demo/sim_map.txt' '/apollo/modules/map/data/demo/sim_map.txt'; fi",
+        "if [ ! -e '/apollo/modules/map/data/demo/garage_routing.pb.txt' ]; then mkdir -p '/apollo/modules/map/data/demo' && ln -snf '/opt/apollo/neo/share/modules/map/data/demo/garage_routing.pb.txt' '/apollo/modules/map/data/demo/garage_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/map/data/demo/routing_map.txt' ]; then mkdir -p '/apollo/modules/map/data/demo' && ln -snf '/opt/apollo/neo/share/modules/map/data/demo/routing_map.txt' '/apollo/modules/map/data/demo/routing_map.txt'; fi",
+        "if [ ! -e '/apollo/modules/map/data/demo/default_end_way_point.txt' ]; then mkdir -p '/apollo/modules/map/data/demo' && ln -snf '/opt/apollo/neo/share/modules/map/data/demo/default_end_way_point.txt' '/apollo/modules/map/data/demo/default_end_way_point.txt'; fi",
+        "if [ ! -e '/apollo/modules/map/data/demo/base_map.txt' ]; then mkdir -p '/apollo/modules/map/data/demo' && ln -snf '/opt/apollo/neo/share/modules/map/data/demo/base_map.txt' '/apollo/modules/map/data/demo/base_map.txt'; fi",
+        "if [ ! -e '/apollo/modules/map/data/borregas_ave/routing_map.bin' ]; then mkdir -p '/apollo/modules/map/data/borregas_ave' && ln -snf '/opt/apollo/neo/share/modules/map/data/borregas_ave/routing_map.bin' '/apollo/modules/map/data/borregas_ave/routing_map.bin'; fi",
+        "if [ ! -e '/apollo/modules/map/data/borregas_ave/base_map.bin' ]; then mkdir -p '/apollo/modules/map/data/borregas_ave' && ln -snf '/opt/apollo/neo/share/modules/map/data/borregas_ave/base_map.bin' '/apollo/modules/map/data/borregas_ave/base_map.bin'; fi",
+        "if [ ! -e '/apollo/modules/map/data/borregas_ave/sim_map.bin' ]; then mkdir -p '/apollo/modules/map/data/borregas_ave' && ln -snf '/opt/apollo/neo/share/modules/map/data/borregas_ave/sim_map.bin' '/apollo/modules/map/data/borregas_ave/sim_map.bin'; fi",
+        "if [ ! -e '/apollo/modules/map/pnc_map/testdata/sample_sunnyvale_loop_routing.pb.txt' ]; then mkdir -p '/apollo/modules/map/pnc_map/testdata' && ln -snf '/opt/apollo/neo/share/modules/map/pnc_map/testdata/sample_sunnyvale_loop_routing.pb.txt' '/apollo/modules/map/pnc_map/testdata/sample_sunnyvale_loop_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/map/testdata/navigation_dummy/navigation_info.pb.txt' ]; then mkdir -p '/apollo/modules/map/testdata/navigation_dummy' && ln -snf '/opt/apollo/neo/share/modules/map/testdata/navigation_dummy/navigation_info.pb.txt' '/apollo/modules/map/testdata/navigation_dummy/navigation_info.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/map/hdmap/test-data/base_map.bin' ]; then mkdir -p '/apollo/modules/map/hdmap/test-data' && ln -snf '/opt/apollo/neo/share/modules/map/hdmap/test-data/base_map.bin' '/apollo/modules/map/hdmap/test-data/base_map.bin'; fi",
+        "if [ ! -e '/apollo/modules/map/relative_map/dag/relative_map.dag' ]; then mkdir -p '/apollo/modules/map/relative_map/dag' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/dag/relative_map.dag' '/apollo/modules/map/relative_map/dag/relative_map.dag'; fi",
+        "if [ ! -e '/apollo/modules/map/relative_map/testdata/multi_lane_map/right.smoothed' ]; then mkdir -p '/apollo/modules/map/relative_map/testdata/multi_lane_map' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/testdata/multi_lane_map/right.smoothed' '/apollo/modules/map/relative_map/testdata/multi_lane_map/right.smoothed'; fi",
+        "if [ ! -e '/apollo/modules/map/relative_map/testdata/multi_lane_map/localization_info.pb.txt' ]; then mkdir -p '/apollo/modules/map/relative_map/testdata/multi_lane_map' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/testdata/multi_lane_map/localization_info.pb.txt' '/apollo/modules/map/relative_map/testdata/multi_lane_map/localization_info.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/map/relative_map/testdata/multi_lane_map/middle.smoothed' ]; then mkdir -p '/apollo/modules/map/relative_map/testdata/multi_lane_map' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/testdata/multi_lane_map/middle.smoothed' '/apollo/modules/map/relative_map/testdata/multi_lane_map/middle.smoothed'; fi",
+        "if [ ! -e '/apollo/modules/map/relative_map/testdata/multi_lane_map/chassis_info.pb.txt' ]; then mkdir -p '/apollo/modules/map/relative_map/testdata/multi_lane_map' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/testdata/multi_lane_map/chassis_info.pb.txt' '/apollo/modules/map/relative_map/testdata/multi_lane_map/chassis_info.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/map/relative_map/testdata/multi_lane_map/left.smoothed' ]; then mkdir -p '/apollo/modules/map/relative_map/testdata/multi_lane_map' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/testdata/multi_lane_map/left.smoothed' '/apollo/modules/map/relative_map/testdata/multi_lane_map/left.smoothed'; fi",
+        "if [ ! -e '/apollo/modules/map/relative_map/launch/relative_map.launch' ]; then mkdir -p '/apollo/modules/map/relative_map/launch' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/launch/relative_map.launch' '/apollo/modules/map/relative_map/launch/relative_map.launch'; fi",
+        "if [ ! -e '/apollo/modules/map/relative_map/conf/relative_map.conf' ]; then mkdir -p '/apollo/modules/map/relative_map/conf' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/conf/relative_map.conf' '/apollo/modules/map/relative_map/conf/relative_map.conf'; fi",
+        "if [ ! -e '/apollo/modules/map/relative_map/conf/navigator_config.pb.txt' ]; then mkdir -p '/apollo/modules/map/relative_map/conf' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/conf/navigator_config.pb.txt' '/apollo/modules/map/relative_map/conf/navigator_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/map/relative_map/conf/relative_map_config.pb.txt' ]; then mkdir -p '/apollo/modules/map/relative_map/conf' && ln -snf '/opt/apollo/neo/share/modules/map/relative_map/conf/relative_map_config.pb.txt' '/apollo/modules/map/relative_map/conf/relative_map_config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/map",
+        "rm -rf /opt/apollo/neo/include/modules/map",
+        "rm -rf /opt/apollo/neo/lib/modules/map",
+        "rm -rf /opt/apollo/neo/python/modules/map",
+        "rm -rf /opt/apollo/neo/src/modules/map",
+        "rm -rf /opt/apollo/neo/share/packages/map",
+        "rm -rf /opt/apollo/neo//bin/map_tool",
+        "rm -rf /opt/apollo/neo//bin/map_xysl",
+        "rm -rf /opt/apollo/neo//bin/refresh_default_end_way_point",
+        "rm -rf /opt/apollo/neo//bin/sim_map_generator",
+        "rm -rf /opt/apollo/neo//bin/proto_map_generator",
+        "rm -rf /opt/apollo/neo//bin/bin_map_generator",
+        "rm -rf /opt/apollo/neo//bin/quaternion_euler",
+        "rm -rf /opt/apollo/neo//bin/map_datachecker_client",
+        "rm -rf /opt/apollo/neo//bin/map_datachecker_server"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/map",
+            "des": "/opt/apollo/neo/share/modules/map"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/map",
+            "des": "/opt/apollo/neo/include/modules/map"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/map",
+            "des": "/opt/apollo/neo/lib/modules/map"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/map",
+            "des": "/opt/apollo/neo/python/modules/map"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/map",
+            "des": "/opt/apollo/neo/src/modules/map"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/map",
+            "des": "/opt/apollo/neo/share/packages/map"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/map_tool",
+            "des": "/opt/apollo/neo//bin/map_tool"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/map_xysl",
+            "des": "/opt/apollo/neo//bin/map_xysl"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/refresh_default_end_way_point",
+            "des": "/opt/apollo/neo//bin/refresh_default_end_way_point"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/sim_map_generator",
+            "des": "/opt/apollo/neo//bin/sim_map_generator"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/proto_map_generator",
+            "des": "/opt/apollo/neo//bin/proto_map_generator"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/bin_map_generator",
+            "des": "/opt/apollo/neo//bin/bin_map_generator"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/quaternion_euler",
+            "des": "/opt/apollo/neo//bin/quaternion_euler"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/map_datachecker_client",
+            "des": "/opt/apollo/neo//bin/map_datachecker_client"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/map_datachecker_server",
+            "des": "/opt/apollo/neo//bin/map_datachecker_server"
+        }
+    ],
+    "type": "neo"
+}

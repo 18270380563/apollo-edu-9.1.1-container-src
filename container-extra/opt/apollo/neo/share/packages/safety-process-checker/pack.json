@@ -1,0 +1,52 @@
+{
+    "name": "safety-process-checker",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo safety-process-checker module.",
+    "deps": [
+        "cyber",
+        "common",
+        "safety-manager-msgs",
+        "statistics-msgs",
+        "safety-exporter",
+        "bazel-extend-tools"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/safety_manager/checker/process_checker/dag/process_checker.dag' ]; then mkdir -p '/apollo/modules/safety_manager/checker/process_checker/dag' && ln -snf '/opt/apollo/neo/share/modules/safety_manager/checker/process_checker/dag/process_checker.dag' '/apollo/modules/safety_manager/checker/process_checker/dag/process_checker.dag'; fi",
+        "if [ ! -e '/apollo/modules/safety_manager/checker/process_checker/conf/process_checker_conf.pb.txt' ]; then mkdir -p '/apollo/modules/safety_manager/checker/process_checker/conf' && ln -snf '/opt/apollo/neo/share/modules/safety_manager/checker/process_checker/conf/process_checker_conf.pb.txt' '/apollo/modules/safety_manager/checker/process_checker/conf/process_checker_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/safety_manager/checker/process_checker/conf/process_checker_gflags.conf' ]; then mkdir -p '/apollo/modules/safety_manager/checker/process_checker/conf' && ln -snf '/opt/apollo/neo/share/modules/safety_manager/checker/process_checker/conf/process_checker_gflags.conf' '/apollo/modules/safety_manager/checker/process_checker/conf/process_checker_gflags.conf'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/safety_manager/checker/process_checker",
+        "rm -rf /opt/apollo/neo/include/modules/safety_manager/checker/process_checker",
+        "rm -rf /opt/apollo/neo/lib/modules/safety_manager/checker/process_checker",
+        "rm -rf /opt/apollo/neo/python/modules/safety_manager/checker/process_checker",
+        "rm -rf /opt/apollo/neo/src/modules/safety_manager/checker/process_checker",
+        "rm -rf /opt/apollo/neo/share/packages/safety-process-checker"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/safety_manager/checker/process_checker",
+            "des": "/opt/apollo/neo/share/modules/safety_manager/checker/process_checker"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/safety_manager/checker/process_checker",
+            "des": "/opt/apollo/neo/include/modules/safety_manager/checker/process_checker"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/safety_manager/checker/process_checker",
+            "des": "/opt/apollo/neo/lib/modules/safety_manager/checker/process_checker"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/safety_manager/checker/process_checker",
+            "des": "/opt/apollo/neo/python/modules/safety_manager/checker/process_checker"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/safety-process-checker",
+            "des": "/opt/apollo/neo/share/packages/safety-process-checker"
+        }
+    ],
+    "type": "neo"
+}

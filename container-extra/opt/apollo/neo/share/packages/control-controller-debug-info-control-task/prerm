@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/control/controllers/debug_info_control_task
+rm -rf /opt/apollo/neo/include/modules/control/controllers/debug_info_control_task
+rm -rf /opt/apollo/neo/lib/modules/control/controllers/debug_info_control_task
+rm -rf /opt/apollo/neo/python/modules/control/controllers/debug_info_control_task
+rm -rf /opt/apollo/neo/src/modules/control/controllers/debug_info_control_task
+rm -rf /opt/apollo/neo/share/packages/control-controller-debug-info-control-task
+rm -rf /opt/apollo/neo/lib/modules/control/controllers/debug_info_control_task
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__debug_info_control_task__libdebug_info_control_task.so

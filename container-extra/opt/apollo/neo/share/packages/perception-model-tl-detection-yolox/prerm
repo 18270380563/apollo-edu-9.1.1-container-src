@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/perception/data/models/tl_detection_yolox
+rm -rf /opt/apollo/neo/include/modules/perception/data/models/tl_detection_yolox
+rm -rf /opt/apollo/neo/lib/modules/perception/data/models/tl_detection_yolox
+rm -rf /opt/apollo/neo/python/modules/perception/data/models/tl_detection_yolox
+rm -rf /opt/apollo/neo/src/modules/perception/data/models/tl_detection_yolox
+rm -rf /opt/apollo/neo/share/packages/perception-model-tl-detection-yolox

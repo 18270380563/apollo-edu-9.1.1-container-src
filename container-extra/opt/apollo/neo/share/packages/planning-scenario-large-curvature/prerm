@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/planning/scenarios/large_curvature
+rm -rf /opt/apollo/neo/include/modules/planning/scenarios/large_curvature
+rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/large_curvature
+rm -rf /opt/apollo/neo/python/modules/planning/scenarios/large_curvature
+rm -rf /opt/apollo/neo/src/modules/planning/scenarios/large_curvature
+rm -rf /opt/apollo/neo/share/packages/planning-scenario-large-curvature
+rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/large_curvature
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__large_curvature__liblarge_curvature_scenario.so

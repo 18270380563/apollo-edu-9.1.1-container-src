@@ -1,0 +1,9 @@
+modules/perception/data/models/horizontal_caffe/BUILD:share/modules/perception/data/models/horizontal_caffe/BUILD
+modules/perception/data/models/horizontal_caffe/README:share/modules/perception/data/models/horizontal_caffe/README
+modules/perception/data/models/horizontal_caffe/apollo_deploy.yaml:share/modules/perception/data/models/horizontal_caffe/apollo_deploy.yaml
+modules/perception/data/models/horizontal_caffe/baidu_iter_200000.caffemodel:share/modules/perception/data/models/horizontal_caffe/baidu_iter_200000.caffemodel
+modules/perception/data/models/horizontal_caffe/baidu_iter_200000.caffemodel.metadata:share/modules/perception/data/models/horizontal_caffe/baidu_iter_200000.caffemodel.metadata
+modules/perception/data/models/horizontal_caffe/cyberfile.xml:share/modules/perception/data/models/horizontal_caffe/cyberfile.xml
+modules/perception/data/models/horizontal_caffe/deploy.prototxt:share/modules/perception/data/models/horizontal_caffe/deploy.prototxt
+modules/perception/data/models/horizontal_caffe/cyberfile.xml:modules/perception/data/models/horizontal_caffe/cyberfile.xml
+src_path:modules/perception/data/models/horizontal_caffe

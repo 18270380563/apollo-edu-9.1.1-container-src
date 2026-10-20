@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/control/control_task_base_extend
+rm -rf /opt/apollo/neo/include/modules/control/control_task_base_extend
+rm -rf /opt/apollo/neo/lib/modules/control/control_task_base_extend
+rm -rf /opt/apollo/neo/python/modules/control/control_task_base_extend
+rm -rf /opt/apollo/neo/src/modules/control/control_task_base_extend
+rm -rf /opt/apollo/neo/share/packages/control-task-base-extend

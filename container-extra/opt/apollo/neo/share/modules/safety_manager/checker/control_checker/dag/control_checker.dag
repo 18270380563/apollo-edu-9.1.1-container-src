@@ -1,0 +1,12 @@
+module_config {
+    module_library : "modules/safety_manager/checker/control_checker/libsafety_control_checker_component.so"
+    timer_components {
+        class_name : "ControlCheckerComponent"
+        config {
+            name: "safety_control_checker"
+            interval: 500  # in milliseconds
+            config_file_path: "/apollo/modules/safety_manager/checker/control_checker/conf/control_checker_conf.pb.txt"
+            flag_file_path: "/apollo/modules/safety_manager/checker/control_checker/conf/control_checker_gflags.conf"
+        }
+    }
+}

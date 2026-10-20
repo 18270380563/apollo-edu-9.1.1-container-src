@@ -1,0 +1,53 @@
+{
+    "name": "perception-msg-adapter",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo perception-msg-adapter module.",
+    "deps": [
+        "3rd-gflags",
+        "cyber",
+        "perception-common",
+        "common-msgs",
+        "libtinyxml2-dev",
+        "libleveldb-dev",
+        "libnuma-dev",
+        "3rd-magma"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/perception/msg_adapter/dag/msg_adapter.dag' ]; then mkdir -p '/apollo/modules/perception/msg_adapter/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/msg_adapter/dag/msg_adapter.dag' '/apollo/modules/perception/msg_adapter/dag/msg_adapter.dag'; fi",
+        "if [ ! -e '/apollo/modules/perception/msg_adapter/launch/msg_adapter.launch' ]; then mkdir -p '/apollo/modules/perception/msg_adapter/launch' && ln -snf '/opt/apollo/neo/share/modules/perception/msg_adapter/launch/msg_adapter.launch' '/apollo/modules/perception/msg_adapter/launch/msg_adapter.launch'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/perception/msg_adapter",
+        "rm -rf /opt/apollo/neo/include/modules/perception/msg_adapter",
+        "rm -rf /opt/apollo/neo/lib/modules/perception/msg_adapter",
+        "rm -rf /opt/apollo/neo/python/modules/perception/msg_adapter",
+        "rm -rf /opt/apollo/neo/src/modules/perception/msg_adapter",
+        "rm -rf /opt/apollo/neo/share/packages/perception-msg-adapter"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/perception/msg_adapter",
+            "des": "/opt/apollo/neo/share/modules/perception/msg_adapter"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/perception/msg_adapter",
+            "des": "/opt/apollo/neo/include/modules/perception/msg_adapter"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/perception/msg_adapter",
+            "des": "/opt/apollo/neo/lib/modules/perception/msg_adapter"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/perception/msg_adapter",
+            "des": "/opt/apollo/neo/src/modules/perception/msg_adapter"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/perception-msg-adapter",
+            "des": "/opt/apollo/neo/share/packages/perception-msg-adapter"
+        }
+    ],
+    "type": "neo"
+}

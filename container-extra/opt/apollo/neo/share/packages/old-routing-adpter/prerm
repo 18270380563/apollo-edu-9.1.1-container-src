@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/external_command/old_routing_adapter
+rm -rf /opt/apollo/neo/include/modules/external_command/old_routing_adapter
+rm -rf /opt/apollo/neo/lib/modules/external_command/old_routing_adapter
+rm -rf /opt/apollo/neo/python/modules/external_command/old_routing_adapter
+rm -rf /opt/apollo/neo/src/modules/external_command/old_routing_adapter
+rm -rf /opt/apollo/neo/share/packages/old-routing-adpter

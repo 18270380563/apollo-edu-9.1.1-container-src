@@ -1,0 +1,85 @@
+# !/bin/sh
+APOLLO_PATH='/opt/apollo/neo/'
+PACKAGE_NAME='perception-lidar-tracking'
+PACKAGE_NAME_WITH_VER='perception-lidar-tracking/9.1.1'
+INCLUDE_PATH=''
+echo "[INFO] start to create symbolic links of ${PACKAGE_NAME}"
+echo '[WARN] the links of pre-version will be overwrited!'
+
+mkdir -p ${APOLLO_PATH}bin
+mkdir -p ${APOLLO_PATH}include
+mkdir -p ${APOLLO_PATH}lib
+
+chmod a+rw ${APOLLO_PATH}bin ${APOLLO_PATH}include ${APOLLO_PATH}lib ${APOLLO_PATH}packages
+
+if [ ! -d ${APOLLO_PATH}/share/packages/${PACKAGE_NAME} ]
+then
+    ln -snf ${APOLLO_PATH}packages/${PACKAGE_NAME_WITH_VER} ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest
+
+    if [ "${INCLUDE_PATH}" = "" ]
+    then
+        ori_inc_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include"
+        if [ -d ${ori_inc_path} ]
+        then
+            for file in $(ls ${ori_inc_path})
+            do
+                if [ -d ${ori_inc_path}"/"${file} ]
+                then
+                    ln -snf ${ori_inc_path}"/"${file} "${APOLLO_PATH}include/${file}"
+                fi
+            done
+        fi
+    else
+        if [ $(dirname ${INCLUDE_PATH}) != '.' ]
+        then
+            mkdir -p "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+            chmod a+rw "${APOLLO_PATH}include/$(dirname ${INCLUDE_PATH})"
+        fi
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/include" "${APOLLO_PATH}include/${INCLUDE_PATH}"
+    fi
+
+    if [ -d ${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib ]
+    then
+        ln -snf "${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/lib" "${APOLLO_PATH}lib/${PACKAGE_NAME}"
+    fi
+
+    bin_path="${APOLLO_PATH}packages/${PACKAGE_NAME}/latest/bin"
+    if [ -d ${bin_path} ]
+    then
+        for file in $(ls ${bin_path})
+        do
+            if [ -d ${bin_path}"/"${file} ]
+            then
+                continue
+            else
+                ln -snf "${bin_path}/${file}" "${APOLLO_PATH}bin/${file}"
+            fi
+        done
+    fi
+fi
+
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/fused_classifier/classifiers.property' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/fused_classifier' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/fused_classifier/classifiers.property' '/apollo/modules/perception/lidar_tracking/data/fused_classifier/classifiers.property'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/fused_classifier/fused_classifier.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/fused_classifier' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/fused_classifier/fused_classifier.pb.txt' '/apollo/modules/perception/lidar_tracking/data/fused_classifier/fused_classifier.pb.txt'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/fused_classifier/transition.property' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/fused_classifier' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/fused_classifier/transition.property' '/apollo/modules/perception/lidar_tracking/data/fused_classifier/transition.property'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/fused_classifier/ccrf_type_fusion.conf' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/fused_classifier' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/fused_classifier/ccrf_type_fusion.conf' '/apollo/modules/perception/lidar_tracking/data/fused_classifier/ccrf_type_fusion.conf'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/tracking/type_transition.property' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/tracking' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/tracking/type_transition.property' '/apollo/modules/perception/lidar_tracking/data/tracking/type_transition.property'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_motion_filter.conf' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/tracking' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/tracking/mlf_motion_filter.conf' '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_motion_filter.conf'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_track_object_distance.conf' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/tracking' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/tracking/mlf_track_object_distance.conf' '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_track_object_distance.conf'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_motion_refiner.conf' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/tracking' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/tracking/mlf_motion_refiner.conf' '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_motion_refiner.conf'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_track_object_matcher.conf' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/tracking' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/tracking/mlf_track_object_matcher.conf' '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_track_object_matcher.conf'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_type_filter.conf' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/tracking' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/tracking/mlf_type_filter.conf' '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_type_filter.conf'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_shape_filter.conf' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/tracking' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/tracking/mlf_shape_filter.conf' '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_shape_filter.conf'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_tracker.conf' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/tracking' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/tracking/mlf_tracker.conf' '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_tracker.conf'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_engine.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/tracking' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/tracking/mlf_engine.pb.txt' '/apollo/modules/perception/lidar_tracking/data/tracking/mlf_engine.pb.txt'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/tracking/type_classifiers.property' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/tracking' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/tracking/type_classifiers.property' '/apollo/modules/perception/lidar_tracking/data/tracking/type_classifiers.property'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/data/tracking/ccrf_type_fusion.conf' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/data/tracking' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/data/tracking/ccrf_type_fusion.conf' '/apollo/modules/perception/lidar_tracking/data/tracking/ccrf_type_fusion.conf'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/dag/lidar_tracking.dag' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/dag' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/dag/lidar_tracking.dag' '/apollo/modules/perception/lidar_tracking/dag/lidar_tracking.dag'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/launch/lidar_tracking.launch' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/launch' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/launch/lidar_tracking.launch' '/apollo/modules/perception/lidar_tracking/launch/lidar_tracking.launch'; fi
+if [ ! -e '/apollo/modules/perception/lidar_tracking/conf/lidar_tracking_config.pb.txt' ]; then mkdir -p '/apollo/modules/perception/lidar_tracking/conf' && ln -snf '/opt/apollo/neo/share/modules/perception/lidar_tracking/conf/lidar_tracking_config.pb.txt' '/apollo/modules/perception/lidar_tracking/conf/lidar_tracking_config.pb.txt'; fi
+
+echo "[INFO] symbolic links of ${PACKAGE_NAME} created."
+
+if [ -f "${APOLLO_PATH}update_dylib.sh" ]
+then
+    sh ${APOLLO_PATH}update_dylib.sh
+fi

@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/transform
+rm -rf /opt/apollo/neo/include/modules/transform
+rm -rf /opt/apollo/neo/lib/modules/transform
+rm -rf /opt/apollo/neo/python/modules/transform
+rm -rf /opt/apollo/neo/src/modules/transform
+rm -rf /opt/apollo/neo/share/packages/transform

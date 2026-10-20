@@ -1,0 +1,46 @@
+{
+    "name": "latency-statistic",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo latency-statistic module.",
+    "deps": [
+        "cyber",
+        "common",
+        "statistics-msgs",
+        "common-msgs",
+        "bazel-extend-tools"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/statistics/latency/dag/latency_statistic.dag' ]; then mkdir -p '/apollo/modules/statistics/latency/dag' && ln -snf '/opt/apollo/neo/share/modules/statistics/latency/dag/latency_statistic.dag' '/apollo/modules/statistics/latency/dag/latency_statistic.dag'; fi",
+        "if [ ! -e '/apollo/modules/statistics/latency/conf/latency_statistic_gflags.conf' ]; then mkdir -p '/apollo/modules/statistics/latency/conf' && ln -snf '/opt/apollo/neo/share/modules/statistics/latency/conf/latency_statistic_gflags.conf' '/apollo/modules/statistics/latency/conf/latency_statistic_gflags.conf'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/statistics/latency",
+        "rm -rf /opt/apollo/neo/include/modules/statistics/latency",
+        "rm -rf /opt/apollo/neo/lib/modules/statistics/latency",
+        "rm -rf /opt/apollo/neo/python/modules/statistics/latency",
+        "rm -rf /opt/apollo/neo/src/modules/statistics/latency",
+        "rm -rf /opt/apollo/neo/share/packages/latency-statistic"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/statistics/latency",
+            "des": "/opt/apollo/neo/share/modules/statistics/latency"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/statistics/latency",
+            "des": "/opt/apollo/neo/include/modules/statistics/latency"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/statistics/latency",
+            "des": "/opt/apollo/neo/lib/modules/statistics/latency"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/latency-statistic",
+            "des": "/opt/apollo/neo/share/packages/latency-statistic"
+        }
+    ],
+    "type": "neo"
+}

@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/planning/tasks/reverse_speed
+rm -rf /opt/apollo/neo/include/modules/planning/tasks/reverse_speed
+rm -rf /opt/apollo/neo/lib/modules/planning/tasks/reverse_speed
+rm -rf /opt/apollo/neo/python/modules/planning/tasks/reverse_speed
+rm -rf /opt/apollo/neo/src/modules/planning/tasks/reverse_speed
+rm -rf /opt/apollo/neo/share/packages/planning-task-reverse-speed
+rm -rf /opt/apollo/neo/lib/modules/planning/tasks/reverse_speed
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__reverse_speed__libreverse_speed.so

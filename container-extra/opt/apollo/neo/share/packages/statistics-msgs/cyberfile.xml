@@ -1,0 +1,20 @@
+<package format="2">
+  <name>statistics-msgs</name>
+  <version>9.1.1</version>
+  <description>
+    statistics message package
+  </description>
+  <maintainer email="apollo-support">apollo-support@baidu.com</maintainer>
+  <type>module</type>
+  <src_path>//modules/statistics_msgs</src_path>
+  <license>GPL</license>
+  <author>Apollo</author>
+  <depend>bazel-extend-tools</depend>
+  <depend expose="False">3rd-rules-python</depend>
+  <depend expose="False">3rd-grpc</depend>
+  <depend expose="False">3rd-gpus</depend>
+  <depend expose="False">3rd-rules-proto</depend>
+  <depend expose="False">3rd-bazel-skylib</depend>
+
+  <depend lib_names="common-msgs" repo_name="common-msgs" type="binary">common-msgs</depend>
+</package>

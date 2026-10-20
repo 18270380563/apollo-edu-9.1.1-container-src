@@ -1,0 +1,41 @@
+<package format="2">
+  <name>tools</name>
+  <version>9.1.1</version>
+  <description>
+    The tools are mostly written in Python and relying on compiled proto modules. So
+    generally you need to do the following steps to make it function well.
+  </description>
+
+  <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+  <license>Apache License 2.0</license>
+  <url type="website">https://www.apollo.auto/</url>
+  <url type="repository">https://github.com/ApolloAuto/apollo</url>
+  <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+
+  <type>module</type>
+
+  <depend expose="False">3rd-rules-python</depend>
+  <depend expose="False">3rd-grpc</depend>
+  <depend expose="False">3rd-gpus</depend>
+  <depend expose="False">3rd-rules-proto</depend>
+  <depend expose="False">3rd-py</depend>
+  <depend>bazel-extend-tools</depend>
+  <depend expose="False">3rd-bazel-skylib</depend>
+
+  <depend repo_name="cyber" type="binary">cyber</depend>
+  <depend lib_names="common" repo_name="common" type="binary">common</depend>
+  <depend lib_names="gflags" repo_name="com_github_gflags_gflags">3rd-gflags</depend>
+  <depend lib_names="gtest,gtest_main" repo_name="com_google_googletest">3rd-gtest</depend>
+  <depend repo_name="planning-interface-base" type="binary">planning-interface-base</depend>
+  <depend repo_name="prediction" type="binary">prediction</depend>
+  <depend repo_name="control" type="binary">control</depend>
+  <depend repo_name="dreamview" type="binary">dreamview</depend>
+  <depend repo_name="routing" type="binary">routing</depend>
+  <depend repo_name="map" type="binary">map</depend>
+  <depend lib_names="common-msgs" repo_name="common-msgs" type="binary">common-msgs</depend>
+  <depend expose="False">3rd-qt5</depend>
+  <depend>python3-tk</depend>
+  
+  <src_path url="https://github.com/ApolloAuto/apollo">//modules/tools</src_path>
+
+</package>

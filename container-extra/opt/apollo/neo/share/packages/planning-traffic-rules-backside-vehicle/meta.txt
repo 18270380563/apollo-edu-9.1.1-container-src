@@ -1,0 +1,12 @@
+modules/planning/traffic_rules/backside_vehicle/conf/default_conf.pb.txt:share/modules/planning/traffic_rules/backside_vehicle/conf/default_conf.pb.txt
+modules/planning/traffic_rules/backside_vehicle/libbackside_vehicle.so:lib/modules/planning/traffic_rules/backside_vehicle/libbackside_vehicle.so
+modules/planning/traffic_rules/backside_vehicle/cyberfile.xml:modules/planning/traffic_rules/backside_vehicle/cyberfile.xml
+modules/planning/traffic_rules/backside_vehicle/plugins.xml:plugin_meta@modules/planning/traffic_rules/backside_vehicle@plugins.xml
+modules/planning/traffic_rules/backside_vehicle/proto/backside_vehicle.pb.h:include/modules/planning/traffic_rules/backside_vehicle/proto/backside_vehicle.pb.h
+modules/planning/traffic_rules/backside_vehicle/proto/backside_vehicle.pb.cc:include/modules/planning/traffic_rules/backside_vehicle/proto/backside_vehicle.pb.cc
+modules/planning/traffic_rules/backside_vehicle/proto/lib_backside_vehicle_proto.a:include/modules/planning/traffic_rules/backside_vehicle/proto/lib_backside_vehicle_proto.a
+modules/planning/traffic_rules/backside_vehicle/proto/lib_backside_vehicle_proto.pic.a:include/modules/planning/traffic_rules/backside_vehicle/proto/lib_backside_vehicle_proto.pic.a
+modules/planning/traffic_rules/backside_vehicle/proto/lib_backside_vehicle_proto.so:include/modules/planning/traffic_rules/backside_vehicle/proto/lib_backside_vehicle_proto.so
+modules/planning/traffic_rules/backside_vehicle/proto/backside_vehicle_pb2.py:python/modules/planning/traffic_rules/backside_vehicle/proto/backside_vehicle_pb2.py
+modules/planning/traffic_rules/backside_vehicle/proto/lib_backside_vehicle_proto_mptbp_bin.so:lib/modules/planning/traffic_rules/backside_vehicle/proto/lib_backside_vehicle_proto_mptbp_bin.so
+src_path:modules/planning/traffic_rules/backside_vehicle

@@ -1,0 +1,412 @@
+{
+    "name": "control-vehicle-calibration",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo control-vehicle-calibration module.",
+    "deps": [
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-gpus",
+        "3rd-rules-proto",
+        "3rd-py",
+        "bazel-extend-tools",
+        "3rd-bazel-skylib",
+        "control",
+        "cyber",
+        "common-msgs"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/control/vehicle_calibration",
+        "rm -rf /opt/apollo/neo/include/modules/control/vehicle_calibration",
+        "rm -rf /opt/apollo/neo/lib/modules/control/vehicle_calibration",
+        "rm -rf /opt/apollo/neo/python/modules/control/vehicle_calibration",
+        "rm -rf /opt/apollo/neo/src/modules/control/vehicle_calibration",
+        "rm -rf /opt/apollo/neo/share/packages/control-vehicle-calibration",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/modules/control/vehicle_calibration/calibration_table/calibration_job_train.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/modules/control/vehicle_calibration/calibration_table/calibration_job_train",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/multi_job_utils.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/file_utils.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/logging.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/h5_utils.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/proto_utils.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/calibration_table_utils.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/filters.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/proto/calibration_table_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/any_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/api_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/plugin_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/duration_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/empty_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/field_mask_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/source_context_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/struct_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/timestamp_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/type_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/wrappers_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_api_implementation.so",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uprotobuf_S_S_Cprotobuf___Uexternal_Scom_Ugoogle_Uprotobuf/libprotobuf.so",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/_message.so",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/libprotobuf.so",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_database.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pool.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_parameterized.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/api_implementation.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/containers.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/decoder.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/encoder.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/enum_type_wrapper.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/extension_dict.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/import_test_package/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/message_listener.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/python_message.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/testing_refleaks.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/type_checkers.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/well_known_types.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/wire_format.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/json_format.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message_factory.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/proto_builder.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/cpp_message.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/reflection.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service_reflection.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/symbol_database.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_encoding.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_format.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/util/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../six/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/config_msgs/vehicle_config_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/geometry_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/header_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/error_code_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/vehicle_id_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/multi_vehicle_utils.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/calibration_table_train_utils.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/neural_network_tf.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/control_component/proto/calibration_table_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/include/modules/control/vehicle_calibration",
+            "des": "/opt/apollo/neo/include/modules/control/vehicle_calibration"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/control/vehicle_calibration",
+            "des": "/opt/apollo/neo/lib/modules/control/vehicle_calibration"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/control/vehicle_calibration",
+            "des": "/opt/apollo/neo/python/modules/control/vehicle_calibration"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/control/vehicle_calibration",
+            "des": "/opt/apollo/neo/src/modules/control/vehicle_calibration"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/control-vehicle-calibration",
+            "des": "/opt/apollo/neo/share/packages/control-vehicle-calibration"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train",
+            "des": "/opt/apollo/neo//bin/calibration_job_train"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/modules/control/vehicle_calibration/calibration_table/calibration_job_train.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/modules/control/vehicle_calibration/calibration_table/calibration_job_train.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/modules/control/vehicle_calibration/calibration_table/calibration_job_train",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/modules/control/vehicle_calibration/calibration_table/calibration_job_train"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/multi_job_utils.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/multi_job_utils.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/file_utils.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/file_utils.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/logging.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/logging.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/h5_utils.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/h5_utils.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/proto_utils.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/proto_utils.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/calibration_table_utils.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/calibration_table_utils.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/filters.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/filters.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/proto/calibration_table_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/proto/calibration_table_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/any_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/any_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/api_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/api_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/plugin_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/plugin_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/duration_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/duration_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/empty_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/empty_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/field_mask_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/field_mask_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/source_context_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/source_context_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/struct_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/struct_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/timestamp_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/timestamp_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/type_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/type_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/wrappers_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/wrappers_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_api_implementation.so",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_api_implementation.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uprotobuf_S_S_Cprotobuf___Uexternal_Scom_Ugoogle_Uprotobuf/libprotobuf.so",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uprotobuf_S_S_Cprotobuf___Uexternal_Scom_Ugoogle_Uprotobuf/libprotobuf.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/_message.so",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/_message.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/libprotobuf.so",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/libprotobuf.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/__init__.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/__init__.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_database.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_database.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pool.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pool.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/__init__.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_parameterized.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_parameterized.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/api_implementation.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/api_implementation.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/containers.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/containers.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/decoder.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/decoder.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/encoder.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/encoder.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/enum_type_wrapper.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/enum_type_wrapper.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/extension_dict.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/extension_dict.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/import_test_package/__init__.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/import_test_package/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/message_listener.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/message_listener.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/python_message.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/python_message.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/testing_refleaks.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/testing_refleaks.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/type_checkers.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/type_checkers.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/well_known_types.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/well_known_types.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/wire_format.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/wire_format.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/json_format.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/json_format.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message_factory.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message_factory.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/proto_builder.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/proto_builder.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/__init__.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/cpp_message.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/cpp_message.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/reflection.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/reflection.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service_reflection.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service_reflection.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/symbol_database.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/symbol_database.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_encoding.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_encoding.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_format.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_format.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/util/__init__.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/util/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../six/__init__.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../six/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/config_msgs/vehicle_config_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/config_msgs/vehicle_config_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/geometry_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/geometry_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/header_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/header_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/error_code_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/error_code_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/vehicle_id_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/vehicle_id_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/multi_vehicle_utils.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/common/multi_vehicle_utils.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/calibration_table_train_utils.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/calibration_table_train_utils.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/neural_network_tf.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/vehicle_calibration/features/neural_network_tf.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/control_component/proto/calibration_table_pb2.py",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../apollo_src/modules/control/control_component/proto/calibration_table_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh",
+            "des": "/opt/apollo/neo//bin/calibration_job_train.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh"
+        }
+    ],
+    "type": "neo"
+}

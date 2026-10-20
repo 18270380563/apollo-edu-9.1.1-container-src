@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/control/controllers/lon_based_pid_plus_controller
+rm -rf /opt/apollo/neo/include/modules/control/controllers/lon_based_pid_plus_controller
+rm -rf /opt/apollo/neo/lib/modules/control/controllers/lon_based_pid_plus_controller
+rm -rf /opt/apollo/neo/python/modules/control/controllers/lon_based_pid_plus_controller
+rm -rf /opt/apollo/neo/src/modules/control/controllers/lon_based_pid_plus_controller
+rm -rf /opt/apollo/neo/share/packages/control-controller-lon-based-pid-plus-controller
+rm -rf /opt/apollo/neo/lib/modules/control/controllers/lon_based_pid_plus_controller
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__lon_based_pid_plus_controller__liblon_plus_controller.so

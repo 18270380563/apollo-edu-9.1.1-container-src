@@ -1,0 +1,15 @@
+modules/planning/scenarios/free_space/conf/pipeline.pb.txt:share/modules/planning/scenarios/free_space/conf/pipeline.pb.txt
+modules/planning/scenarios/free_space/conf/scenario_conf.pb.txt:share/modules/planning/scenarios/free_space/conf/scenario_conf.pb.txt
+modules/planning/scenarios/free_space/conf/stage_free_space/open_space_trajectory_partition.pb.txt:share/modules/planning/scenarios/free_space/conf/stage_free_space/open_space_trajectory_partition.pb.txt
+modules/planning/scenarios/free_space/conf/stage_free_space/open_space_trajectory_provider.pb.txt:share/modules/planning/scenarios/free_space/conf/stage_free_space/open_space_trajectory_provider.pb.txt
+modules/planning/scenarios/free_space/libfree_space_scenario.so:lib/modules/planning/scenarios/free_space/libfree_space_scenario.so
+modules/planning/scenarios/free_space/cyberfile.xml:modules/planning/scenarios/free_space/cyberfile.xml
+modules/planning/scenarios/free_space/plugins.xml:plugin_meta@modules/planning/scenarios/free_space@plugins.xml
+modules/planning/scenarios/free_space/proto/free_space_scenario.pb.h:include/modules/planning/scenarios/free_space/proto/free_space_scenario.pb.h
+modules/planning/scenarios/free_space/proto/free_space_scenario.pb.cc:include/modules/planning/scenarios/free_space/proto/free_space_scenario.pb.cc
+modules/planning/scenarios/free_space/proto/lib_free_space_proto.a:include/modules/planning/scenarios/free_space/proto/lib_free_space_proto.a
+modules/planning/scenarios/free_space/proto/lib_free_space_proto.pic.a:include/modules/planning/scenarios/free_space/proto/lib_free_space_proto.pic.a
+modules/planning/scenarios/free_space/proto/lib_free_space_proto.so:include/modules/planning/scenarios/free_space/proto/lib_free_space_proto.so
+modules/planning/scenarios/free_space/proto/free_space_scenario_pb2.py:python/modules/planning/scenarios/free_space/proto/free_space_scenario_pb2.py
+modules/planning/scenarios/free_space/proto/lib_free_space_proto_mpsfp_bin.so:lib/modules/planning/scenarios/free_space/proto/lib_free_space_proto_mpsfp_bin.so
+src_path:modules/planning/scenarios/free_space

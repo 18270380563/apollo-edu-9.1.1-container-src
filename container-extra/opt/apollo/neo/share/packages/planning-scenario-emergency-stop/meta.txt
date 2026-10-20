@@ -1,0 +1,13 @@
+modules/planning/scenarios/emergency_stop/conf/pipeline.pb.txt:share/modules/planning/scenarios/emergency_stop/conf/pipeline.pb.txt
+modules/planning/scenarios/emergency_stop/conf/scenario_conf.pb.txt:share/modules/planning/scenarios/emergency_stop/conf/scenario_conf.pb.txt
+modules/planning/scenarios/emergency_stop/libemergency_stop_scenario.so:lib/modules/planning/scenarios/emergency_stop/libemergency_stop_scenario.so
+modules/planning/scenarios/emergency_stop/cyberfile.xml:modules/planning/scenarios/emergency_stop/cyberfile.xml
+modules/planning/scenarios/emergency_stop/plugins.xml:plugin_meta@modules/planning/scenarios/emergency_stop@plugins.xml
+modules/planning/scenarios/emergency_stop/proto/emergency_stop.pb.h:include/modules/planning/scenarios/emergency_stop/proto/emergency_stop.pb.h
+modules/planning/scenarios/emergency_stop/proto/emergency_stop.pb.cc:include/modules/planning/scenarios/emergency_stop/proto/emergency_stop.pb.cc
+modules/planning/scenarios/emergency_stop/proto/lib_emergency_stop_proto.a:include/modules/planning/scenarios/emergency_stop/proto/lib_emergency_stop_proto.a
+modules/planning/scenarios/emergency_stop/proto/lib_emergency_stop_proto.pic.a:include/modules/planning/scenarios/emergency_stop/proto/lib_emergency_stop_proto.pic.a
+modules/planning/scenarios/emergency_stop/proto/lib_emergency_stop_proto.so:include/modules/planning/scenarios/emergency_stop/proto/lib_emergency_stop_proto.so
+modules/planning/scenarios/emergency_stop/proto/emergency_stop_pb2.py:python/modules/planning/scenarios/emergency_stop/proto/emergency_stop_pb2.py
+modules/planning/scenarios/emergency_stop/proto/lib_emergency_stop_proto_mpsep_bin.so:lib/modules/planning/scenarios/emergency_stop/proto/lib_emergency_stop_proto_mpsep_bin.so
+src_path:modules/planning/scenarios/emergency_stop

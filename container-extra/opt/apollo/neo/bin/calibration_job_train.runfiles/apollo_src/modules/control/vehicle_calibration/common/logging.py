@@ -1,0 +1,39 @@
+"""#!/usr/bin/env python"""
+"""Log utils."""
+
+import os
+
+from absl.logging import *
+
+"""
+Usage tips
+https://github.com/abseil/abseil-py/blob/master/absl/logging/__init__.py#L15
+"""
+
+
+class LogInit(object):
+    """Log init"""
+    INITED = False
+
+    @classmethod
+    def init(cls):
+        """init"""
+        if cls.INITED:
+            return
+        verbosity = os.environ.get('LOG_VERBOSITY', 'INFO')
+        if verbosity == 'INFO':
+            set_verbosity(INFO)
+        elif verbosity == 'DEBUG':
+            set_verbosity(DEBUG)
+        elif verbosity == 'WARNING':
+            set_verbosity(WARNING)
+        elif verbosity == 'ERROR':
+            set_verbosity(ERROR)
+        elif verbosity == 'FATAL':
+            set_verbosity(FATAL)
+        cls.INITED = True
+        use_absl_handler()
+        info('Absl.logging inited with verbosity ' + verbosity)
+
+
+LogInit.init()

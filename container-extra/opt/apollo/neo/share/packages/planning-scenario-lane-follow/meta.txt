@@ -1,0 +1,5 @@
+modules/planning/scenarios/lane_follow/conf/pipeline.pb.txt:share/modules/planning/scenarios/lane_follow/conf/pipeline.pb.txt
+modules/planning/scenarios/lane_follow/liblane_follow_scenario.so:lib/modules/planning/scenarios/lane_follow/liblane_follow_scenario.so
+modules/planning/scenarios/lane_follow/cyberfile.xml:modules/planning/scenarios/lane_follow/cyberfile.xml
+modules/planning/scenarios/lane_follow/plugins.xml:plugin_meta@modules/planning/scenarios/lane_follow@plugins.xml
+src_path:modules/planning/scenarios/lane_follow

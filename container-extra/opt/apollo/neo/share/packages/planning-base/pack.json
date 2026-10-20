@@ -1,0 +1,1353 @@
+{
+    "name": "planning-base",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-base module.",
+    "deps": [
+        "3rd-gflags",
+        "3rd-absl",
+        "3rd-osqp",
+        "3rd-glog",
+        "3rd-proj",
+        "libtinyxml2-dev",
+        "3rd-boost",
+        "3rd-opencv",
+        "3rd-ipopt",
+        "3rd-eigen3",
+        "libadolc-dev",
+        "3rd-ad-rss-lib",
+        "cyber",
+        "common",
+        "map",
+        "common-msgs",
+        "prediction",
+        "bazel-extend-tools",
+        "3rd-mkl",
+        "3rd-libtorch-cpu",
+        "3rd-protobuf",
+        "3rd-rules-python",
+        "3rd-grpc",
+        "3rd-bazel-skylib",
+        "3rd-rules-proto",
+        "3rd-py",
+        "3rd-gpus",
+        "3rd-gtest"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_01_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_01_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_01_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/4_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/4_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/4_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_03_1.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_03_1.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_03_1.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/4_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/4_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/4_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_keep_clear_02_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_keep_clear_02_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_keep_clear_02_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_crosswalk_02_1.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_crosswalk_02_1.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_crosswalk_02_1.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/6_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/6_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/6_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_03_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_03_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_03_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/13_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/13_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/13_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_crosswalk_02_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_crosswalk_02_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_crosswalk_02_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/13_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/13_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/13_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/4_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/4_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/4_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_crosswalk_01_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_crosswalk_01_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_crosswalk_01_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/6_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/6_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/6_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/600_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_destination_stop_01_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_destination_stop_01_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_destination_stop_01_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_change_lane_abort_for_fast_back_vehicle_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_change_lane_abort_for_fast_back_vehicle_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_change_lane_abort_for_fast_back_vehicle_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/7_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/7_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/7_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_keep_clear_01_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_keep_clear_01_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_keep_clear_01_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_traffic_light_green_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_traffic_light_green_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_traffic_light_green_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_traffic_light.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_traffic_light.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_traffic_light.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/201_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/7_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/7_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/7_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/13_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/13_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/13_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/103_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/101_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/6_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/6_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/6_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/500_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/300_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_keep_clear_03_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_keep_clear_03_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_keep_clear_03_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/3_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/7_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/7_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/7_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/12_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/400_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/2_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/601_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/5_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_02_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_02_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/result_stop_sign_02_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/1_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/14_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/102_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/200_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_big_loop_test/8_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/navigation_mode_test/result_cruise_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/navigation_mode_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/navigation_mode_test/result_cruise_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/navigation_mode_test/result_cruise_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/navigation_mode_test/1_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/navigation_mode_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/navigation_mode_test/1_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/navigation_mode_test/1_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/navigation_mode_test/1_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/navigation_mode_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/navigation_mode_test/1_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/navigation_mode_test/1_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/navigation_mode_test/1_relative_map.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/navigation_mode_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/navigation_mode_test/1_relative_map.pb.txt' '/apollo/modules/planning/planning_base/testdata/navigation_mode_test/1_relative_map.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/conf/open_space_standard_parking_lot.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/conf/open_space_standard_parking_lot.pb.txt' '/apollo/modules/planning/planning_base/testdata/conf/open_space_standard_parking_lot.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/model_inference_test/test_libtorch_inference_task_config.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/model_inference_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/model_inference_test/test_libtorch_inference_task_config.pb.txt' '/apollo/modules/planning/planning_base/testdata/model_inference_test/test_libtorch_inference_task_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/model_inference_test/learning_data_sunnyvale_with_two_offices.bin' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/model_inference_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/model_inference_test/learning_data_sunnyvale_with_two_offices.bin' '/apollo/modules/planning/planning_base/testdata/model_inference_test/learning_data_sunnyvale_with_two_offices.bin'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/model_inference_test/test_tensorrt_inference_task_config.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/model_inference_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/model_inference_test/test_tensorrt_inference_task_config.pb.txt' '/apollo/modules/planning/planning_base/testdata/model_inference_test/test_tensorrt_inference_task_config.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/1_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/1_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/1_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/garage_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/garage_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/garage_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/stop_obstacle_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/stop_obstacle_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/stop_obstacle_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/stop_dest_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/stop_dest_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/stop_dest_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/result_follow_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/result_follow_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/result_follow_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/result_stop_obstacle_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/result_stop_obstacle_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/result_stop_obstacle_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/result_dest_stop_01_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/result_dest_stop_01_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/result_dest_stop_01_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/follow_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/follow_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/follow_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/result_out_of_map_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/result_out_of_map_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/result_out_of_map_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/out_of_map_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/out_of_map_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/out_of_map_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/follow_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/follow_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/follow_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/stop_obstacle_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/stop_obstacle_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/stop_obstacle_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/garage_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/garage_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/garage_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/stop_obstacle_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/stop_obstacle_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/stop_obstacle_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/garage_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/garage_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/garage_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/result_planning_componnet_stop_obstacle_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/result_planning_componnet_stop_obstacle_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/result_planning_componnet_stop_obstacle_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/1_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/1_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/1_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/result_stop_over_line_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/result_stop_over_line_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/result_stop_over_line_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/out_of_map_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/out_of_map_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/out_of_map_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/stop_dest_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/stop_dest_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/stop_dest_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/follow_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/follow_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/follow_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/out_of_map_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/out_of_map_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/out_of_map_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/garage_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/garage_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/garage_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/stop_dest_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/stop_dest_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/stop_dest_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_test/1_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_test/1_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/garage_test/1_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_avoid_change_left_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_avoid_change_left_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_avoid_change_left_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_cruise_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_cruise_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_cruise_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_follow_01_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_follow_01_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_follow_01_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_change_lane_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_change_lane_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_change_lane_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_follow_02_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_follow_02_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_follow_02_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_mission_complete_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_mission_complete_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_mission_complete_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_follow_03_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_follow_03_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_follow_03_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_rightturn_with_red_light_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_rightturn_with_red_light_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_rightturn_with_red_light_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_nudge_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_nudge_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_nudge_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/4_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_slowdown_01_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_slowdown_01_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_slowdown_01_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/13_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/9_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_stop_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_stop_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_stop_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_change_lane_failback_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_change_lane_failback_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_change_lane_failback_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_traffic_light.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_traffic_light.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_traffic_light.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/3_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/10_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/7_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_routing.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_routing.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/6_routing.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/12_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_rightturn_01_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_rightturn_01_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_rightturn_01_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/2_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/5_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_qp_path_failure_0.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_qp_path_failure_0.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/result_qp_path_failure_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_chassis.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/1_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/11_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_localization.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_localization.pb.txt' '/apollo/modules/planning/planning_base/testdata/sunnyvale_loop_test/8_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/trajectory_data/standard_trajectory.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/trajectory_data' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/trajectory_data/standard_trajectory.pb.txt' '/apollo/modules/planning/planning_base/testdata/trajectory_data/standard_trajectory.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/garage_map/base_map.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/garage_map' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/garage_map/base_map.txt' '/apollo/modules/planning/planning_base/testdata/garage_map/base_map.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/common/history_01.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/common' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/common/history_01.pb.txt' '/apollo/modules/planning/planning_base/testdata/common/history_01.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/common/sample_prediction.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/common' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/common/sample_prediction.pb.txt' '/apollo/modules/planning/planning_base/testdata/common/sample_prediction.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/planning_base/testdata/common/history_02.pb.txt' ]; then mkdir -p '/apollo/modules/planning/planning_base/testdata/common' && ln -snf '/opt/apollo/neo/share/modules/planning/planning_base/testdata/common/history_02.pb.txt' '/apollo/modules/planning/planning_base/testdata/common/history_02.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/planning_base",
+        "rm -rf /opt/apollo/neo/include/modules/planning/planning_base",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/planning_base",
+        "rm -rf /opt/apollo/neo/python/modules/planning/planning_base",
+        "rm -rf /opt/apollo/neo/src/modules/planning/planning_base",
+        "rm -rf /opt/apollo/neo/share/packages/planning-base",
+        "rm -rf /opt/apollo/neo//bin/smoother_util",
+        "rm -rf /opt/apollo/neo//bin/spiral_smoother_util",
+        "rm -rf /opt/apollo/neo//bin/evaluate_trajectory",
+        "rm -rf /opt/apollo/neo//bin/record_to_learning_data",
+        "rm -rf /opt/apollo/neo//bin/planning_pad_terminal",
+        "rm -rf /opt/apollo/neo//bin/inference_demo",
+        "rm -rf /opt/apollo/neo//bin/tools/planning_task_stats.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/modules/planning/planning_base/tools/planning_task_stats.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/modules/planning/planning_base/planning_task_stats",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/cyber_py3/cyber.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@apollo_Usrc_S_Scyber_Spython_Sinternal_Cpy_Ucyber___Uexternal_Sapollo_Usrc_Scyber_Spython_Sinternal/libpy_cyber.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UCcyber___Ulib_Scyber/libcyber.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScomponent_UCcyber_Ucomponent___Ulib_Scyber_Scomponent/libcyber_component.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScontext_UCcyber_Ucontext___Ulib_Scyber_Scontext/libcyber_context.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USio_UCcyber_Uio___Ulib_Scyber_Sio/libcyber_io.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USlogger_UCcyber_Ulogger___Ulib_Scyber_Slogger/libcyber_logger.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USparameter_UCcyber_Uparameter___Ulib_Scyber_Sparameter/libcyber_parameter.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USnode_UCcyber_Unode___Ulib_Scyber_Snode/libcyber_node.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USblocker_UCcyber_Ublocker___Ulib_Scyber_Sblocker/libcyber_blocker.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USplugin_Umanager_UCcyber_Uplugin_Umanager___Ulib_Scyber_Splugin_Umanager/libcyber_plugin_manager.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USclass_Uloader_UCcyber_Uclass_Uloader___Ulib_Scyber_Sclass_Uloader/libcyber_class_loader.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USclass_Uloader_USutility_UCclass_Uloader_Uutility___Ulib_Scyber_Sclass_Uloader_Sutility/libclass_loader_utility.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USclass_Uloader_USshared_Ulibrary_UCshared_Ulibrary___Ulib_Scyber_Sclass_Uloader_Sshared_Ulibrary/libshared_library.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USprofiler_UCcyber_Uprofiler___Ulib_Scyber_Sprofiler/libcyber_profiler.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCclock_Uproto___Ulib_Scyber_Sproto/lib_clock_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCparameter_Uproto___Ulib_Scyber_Sproto/lib_parameter_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USrecord_UCcyber_Urecord___Ulib_Scyber_Srecord/libcyber_record.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCrecord_Uproto___Ulib_Scyber_Sproto/lib_record_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USservice_UCcyber_Uservice___Ulib_Scyber_Sservice/libcyber_service.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USservice_Udiscovery_UCcyber_Uservice_Udiscovery___Ulib_Scyber_Sservice_Udiscovery/libcyber_service_discovery.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCtopology_Uchange_Uproto___Ulib_Scyber_Sproto/lib_topology_change_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USsysmo_UCcyber_Usysmo___Ulib_Scyber_Ssysmo/libcyber_sysmo.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStimer_UCcyber_Utimer___Ulib_Scyber_Stimer/libcyber_timer.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStransport_UCcyber_Utransport___Ulib_Scyber_Stransport/libcyber_transport.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USmessage_UCcyber_Umessage___Ulib_Scyber_Smessage/libcyber_message.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCproto_Udesc_Uproto___Ulib_Scyber_Sproto/lib_proto_desc_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USservice_Udiscovery_UCcyber_Uservice_Udiscovery_Urole___Ulib_Scyber_Sservice_Udiscovery/libcyber_service_discovery_role.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USstatistics_UCapollo_Ustatistics___Ulib_Scyber_Sstatistics/libapollo_statistics.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCrole_Uattributes_Uproto___Ulib_Scyber_Sproto/lib_role_attributes_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStask_UCcyber_Utask___Ulib_Scyber_Stask/libcyber_task.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USscheduler_UCcyber_Uscheduler___Ulib_Scyber_Sscheduler/libcyber_scheduler.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScroutine_UCcyber_Ucroutine___Ulib_Scyber_Scroutine/libcyber_croutine.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USdata_UCcyber_Udata___Ulib_Scyber_Sdata/libcyber_data.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USevent_UCcyber_Uevent___Ulib_Scyber_Sevent/libcyber_event.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UCcyber_Ustate___Ulib_Scyber/libcyber_state.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCcomponent_Uconf_Uproto___Ulib_Scyber_Sproto/lib_component_conf_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCqos_Uprofile_Uproto___Ulib_Scyber_Sproto/lib_qos_profile_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStime_UCcyber_Utime___Ulib_Scyber_Stime/libcyber_time.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScommon_UCcyber_Ucommon___Ulib_Scyber_Scommon/libcyber_common.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UCcyber_Ubinary___Ulib_Scyber/libcyber_binary.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USbase_UCcyber_Ubase___Ulib_Scyber_Sbase/libcyber_base.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCcyber_Uconf_Uproto___Ulib_Scyber_Sproto/lib_cyber_conf_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCperf_Uconf_Uproto___Ulib_Scyber_Sproto/lib_perf_conf_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCrun_Umode_Uconf_Uproto___Ulib_Scyber_Sproto/lib_run_mode_conf_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCscheduler_Uconf_Uproto___Ulib_Scyber_Sproto/lib_scheduler_conf_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCchoreography_Uconf_Uproto___Ulib_Scyber_Sproto/lib_choreography_conf_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCclassic_Uconf_Uproto___Ulib_Scyber_Sproto/lib_classic_conf_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCtransport_Uconf_Uproto___Ulib_Scyber_Sproto/lib_transport_conf_proto_cp_bin.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_bad_any_cast_impl.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_bad_optional_access.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_bad_variant_access.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_base.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_city.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_civil_time.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_cord.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_debugging_internal.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_demangle_internal.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_dynamic_annotations.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_examine_stack.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_exponential_biased.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_failure_signal_handler.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_config.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_internal.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_marshalling.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_parse.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_program_name.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_registry.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_usage.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_usage_internal.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_graphcycles_internal.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_hash.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_hashtablez_sampler.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_int128.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_leak_check.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_leak_check_disable.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_log_severity.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_malloc_internal.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_periodic_sampler.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_distributions.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_distribution_test_util.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_pool_urbg.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen_hwaes.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen_hwaes_impl.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen_slow.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_seed_material.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_seed_gen_exception.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_seed_sequences.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_raw_hash_set.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_raw_logging_internal.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_scoped_set_env.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_spinlock_wait.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_stacktrace.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_status.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_str_format_internal.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_strings.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_strings_internal.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_symbolize.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_synchronization.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_throw_delegate.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_time.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_time_zone.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@ad_Urss_Ulib_S_S_Cad_Urss___Ulib/libad_rss.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uprotobuf_S_S_Cprotobuf___Uexternal_Scom_Ugoogle_Uprotobuf/libprotobuf.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@tf2_S_S_Ctf2___Ulib/libtf2.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@tf2_S_S_Cthird_Uparty_UStf2_UCtf2___Ulib/libtf2.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@local_Uconfig_Ucuda_S_Scuda_Ccudart___Uexternal_Slocal_Uconfig_Ucuda_Scuda_Scuda_Slib/libcudart.so.11.0",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/_cyber_wrapper.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/libpy_cyber.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/libprotobuf.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../local_config_cuda/cuda/cuda/lib/libcudart.so.11.0",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/cyber_py3/record.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@apollo_Usrc_S_Scyber_Spython_Sinternal_Cpy_Urecord___Uexternal_Sapollo_Usrc_Scyber_Spython_Sinternal/libpy_record.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/_cyber_record_wrapper.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/libpy_record.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/planning_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/any_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/api_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/plugin_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/duration_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/empty_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/field_mask_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/source_context_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/struct_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/timestamp_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/type_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/wrappers_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_api_implementation.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/_message.so",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_database.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pool.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_parameterized.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/api_implementation.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/containers.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/decoder.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/encoder.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/enum_type_wrapper.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/extension_dict.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/import_test_package/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/message_listener.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/python_message.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/testing_refleaks.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/type_checkers.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/well_known_types.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/wire_format.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/json_format.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message_factory.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/proto_builder.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/cpp_message.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/reflection.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service_reflection.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/symbol_database.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_encoding.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_format.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/util/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../six/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/decision_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/geometry_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/vehicle_signal_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/routing_msgs/geometry_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/planning_internal_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/navigation_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/header_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/error_code_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/pnc_point_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/localization_msgs/localization_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/localization_msgs/localization_status_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/localization_msgs/pose_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_clear_area_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_geometry_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_id_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_crosswalk_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_junction_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_lane_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_overlap_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_parking_space_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_pnc_junction_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_road_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_rsu_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_signal_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_speed_bump_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_stop_sign_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_yield_sign_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_area_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_barrier_gate_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/perception_msgs/perception_obstacle_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/sl_boundary_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/chassis_msgs/chassis_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/drive_state_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/vehicle_id_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/dreamview_msgs/chart_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/perception_msgs/traffic_light_detection_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/routing_msgs/routing_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/routing_msgs/poi_pb2.py",
+        "rm -rf /opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/planning_base",
+            "des": "/opt/apollo/neo/share/modules/planning/planning_base"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/planning_base",
+            "des": "/opt/apollo/neo/include/modules/planning/planning_base"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/planning_base",
+            "des": "/opt/apollo/neo/lib/modules/planning/planning_base"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/planning_base",
+            "des": "/opt/apollo/neo/python/modules/planning/planning_base"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/planning_base",
+            "des": "/opt/apollo/neo/src/modules/planning/planning_base"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-base",
+            "des": "/opt/apollo/neo/share/packages/planning-base"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/smoother_util",
+            "des": "/opt/apollo/neo//bin/smoother_util"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/spiral_smoother_util",
+            "des": "/opt/apollo/neo//bin/spiral_smoother_util"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/evaluate_trajectory",
+            "des": "/opt/apollo/neo//bin/evaluate_trajectory"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/record_to_learning_data",
+            "des": "/opt/apollo/neo//bin/record_to_learning_data"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_pad_terminal",
+            "des": "/opt/apollo/neo//bin/planning_pad_terminal"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/inference_demo",
+            "des": "/opt/apollo/neo//bin/inference_demo"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tools/planning_task_stats.py",
+            "des": "/opt/apollo/neo//bin/tools/planning_task_stats.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats",
+            "des": "/opt/apollo/neo//bin/planning_task_stats"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/modules/planning/planning_base/tools/planning_task_stats.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/modules/planning/planning_base/tools/planning_task_stats.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/modules/planning/planning_base/planning_task_stats",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/modules/planning/planning_base/planning_task_stats"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/cyber_py3/cyber.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/cyber_py3/cyber.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@apollo_Usrc_S_Scyber_Spython_Sinternal_Cpy_Ucyber___Uexternal_Sapollo_Usrc_Scyber_Spython_Sinternal/libpy_cyber.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@apollo_Usrc_S_Scyber_Spython_Sinternal_Cpy_Ucyber___Uexternal_Sapollo_Usrc_Scyber_Spython_Sinternal/libpy_cyber.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UCcyber___Ulib_Scyber/libcyber.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UCcyber___Ulib_Scyber/libcyber.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScomponent_UCcyber_Ucomponent___Ulib_Scyber_Scomponent/libcyber_component.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScomponent_UCcyber_Ucomponent___Ulib_Scyber_Scomponent/libcyber_component.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScontext_UCcyber_Ucontext___Ulib_Scyber_Scontext/libcyber_context.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScontext_UCcyber_Ucontext___Ulib_Scyber_Scontext/libcyber_context.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USio_UCcyber_Uio___Ulib_Scyber_Sio/libcyber_io.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USio_UCcyber_Uio___Ulib_Scyber_Sio/libcyber_io.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USlogger_UCcyber_Ulogger___Ulib_Scyber_Slogger/libcyber_logger.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USlogger_UCcyber_Ulogger___Ulib_Scyber_Slogger/libcyber_logger.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USparameter_UCcyber_Uparameter___Ulib_Scyber_Sparameter/libcyber_parameter.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USparameter_UCcyber_Uparameter___Ulib_Scyber_Sparameter/libcyber_parameter.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USnode_UCcyber_Unode___Ulib_Scyber_Snode/libcyber_node.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USnode_UCcyber_Unode___Ulib_Scyber_Snode/libcyber_node.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USblocker_UCcyber_Ublocker___Ulib_Scyber_Sblocker/libcyber_blocker.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USblocker_UCcyber_Ublocker___Ulib_Scyber_Sblocker/libcyber_blocker.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USplugin_Umanager_UCcyber_Uplugin_Umanager___Ulib_Scyber_Splugin_Umanager/libcyber_plugin_manager.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USplugin_Umanager_UCcyber_Uplugin_Umanager___Ulib_Scyber_Splugin_Umanager/libcyber_plugin_manager.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USclass_Uloader_UCcyber_Uclass_Uloader___Ulib_Scyber_Sclass_Uloader/libcyber_class_loader.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USclass_Uloader_UCcyber_Uclass_Uloader___Ulib_Scyber_Sclass_Uloader/libcyber_class_loader.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USclass_Uloader_USutility_UCclass_Uloader_Uutility___Ulib_Scyber_Sclass_Uloader_Sutility/libclass_loader_utility.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USclass_Uloader_USutility_UCclass_Uloader_Uutility___Ulib_Scyber_Sclass_Uloader_Sutility/libclass_loader_utility.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USclass_Uloader_USshared_Ulibrary_UCshared_Ulibrary___Ulib_Scyber_Sclass_Uloader_Sshared_Ulibrary/libshared_library.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USclass_Uloader_USshared_Ulibrary_UCshared_Ulibrary___Ulib_Scyber_Sclass_Uloader_Sshared_Ulibrary/libshared_library.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USprofiler_UCcyber_Uprofiler___Ulib_Scyber_Sprofiler/libcyber_profiler.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USprofiler_UCcyber_Uprofiler___Ulib_Scyber_Sprofiler/libcyber_profiler.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCclock_Uproto___Ulib_Scyber_Sproto/lib_clock_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCclock_Uproto___Ulib_Scyber_Sproto/lib_clock_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCparameter_Uproto___Ulib_Scyber_Sproto/lib_parameter_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCparameter_Uproto___Ulib_Scyber_Sproto/lib_parameter_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USrecord_UCcyber_Urecord___Ulib_Scyber_Srecord/libcyber_record.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USrecord_UCcyber_Urecord___Ulib_Scyber_Srecord/libcyber_record.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCrecord_Uproto___Ulib_Scyber_Sproto/lib_record_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCrecord_Uproto___Ulib_Scyber_Sproto/lib_record_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USservice_UCcyber_Uservice___Ulib_Scyber_Sservice/libcyber_service.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USservice_UCcyber_Uservice___Ulib_Scyber_Sservice/libcyber_service.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USservice_Udiscovery_UCcyber_Uservice_Udiscovery___Ulib_Scyber_Sservice_Udiscovery/libcyber_service_discovery.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USservice_Udiscovery_UCcyber_Uservice_Udiscovery___Ulib_Scyber_Sservice_Udiscovery/libcyber_service_discovery.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCtopology_Uchange_Uproto___Ulib_Scyber_Sproto/lib_topology_change_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCtopology_Uchange_Uproto___Ulib_Scyber_Sproto/lib_topology_change_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USsysmo_UCcyber_Usysmo___Ulib_Scyber_Ssysmo/libcyber_sysmo.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USsysmo_UCcyber_Usysmo___Ulib_Scyber_Ssysmo/libcyber_sysmo.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStimer_UCcyber_Utimer___Ulib_Scyber_Stimer/libcyber_timer.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStimer_UCcyber_Utimer___Ulib_Scyber_Stimer/libcyber_timer.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStransport_UCcyber_Utransport___Ulib_Scyber_Stransport/libcyber_transport.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStransport_UCcyber_Utransport___Ulib_Scyber_Stransport/libcyber_transport.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USmessage_UCcyber_Umessage___Ulib_Scyber_Smessage/libcyber_message.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USmessage_UCcyber_Umessage___Ulib_Scyber_Smessage/libcyber_message.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCproto_Udesc_Uproto___Ulib_Scyber_Sproto/lib_proto_desc_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCproto_Udesc_Uproto___Ulib_Scyber_Sproto/lib_proto_desc_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USservice_Udiscovery_UCcyber_Uservice_Udiscovery_Urole___Ulib_Scyber_Sservice_Udiscovery/libcyber_service_discovery_role.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USservice_Udiscovery_UCcyber_Uservice_Udiscovery_Urole___Ulib_Scyber_Sservice_Udiscovery/libcyber_service_discovery_role.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USstatistics_UCapollo_Ustatistics___Ulib_Scyber_Sstatistics/libapollo_statistics.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USstatistics_UCapollo_Ustatistics___Ulib_Scyber_Sstatistics/libapollo_statistics.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCrole_Uattributes_Uproto___Ulib_Scyber_Sproto/lib_role_attributes_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCrole_Uattributes_Uproto___Ulib_Scyber_Sproto/lib_role_attributes_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStask_UCcyber_Utask___Ulib_Scyber_Stask/libcyber_task.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStask_UCcyber_Utask___Ulib_Scyber_Stask/libcyber_task.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USscheduler_UCcyber_Uscheduler___Ulib_Scyber_Sscheduler/libcyber_scheduler.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USscheduler_UCcyber_Uscheduler___Ulib_Scyber_Sscheduler/libcyber_scheduler.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScroutine_UCcyber_Ucroutine___Ulib_Scyber_Scroutine/libcyber_croutine.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScroutine_UCcyber_Ucroutine___Ulib_Scyber_Scroutine/libcyber_croutine.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USdata_UCcyber_Udata___Ulib_Scyber_Sdata/libcyber_data.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USdata_UCcyber_Udata___Ulib_Scyber_Sdata/libcyber_data.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USevent_UCcyber_Uevent___Ulib_Scyber_Sevent/libcyber_event.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USevent_UCcyber_Uevent___Ulib_Scyber_Sevent/libcyber_event.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UCcyber_Ustate___Ulib_Scyber/libcyber_state.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UCcyber_Ustate___Ulib_Scyber/libcyber_state.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCcomponent_Uconf_Uproto___Ulib_Scyber_Sproto/lib_component_conf_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCcomponent_Uconf_Uproto___Ulib_Scyber_Sproto/lib_component_conf_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCqos_Uprofile_Uproto___Ulib_Scyber_Sproto/lib_qos_profile_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCqos_Uprofile_Uproto___Ulib_Scyber_Sproto/lib_qos_profile_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStime_UCcyber_Utime___Ulib_Scyber_Stime/libcyber_time.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UStime_UCcyber_Utime___Ulib_Scyber_Stime/libcyber_time.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScommon_UCcyber_Ucommon___Ulib_Scyber_Scommon/libcyber_common.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UScommon_UCcyber_Ucommon___Ulib_Scyber_Scommon/libcyber_common.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UCcyber_Ubinary___Ulib_Scyber/libcyber_binary.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_UCcyber_Ubinary___Ulib_Scyber/libcyber_binary.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USbase_UCcyber_Ubase___Ulib_Scyber_Sbase/libcyber_base.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USbase_UCcyber_Ubase___Ulib_Scyber_Sbase/libcyber_base.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCcyber_Uconf_Uproto___Ulib_Scyber_Sproto/lib_cyber_conf_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCcyber_Uconf_Uproto___Ulib_Scyber_Sproto/lib_cyber_conf_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCperf_Uconf_Uproto___Ulib_Scyber_Sproto/lib_perf_conf_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCperf_Uconf_Uproto___Ulib_Scyber_Sproto/lib_perf_conf_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCrun_Umode_Uconf_Uproto___Ulib_Scyber_Sproto/lib_run_mode_conf_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCrun_Umode_Uconf_Uproto___Ulib_Scyber_Sproto/lib_run_mode_conf_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCscheduler_Uconf_Uproto___Ulib_Scyber_Sproto/lib_scheduler_conf_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCscheduler_Uconf_Uproto___Ulib_Scyber_Sproto/lib_scheduler_conf_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCchoreography_Uconf_Uproto___Ulib_Scyber_Sproto/lib_choreography_conf_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCchoreography_Uconf_Uproto___Ulib_Scyber_Sproto/lib_choreography_conf_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCclassic_Uconf_Uproto___Ulib_Scyber_Sproto/lib_classic_conf_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCclassic_Uconf_Uproto___Ulib_Scyber_Sproto/lib_classic_conf_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCtransport_Uconf_Uproto___Ulib_Scyber_Sproto/lib_transport_conf_proto_cp_bin.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@cyber_S_S_Ccyber_USproto_UCtransport_Uconf_Uproto___Ulib_Scyber_Sproto/lib_transport_conf_proto_cp_bin.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_bad_any_cast_impl.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_bad_any_cast_impl.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_bad_optional_access.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_bad_optional_access.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_bad_variant_access.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_bad_variant_access.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_base.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_base.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_city.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_city.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_civil_time.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_civil_time.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_cord.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_cord.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_debugging_internal.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_debugging_internal.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_demangle_internal.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_demangle_internal.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_dynamic_annotations.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_dynamic_annotations.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_examine_stack.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_examine_stack.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_exponential_biased.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_exponential_biased.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_failure_signal_handler.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_failure_signal_handler.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_config.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_config.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_internal.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_internal.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_marshalling.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_marshalling.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_parse.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_parse.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_program_name.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_program_name.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_registry.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_registry.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_usage.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_usage.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_usage_internal.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_flags_usage_internal.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_graphcycles_internal.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_graphcycles_internal.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_hash.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_hash.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_hashtablez_sampler.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_hashtablez_sampler.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_int128.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_int128.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_leak_check.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_leak_check.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_leak_check_disable.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_leak_check_disable.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_log_severity.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_log_severity.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_malloc_internal.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_malloc_internal.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_periodic_sampler.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_periodic_sampler.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_distributions.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_distributions.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_distribution_test_util.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_distribution_test_util.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_pool_urbg.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_pool_urbg.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen_hwaes.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen_hwaes.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen_hwaes_impl.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen_hwaes_impl.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen_slow.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_randen_slow.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_seed_material.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_internal_seed_material.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_seed_gen_exception.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_seed_gen_exception.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_seed_sequences.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_random_seed_sequences.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_raw_hash_set.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_raw_hash_set.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_raw_logging_internal.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_raw_logging_internal.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_scoped_set_env.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_scoped_set_env.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_spinlock_wait.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_spinlock_wait.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_stacktrace.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_stacktrace.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_status.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_status.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_str_format_internal.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_str_format_internal.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_strings.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_strings.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_strings_internal.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_strings_internal.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_symbolize.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_symbolize.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_synchronization.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_synchronization.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_throw_delegate.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_throw_delegate.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_time.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_time.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_time_zone.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uabsl_S_S_Cabsl___Ulib/libabsl_time_zone.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@ad_Urss_Ulib_S_S_Cad_Urss___Ulib/libad_rss.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@ad_Urss_Ulib_S_S_Cad_Urss___Ulib/libad_rss.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uprotobuf_S_S_Cprotobuf___Uexternal_Scom_Ugoogle_Uprotobuf/libprotobuf.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@com_Ugoogle_Uprotobuf_S_S_Cprotobuf___Uexternal_Scom_Ugoogle_Uprotobuf/libprotobuf.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@tf2_S_S_Ctf2___Ulib/libtf2.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@tf2_S_S_Ctf2___Ulib/libtf2.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@tf2_S_S_Cthird_Uparty_UStf2_UCtf2___Ulib/libtf2.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@tf2_S_S_Cthird_Uparty_UStf2_UCtf2___Ulib/libtf2.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@local_Uconfig_Ucuda_S_Scuda_Ccudart___Uexternal_Slocal_Uconfig_Ucuda_Scuda_Scuda_Slib/libcudart.so.11.0",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@local_Uconfig_Ucuda_S_Scuda_Ccudart___Uexternal_Slocal_Uconfig_Ucuda_Scuda_Scuda_Slib/libcudart.so.11.0"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/_cyber_wrapper.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/_cyber_wrapper.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/libpy_cyber.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/libpy_cyber.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/libprotobuf.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/libprotobuf.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../local_config_cuda/cuda/cuda/lib/libcudart.so.11.0",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../local_config_cuda/cuda/cuda/lib/libcudart.so.11.0"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/cyber_py3/record.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/cyber_py3/record.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@apollo_Usrc_S_Scyber_Spython_Sinternal_Cpy_Urecord___Uexternal_Sapollo_Usrc_Scyber_Spython_Sinternal/libpy_record.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/_solib_local/_U@apollo_Usrc_S_Scyber_Spython_Sinternal_Cpy_Urecord___Uexternal_Sapollo_Usrc_Scyber_Spython_Sinternal/libpy_record.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/_cyber_record_wrapper.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/_cyber_record_wrapper.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/libpy_record.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/cyber/python/internal/libpy_record.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/planning_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/planning_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/any_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/any_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/api_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/api_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/plugin_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/plugin_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/duration_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/duration_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/empty_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/empty_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/field_mask_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/field_mask_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/source_context_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/source_context_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/struct_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/struct_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/timestamp_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/timestamp_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/type_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/type_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/wrappers_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/wrappers_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_api_implementation.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_api_implementation.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/_message.so",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/_message.so"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/__init__.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/__init__.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/compiler/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_database.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_database.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pool.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/descriptor_pool.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/__init__.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_parameterized.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/_parameterized.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/api_implementation.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/api_implementation.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/containers.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/containers.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/decoder.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/decoder.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/encoder.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/encoder.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/enum_type_wrapper.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/enum_type_wrapper.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/extension_dict.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/extension_dict.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/import_test_package/__init__.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/import_test_package/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/message_listener.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/message_listener.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/python_message.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/python_message.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/testing_refleaks.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/testing_refleaks.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/type_checkers.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/type_checkers.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/well_known_types.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/well_known_types.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/wire_format.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/internal/wire_format.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/json_format.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/json_format.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message_factory.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/message_factory.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/proto_builder.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/proto_builder.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/__init__.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/cpp_message.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/pyext/cpp_message.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/reflection.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/reflection.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service_reflection.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/service_reflection.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/symbol_database.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/symbol_database.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_encoding.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_encoding.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_format.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/text_format.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/util/__init__.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../com_google_protobuf/python/google/protobuf/util/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../six/__init__.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../six/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/decision_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/decision_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/geometry_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/geometry_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/vehicle_signal_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/vehicle_signal_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/routing_msgs/geometry_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/routing_msgs/geometry_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/planning_internal_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/planning_internal_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/navigation_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/navigation_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/header_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/header_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/error_code_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/error_code_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/pnc_point_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/pnc_point_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/localization_msgs/localization_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/localization_msgs/localization_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/localization_msgs/localization_status_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/localization_msgs/localization_status_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/localization_msgs/pose_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/localization_msgs/pose_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_clear_area_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_clear_area_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_geometry_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_geometry_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_id_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_id_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_crosswalk_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_crosswalk_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_junction_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_junction_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_lane_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_lane_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_overlap_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_overlap_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_parking_space_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_parking_space_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_pnc_junction_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_pnc_junction_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_road_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_road_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_rsu_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_rsu_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_signal_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_signal_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_speed_bump_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_speed_bump_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_stop_sign_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_stop_sign_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_yield_sign_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_yield_sign_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_area_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_area_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_barrier_gate_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/map_msgs/map_barrier_gate_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/perception_msgs/perception_obstacle_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/perception_msgs/perception_obstacle_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/sl_boundary_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/planning_msgs/sl_boundary_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/chassis_msgs/chassis_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/chassis_msgs/chassis_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/drive_state_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/drive_state_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/vehicle_id_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/basic_msgs/vehicle_id_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/dreamview_msgs/chart_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/dreamview_msgs/chart_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/perception_msgs/traffic_light_detection_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/perception_msgs/traffic_light_detection_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/routing_msgs/routing_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/routing_msgs/routing_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/routing_msgs/poi_pb2.py",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../apollo_src/modules/common_msgs/routing_msgs/poi_pb2.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh",
+            "des": "/opt/apollo/neo//bin/planning_task_stats.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh"
+        }
+    ],
+    "type": "neo"
+}

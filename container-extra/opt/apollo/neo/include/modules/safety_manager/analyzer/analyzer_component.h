@@ -1,0 +1,53 @@
+/******************************************************************************
+ * Copyright 2023 The Apollo Authors. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *****************************************************************************/
+
+#pragma once
+
+#include <memory>
+
+#include "modules/safety_manager_msgs/safety_manager.pb.h"
+
+#include "cyber/cyber.h"
+#include "modules/safety_manager/analyzer/aggregator/aggregator.h"
+#include "modules/safety_manager/analyzer/decider/decider.h"
+#include "modules/safety_manager/analyzer/rule_calculator/calculator.h"
+#include "modules/safety_manager/analyzer/rule_matcher/rule_matcher.h"
+
+/**
+ * @namespace apollo::safety_manager
+ * @brief apollo::safety_manager
+ */
+namespace apollo {
+namespace safety_manager {
+
+class SafetyAnalyzerComponent : public cyber::Component<SafetyStatus> {
+public:
+    bool Init() override;
+
+    bool Proc(const std::shared_ptr<SafetyStatus>& safety_status) override;
+
+private:
+    std::unique_ptr<RuleMatcherBuffer> rule_matcher_buff_ = nullptr;
+    std::unique_ptr<Decider> decider_ = nullptr;
+    std::unique_ptr<Aggregator> aggregator_ = nullptr;
+
+    std::shared_ptr<cyber::Writer<SafetyStatus>> abnormal_status_writer_;
+};
+
+CYBER_REGISTER_COMPONENT(SafetyAnalyzerComponent)
+
+}  // namespace safety_manager
+}  // namespace apollo

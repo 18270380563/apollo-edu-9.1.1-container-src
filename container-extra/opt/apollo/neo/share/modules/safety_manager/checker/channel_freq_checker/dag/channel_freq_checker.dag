@@ -1,0 +1,11 @@
+module_config {
+    module_library : "modules/safety_manager/checker/channel_freq_checker/libsafety_channel_freq_checker_component.so"
+    components {
+        class_name : "ChannelFreqCheckerComponent"
+        config {
+            name: "safety_channel_freq_checker"
+            config_file_path: "/apollo/modules/safety_manager/checker/channel_freq_checker/conf/channel_freq_checker_conf.pb.txt"
+            flag_file_path: "/apollo/modules/safety_manager/checker/channel_freq_checker/conf/channel_freq_checker_gflags.conf"
+        }
+    }
+}

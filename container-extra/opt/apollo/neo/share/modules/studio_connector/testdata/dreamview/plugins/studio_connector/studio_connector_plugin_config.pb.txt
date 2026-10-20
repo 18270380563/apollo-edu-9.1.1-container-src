@@ -1,0 +1,18 @@
+name:"studio_connector",
+    launch_command: "cyber_launch start /apollo/modules/studio_connector/studio_connector.launch",
+    reader_channel_conf{
+        location:"/apollo/dreamview/plugins/studio_connector/plugin_response",
+        pending_queue_size: 10,
+    }
+    writer_channel_conf{
+        location:"/apollo/dreamview/plugins/studio_connector/dv_request",
+        support_msg_name:"CheckCertStatus",
+        support_msg_name:"GetScenarioSetList",
+        support_msg_name:"DownloadScenarioSet",
+        support_msg_name:"DownloadDynamicModel",
+        support_msg_name:"GetDynamicModelList",
+    }
+    plugin_type: 0,
+    process_command_keywords: "cyber_launch",
+    process_command_keywords: "studio_connector.launch",
+    stop_command: "cyber_launch stop /apollo/modules/studio_connector/studio_connector.launch",

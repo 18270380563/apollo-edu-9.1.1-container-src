@@ -1,0 +1,4 @@
+item {name: "/apollo/perception/obstacles", level: ERROR, expect_freq: 10, lower_limit: 6, upper_limit: 15}
+item {name: "/apollo/sensor/gnss/imu", level: ERROR, lower_limit: 60, upper_limit: 150}
+
+

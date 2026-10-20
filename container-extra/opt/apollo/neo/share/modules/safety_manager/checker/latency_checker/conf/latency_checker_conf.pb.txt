@@ -1,0 +1,13 @@
+# item config
+# name: unique check name
+# module enums: LIDAR_COMPENSATOR,PERCEPTION,PREDICTION,PLANNING,CONTROL
+# type enums: PROC_MS, CHAIN_MS
+# level: alarm level, enums WARN,ERROR,FATAL
+# avg: avg latency condition, in milliseconds
+# min: min latency condition, in milliseconds
+# max: max latency condition, in milliseconds
+# sample_size_lower_limit: sample_size less than the limit will be ignored
+
+# examples
+#item {name: "lidar compensator proc time", module: LIDAR_COMPENSATOR, type: PROC_MS, level: FATAL, avg: 150, sample_size_lower_limit: 10}
+#item {name: "lidar compensator chain time", module: LIDAR_COMPENSATOR, type: CHAIN_MS, level: FATAL, avg: 150, sample_size_lower_limit: 10}

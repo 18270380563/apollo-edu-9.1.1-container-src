@@ -1,0 +1,6 @@
+modules/perception/data/models/efficient_net/BUILD:share/modules/perception/data/models/efficient_net/BUILD
+modules/perception/data/models/efficient_net/README:share/modules/perception/data/models/efficient_net/README
+modules/perception/data/models/efficient_net/cyberfile.xml:share/modules/perception/data/models/efficient_net/cyberfile.xml
+modules/perception/data/models/efficient_net/efficient_net.onnx:share/modules/perception/data/models/efficient_net/efficient_net.onnx
+modules/perception/data/models/efficient_net/cyberfile.xml:modules/perception/data/models/efficient_net/cyberfile.xml
+src_path:modules/perception/data/models/efficient_net

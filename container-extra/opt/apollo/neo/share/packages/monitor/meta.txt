@@ -1,0 +1,7 @@
+modules/monitor/libapollo_monitor.so:lib/modules/monitor/libapollo_monitor.so
+modules/monitor/libDO_NOT_IMPORT_monitor.so:lib/modules/monitor/libDO_NOT_IMPORT_monitor.so
+modules/monitor/libmonitor.so:lib/modules/monitor/libmonitor.so
+modules/monitor/dag/monitor.dag:share/modules/monitor/dag/monitor.dag
+modules/monitor/launch/monitor.launch:share/modules/monitor/launch/monitor.launch
+modules/monitor/cyberfile.xml:modules/monitor/cyberfile.xml
+src_path:modules/monitor

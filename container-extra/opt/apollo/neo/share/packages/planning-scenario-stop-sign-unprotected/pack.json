@@ -1,0 +1,62 @@
+{
+    "name": "planning-scenario-stop-sign-unprotected",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo planning-scenario-stop-sign-unprotected module.",
+    "deps": [
+        "bazel-extend-tools",
+        "planning-interface-base"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/planning/scenarios/stop_sign_unprotected/plugins.xml' ]; then mkdir -p '/apollo/modules/planning/scenarios/stop_sign_unprotected' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/stop_sign_unprotected/plugins.xml' '/apollo/modules/planning/scenarios/stop_sign_unprotected/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/stop_sign_unprotected/conf/scenario_conf.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/stop_sign_unprotected/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/stop_sign_unprotected/conf/scenario_conf.pb.txt' '/apollo/modules/planning/scenarios/stop_sign_unprotected/conf/scenario_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/planning/scenarios/stop_sign_unprotected/conf/pipeline.pb.txt' ]; then mkdir -p '/apollo/modules/planning/scenarios/stop_sign_unprotected/conf' && ln -snf '/opt/apollo/neo/share/modules/planning/scenarios/stop_sign_unprotected/conf/pipeline.pb.txt' '/apollo/modules/planning/scenarios/stop_sign_unprotected/conf/pipeline.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/planning/scenarios/stop_sign_unprotected",
+        "rm -rf /opt/apollo/neo/include/modules/planning/scenarios/stop_sign_unprotected",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/stop_sign_unprotected",
+        "rm -rf /opt/apollo/neo/python/modules/planning/scenarios/stop_sign_unprotected",
+        "rm -rf /opt/apollo/neo/src/modules/planning/scenarios/stop_sign_unprotected",
+        "rm -rf /opt/apollo/neo/share/packages/planning-scenario-stop-sign-unprotected",
+        "rm -rf /opt/apollo/neo/lib/modules/planning/scenarios/stop_sign_unprotected",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__stop_sign_unprotected__libstop_sign_unprotected_scenario.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/planning/scenarios/stop_sign_unprotected",
+            "des": "/opt/apollo/neo/share/modules/planning/scenarios/stop_sign_unprotected"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/planning/scenarios/stop_sign_unprotected",
+            "des": "/opt/apollo/neo/include/modules/planning/scenarios/stop_sign_unprotected"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/stop_sign_unprotected",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/stop_sign_unprotected"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/planning/scenarios/stop_sign_unprotected",
+            "des": "/opt/apollo/neo/python/modules/planning/scenarios/stop_sign_unprotected"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/planning/scenarios/stop_sign_unprotected",
+            "des": "/opt/apollo/neo/src/modules/planning/scenarios/stop_sign_unprotected"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/planning-scenario-stop-sign-unprotected",
+            "des": "/opt/apollo/neo/share/packages/planning-scenario-stop-sign-unprotected"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/planning/scenarios/stop_sign_unprotected",
+            "des": "/opt/apollo/neo/lib/modules/planning/scenarios/stop_sign_unprotected"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__stop_sign_unprotected__libstop_sign_unprotected_scenario.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__planning__scenarios__stop_sign_unprotected__libstop_sign_unprotected_scenario.so"
+        }
+    ],
+    "type": "neo"
+}

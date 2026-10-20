@@ -1,0 +1,55 @@
+{
+    "name": "external-command-process",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo external-command-process module.",
+    "deps": [
+        "3rd-gflags",
+        "common",
+        "external-command-processor-base",
+        "routing"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/external_command/process_component/dag/external_command_process.dag' ]; then mkdir -p '/apollo/modules/external_command/process_component/dag' && ln -snf '/opt/apollo/neo/share/modules/external_command/process_component/dag/external_command_process.dag' '/apollo/modules/external_command/process_component/dag/external_command_process.dag'; fi",
+        "if [ ! -e '/apollo/modules/external_command/process_component/launch/external_command_with_old_routing.launch' ]; then mkdir -p '/apollo/modules/external_command/process_component/launch' && ln -snf '/opt/apollo/neo/share/modules/external_command/process_component/launch/external_command_with_old_routing.launch' '/apollo/modules/external_command/process_component/launch/external_command_with_old_routing.launch'; fi",
+        "if [ ! -e '/apollo/modules/external_command/process_component/launch/external_command_process.launch' ]; then mkdir -p '/apollo/modules/external_command/process_component/launch' && ln -snf '/opt/apollo/neo/share/modules/external_command/process_component/launch/external_command_process.launch' '/apollo/modules/external_command/process_component/launch/external_command_process.launch'; fi",
+        "if [ ! -e '/apollo/modules/external_command/process_component/conf/config.pb.txt' ]; then mkdir -p '/apollo/modules/external_command/process_component/conf' && ln -snf '/opt/apollo/neo/share/modules/external_command/process_component/conf/config.pb.txt' '/apollo/modules/external_command/process_component/conf/config.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/external_command/process_component",
+        "rm -rf /opt/apollo/neo/include/modules/external_command/process_component",
+        "rm -rf /opt/apollo/neo/lib/modules/external_command/process_component",
+        "rm -rf /opt/apollo/neo/python/modules/external_command/process_component",
+        "rm -rf /opt/apollo/neo/src/modules/external_command/process_component",
+        "rm -rf /opt/apollo/neo/share/packages/external-command-process"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/external_command/process_component",
+            "des": "/opt/apollo/neo/share/modules/external_command/process_component"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/external_command/process_component",
+            "des": "/opt/apollo/neo/include/modules/external_command/process_component"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/external_command/process_component",
+            "des": "/opt/apollo/neo/lib/modules/external_command/process_component"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/external_command/process_component",
+            "des": "/opt/apollo/neo/python/modules/external_command/process_component"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/external_command/process_component",
+            "des": "/opt/apollo/neo/src/modules/external_command/process_component"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/external-command-process",
+            "des": "/opt/apollo/neo/share/packages/external-command-process"
+        }
+    ],
+    "type": "neo"
+}

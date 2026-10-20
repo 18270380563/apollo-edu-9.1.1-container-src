@@ -1,0 +1,15 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/localization
+rm -rf /opt/apollo/neo/include/modules/localization
+rm -rf /opt/apollo/neo/lib/modules/localization
+rm -rf /opt/apollo/neo/python/modules/localization
+rm -rf /opt/apollo/neo/src/modules/localization
+rm -rf /opt/apollo/neo/share/packages/localization
+rm -rf /opt/apollo/neo//bin/lossless_map_creator
+rm -rf /opt/apollo/neo//bin/lossless_map_to_lossy_map
+rm -rf /opt/apollo/neo//bin/poses_interpolator
+rm -rf /opt/apollo/neo//bin/offline_local_visualizer
+rm -rf /opt/apollo/neo//bin/cyber_record_parser
+rm -rf /opt/apollo/neo//bin/compare_poses
+rm -rf /opt/apollo/neo//bin/ndt_map_creator

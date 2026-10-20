@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/drivers/radar
+rm -rf /opt/apollo/neo/include/modules/drivers/radar
+rm -rf /opt/apollo/neo/lib/modules/drivers/radar
+rm -rf /opt/apollo/neo/python/modules/drivers/radar
+rm -rf /opt/apollo/neo/src/modules/drivers/radar
+rm -rf /opt/apollo/neo/share/packages/drivers-radar

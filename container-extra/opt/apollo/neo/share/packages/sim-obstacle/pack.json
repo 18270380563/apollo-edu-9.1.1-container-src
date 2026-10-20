@@ -1,0 +1,46 @@
+{
+    "name": "sim-obstacle",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo sim-obstacle module.",
+    "deps": [
+        "common",
+        "cyber",
+        "common-msgs",
+        "map",
+        "planning",
+        "dreamview-plus",
+        "bazel-extend-tools"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/sim_obstacle",
+        "rm -rf /opt/apollo/neo/include/modules/sim_obstacle",
+        "rm -rf /opt/apollo/neo/lib/modules/sim_obstacle",
+        "rm -rf /opt/apollo/neo/python/modules/sim_obstacle",
+        "rm -rf /opt/apollo/neo/src/modules/sim_obstacle",
+        "rm -rf /opt/apollo/neo/share/packages/sim-obstacle",
+        "rm -rf /opt/apollo/neo//bin/sim_obstacle"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/include/modules/sim_obstacle",
+            "des": "/opt/apollo/neo/include/modules/sim_obstacle"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/sim_obstacle",
+            "des": "/opt/apollo/neo/lib/modules/sim_obstacle"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/sim-obstacle",
+            "des": "/opt/apollo/neo/share/packages/sim-obstacle"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/sim_obstacle",
+            "des": "/opt/apollo/neo//bin/sim_obstacle"
+        }
+    ],
+    "type": "neo"
+}

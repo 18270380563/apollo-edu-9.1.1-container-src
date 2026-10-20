@@ -1,0 +1,73 @@
+{
+    "name": "control-controller-mpc-controller",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo control-controller-mpc-controller module.",
+    "deps": [
+        "bazel-extend-tools",
+        "control",
+        "common",
+        "common-msgs",
+        "3rd-eigen3",
+        "3rd-absl"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/control/controllers/mpc_controller/plugins.xml' ]; then mkdir -p '/apollo/modules/control/controllers/mpc_controller' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/mpc_controller/plugins.xml' '/apollo/modules/control/controllers/mpc_controller/plugins.xml'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/2_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/mpc_controller/mpc_controller_test_data/2_chassis.pb.txt' '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/2_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_localization.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_localization.pb.txt' '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/result_stop_overshoot_0.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/mpc_controller/mpc_controller_test_data/result_stop_overshoot_0.pb.txt' '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/result_stop_overshoot_0.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_pad.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_pad.pb.txt' '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_pad.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/control_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/mpc_controller/mpc_controller_test_data/control_conf.pb.txt' '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/control_conf.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_planning.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_planning.pb.txt' '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_planning.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/2_localization.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/mpc_controller/mpc_controller_test_data/2_localization.pb.txt' '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/2_localization.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_chassis.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_chassis.pb.txt' '/apollo/modules/control/controllers/mpc_controller/mpc_controller_test_data/1_chassis.pb.txt'; fi",
+        "if [ ! -e '/apollo/modules/control/controllers/mpc_controller/conf/controller_conf.pb.txt' ]; then mkdir -p '/apollo/modules/control/controllers/mpc_controller/conf' && ln -snf '/opt/apollo/neo/share/modules/control/controllers/mpc_controller/conf/controller_conf.pb.txt' '/apollo/modules/control/controllers/mpc_controller/conf/controller_conf.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/control/controllers/mpc_controller",
+        "rm -rf /opt/apollo/neo/include/modules/control/controllers/mpc_controller",
+        "rm -rf /opt/apollo/neo/lib/modules/control/controllers/mpc_controller",
+        "rm -rf /opt/apollo/neo/python/modules/control/controllers/mpc_controller",
+        "rm -rf /opt/apollo/neo/src/modules/control/controllers/mpc_controller",
+        "rm -rf /opt/apollo/neo/share/packages/control-controller-mpc-controller",
+        "rm -rf /opt/apollo/neo/lib/modules/control/controllers/mpc_controller",
+        "rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__mpc_controller__libmpc_controller.so"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/control/controllers/mpc_controller",
+            "des": "/opt/apollo/neo/share/modules/control/controllers/mpc_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/control/controllers/mpc_controller",
+            "des": "/opt/apollo/neo/include/modules/control/controllers/mpc_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/control/controllers/mpc_controller",
+            "des": "/opt/apollo/neo/lib/modules/control/controllers/mpc_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/python/modules/control/controllers/mpc_controller",
+            "des": "/opt/apollo/neo/python/modules/control/controllers/mpc_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/src/modules/control/controllers/mpc_controller",
+            "des": "/opt/apollo/neo/src/modules/control/controllers/mpc_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/control-controller-mpc-controller",
+            "des": "/opt/apollo/neo/share/packages/control-controller-mpc-controller"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/control/controllers/mpc_controller",
+            "des": "/opt/apollo/neo/lib/modules/control/controllers/mpc_controller"
+        },
+        {
+            "src": "/opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__mpc_controller__libmpc_controller.so",
+            "des": "/opt/apollo/neo/share/cyber_plugin_index/modules__control__controllers__mpc_controller__libmpc_controller.so"
+        }
+    ],
+    "type": "neo"
+}

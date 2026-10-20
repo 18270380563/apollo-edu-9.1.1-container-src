@@ -1,0 +1,4 @@
+modules/perception/perception_plugin/onnx_multi_batch/libonnx_multi_batch.so:lib/modules/perception/perception_plugin/onnx_multi_batch/libonnx_multi_batch.so
+modules/perception/perception_plugin/onnx_multi_batch/cyberfile.xml:modules/perception/perception_plugin/onnx_multi_batch/cyberfile.xml
+modules/perception/perception_plugin/onnx_multi_batch/plugins.xml:plugin_meta@modules/perception/perception_plugin/onnx_multi_batch@plugins.xml
+src_path:modules/perception/perception_plugin/onnx_multi_batch

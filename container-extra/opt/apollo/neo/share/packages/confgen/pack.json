@@ -1,0 +1,300 @@
+{
+    "name": "confgen",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo confgen module.",
+    "deps": [
+        "3rd-rules-python",
+        "3rd-py",
+        "3rd-grpc",
+        "3rd-gpus",
+        "bazel-extend-tools"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/conf_gen",
+        "rm -rf /opt/apollo/neo/include/modules/conf_gen",
+        "rm -rf /opt/apollo/neo/lib/modules/conf_gen",
+        "rm -rf /opt/apollo/neo/python/modules/conf_gen",
+        "rm -rf /opt/apollo/neo/src/modules/conf_gen",
+        "rm -rf /opt/apollo/neo/share/packages/confgen",
+        "rm -rf /opt/apollo/neo//bin/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/common/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/common/color_print.py",
+        "rm -rf /opt/apollo/neo//bin/common/utils.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.py",
+        "rm -rf /opt/apollo/neo//bin/diff_gen/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/diff_gen/diff_gen.py",
+        "rm -rf /opt/apollo/neo//bin/diff_gen/file_parser.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/camera_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/camera_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/gnss_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/gnss_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/lidar_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/lidar_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/perception_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/perception_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/slam_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/tools_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/tools_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/transform_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/transform_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/vehicle_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/tpl_gen/vehicle_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/common/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/common/color_print.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/common/utils.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/confgen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/diff_gen/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/diff_gen/diff_gen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/diff_gen/file_parser.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/__init__.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/camera_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/camera_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/gnss_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/gnss_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/lidar_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/lidar_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/perception_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/perception_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/slam_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/tools_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/tools_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/transform_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/transform_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/vehicle_tpl.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/vehicle_tpl_gen.py",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/confgen",
+        "rm -rf /opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/include/modules/conf_gen",
+            "des": "/opt/apollo/neo/include/modules/conf_gen"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/confgen",
+            "des": "/opt/apollo/neo/share/packages/confgen"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/__init__.py",
+            "des": "/opt/apollo/neo//bin/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/common/__init__.py",
+            "des": "/opt/apollo/neo//bin/common/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/common/color_print.py",
+            "des": "/opt/apollo/neo//bin/common/color_print.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/common/utils.py",
+            "des": "/opt/apollo/neo//bin/common/utils.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.py",
+            "des": "/opt/apollo/neo//bin/confgen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/diff_gen/__init__.py",
+            "des": "/opt/apollo/neo//bin/diff_gen/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/diff_gen/diff_gen.py",
+            "des": "/opt/apollo/neo//bin/diff_gen/diff_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/diff_gen/file_parser.py",
+            "des": "/opt/apollo/neo//bin/diff_gen/file_parser.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/__init__.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/camera_tpl.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/camera_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/camera_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/camera_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/gnss_tpl.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/gnss_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/gnss_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/gnss_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/lidar_tpl.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/lidar_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/lidar_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/lidar_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/perception_tpl.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/perception_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/perception_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/perception_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/slam_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/slam_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/tools_tpl.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/tools_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/tools_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/tools_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/transform_tpl.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/transform_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/transform_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/transform_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/vehicle_tpl.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/vehicle_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/tpl_gen/vehicle_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/tpl_gen/vehicle_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen",
+            "des": "/opt/apollo/neo//bin/confgen"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/__init__.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/common/__init__.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/common/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/common/color_print.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/common/color_print.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/common/utils.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/common/utils.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/confgen.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/confgen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/diff_gen/__init__.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/diff_gen/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/diff_gen/diff_gen.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/diff_gen/diff_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/diff_gen/file_parser.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/diff_gen/file_parser.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/__init__.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/__init__.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/camera_tpl.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/camera_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/camera_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/camera_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/gnss_tpl.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/gnss_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/gnss_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/gnss_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/lidar_tpl.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/lidar_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/lidar_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/lidar_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/perception_tpl.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/perception_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/perception_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/perception_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/slam_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/slam_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/tools_tpl.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/tools_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/tools_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/tools_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/transform_tpl.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/transform_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/transform_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/transform_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/vehicle_tpl.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/vehicle_tpl.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/vehicle_tpl_gen.py",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/tpl_gen/vehicle_tpl_gen.py"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/confgen",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/modules/conf_gen/confgen"
+        },
+        {
+            "src": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh",
+            "des": "/opt/apollo/neo//bin/confgen.runfiles/apollo-park-generic/../bazel_tools/tools/python/py3wrapper.sh"
+        }
+    ],
+    "type": "neo"
+}

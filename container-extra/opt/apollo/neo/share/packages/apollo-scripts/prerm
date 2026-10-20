@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/scripts
+rm -rf /opt/apollo/neo/include/scripts
+rm -rf /opt/apollo/neo/lib/scripts
+rm -rf /opt/apollo/neo/python/scripts
+rm -rf /opt/apollo/neo/src/scripts
+rm -rf /opt/apollo/neo/share/packages/apollo-scripts

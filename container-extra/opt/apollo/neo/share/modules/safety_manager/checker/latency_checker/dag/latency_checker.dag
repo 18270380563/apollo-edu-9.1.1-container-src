@@ -1,0 +1,19 @@
+module_config {
+    module_library : "modules/safety_manager/checker/latency_checker/libsafety_latency_checker_component.so"
+    components {
+        class_name : "LatencyCheckerComponent"
+        config {
+            name: "safety_latency_checker"
+            config_file_path: "/apollo/modules/safety_manager/checker/latency_checker/conf/latency_checker_conf.pb.txt"
+            flag_file_path: "/apollo/modules/safety_manager/checker/latency_checker/conf/latency_checker_gflags.conf"
+            readers: [
+                {
+                    channel: "/apollo/statistics/latency"
+                    qos_profile: {
+                        depth : 1
+                    }
+                }
+            ]
+        }
+    }
+}

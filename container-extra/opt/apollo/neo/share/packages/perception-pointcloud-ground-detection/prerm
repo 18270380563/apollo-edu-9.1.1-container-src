@@ -1,0 +1,9 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/perception/pointcloud_ground_detection
+rm -rf /opt/apollo/neo/include/modules/perception/pointcloud_ground_detection
+rm -rf /opt/apollo/neo/lib/modules/perception/pointcloud_ground_detection
+rm -rf /opt/apollo/neo/python/modules/perception/pointcloud_ground_detection
+rm -rf /opt/apollo/neo/src/modules/perception/pointcloud_ground_detection
+rm -rf /opt/apollo/neo/share/packages/perception-pointcloud-ground-detection
+rm -rf /opt/apollo/neo//bin/offline_pointcloud_ground_detection

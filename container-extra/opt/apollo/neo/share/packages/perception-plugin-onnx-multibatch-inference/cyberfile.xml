@@ -1,0 +1,18 @@
+<package format="2">
+  <name>perception-plugin-onnx-multibatch-inference</name>
+  <version>9.1.1</version>
+  <description>
+    Onnx multi batch inference plugin.
+  </description>
+  
+  <maintainer email="apollo-support@baidu.com">Apollo</maintainer>
+  <license>Apache License 2.0</license>
+  <url type="website">https://www.apollo.auto/</url>
+  <url type="repository">https://github.com/ApolloAuto/apollo</url>
+  <url type="bugtracker">https://github.com/ApolloAuto/apollo/issues</url>
+  <depend lib_names="perception-common" repo_name="perception-common" type="binary">perception-common</depend>
+
+  <type>module</type>
+  <src_path url="https://github.com/ApolloAuto/apollo">//modules/perception/perception_plugin/onnx_multi_batch</src_path>
+
+</package>

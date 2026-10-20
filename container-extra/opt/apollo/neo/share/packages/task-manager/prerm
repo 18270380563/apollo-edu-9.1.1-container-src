@@ -1,0 +1,8 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/task_manager
+rm -rf /opt/apollo/neo/include/modules/task_manager
+rm -rf /opt/apollo/neo/lib/modules/task_manager
+rm -rf /opt/apollo/neo/python/modules/task_manager
+rm -rf /opt/apollo/neo/src/modules/task_manager
+rm -rf /opt/apollo/neo/share/packages/task-manager

@@ -1,0 +1,10 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/planning/tasks/lane_change_path_generic
+rm -rf /opt/apollo/neo/include/modules/planning/tasks/lane_change_path_generic
+rm -rf /opt/apollo/neo/lib/modules/planning/tasks/lane_change_path_generic
+rm -rf /opt/apollo/neo/python/modules/planning/tasks/lane_change_path_generic
+rm -rf /opt/apollo/neo/src/modules/planning/tasks/lane_change_path_generic
+rm -rf /opt/apollo/neo/share/packages/planning-task-lane-change-path-generic
+rm -rf /opt/apollo/neo/lib/modules/planning/tasks/lane_change_path_generic
+rm -rf /opt/apollo/neo/share/cyber_plugin_index/modules__planning__tasks__lane_change_path_generic__liblane_change_path_generic.so

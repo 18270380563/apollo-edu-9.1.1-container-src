@@ -1,0 +1,9 @@
+intrinsic_file_path: "/apollo_workspace/modules/sensor_calibration/example_data/lidar_to_camera_data/camera_intrin.yaml"
+camera_to_lidar_rotate_angle: 180
+lidar_beam_num: 16
+pattern_box_square_size: 40.0
+pattern_length: 520
+pattern_width: 400
+pattern_box_size_in_len: 11
+pattern_box_size_in_width: 8
+lidar_to_imu_extrinsic_file_path:"/apollo_workspace/modules/sensor_calibration/example_data/lidar_to_camera_data/robo_back_novatel_extrinsics.yaml"

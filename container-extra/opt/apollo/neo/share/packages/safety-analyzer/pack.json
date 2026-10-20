@@ -1,0 +1,48 @@
+{
+    "name": "safety-analyzer",
+    "ver": "@REPLACE@",
+    "arch": "amd64",
+    "description": "Apollo safety-analyzer module.",
+    "deps": [
+        "cyber",
+        "common",
+        "safety-manager-msgs",
+        "safety-exporter",
+        "3rd-gflags",
+        "bazel-extend-tools"
+    ],
+    "preinst_extend_ops": [],
+    "postinst_extend_ops": [
+        "if [ ! -e '/apollo/modules/safety_manager/analyzer/dag/safety_analyzer.dag' ]; then mkdir -p '/apollo/modules/safety_manager/analyzer/dag' && ln -snf '/opt/apollo/neo/share/modules/safety_manager/analyzer/dag/safety_analyzer.dag' '/apollo/modules/safety_manager/analyzer/dag/safety_analyzer.dag'; fi",
+        "if [ ! -e '/apollo/modules/safety_manager/analyzer/conf/analyzer_gflags.conf' ]; then mkdir -p '/apollo/modules/safety_manager/analyzer/conf' && ln -snf '/opt/apollo/neo/share/modules/safety_manager/analyzer/conf/analyzer_gflags.conf' '/apollo/modules/safety_manager/analyzer/conf/analyzer_gflags.conf'; fi",
+        "if [ ! -e '/apollo/modules/safety_manager/analyzer/conf/rule_matcher_conf.pb.txt' ]; then mkdir -p '/apollo/modules/safety_manager/analyzer/conf' && ln -snf '/opt/apollo/neo/share/modules/safety_manager/analyzer/conf/rule_matcher_conf.pb.txt' '/apollo/modules/safety_manager/analyzer/conf/rule_matcher_conf.pb.txt'; fi"
+    ],
+    "prerm_extend_ops": [
+        "rm -rf /opt/apollo/neo/share/modules/safety_manager/analyzer",
+        "rm -rf /opt/apollo/neo/include/modules/safety_manager/analyzer",
+        "rm -rf /opt/apollo/neo/lib/modules/safety_manager/analyzer",
+        "rm -rf /opt/apollo/neo/python/modules/safety_manager/analyzer",
+        "rm -rf /opt/apollo/neo/src/modules/safety_manager/analyzer",
+        "rm -rf /opt/apollo/neo/share/packages/safety-analyzer"
+    ],
+    "postrm_extend_ops": [],
+    "data": [
+        {
+            "src": "/opt/apollo/neo/share/modules/safety_manager/analyzer",
+            "des": "/opt/apollo/neo/share/modules/safety_manager/analyzer"
+        },
+        {
+            "src": "/opt/apollo/neo/include/modules/safety_manager/analyzer",
+            "des": "/opt/apollo/neo/include/modules/safety_manager/analyzer"
+        },
+        {
+            "src": "/opt/apollo/neo/lib/modules/safety_manager/analyzer",
+            "des": "/opt/apollo/neo/lib/modules/safety_manager/analyzer"
+        },
+        {
+            "src": "/opt/apollo/neo/share/packages/safety-analyzer",
+            "des": "/opt/apollo/neo/share/packages/safety-analyzer"
+        }
+    ],
+    "type": "neo"
+}

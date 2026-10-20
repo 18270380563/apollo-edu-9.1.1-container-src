@@ -1,0 +1,11 @@
+module_config {
+    module_library : "modules/traffic_light_wj/libtraffic_light_wj_component.so"
+    timer_components {
+        class_name : "TrafficLightWjComponent"
+        config {
+            name: "traffic_light"
+            flag_file_path: "/apollo/modules/traffic_light_wj/conf/traffic_light.conf"
+            interval: 100
+        }
+    }
+}

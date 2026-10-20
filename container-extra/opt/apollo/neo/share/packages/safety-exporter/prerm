@@ -1,0 +1,9 @@
+# !/bin/sh
+
+rm -rf /opt/apollo/neo/share/modules/safety_manager/exporter
+rm -rf /opt/apollo/neo/include/modules/safety_manager/exporter
+rm -rf /opt/apollo/neo/lib/modules/safety_manager/exporter
+rm -rf /opt/apollo/neo/python/modules/safety_manager/exporter
+rm -rf /opt/apollo/neo/src/modules/safety_manager/exporter
+rm -rf /opt/apollo/neo/share/packages/safety-exporter
+rm -rf /opt/apollo/neo//bin/safety_exporter_example

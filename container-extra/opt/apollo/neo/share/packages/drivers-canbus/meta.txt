@@ -1,0 +1,11 @@
+modules/drivers/canbus/libapollo_drivers_canbus.so:lib/modules/drivers/canbus/libapollo_drivers_canbus.so
+modules/drivers/canbus/can_client_tool:bin/can_client_tool
+modules/drivers/canbus/cyberfile.xml:modules/drivers/canbus/cyberfile.xml
+modules/drivers/canbus/proto/sensor_canbus_conf.pb.h:include/modules/drivers/canbus/proto/sensor_canbus_conf.pb.h
+modules/drivers/canbus/proto/sensor_canbus_conf.pb.cc:include/modules/drivers/canbus/proto/sensor_canbus_conf.pb.cc
+modules/drivers/canbus/proto/lib_sensor_canbus_conf_proto.a:include/modules/drivers/canbus/proto/lib_sensor_canbus_conf_proto.a
+modules/drivers/canbus/proto/lib_sensor_canbus_conf_proto.pic.a:include/modules/drivers/canbus/proto/lib_sensor_canbus_conf_proto.pic.a
+modules/drivers/canbus/proto/lib_sensor_canbus_conf_proto.so:include/modules/drivers/canbus/proto/lib_sensor_canbus_conf_proto.so
+modules/drivers/canbus/proto/sensor_canbus_conf_pb2.py:python/modules/drivers/canbus/proto/sensor_canbus_conf_pb2.py
+modules/drivers/canbus/proto/lib_sensor_canbus_conf_proto_mdcp_bin.so:lib/modules/drivers/canbus/proto/lib_sensor_canbus_conf_proto_mdcp_bin.so
+src_path:modules/drivers/canbus

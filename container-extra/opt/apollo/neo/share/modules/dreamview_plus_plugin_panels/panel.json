@@ -1,0 +1,56 @@
+[
+    {
+        "title": "地图编辑器",
+        "type": "MapEditor",
+        "originType": "remote",
+        "description": "MapEditor",
+        "remoteEntry": "/proto/modules/dreamview_plus_plugin_panels/map_editor_frontend/map.2764a4da.js",
+        "remoteName": "MapEditor",
+        "exposedModuleName": "./MapEditor"
+    },
+    {
+        "title": "摄像头标定",
+        "type": "CameraCalibration",
+        "originType": "remote",
+        "description": "CameraCalibration",
+        "remoteEntry": "/proto/modules/dreamview_plus_plugin_panels/calibration_tool_frontend/calibration.0e81308c.js",
+        "remoteName": "Calibration",
+        "exposedModuleName": "./CameraCalibration"
+    },
+    {
+        "title": "雷达标定",
+        "type": "LidarCalibration",
+        "originType": "remote",
+        "description": "LidarCalibration",
+        "remoteEntry": "/proto/modules/dreamview_plus_plugin_panels/calibration_tool_frontend/calibration.0e81308c.js",
+        "remoteName": "Calibration",
+        "exposedModuleName": "./LidarCalibration"
+    },
+    {
+        "title": "动力学标定",
+        "type": "DynamicsCalibration",
+        "originType": "remote",
+        "description": "DynamicsCalibration",
+        "remoteEntry": "/proto/modules/dreamview_plus_plugin_panels/calibration_tool_frontend/calibration.0e81308c.js",
+        "remoteName": "Calibration",
+        "exposedModuleName": "./DynamicsCalibration"
+    },
+    {
+        "title": "Canbus检测",
+        "type": "CanbusDebug",
+        "originType": "remote",
+        "description": "CanbusDebug",
+        "remoteEntry": "/proto/modules/dreamview_plus_plugin_panels/canbus_tool_frontend/canbus.d32a77c7.js",
+        "remoteName": "CanbusDebug",
+        "exposedModuleName": "./CanbusDebug"
+    },
+    {
+        "title": "地图采集",
+        "type": "MapCollect",
+        "originType": "remote",
+        "description": "MapCollect",
+        "remoteEntry": "/proto/modules/dreamview_plus_plugin_panels/map_collect_frontend/map.24b5df5b.js",
+        "remoteName": "MapCollect",
+        "exposedModuleName": "./MapCollect"
+    }
+]
